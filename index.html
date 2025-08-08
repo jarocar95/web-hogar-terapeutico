@@ -119,6 +119,9 @@
                 z-index: 100;
                 pointer-events: none; /* Permite hacer clic a través del área transparente */
             }
+             #mobile-cta > a {
+                pointer-events: auto; /* El botón sí es clickable */
+            }
         }
         /* Estilo para el acordeón de FAQ */
         details > summary { list-style: none; }
@@ -141,8 +144,9 @@
                 </svg>
                 <span class="font-serif text-2xl font-semibold" style="color: var(--color-primary);">Hogar Terapéutico</span>
             </a>
-            <nav class="mt-4 md:mt-0">
-                <ul class="flex space-x-4 sm:space-x-6 items-center">
+            <!-- Menú de Escritorio -->
+            <nav class="hidden md:flex">
+                <ul class="flex space-x-6 items-center">
                     <li><a href="#about" class="font-medium transition duration-300 hover:text-pink-400" style="color: var(--color-text);">Sobre mí</a></li>
                     <li><a href="#areas-of-intervention" class="font-medium transition duration-300 hover:text-pink-400" style="color: var(--color-text);">Terapia</a></li>
                     <li><a href="#services-pricing" class="font-medium transition duration-300 hover:text-pink-400" style="color: var(--color-text);">Tarifas</a></li>
@@ -150,6 +154,24 @@
                     <li><a href="#contact" class="text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300" style="background-color: var(--color-primary);">Reservar Cita</a></li>
                 </ul>
             </nav>
+            <!-- Botón de Menú Móvil -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset" style="color: var(--color-primary);">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Panel de Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <li><a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium" style="color: var(--color-text);">Sobre mí</a></li>
+                <li><a href="#areas-of-intervention" class="mobile-link block px-3 py-2 rounded-md text-base font-medium" style="color: var(--color-text);">Terapia</a></li>
+                <li><a href="#services-pricing" class="mobile-link block px-3 py-2 rounded-md text-base font-medium" style="color: var(--color-text);">Tarifas</a></li>
+                <li><a href="/blog/" class="mobile-link block px-3 py-2 rounded-md text-base font-medium" style="color: var(--color-text);">Blog</a></li>
+                <li><a href="#contact" class="mobile-link block w-full mt-2 text-white font-semibold py-3 px-4 rounded-full shadow-md" style="background-color: var(--color-primary);">Reservar Cita</a></li>
+            </ul>
         </div>
     </header>
 
@@ -445,6 +467,21 @@
             }
         };
         scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    // Script para el menú móvil
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cierra el menú al hacer clic en un enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
     </script>
 </body>
 </html>
