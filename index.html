@@ -156,21 +156,24 @@
             </nav>
             <!-- Botón de Menú Móvil -->
             <div class="md:hidden">
-                <button id="menu-btn" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset" style="color: var(--color-primary);">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <button id="menu-btn" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset z-50" style="color: var(--color-primary);">
+                    <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
         </div>
-        <!-- Panel de Menú Móvil -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-                <li><a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium" style="color: var(--color-text);">Sobre mí</a></li>
-                <li><a href="#areas-of-intervention" class="mobile-link block px-3 py-2 rounded-md text-base font-medium" style="color: var(--color-text);">Terapia</a></li>
-                <li><a href="#services-pricing" class="mobile-link block px-3 py-2 rounded-md text-base font-medium" style="color: var(--color-text);">Tarifas</a></li>
-                <li><a href="/blog/" class="mobile-link block px-3 py-2 rounded-md text-base font-medium" style="color: var(--color-text);">Blog</a></li>
-                <li><a href="#contact" class="mobile-link block w-full mt-2 text-white font-semibold py-3 px-4 rounded-full shadow-md" style="background-color: var(--color-primary);">Reservar Cita</a></li>
+        <!-- Panel de Menú Móvil Mejorado -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full right-0 w-full bg-white shadow-lg border-t" style="border-color: var(--color-light);">
+            <ul class="px-4 pt-2 pb-4 space-y-1 text-left">
+                <li class="border-b" style="border-color: var(--color-light);"><a href="#about" class="mobile-link block px-3 py-3 text-base font-medium" style="color: var(--color-text);">Sobre mí</a></li>
+                <li class="border-b" style="border-color: var(--color-light);"><a href="#areas-of-intervention" class="mobile-link block px-3 py-3 text-base font-medium" style="color: var(--color-text);">Terapia</a></li>
+                <li class="border-b" style="border-color: var(--color-light);"><a href="#services-pricing" class="mobile-link block px-3 py-3 text-base font-medium" style="color: var(--color-text);">Tarifas</a></li>
+                <li class="border-b" style="border-color: var(--color-light);"><a href="/blog/" class="mobile-link block px-3 py-3 text-base font-medium" style="color: var(--color-text);">Blog</a></li>
+                <li><a href="#contact" class="mobile-link block w-full mt-4 text-center text-white font-semibold py-3 px-4 rounded-full shadow-md" style="background-color: var(--color-primary);">Reservar Cita</a></li>
             </ul>
         </div>
     </header>
@@ -467,19 +470,26 @@
             }
         };
         scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    // Script para el menú móvil
+        
+        // Script para el menú móvil
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
         });
 
         // Cierra el menú al hacer clic en un enlace
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
             });
         });
     </script>
