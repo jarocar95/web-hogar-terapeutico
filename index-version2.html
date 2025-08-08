@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psicóloga Online Especializada en Ansiedad | Hogar Terapéutico</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <meta name="description" content="Terapia online con Angie Sánchez, psicóloga colegiada (M-42569) experta en ansiedad, estrés y trauma (EMDR). Recupera tu calma y bienestar. Primera sesión 35€.">
+    <meta name="keywords" content="psicóloga online, terapia ansiedad, psicóloga Madrid, EMDR, estrés, autoestima, terapia online, psicólogo especialista, salud mental, bienestar emocional, Angie Sánchez">
+    <meta name="author" content="Angie Sánchez">
+    
+    <meta property="og:title" content="Hogar Terapéutico - Terapia Online para Ansiedad y Bienestar Emocional">
+    <meta property="og:description" content="Espacio seguro de terapia online con Angie Sánchez, psicóloga experta en ansiedad y EMDR. Empieza tu camino hacia la calma. Primera sesión por 35€.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.hogarterapeutico.com">
+    <meta property="og:image" content="https://www.hogarterapeutico.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hogar Terapéutico - Terapia Online para Ansiedad">
+    <meta name="twitter:description" content="Espacio seguro de terapia online con Angie Sánchez. Especialista en ansiedad y EMDR.">
+    <meta name="twitter:image" content="https://www.hogarterapeutico.com/twitter-image.jpg">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/phosphor.js"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Psychologist",
+      "name": "Hogar Terapéutico",
+      "image": "https://www.hogarterapeutico.com/foto-perfil.webp",
+      "url": "https://www.hogarterapeutico.com",
+      "telephone": "+34621348616",
+      "priceRange": "€€",
+      "description": "Hogar Terapéutico es un espacio de terapia online seguro, liderado por la psicóloga Angie Sánchez, especializada en ansiedad, estrés y trauma con técnicas EMDR.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Madrid",
+        "addressCountry": "ES"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Angie Sánchez",
+        "jobTitle": "Psicóloga General Sanitaria",
+        "description": "Psicóloga especializada en terapia online para ansiedad, estrés y trauma con enfoque EMDR. Colegiada M-42569.",
+        "alumniOf": "Universidad de Málaga",
+        "knowsAbout": ["Ansiedad", "Estrés", "Trauma", "EMDR", "Autoestima", "Terapia Online"],
+        "knowsLanguage": ["es"]
+      },
+      "serviceType": ["Terapia Online", "Psicoterapia", "EMDR", "Terapia para Ansiedad"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Terapia Online",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Primera Sesión de Valoración" },
+            "price": "35", "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Sesión Individual Online" },
+            "price": "60", "priceCurrency": "EUR"
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --color-primary: #9C6666; /* Rosa Empolvado */
+            --color-secondary: #A1BFAE; /* Verde Salvia */
+            --color-text: #4A3B3B; /* Marrón Oscuro */
+            --color-background: #FEFBF8; /* Fondo Cálido */
+            --color-light: #F6EEEE; /* Rosa muy claro */
+            --color-accent: #E6A6A1; /* Rosa claro acento */
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            padding-top: 80px;
+            line-height: 1.6;
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+        input:focus, textarea:focus, button:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(156, 102, 102, 0.4); 
+        }
+        #scrollToTopBtn {
+            display: none; position: fixed; bottom: 20px; right: 20px; z-index: 101;
+            border: none; outline: none; cursor: pointer; padding: 12px; border-radius: 9999px;
+            transition: opacity 0.3s, transform 0.3s; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            color: white; background-color: var(--color-primary);
+        }
+        #scrollToTopBtn:hover { transform: scale(1.1); filter: brightness(1.05); }
+        .cta-button { padding: 0.875rem 2rem; font-weight: 600; transition: all 0.3s ease; }
+        #mobile-cta { display: none; }
+        @media (max-width: 768px) {
+            body { padding-bottom: 100px; }
+            #mobile-cta {
+                display: flex; position: fixed; bottom: 0; left: 0; right: 0;
+                background: linear-gradient(to top, var(--color-background) 70%, rgba(254, 251, 248, 0));
+                padding: 1rem; z-index: 100; pointer-events: none; justify-content: center;
+            }
+             #mobile-cta > a { pointer-events: auto; width: 100%; max-width: 400px;}
+            #scrollToTopBtn { bottom: 110px; }
+        }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary .plus-icon { transform: rotate(45deg); }
+        #main-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background-color: rgba(254, 251, 248, 0.9);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            transition: height 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            height: 80px;
+        }
+        #main-header.scrolled { height: 60px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); }
+        body.scrolled { padding-top: 60px; }
+        .card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); }
+        .highlight { background: linear-gradient(transparent 60%, rgba(230, 166, 161, 0.3) 40%); padding: 0 2px; }
+    </style>
+</head>
+<body>
+    <header id="main-header" class="py-4 border-b" style="border-color: var(--color-light);">
+        <div class="container flex justify-between items-center h-full">
+            <a href="/" class="flex items-center space-x-3 rounded-md p-2 hover:bg-rose-50 transition duration-300">
+                <svg class="w-12 h-12 transition-transform duration-300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 40 160 L 40 80 C 40 50, 70 40, 100 40 C 130 40, 160 50, 160 80 L 160 160" stroke="#9C6666" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 100 160 L 100 110 C 100 90, 80 80, 70 90" stroke="#9C6666" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 100 130 C 120 130, 130 110, 120 100" stroke="#9C6666" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 70 90 C 60 70, 80 60, 90 70" stroke="#A1BFAE" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 120 100 C 130 80, 110 70, 100 80" stroke="#A1BFAE" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="font-serif text-2xl font-semibold" style="color: var(--color-primary);">Hogar Terapéutico</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="font-medium transition-colors duration-300 hover:text-[var(--color-primary)]">Sobre mí</a>
+                <a href="#areas-of-intervention" class="font-medium transition-colors duration-300 hover:text-[var(--color-primary)]">Terapia</a>
+                <a href="#services-pricing" class="font-medium transition-colors duration-300 hover:text-[var(--color-primary)]">Tarifas</a>
+                <a href="/blog/" class="font-medium transition-colors duration-300 hover:text-[var(--color-primary)]">Blog</a>
+                <a href="#contact" class="cta-button text-white rounded-full shadow-md transition-all duration-300 transform hover:scale-105 hover:brightness-110" style="background-color: var(--color-primary);">Reservar Cita</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-btn" class="p-2 rounded-md z-50" aria-label="Abrir menú" style="color: var(--color-primary);">
+                    <i id="hamburger-icon" class="ph-list text-3xl"></i>
+                    <i id="close-icon" class="ph-x text-3xl hidden"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full right-0 w-full bg-white shadow-lg border-t" style="border-color: var(--color-light);">
+            <ul class="flex flex-col items-center py-4 space-y-4">
+                <li><a href="#about" class="mobile-link text-lg">Sobre mí</a></li>
+                <li><a href="#areas-of-intervention" class="mobile-link text-lg">Terapia</a></li>
+                <li><a href="#services-pricing" class="mobile-link text-lg">Tarifas</a></li>
+                <li><a href="/blog/" class="mobile-link text-lg">Blog</a></li>
+                <li><a href="#contact" class="mobile-link cta-button text-white mt-4" style="background-color: var(--color-primary);">Reservar Cita</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <main role="main">
+        <section aria-labelledby="hero-title" class="text-white py-20 md:py-28 text-center" style="background-color: var(--color-primary);">
+            <div class="container">
+                <h1 id="hero-title" class="text-4xl md:text-5xl font-bold font-serif leading-tight mb-6">
+                    Recupera la Calma y Construye la Vida que Quieres Vivir
+                </h1>
+                <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-95">
+                    Soy <strong class="font-semibold">Angie Sánchez</strong>, psicóloga online experta en ansiedad y trauma. Te ofrezco un espacio seguro para entender tus emociones y encontrar las herramientas para gestionar el estrés y la ansiedad.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#first-session-offer" class="cta-button bg-white hover:bg-rose-50 rounded-full shadow-lg transition transform hover:scale-105" style="color: var(--color-primary);">Empieza tu transformación</a>
+                    <a href="#areas-of-intervention" class="cta-button border-2 border-white hover:bg-white/10 rounded-full shadow-lg transition transform hover:scale-105">Conoce mi enfoque</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="first-session-offer" aria-labelledby="offer-title" class="py-12 md:py-16 text-center mx-4 md:mx-auto mt-[-40px] relative z-10">
+            <div class="container max-w-4xl mx-auto bg-[var(--color-light)] rounded-xl shadow-lg p-8 border-l-4" style="border-color: var(--color-primary);">
+                <h2 id="offer-title" class="font-serif text-3xl md:text-4xl font-semibold mb-4">
+                    Tu primera sesión por solo <span style="color: var(--color-primary);">35€</span>
+                </h2>
+                <p class="text-lg md:text-xl mb-8">
+                    Este es nuestro punto de partida. Un espacio para conocernos sin compromiso, explorar qué te preocupa y sentir si mi forma de trabajar resuena contigo. Es el primer paso hacia tu bienestar.
+                </p>
+                <a href="#contact" class="cta-button text-white font-bold rounded-full shadow-lg transition transform hover:scale-105" style="background-color: var(--color-primary);">Quiero mi primera sesión</a>
+            </div>
+        </section>
+        
+        <section id="about" aria-labelledby="about-title" class="py-16 md:py-20">
+            <div class="container">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/3 text-center">
+                        <picture>
+                            <source srcset="foto-perfil.webp" type="image/webp">
+                            <img src="foto-perfil.jpg" alt="Retrato de Angie Sánchez, psicóloga fundadora de Hogar Terapéutico." class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover mx-auto shadow-xl border-4" style="border-color: var(--color-light);">
+                        </picture>
+                        <div class="mt-4">
+                            <p class="font-semibold text-lg" style="color: var(--color-primary);">Angie Sánchez Gallego</p>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-semibold">M-42569</span>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-semibold ml-2">Colegiada en Madrid</span>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 text-center md:text-left">
+                        <h2 id="about-title" class="font-serif text-3xl md:text-4xl font-semibold mb-4" style="color: var(--color-primary);">Bienvenida/o a tu Hogar Terapéutico</h2>
+                        <div class="text-lg leading-relaxed space-y-4">
+                            <p>
+                                Mi pasión por entender la mente humana y mi deseo de ayudar a otros me llevaron a la psicología. He creado <strong class="highlight">Hogar Terapéutico</strong> con un propósito claro: ofrecerte un refugio seguro y profesional donde puedas sentirte libre para explorar, sanar y crecer.
+                            </p>
+                            <p>
+                                Mi enfoque es <strong class="highlight">integrador y humano</strong>. Combino técnicas con sólida evidencia científica, como la terapia EMDR, con una perspectiva cercana y sin prejuicios. Mi compromiso es dedicarte mi total atención para que, juntos, encontremos las respuestas que buscas y cultivemos tu bienestar.
+                            </p>
+                             <div class="mt-6 p-4 rounded-lg" style="background-color: var(--color-light);">
+                                <p class="font-semibold mb-2" style="color: var(--color-primary);">Mi filosofía terapéutica:</p>
+                                <blockquote class="italic">"Creo en una terapia sin etiquetas, donde la confianza y el respeto son la base de todo. No hay dos personas iguales, por eso cada proceso terapéutico es un traje a medida, diseñado exclusivamente para ti."</blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="areas-of-intervention" aria-labelledby="areas-title" class="py-16 md:py-20" style="background-color: var(--color-light);">
+            <div class="container text-center">
+                <h2 id="areas-title" class="font-serif text-3xl md:text-4xl font-semibold mb-4" style="color: var(--color-primary);">¿En qué puedo ayudarte?</h2>
+                <p class="text-lg mb-12 max-w-3xl mx-auto">Mi especialización se centra en las siguientes áreas, abordadas siempre desde un enfoque integrador y personalizado.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-6 rounded-lg text-center card bg-white">
+                        <i class="ph-cloud-lightning text-4xl mb-3" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-2">Ansiedad y Estrés</h3>
+                        <p>Aprende a gestionar las preocupaciones, reducir la tensión y vivir con más calma y presencia. Te ayudaré a entender el mensaje detrás de tu ansiedad.</p>
+                    </div>
+                    <div class="p-6 rounded-lg text-center card bg-white">
+                        <i class="ph-shield-check text-4xl mb-3" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-2">Superación de Trauma (EMDR)</h3>
+                        <p>Procesaremos juntos experiencias difíciles del pasado en un entorno seguro para que dejen de impactar en tu presente. Sanar es posible.</p>
+                    </div>
+                    <div class="p-6 rounded-lg text-center card bg-white">
+                        <i class="ph-heartbeat text-4xl mb-3" style="color: var(--color-primary);"></i>
+                        <h3 class="text-xl font-semibold mb-2">Autoestima y Confianza</h3>
+                        <p>Fortalece la relación contigo misma/o, aprende a poner límites y desarrolla la seguridad para alcanzar tu verdadero potencial.</p>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <p class="text-lg mb-6">También trabajo con <strong class="highlight">gestión emocional</strong>, <strong class="highlight">problemas relacionales</strong> y <strong class="highlight">procesos de cambio vital</strong>. ¿No estás segura/o de si tu problema encaja? <a href="#contact" class="font-bold underline" style="color: var(--color-primary);">Hablemos sin compromiso.</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" aria-labelledby="testimonials-title" class="py-16 md:py-20">
+            <div class="container text-center">
+                <h2 id="testimonials-title" class="font-serif text-3xl md:text-4xl font-semibold mb-12" style="color: var(--color-primary);">La transformación en sus propias palabras</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-xl card bg-white border-t-4" style="border-color: var(--color-accent);">
+                        <p class="text-lg italic mb-4">"Llegué con una ansiedad que me paralizaba. Angie me enseñó a entenderla y me dio herramientas que de verdad funcionan. Hoy, por fin, siento que he recuperado el control de mi vida."</p>
+                        <p class="font-semibold" style="color: var(--color-primary);">- Laura G.</p>
+                        <p class="text-sm opacity: 0.7;">Terapia para Ansiedad Generalizada</p>
+                    </div>
+                    <div class="p-8 rounded-xl card bg-white border-t-4" style="border-color: var(--color-accent);">
+                        <p class="text-lg italic mb-4">"Hacer terapia online con Angie fue un acierto total. Me sentí cómoda y escuchada desde el primer minuto. Trabajar en mi autoestima ha marcado un antes y un después en cómo me relaciono con el mundo."</p>
+                        <p class="font-semibold" style="color: var(--color-primary);">- David M.</p>
+                        <p class="text-sm opacity: 0.7;">Terapia para Autoestima</p>
+                    </div>
+                    <div class="p-8 rounded-xl card bg-white border-t-4" style="border-color: var(--color-accent);">
+                        <p class="text-lg italic mb-4">"Después de años arrastrando un trauma, la terapia EMDR con Angie fue transformadora. Ha sido un proceso duro pero increíblemente liberador. Siento que me he quitado un peso enorme de encima."</p>
+                        <p class="font-semibold" style="color: var(--color-primary);">- María S.</p>
+                        <p class="text-sm opacity: 0.7;">Terapia con EMDR para Trauma</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services-pricing" aria-labelledby="pricing-title" class="py-16 md:py-20" style="background-color: var(--color-light);">
+            <div class="container text-center">
+                <h2 id="pricing-title" class="font-serif text-3xl md:text-4xl font-semibold mb-4" style="color: var(--color-primary);">Inversión en tu Bienestar</h2>
+                <p class="text-lg mb-12 max-w-2xl mx-auto">Precios transparentes para que cuidar de tu salud mental sea una prioridad accesible.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-2 transform sm:scale-105 card" style="border-color: var(--color-primary);">
+                        <h3 class="text-2xl font-bold mb-2">Primera Sesión de Valoración</h3>
+                        <p class="text-5xl font-extrabold my-4" style="color: var(--color-primary);">35€</p>
+                        <p class="text-lg mb-6"><strong>50 minutos.</strong> Nuestro primer paso para conocernos y trazar tu camino.</p>
+                        <ul class="text-left mb-6 space-y-2">
+                            <li class="flex items-center"><i class="ph-check-circle text-green-500 mr-2"></i> Evaluación inicial de tus necesidades</li>
+                            <li class="flex items-center"><i class="ph-check-circle text-green-500 mr-2"></i> Espacio para resolver todas tus dudas</li>
+                            <li class="flex items-center"><i class="ph-check-circle text-green-500 mr-2"></i> Sin ningún tipo de compromiso</li>
+                        </ul>
+                        <a href="#contact" class="cta-button w-full inline-block text-white font-bold rounded-full" style="background-color: var(--color-primary);">Quiero mi primera sesión</a>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between card">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Sesión Individual Online</h3>
+                            <p class="text-5xl font-extrabold text-gray-700 my-4">60€</p>
+                            <p class="text-lg mb-6"><strong>50 minutos.</strong> Profundizamos en tu proceso terapéutico.</p>
+                             <ul class="text-left mb-6 space-y-2">
+                                <li class="flex items-center"><i class="ph-check-circle text-green-500 mr-2"></i> Seguimiento terapéutico continuo</li>
+                                <li class="flex items-center"><i class="ph-check-circle text-green-500 mr-2"></i> Aplicación de técnicas avanzadas</li>
+                                <li class="flex items-center"><i class="ph-check-circle text-green-500 mr-2"></i> Material complementario si es necesario</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="cta-button w-full inline-block font-bold rounded-full" style="background-color: #F6EEEE; color: var(--color-primary);">Reservar sesión</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" aria-labelledby="faq-title" class="py-16 md:py-20">
+            <div class="container max-w-4xl mx-auto">
+                <h2 id="faq-title" class="font-serif text-3xl md:text-4xl font-semibold mb-12 text-center" style="color: var(--color-primary);">Preguntas Frecuentes</h2>
+                <div class="space-y-4 text-left">
+                    <details class="p-6 rounded-lg card bg-white">
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center text-lg">¿Cómo funciona la terapia online?<span class="plus-icon text-2xl transition-transform" style="color: var(--color-primary);">+</span></summary>
+                        <p class="mt-4 text-base">Las sesiones se realizan por videollamada a través de una plataforma segura que garantiza tu confidencialidad. Solo necesitas un dispositivo con conexión a internet y un espacio tranquilo. La eficacia es la misma que la presencial, pero con la comodidad de estar en tu propio espacio seguro.</p>
+                    </details>
+                    <details class="p-6 rounded-lg card bg-white">
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center text-lg">¿Qué es exactamente la terapia EMDR?<span class="plus-icon text-2xl transition-transform" style="color: var(--color-primary);">+</span></summary>
+                        <p class="mt-4 text-base">EMDR es un abordaje psicoterapéutico avalado científicamente, muy eficaz para tratar dificultades causadas por experiencias traumáticas. De forma sencilla, ayuda a tu cerebro a "digerir" y procesar recuerdos dolorosos para que dejen de perturbarte en el presente, reduciendo su carga emocional.</p>
+                    </details>
+                    <details class="p-6 rounded-lg card bg-white">
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center text-lg">¿Cuánto dura la terapia y con qué frecuencia?<span class="plus-icon text-2xl transition-transform" style="color: var(--color-primary);">+</span></summary>
+                        <p class="mt-4 text-base">La duración es única para cada persona. Lo definiremos juntos según tus objetivos. Generalmente, las sesiones son semanales al principio para construir una buena base, y luego podemos espaciarlas. Cada sesión dura 50 minutos.</p>
+                    </details>
+                    <details class="p-6 rounded-lg card bg-white">
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center text-lg">¿Son mis sesiones confidenciales?<span class="plus-icon text-2xl transition-transform" style="color: var(--color-primary);">+</span></summary>
+                        <p class="mt-4 text-base">Absolutamente. La confidencialidad es la base del código ético de la psicología y mi máxima prioridad. Todo lo que hablemos en sesión es estrictamente confidencial y está protegido por el secreto profesional.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" aria-labelledby="contact-title" class="py-16 md:py-20 text-white" style="background-color: var(--color-primary);">
+            <div class="container text-center">
+                <h2 id="contact-title" class="font-serif text-3xl md:text-4xl font-semibold mb-4">¿Lista/o para dar el primer paso? Hablemos.</h2>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">Rellena el formulario para reservar tu primera sesión o para consultarme cualquier duda. Te responderé personalmente en menos de 24 horas.</p>
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg" style="color: var(--color-text);">
+                    <form id="contactForm" action="https://formspree.io/f/REEMPLAZAR_CON_TU_ID" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-left text-sm font-medium mb-2">Nombre</label>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 transition duration-200" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-left text-sm font-medium mb-2">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="tu.email@ejemplo.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 transition duration-200" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-left text-sm font-medium mb-2">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Hola Angie, me gustaría reservar una primera sesión..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 transition duration-200" required></textarea>
+                        </div>
+                        <div class="flex items-start">
+                            <input type="checkbox" id="privacy" name="privacy" class="h-4 w-4 mt-1 mr-2 rounded" required>
+                            <label for="privacy" class="text-sm text-left">He leído y acepto la <a href="/politica-privacidad.html" target="_blank" class="underline">política de privacidad</a>.</label>
+                        </div>
+                        <button type="submit" class="cta-button w-full text-white font-bold rounded-full shadow-md transition transform hover:scale-105" style="background-color: var(--color-primary);">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="mt-10">
+                    <p class="text-white/90 mb-4">Si lo prefieres, puedes contactarme directamente por WhatsApp:</p>
+                    <a href="https://wa.me/34621348616?text=Hola%20Angie,%20te%20escribo%20desde%20la%20web%20de%20Hogar%20Terapéutico.%20Me%20gustaría%20pedir%20información." target="_blank" rel="noopener noreferrer" class="cta-button bg-white hover:bg-rose-50 rounded-full shadow-lg transition transform hover:scale-105 inline-flex items-center" style="color: var(--color-primary);">
+                        <i class="ph-whatsapp-logo mr-3 text-2xl"></i> Enviar un WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="py-12" style="background-color: #6B5B5B; color: #F9F1EF;">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+                <div>
+                    <h3 class="font-serif text-xl font-semibold mb-4">Hogar Terapéutico</h3>
+                    <p class="text-sm opacity-80">Un proyecto de Angie Sánchez, Psicóloga General Sanitaria (M-42569), dedicado a tu bienestar emocional.</p>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl font-semibold mb-4">Enlaces</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="opacity-80 hover:opacity-100 transition">Sobre mí</a></li>
+                        <li><a href="#areas-of-intervention" class="opacity-80 hover:opacity-100 transition">Terapia</a></li>
+                        <li><a href="#faq" class="opacity-80 hover:opacity-100 transition">FAQ</a></li>
+                        <li><a href="/blog/" class="opacity-80 hover:opacity-100 transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/aviso-legal.html" class="opacity-80 hover:opacity-100 transition">Aviso Legal</a></li>
+                        <li><a href="/politica-privacidad.html" class="opacity-80 hover:opacity-100 transition">Política de Privacidad</a></li>
+                        <li><a href="/politica-cookies.html" class="opacity-80 hover:opacity-100 transition">Política de Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-white/20 text-center text-sm">
+                <p>&copy; 2025 Hogar Terapéutico. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <button id="scrollToTopBtn" aria-label="Volver arriba">
+        <i class="ph-arrow-up text-2xl"></i>
+    </button>
+    
+    <div id="mobile-cta">
+        <a href="#contact" class="text-center text-white font-bold rounded-full shadow-lg cta-button" style="background-color: var(--color-primary);">Reserva tu 1ª Sesión (35€)</a>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+            const body = document.body;
+            window.addEventListener('scroll', () => {
+                const scrolled = window.scrollY > 50;
+                header.classList.toggle('scrolled', scrolled);
+                body.classList.toggle('scrolled', scrolled);
+            });
+
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            window.addEventListener('scroll', () => {
+                scrollToTopBtn.style.display = window.scrollY > 300 ? "flex" : "none";
+            });
+            scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    hamburgerIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
