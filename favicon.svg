@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 40 160 L 40 80 C 40 50, 70 40, 100 40 C 130 40, 160 50, 160 80 L 160 160" stroke="#E6A6A1" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M 100 130 C 120 130, 130 110, 120 100" stroke="#A1BFEE" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
