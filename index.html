@@ -153,27 +153,26 @@
         /* Botón de CTA Fijo para Móvil */
         #mobile-cta {
             display: none;
-            justify-content: center;
-            align-items: center;
         }
         @media (max-width: 768px) {
-            body { padding-bottom: 80px; }
+            body { padding-bottom: 100px; } /* Espacio para el botón fijo */
             #mobile-cta {
                 display: flex;
                 position: fixed;
-                bottom: 20px;
+                bottom: 0;
                 left: 0;
                 right: 0;
-                background: linear-gradient(to top, rgba(254, 251, 248, 0.9) 70%, rgba(254, 251, 248, 0));
-                padding: 1rem 1rem 0.5rem 1rem;
+                background: linear-gradient(to top, var(--color-background) 70%, rgba(254, 251, 248, 0));
+                padding: 1rem;
                 z-index: 100;
                 pointer-events: none;
+                justify-content: flex-start; /* Alineado a la izquierda */
             }
              #mobile-cta > a {
                 pointer-events: auto;
-                max-width: 280px;
-                width: 80%;
-                text-align: center;
+            }
+            #scrollToTopBtn {
+                bottom: 110px; /* Elevado para no chocar con la barra CTA */
             }
         }
         /* Estilo para el acordeón de FAQ */
@@ -293,9 +292,9 @@
         <div class="container flex justify-between items-center h-full">
             <a href="/" class="flex items-center space-x-3 rounded-md p-2 hover:bg-rose-50 transition duration-300 logo-container">
                 <svg class="w-12 h-12" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 40 160 L 40 80 C 40 50, 70 40, 100 40 C 130 40, 160 50, 160 80 L 160 160" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 100 160 L 100 110 C 100 90, 80 80, 70 90" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 100 130 C 120 130, 130 110, 120 100" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 40 160 L 40 80 C 40 50, 70 40, 100 40 C 130 40, 160 50, 160 80 L 160 160" stroke="#9C6666" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 100 160 L 100 110 C 100 90, 80 80, 70 90" stroke="#9C6666" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 100 130 C 120 130, 130 110, 120 100" stroke="#9C6666" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M 70 90 C 60 70, 80 60, 90 70" stroke="#A1BFAE" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M 120 100 C 130 80, 110 70, 100 80" stroke="#A1BFAE" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -340,7 +339,7 @@
         <section aria-labelledby="hero-title" class="text-white py-16 md:py-24 text-center rounded-b-3xl shadow-lg section-padding" style="background-color: var(--color-primary);">
             <div class="container">
                 <h1 id="hero-title" class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-                    Terapia Online para <span class="highlight">Ansiedad y Estrés</span> - Un Espacio Seguro para Tu Bienestar
+                    Terapia Online para Ansiedad y Estrés - Un Espacio Seguro para Tu Bienestar
                 </h1>
                 <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90">
                     En Hogar Terapéutico encontrarás la calma y las herramientas para gestionar la ansiedad, el estrés y construir la vida que quieres vivir. Soy <span class="font-semibold">Angie Sánchez</span>, psicóloga especializada en ayudarte a recuperar tu equilibrio emocional.
@@ -360,9 +359,6 @@
         <section id="first-session-offer" aria-labelledby="offer-title" class="py-12 md:py-16 text-center rounded-xl shadow-md mx-4 md:mx-auto mt-8 border-l-4 section-padding" style="background-color: var(--color-light); border-color: var(--color-primary);">
             <div class="container">
                 <div class="max-w-2xl mx-auto">
-                    <div class="bg-white p-1 rounded-full inline-block mb-4" style="background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));">
-                        <span class="bg-white text-xs font-semibold px-3 py-1 rounded-full">OFERTA ESPECIAL</span>
-                    </div>
                     <h2 id="offer-title" class="font-serif text-3xl md:text-4xl font-semibold mb-4" style="color: var(--color-text);">
                         Tu primera sesión por solo <span style="color: var(--color-primary);">35€</span>
                     </h2>
@@ -596,7 +592,6 @@
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <div class="bg-white p-8 rounded-xl shadow-lg border-2 transform sm:scale-105 transition-transform duration-300 card" style="border-color: var(--color-primary);">
-                        <div class="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded-full inline-block mb-4">MÁS POPULAR</div>
                         <i class="ph-sparkle text-5xl mb-4" style="color: var(--color-primary);"></i>
                         <h3 class="text-2xl font-bold mb-2" style="color: var(--color-primary);">Primera Sesión de Valoración</h3>
                         <p class="text-4xl font-extrabold mb-4" style="color: var(--color-primary);">35€</p>
@@ -626,13 +621,6 @@
                             Reservar sesión
                         </a>
                     </div>
-                </div>
-                
-                <!-- Nota sobre precios -->
-                <div class="mt-12 max-w-2xl mx-auto p-6 rounded-lg" style="background-color: var(--color-light);">
-                    <p class="text-sm" style="color: var(--color-text);">
-                        <strong>Nota importante:</strong> Los precios pueden variar según la frecuencia de las sesiones y los paquetes contratados. Consulta conmigo para obtener información detallada sobre opciones de pago y posibles descuentos.
-                    </p>
                 </div>
             </div>
         </section>
