@@ -113,16 +113,17 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                background-color: rgba(254, 251, 248, 0.95);
-                backdrop-filter: blur(8px);
-                padding: 1rem;
-                border-top: 1px solid var(--color-light);
+                /* Fondo con degradado para suavizar */
+                background: linear-gradient(to top, var(--color-background) 70%, rgba(254, 251, 248, 0));
+                padding: 1.5rem 1rem 1rem 1rem;
                 z-index: 100;
+                pointer-events: none; /* Permite hacer clic a través del área transparente */
             }
         }
         /* Estilo para el acordeón de FAQ */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
+        details[open] summary .plus-icon { transform: rotate(45deg); }
     </style>
 </head>
 <body class="antialiased">
@@ -142,7 +143,9 @@
             </a>
             <nav class="mt-4 md:mt-0">
                 <ul class="flex space-x-4 sm:space-x-6 items-center">
-                    <li><a href="/" class="font-medium transition duration-300 hover:text-pink-400" style="color: var(--color-text);">Inicio</a></li>
+                    <li><a href="#about" class="font-medium transition duration-300 hover:text-pink-400" style="color: var(--color-text);">Sobre mí</a></li>
+                    <li><a href="#areas-of-intervention" class="font-medium transition duration-300 hover:text-pink-400" style="color: var(--color-text);">Terapia</a></li>
+                    <li><a href="#services-pricing" class="font-medium transition duration-300 hover:text-pink-400" style="color: var(--color-text);">Tarifas</a></li>
                     <li><a href="/blog/" class="font-medium transition duration-300 hover:text-pink-400" style="color: var(--color-text);">Blog</a></li>
                     <li><a href="#contact" class="text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300" style="background-color: var(--color-primary);">Reservar Cita</a></li>
                 </ul>
@@ -337,18 +340,28 @@
                 <div class="space-y-4 text-left">
                     <!-- Pregunta 1 -->
                     <details class="p-6 rounded-lg" style="background-color: var(--color-light);">
-                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Cómo funciona la terapia online? <span class="text-xl" style="color: var(--color-primary);">+</span></summary>
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Cómo funciona la terapia online? <span class="plus-icon text-xl transition-transform" style="color: var(--color-primary);">+</span></summary>
                         <p class="mt-4">Las sesiones se realizan por videollamada a través de una plataforma segura y confidencial. Solo necesitas un dispositivo con conexión a internet y un espacio tranquilo donde puedas hablar con privacidad. Es igual de efectiva que la terapia presencial, pero con la comodidad de hacerlo desde tu hogar.</p>
                     </details>
                     <!-- Pregunta 2 -->
                     <details class="p-6 rounded-lg" style="background-color: var(--color-light);">
-                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Qué es la terapia EMDR? <span class="text-xl" style="color: var(--color-primary);">+</span></summary>
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Qué es la terapia EMDR? <span class="plus-icon text-xl transition-transform" style="color: var(--color-primary);">+</span></summary>
                         <p class="mt-4">EMDR (Desensibilización y Reprocesamiento por Movimientos Oculares) es un abordaje psicoterapéutico avalado científicamente, muy eficaz para tratar dificultades emocionales causadas por experiencias difíciles o traumáticas. Ayuda a tu cerebro a procesar esos recuerdos para que dejen de perturbarte en el presente.</p>
                     </details>
                     <!-- Pregunta 3 -->
                     <details class="p-6 rounded-lg" style="background-color: var(--color-light);">
-                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Cuánto dura la terapia y con qué frecuencia son las sesiones? <span class="text-xl" style="color: var(--color-primary);">+</span></summary>
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Cuánto dura la terapia y con qué frecuencia son las sesiones? <span class="plus-icon text-xl transition-transform" style="color: var(--color-primary);">+</span></summary>
                         <p class="mt-4">La duración del proceso terapéutico es única para cada persona. Lo decidiremos juntos en función de tus necesidades y objetivos. Generalmente, las sesiones son semanales, especialmente al principio, para establecer una buena alianza y ritmo de trabajo. Cada sesión dura 50 minutos.</p>
+                    </details>
+                    <!-- Pregunta 4 (NUEVA) -->
+                    <details class="p-6 rounded-lg" style="background-color: var(--color-light);">
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Mis sesiones son confidenciales? <span class="plus-icon text-xl transition-transform" style="color: var(--color-primary);">+</span></summary>
+                        <p class="mt-4">Absolutamente. La confidencialidad es un pilar fundamental del código ético de la psicología y mi máxima prioridad. Todo lo que hablemos en sesión es estrictamente confidencial y está protegido por el secreto profesional.</p>
+                    </details>
+                    <!-- Pregunta 5 (NUEVA) -->
+                    <details class="p-6 rounded-lg" style="background-color: var(--color-light);">
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Qué puedo esperar de la primera sesión? <span class="plus-icon text-xl transition-transform" style="color: var(--color-primary);">+</span></summary>
+                        <p class="mt-4">La primera sesión de valoración es una toma de contacto. Es una oportunidad para que me cuentes qué te trae a terapia, para que me conozcas y para que resolvamos cualquier duda que tengas. Juntos, exploraremos tus objetivos y decidiremos si mi enfoque es el adecuado para ti, todo en un ambiente de total confianza y sin ningún compromiso.</p>
                     </details>
                 </div>
             </div>
@@ -415,10 +428,10 @@
         </svg>
     </button>
 
-    <!-- BOTÓN DE CTA FIJO PARA MÓVIL -->
+    <!-- BOTÓN DE CTA FIJO PARA MÓVIL (MEJORADO) -->
     <div id="mobile-cta">
         <a href="#contact" class="w-full text-center text-white font-bold rounded-full shadow-lg transition duration-300 cta-button" style="background-color: var(--color-primary);">
-            Reservar 1ª Sesión (35€)
+            Reserva tu 1ª Sesión (35€)
         </a>
     </div>
 
