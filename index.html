@@ -18,7 +18,7 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Terapia online efectiva para ansiedad, estrés y autoestima. Psicóloga colegiada en Madrid (M-42569). Primera sesión por solo 35€. Contacta a Angie Sánchez.">
     <meta name="keywords" content="hogar terapéutico, terapia online, psicóloga online, Angie Sánchez, ansiedad, estrés, crecimiento personal, espacio seguro, terapia EMDR, autoestima">
-    <meta name="author" content="Angie Sánchez Gallego">
+    <meta name="author" content="Angie Sánchez">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Hogar Terapéutico - Terapia Online y Bienestar Emocional">
@@ -54,7 +54,7 @@
       },
       "founder": {
         "@type": "Person",
-        "name": "Angie Sánchez Gallego"
+        "name": "Angie Sánchez"
       }
     }
     </script>
@@ -99,17 +99,35 @@
             filter: brightness(1.05);
         }
         /* MEJORA UX: Botones con padding aumentado para cumplir el mínimo táctil */
-        .cta-button {
-            padding-top: 0.875rem; /* py-3.5 */
-            padding-bottom: 0.875rem; /* py-3.5 */
-            padding-left: 2rem; /* px-8 */
-            padding-right: 2rem; /* px-8 */
+        .cta-button { padding: 0.875rem 2rem; }
+        /* Botón de CTA Fijo para Móvil */
+        
+        #mobile-cta {
+            display: none; /* Oculto por defecto */
         }
+        @media (max-width: 768px) {
+            body { padding-bottom: 80px; } /* Espacio para el botón fijo */
+            #mobile-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: rgba(254, 251, 248, 0.95);
+                backdrop-filter: blur(8px);
+                padding: 1rem;
+                border-top: 1px solid var(--color-light);
+                z-index: 100;
+            }
+        }
+        /* Estilo para el acordeón de FAQ */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header Section (Ya no es fijo) -->
+    <!-- Header Section (Estático) -->
     <header class="py-4 border-b" style="border-color: var(--color-light);">
         <div class="container flex flex-col md:flex-row justify-between items-center">
             <a href="/" class="flex items-center space-x-3 rounded-md p-2 hover:bg-rose-50 transition duration-300">
@@ -137,7 +155,7 @@
         <section aria-labelledby="hero-title" class="text-white py-16 md:py-24 text-center rounded-b-3xl shadow-lg" style="background-color: var(--color-primary);">
             <div class="container">
                 <h1 id="hero-title" class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-                    Un espacio seguro para cultivar tu bienestar emocional
+                    Terapia Online para Ansiedad y Estrés - Un Espacio Seguro para Tu Bienestar
                 </h1>
                 <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90">
                     En Hogar Terapéutico encontrarás la calma y las herramientas para gestionar la ansiedad, el estrés y construir la vida que quieres vivir.
@@ -312,6 +330,30 @@
             </div>
         </section>
 
+        <!-- NUEVA SECCIÓN: PREGUNTAS FRECUENTES (FAQ) -->
+        <section id="faq" aria-labelledby="faq-title" class="py-16 md:py-20">
+            <div class="container max-w-4xl mx-auto text-center">
+                <h2 id="faq-title" class="font-serif text-3xl md:text-4xl font-semibold mb-12" style="color: var(--color-primary);">Preguntas Frecuentes</h2>
+                <div class="space-y-4 text-left">
+                    <!-- Pregunta 1 -->
+                    <details class="p-6 rounded-lg" style="background-color: var(--color-light);">
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Cómo funciona la terapia online? <span class="text-xl" style="color: var(--color-primary);">+</span></summary>
+                        <p class="mt-4">Las sesiones se realizan por videollamada a través de una plataforma segura y confidencial. Solo necesitas un dispositivo con conexión a internet y un espacio tranquilo donde puedas hablar con privacidad. Es igual de efectiva que la terapia presencial, pero con la comodidad de hacerlo desde tu hogar.</p>
+                    </details>
+                    <!-- Pregunta 2 -->
+                    <details class="p-6 rounded-lg" style="background-color: var(--color-light);">
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Qué es la terapia EMDR? <span class="text-xl" style="color: var(--color-primary);">+</span></summary>
+                        <p class="mt-4">EMDR (Desensibilización y Reprocesamiento por Movimientos Oculares) es un abordaje psicoterapéutico avalado científicamente, muy eficaz para tratar dificultades emocionales causadas por experiencias difíciles o traumáticas. Ayuda a tu cerebro a procesar esos recuerdos para que dejen de perturbarte en el presente.</p>
+                    </details>
+                    <!-- Pregunta 3 -->
+                    <details class="p-6 rounded-lg" style="background-color: var(--color-light);">
+                        <summary class="font-semibold cursor-pointer flex justify-between items-center">¿Cuánto dura la terapia y con qué frecuencia son las sesiones? <span class="text-xl" style="color: var(--color-primary);">+</span></summary>
+                        <p class="mt-4">La duración del proceso terapéutico es única para cada persona. Lo decidiremos juntos en función de tus necesidades y objetivos. Generalmente, las sesiones son semanales, especialmente al principio, para establecer una buena alianza y ritmo de trabajo. Cada sesión dura 50 minutos.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        
         <!-- Contact Section -->
         <section id="contact" aria-labelledby="contact-title" class="py-16 md:py-20 text-white rounded-xl shadow-lg mx-4 md:mx-auto my-12" style="background-color: var(--color-primary);">
             <div class="container text-center">
@@ -372,7 +414,14 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
         </svg>
     </button>
-    
+
+    <!-- BOTÓN DE CTA FIJO PARA MÓVIL -->
+    <div id="mobile-cta">
+        <a href="#contact" class="w-full text-center text-white font-bold rounded-full shadow-lg transition duration-300 cta-button" style="background-color: var(--color-primary);">
+            Reservar 1ª Sesión (35€)
+        </a>
+    </div>
+
     <script>
         const scrollToTopBtn = document.getElementById("scrollToTopBtn");
         window.onscroll = () => {
