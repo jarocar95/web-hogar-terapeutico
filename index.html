@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psicóloga online especializada en ansiedad | Hogar Terapéutico</title>
-
     <!-- Favicon Configuration (Actualizado con el código de RealFaviconGenerator) -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -13,20 +12,17 @@
     <meta name="apple-mobile-web-app-title" content="Hogar Terapéutico" />
     <link rel="manifest" href="/site.webmanifest" />
     <!-- End Favicon Configuration -->
-
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Terapia online efectiva para ansiedad, estrés y autoestima. Psicóloga colegiada en Madrid (M-42569). Primera sesión por solo 35€. Contacta a Angie Sánchez.">
     <meta name="keywords" content="hogar terapéutico, terapia online, psicóloga online, Angie Sánchez, ansiedad, estrés, crecimiento personal, espacio seguro, terapia EMDR, autoestima">
     <meta name="author" content="Angie Sánchez">
-
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Hogar Terapéutico - Terapia Online y Bienestar Emocional">
     <meta property="og:description" content="Un espacio seguro de terapia online para cultivar tu bienestar emocional. Creado por la psicóloga Angie Sánchez.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.hogarterapeutico.com"> <!-- Reemplazar con tu dominio real -->
     <meta property="og:image" content="https://www.hogarterapeutico.com/imagen-compartir.jpg">
-
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter & Playfair Display -->
@@ -35,7 +31,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/phosphor.js"></script>
-
     <!-- SEO: JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -58,7 +53,6 @@
       }
     }
     </script>
-
     <style>
         /* DEFINICIÓN DE LA NUEVA PALETA DE COLORES */
         :root {
@@ -68,12 +62,12 @@
             --color-background: #FEFBF8; /* Fondo Cálido */
             --color-light: #F6EEEE; /* Rosa muy claro para fondos F9F1EF */
         }
-
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--color-background);
             color: var(--color-text);
+            padding-top: 80px; /* Espacio para la navbar fija en estado normal */
         }
         .font-serif {
             font-family: 'Playfair Display', serif;
@@ -104,37 +98,100 @@
         
         #mobile-cta {
             display: none; /* Oculto por defecto */
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
         }
         @media (max-width: 768px) {
             body { padding-bottom: 80px; } /* Espacio para el botón fijo */
             #mobile-cta {
                 display: flex;
                 position: fixed;
-                bottom: 0;
+                bottom: 20px; /* Subir un poco para evitar solapamiento */
                 left: 0;
                 right: 0;
                 /* Fondo con degradado para suavizar */
-                background: linear-gradient(to top, var(--color-background) 70%, rgba(254, 251, 248, 0));
-                padding: 1.5rem 1rem 1rem 1rem;
+                background: linear-gradient(to top, rgba(254, 251, 248, 0.9) 70%, rgba(254, 251, 248, 0));
+                padding: 1rem 1rem 0.5rem 1rem; /* Reducir padding */
                 z-index: 100;
                 pointer-events: none; /* Permite hacer clic a través del área transparente */
             }
              #mobile-cta > a {
                 pointer-events: auto; /* El botón sí es clickable */
+                max-width: 280px; /* Limitar el ancho del botón */
+                width: 80%; /* Ancho relativo pero no completo */
+                text-align: center;
             }
         }
         /* Estilo para el acordeón de FAQ */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
         details[open] summary .plus-icon { transform: rotate(45deg); }
+        
+        /* ESTILOS PARA LA NAVBAR FIJA Y REDUCIBLE */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(254, 251, 248, 0.95); /* Fondo con transparencia */
+            backdrop-filter: blur(10px); /* Efecto desenfoque */
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #main-header.header-normal {
+            height: 80px;
+            padding: 1rem 0;
+        }
+        
+        #main-header.header-scrolled {
+            height: 60px;
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Ajustes para elementos dentro del header */
+        #main-header.header-scrolled .logo-container svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        #main-header.header-scrolled .logo-text {
+            font-size: 1.5rem;
+        }
+        
+        #main-header.header-scrolled nav a {
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        #main-header.header-scrolled .cta-button {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        #main-header.header-scrolled #menu-btn {
+            padding: 0.25rem;
+        }
+        
+        #main-header.header-scrolled #menu-btn svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        
+        /* Ajustar padding del body cuando la navbar se reduce */
+        body.navbar-scrolled {
+            padding-top: 60px;
+        }
     </style>
 </head>
-<body class="antialiased">
-
+<body>
     <!-- Header Section (con Menú Móvil Mejorado) -->
-    <header class="py-4 border-b relative" style="border-color: var(--color-light);">
-        <div class="container flex justify-between items-center">
-            <a href="/" class="flex items-center space-x-3 rounded-md p-2 hover:bg-rose-50 transition duration-300">
+    <header id="main-header" class="header-normal py-4 border-b relative" style="border-color: var(--color-light);">
+        <div class="container flex justify-between items-center h-full">
+            <a href="/" class="flex items-center space-x-3 rounded-md p-2 hover:bg-rose-50 transition duration-300 logo-container">
                 <svg class="w-12 h-12" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 40 160 L 40 80 C 40 50, 70 40, 100 40 C 130 40, 160 50, 160 80 L 160 160" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M 100 160 L 100 110 C 100 90, 80 80, 70 90" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -142,7 +199,7 @@
                     <path d="M 70 90 C 60 70, 80 60, 90 70" stroke="#A1BFAE" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M 120 100 C 130 80, 110 70, 100 80" stroke="#A1BFAE" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span class="font-serif text-2xl font-semibold" style="color: var(--color-primary);">Hogar Terapéutico</span>
+                <span class="font-serif text-2xl font-semibold logo-text" style="color: var(--color-primary);">Hogar Terapéutico</span>
             </a>
             <!-- Menú de Escritorio -->
             <nav class="hidden md:flex">
@@ -151,7 +208,7 @@
                     <li><a href="#areas-of-intervention" class="font-medium transition-all duration-300 hover:text-[var(--color-primary)] hover:-translate-y-0.5 inline-block" style="color: var(--color-text);">Terapia</a></li>
                     <li><a href="#services-pricing" class="font-medium transition-all duration-300 hover:text-[var(--color-primary)] hover:-translate-y-0.5 inline-block" style="color: var(--color-text);">Tarifas</a></li>
                     <li><a href="/blog/" class="font-medium transition-all duration-300 hover:text-[var(--color-primary)] hover:-translate-y-0.5 inline-block" style="color: var(--color-text);">Blog</a></li>
-                    <li><a href="#contact" class="text-white font-semibold py-2 px-4 rounded-full shadow-md transition-all duration-300 transform hover:scale-105 hover:brightness-110" style="background-color: var(--color-primary);">Reservar Cita</a></li>
+                    <li><a href="#contact" class="text-white font-semibold py-2 px-4 rounded-full shadow-md transition-all duration-300 transform hover:scale-105 hover:brightness-110 cta-button" style="background-color: var(--color-primary);">Reservar Cita</a></li>
                 </ul>
             </nav>
             <!-- Botón de Menú Móvil -->
@@ -177,7 +234,7 @@
             </ul>
         </div>
     </header>
-
+    
     <main role="main">
         <!-- Hero Section -->
         <section aria-labelledby="hero-title" class="text-white py-16 md:py-24 text-center rounded-b-3xl shadow-lg" style="background-color: var(--color-primary);">
@@ -193,7 +250,6 @@
                 </a>
             </div>
         </section>
-
         <!-- First Session Offer Section -->
         <section id="first-session-offer" aria-labelledby="offer-title" class="py-12 md:py-16 text-center rounded-xl shadow-md mx-4 md:mx-auto mt-8 border-l-4" style="background-color: var(--color-light); border-color: var(--color-primary);">
             <div class="container">
@@ -208,7 +264,6 @@
                 </a>
             </div>
         </section>
-
         <!-- About Me Section -->
         <section id="about" aria-labelledby="about-title" class="py-16 md:py-20 bg-white rounded-xl shadow-md mx-4 md:mx-auto mt-8">
             <div class="container">
@@ -272,7 +327,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Areas of Intervention Section -->
         <section id="areas-of-intervention" aria-labelledby="areas-title" class="py-16 md:py-20 bg-white rounded-xl shadow-md mx-4 md:mx-auto">
             <div class="container text-center">
@@ -311,7 +365,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Testimonials Section -->
         <section id="testimonials" aria-labelledby="testimonials-title" class="py-16 md:py-20">
             <div class="container text-center">
@@ -328,7 +381,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Pricing Section -->
         <section id="services-pricing" aria-labelledby="pricing-title" class="py-16 md:py-20">
             <div class="container text-center">
@@ -357,7 +409,6 @@
                 </div>
             </div>
         </section>
-
         <!-- NUEVA SECCIÓN: PREGUNTAS FRECUENTES (FAQ) -->
         <section id="faq" aria-labelledby="faq-title" class="py-16 md:py-20">
             <div class="container max-w-4xl mx-auto text-center">
@@ -428,9 +479,7 @@
                 </div>
             </div>
         </section>
-
     </main>
-
     <!-- Footer Section -->
     <footer class="py-8 mt-12 rounded-t-3xl shadow-inner" style="background-color: #6B5B5B; color: #F9F1EF;">
         <div class="container text-center text-sm">
@@ -445,22 +494,35 @@
             </div>
         </div>
     </footer>
-
     <!-- Botón para volver arriba con SVG -->
     <button id="scrollToTopBtn" aria-label="Volver arriba">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
         </svg>
     </button>
-
     <!-- BOTÓN DE CTA FIJO PARA MÓVIL (MEJORADO) -->
     <div id="mobile-cta">
-        <a href="#contact" class="w-full text-center text-white font-bold rounded-full shadow-lg transition duration-300 cta-button" style="background-color: var(--color-primary);">
+        <a href="#contact" class="text-center text-white font-bold rounded-full shadow-lg transition duration-300 cta-button" style="background-color: var(--color-primary);">
             Reserva tu 1ª Sesión (35€)
         </a>
     </div>
-
     <script>
+        // Navbar fija que se reduce al hacer scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            const body = document.body;
+            
+            if (window.scrollY > 50) {
+                header.classList.remove('header-normal');
+                header.classList.add('header-scrolled');
+                body.classList.add('navbar-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+                header.classList.add('header-normal');
+                body.classList.remove('navbar-scrolled');
+            }
+        });
+        
         const scrollToTopBtn = document.getElementById("scrollToTopBtn");
         window.onscroll = () => {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -470,20 +532,18 @@
             }
         };
         scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
+        
         // Script para el menú móvil
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const hamburgerIcon = document.getElementById('hamburger-icon');
         const closeIcon = document.getElementById('close-icon');
         const mobileLinks = document.querySelectorAll('.mobile-link');
-
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             hamburgerIcon.classList.toggle('hidden');
             closeIcon.classList.toggle('hidden');
         });
-
         // Cierra el menú al hacer clic en un enlace
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
