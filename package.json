@@ -1,0 +1,16 @@
+{
+  "name": "web-hogar-terapeutico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tailwind-init": "./node_modules/.bin/tailwindcss init",
+    "build": "./node_modules/.bin/tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

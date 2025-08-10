@@ -23,10 +23,12 @@
     <link rel="manifest" href="/images/favicon/site.webmanifest">
     <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/dist/output.css">
+
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/phosphor.js"></script>
 
     <script type="application/ld+json">
@@ -47,53 +49,6 @@
     }
     </script>
     
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: '#9C6666',
-              secondary: '#A1BFAE',
-              text: '#4A3B3B',
-              background: '#FEFBF8',
-              light: '#F6EEEE',
-              accent: '#E6A6A1',
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Playfair Display', 'serif'],
-            }
-          }
-        }
-      }
-    </script>
-
-    <style type="text/tailwindcss">
-        @layer base {
-            body { @apply font-sans bg-background text-text leading-relaxed transition-all duration-300; }
-            h1, h2, h3, h4 { @apply text-text leading-tight; }
-            h1, h2 { @apply font-serif font-semibold; }
-            section { @apply section-padding; }
-            .container { @apply max-w-7xl mx-auto px-4; }
-            input:focus, textarea:focus, button:focus { @apply outline-none ring-2 ring-accent/50; }
-            details > summary { list-style: none; cursor: pointer; }
-            details > summary::-webkit-details-marker { display: none; }
-        }
-        @layer components {
-            .cta-button { @apply inline-block py-3 px-6 font-semibold rounded-full shadow-md transition-all duration-300 transform hover:scale-105 hover:brightness-110; }
-            .section-padding { @apply py-16 md:py-20; }
-            .card { @apply transition-all duration-300; }
-            .card:hover { @apply transform -translate-y-1.5 shadow-xl; }
-            .highlight { @apply bg-gradient-to-t from-accent/30 from-40% to-transparent to-60% font-semibold px-1; }
-        }
-        @layer utilities {
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(20px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-            .animate-fade-in-up { animation: fadeIn 0.7s ease-out forwards; opacity: 0; }
-        }
-    </style>
 </head>
 <body class="pt-20">
     
