@@ -1,6 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 40 160 L 40 80 C 40 50, 70 40, 100 40 C 130 40, 160 50, 160 80 L 160 160" stroke="#E6A6A1" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M 100 130 C 120 130, 130 110, 120 100" stroke="#A1BFEE" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="411.69" height="280.88"><svg id="SvgjsSvg1028" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 411.69 280.88">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e6a6a1;
+        stroke-width: 11px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #9c6666;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #9c6666;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M.5,151.43c0-7.79,46.9-43.04,72.65-61.98V23.52c0-1.49,4.85-4.52,7.05-4.94,5.44-1.04,34.17-.78,39.02.83,5.74,1.9,7.46,8.86,7.71,14.32.1,2.26-4.44,13.13,1.14,10.75,12.28-7.95,44.38-41.72,56.5-43.63,1.69-.27,3.27-.66,4.94.05l159.51,130.38c4.68,2.97,22.36,11.12,26.84,11.12l32.37.07c3.97,0,3.97,11.99,0,11.99l-30.37-.07c-8.94,0-26.89-8.17-34.79-13.16L189.12,15.36l-8.02.14c-11.51,7.44-44.85,42.32-55.44,44.61-3.7.8-8.84,1.4-10.26-2.91l-.29-26.68h-31.97v64.94l-53.95,46.95h34.97c.35,0,5,4.64,5,5v117.88l233.78,1.01c4.22-4.05-6.38-94.82.48-107.4l6.2-2.13,4.29,3.64c.93,1.51.88,3.2,1.1,4.88,2.57,19.14,2.23,80.45-.05,100.04-.79,6.8-3.48,11.37-9.93,14.05l-234.91.93c-5.78.9-12.96-5.86-12.96-11.02v-114.89"></path>
+  <path class="cls-1" d="M135.09,254.29v-62.94c0-42.54,70.55-61.47,94.78-18.85,1.28,2.25,7.12,15.75,7.12,16.85v64.94"></path>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
 @media (prefers-color-scheme: dark) { :root { filter: none; } }
 </style></svg>
