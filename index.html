@@ -112,11 +112,16 @@
                 <a href="/blog/" class="font-medium text-text transition hover:text-primary">Blog</a>
                 <a href="#contact" id="nav-cta" class="cta-button bg-primary text-white text-sm">Reservar Cita</a>
             </nav>
-            <button id="menu-btn" class="md:hidden p-2 rounded-md z-50 text-primary">
-                <i id="hamburger-icon" class="ph ph-list text-3xl"></i>
-                <i id="close-icon" class="ph ph-x text-3xl hidden"></i>
-            </button>
-        </div>
+            
+            <button id="menu-btn" class="md:hidden p-1 rounded-md z-50 text-primary flex-shrink-0" aria-label="Abrir menú" aria-expanded="false">
+                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+        </button>
+    </div>
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-light">
             <nav class="flex flex-col p-4 space-y-2">
                 <a href="#about" class="mobile-link block px-4 py-3 font-medium text-text rounded-md hover:bg-light">Sobre mí</a>
