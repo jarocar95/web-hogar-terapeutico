@@ -87,6 +87,7 @@ function initAnimations() {
         });
     }, { threshold: 0.1 });
 
+<<<<<<< HEAD
     // Aplica el observador a todos los elementos que deben animarse.
     document.querySelectorAll('.animate-fade-in-up, .card').forEach(el => {
         // El banner de cookies tiene su propia lógica de aparición, así que lo excluimos.
@@ -108,20 +109,52 @@ function initCookieBanner() {
     }
 
     // Si no se han aceptado las cookies previamente, muestra el banner.
+=======
+        document.querySelectorAll('.animate-fade-in-up, .card').forEach(el => observer.observe(el));
+      });
+
+
+// --- Lógica del Banner de Cookies ---
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (el código del header, menú móvil, etc., ya está aquí arriba)
+
+    const cookieBanner = document.getElementById('cookie-consent-banner');
+    const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+
+    // Si no hay una cookie guardada que indique que ya se aceptaron, muestra el banner.
+>>>>>>> 5a1ee81 (Añade banner de consentimiento de cookies)
     if (!localStorage.getItem('cookiesAccepted')) {
         cookieBanner.classList.remove('hidden');
         cookieBanner.style.animationPlayState = 'running';
     }
 
+<<<<<<< HEAD
     acceptCookiesBtn.addEventListener('click', () => {
         localStorage.setItem('cookiesAccepted', 'true');
         
         // Oculta el banner con una transición suave.
+=======
+    // Cuando el usuario hace clic en "Aceptar"
+    acceptCookiesBtn.addEventListener('click', () => {
+        // Guarda la preferencia en el navegador para no volver a mostrarlo.
+        localStorage.setItem('cookiesAccepted', 'true');
+        
+        // Oculta el banner con una transición suave
+>>>>>>> 5a1ee81 (Añade banner de consentimiento de cookies)
         cookieBanner.style.transition = 'opacity 0.5s ease';
         cookieBanner.style.opacity = '0';
         
         setTimeout(() => {
             cookieBanner.style.display = 'none';
+<<<<<<< HEAD
         }, 500);
     });
 }
+=======
+        }, 500); // Espera a que termine la transición para ocultarlo del todo
+    });
+});
+
+
+    </script>
+>>>>>>> 5a1ee81 (Añade banner de consentimiento de cookies)
