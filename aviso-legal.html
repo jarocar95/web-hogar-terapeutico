@@ -4,124 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aviso Legal - Hogar Terapéutico</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter & Playfair Display -->
+    <meta name="robots" content="noindex, nofollow">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --color-primary: #E6A6A1; /* Rosa Empolvado */
-            --color-secondary: #A1BFAE; /* Verde Salvia */
-            --color-text: #6B5B5B; /* Marrón Oscuro */
-            --color-background: #FEFBF8; /* Fondo Cálido */
-            --color-light: #F9F1EF; /* Rosa muy claro para fondos */
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-background);
-            color: var(--color-text);
-        }
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-        h1, h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--color-primary);
-        }
-        .legal-content a {
-            color: var(--color-primary);
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="/dist/output.css">
 </head>
-<body class="antialiased">
+<body class="bg-background text-text font-sans">
 
-    <!-- Header Simplificado -->
-    <header class="py-6 border-b" style="border-color: var(--color-light);">
-        <div class="container">
-            <a href="/" class="flex items-center space-x-3 transition duration-300">
-                <svg class="w-10 h-10" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 40 160 L 40 80 C 40 50, 70 40, 100 40 C 130 40, 160 50, 160 80 L 160 160" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 100 160 L 100 110 C 100 90, 80 80, 70 90" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 100 130 C 120 130, 130 110, 120 100" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 70 90 C 60 70, 80 60, 90 70" stroke="#A1BFAE" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 120 100 C 130 80, 110 70, 100 80" stroke="#A1BFAE" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="text-2xl font-serif font-semibold" style="color: var(--color-primary);">Hogar Terapéutico</span>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-light h-20">
+        <div class="container flex justify-between items-center h-full max-w-7xl mx-auto px-4">
+            <a href="/" class="flex items-center gap-3 rounded-md p-1">
+                <img src="/images/logo-hogarterapeutico-simplificado.svg" alt="Logo de Hogar Terapéutico" class="h-10">
+                <span class="font-serif text-xl font-semibold text-primary leading-tight md:text-2xl">
+                    Hogar Terapéutico
+                </span>
+            </a>
+            <a href="/" class="cta-button bg-primary text-white text-sm">
+                Volver al inicio
             </a>
         </div>
     </header>
 
-    <main class="py-12 md:py-16">
-        <div class="container">
-            <h1 class="text-4xl font-bold mb-8 text-center">Aviso Legal</h1>
-
-            <div class="bg-white p-8 rounded-xl shadow-md legal-content space-y-6">
+    <main class="py-16 md:py-24 mt-20">
+        <div class="container max-w-4xl mx-auto px-4">
+            <div class="prose prose-lg max-w-none">
+                <h1>Aviso Legal</h1>
                 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">1. Datos Identificativos del Titular</h2>
+                    <h2>1. Datos Identificativos del Titular</h2>
                     <p>En cumplimiento del deber de información estipulado en el artículo 10 de la Ley 34/2002 de 11 de julio de Servicios de la Sociedad de la Información y de Comercio Electrónico, se comunican los siguientes datos:</p>
-                    <ul class="list-disc list-inside mt-2 space-y-1">
+                    <ul>
                         <li><strong>Titular:</strong> Angie Sánchez Gallego</li>
                         <li><strong>Nombre Comercial:</strong> Hogar Terapéutico</li>
                         <li><strong>Nº de Colegiada:</strong> M-42569 (Colegio Oficial de la Psicología de Madrid)</li>
                         <li><strong>Domicilio Profesional:</strong> Madrid, España</li>
-                        <li><strong>Correo Electrónico de Contacto:</strong> [TU-EMAIL-PROFESIONAL@ejemplo.com]</li>
+                        <li><strong>Correo Electrónico de Contacto:</strong> info@hogarterapeutico.com</li>
                         <li><strong>Sitio Web:</strong> https://www.hogarterapeutico.com (en adelante, "el sitio web")</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">2. Objeto</h2>
+                    <h2>2. Objeto</h2>
                     <p>El presente Aviso Legal regula el acceso y uso del sitio web, cuya finalidad es la presentación de los servicios de terapia psicológica online ofrecidos por Angie Sánchez Gallego, así como la facilitación de un medio de contacto.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">3. Condiciones de Uso</h2>
+                    <h2>3. Condiciones de Uso</h2>
                     <p>El acceso y/o uso de este sitio web atribuye la condición de USUARIO, que acepta, desde dicho acceso y/o uso, las Condiciones Generales de Uso aquí reflejadas. El usuario se compromete a hacer un uso adecuado de los contenidos y servicios que Hogar Terapéutico ofrece a través de su portal.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">4. Propiedad Intelectual e Industrial</h2>
+                    <h2>4. Propiedad Intelectual e Industrial</h2>
                     <p>Angie Sánchez Gallego, por sí misma o como cesionaria, es titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma (a título enunciativo, imágenes, sonido, audio, vídeo, software o textos; marcas o logotipos, combinaciones de colores, estructura y diseño, etc.).</p>
                     <p>Todos los derechos reservados. En virtud de lo dispuesto en los artículos 8 y 32.1, párrafo segundo, de la Ley de Propiedad Intelectual, quedan expresamente prohibidas la reproducción, la distribución y la comunicación pública, incluida su modalidad de puesta a disposición, de la totalidad o parte de los contenidos de esta página web, con fines comerciales, en cualquier soporte y por cualquier medio técnico, sin la autorización de Angie Sánchez Gallego.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">5. Exclusión de Responsabilidad</h2>
+                    <h2>5. Exclusión de Responsabilidad</h2>
                     <p>Angie Sánchez Gallego no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos o lesivos en los contenidos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.</p>
                     <p>El contenido de este sitio web es de carácter general y tiene una finalidad meramente informativa, sin que se garantice plenamente el acceso a todos los contenidos, ni su exhaustividad, corrección, vigencia o actualidad, ni su idoneidad o utilidad para un objetivo específico.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">6. Política de Privacidad y Protección de Datos</h2>
+                    <h2>6. Política de Privacidad y Protección de Datos</h2>
                     <p>Todo lo relativo a la política de protección de datos se encuentra recogido en el documento de <a href="/politica-privacidad.html">Política de Privacidad</a>.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">7. Legislación Aplicable y Jurisdicción</h2>
+                    <h2>7. Legislación Aplicable y Jurisdicción</h2>
                     <p>La relación entre Angie Sánchez Gallego y el USUARIO se regirá por la normativa española vigente y cualquier controversia se someterá a los Juzgados y tribunales de la ciudad de Madrid, salvo que la Ley aplicable disponga otra cosa.</p>
                 </section>
                 
-                <p class="pt-4 text-sm text-gray-500">Última actualización: 7 de agosto de 2025</p>
-
+                <p class="text-sm text-gray-500">Última actualización: 7 de agosto de 2025</p>
             </div>
         </div>
     </main>
 
-    <!-- Footer Simplificado -->
-    <footer class="py-8 mt-12" style="background-color: #6B5B5B; color: #F9F1EF;">
-        <div class="container text-center text-sm">
+    <footer class="bg-[#6B5B5B] text-[#F9F1EF] py-12">
+        <div class="container max-w-7xl mx-auto px-4 text-center">
             <p>&copy; 2025 Hogar Terapéutico. Todos los derechos reservados.</p>
+            <p class="text-sm opacity-80">Un proyecto de Angie Sánchez, Psicóloga General Sanitaria (M-42569).</p>
         </div>
     </footer>
 
