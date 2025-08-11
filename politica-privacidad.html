@@ -4,84 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad - Hogar Terapéutico</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter & Playfair Display -->
+    <meta name="robots" content="noindex, nofollow">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --color-primary: #E6A6A1; /* Rosa Empolvado */
-            --color-secondary: #A1BFAE; /* Verde Salvia */
-            --color-text: #6B5B5B; /* Marrón Oscuro */
-            --color-background: #FEFBF8; /* Fondo Cálido */
-            --color-light: #F9F1EF; /* Rosa muy claro para fondos */
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-background);
-            color: var(--color-text);
-        }
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-        h1, h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--color-primary);
-        }
-        .legal-content a {
-            color: var(--color-primary);
-            text-decoration: underline;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="/dist/output.css">
 </head>
-<body class="antialiased">
+<body class="bg-background text-text font-sans">
 
-    <!-- Header Simplificado -->
-    <header class="py-6 border-b" style="border-color: var(--color-light);">
-        <div class="container">
-            <a href="/" class="flex items-center space-x-3 transition duration-300">
-                <svg class="w-10 h-10" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 40 160 L 40 80 C 40 50, 70 40, 100 40 C 130 40, 160 50, 160 80 L 160 160" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 100 160 L 100 110 C 100 90, 80 80, 70 90" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 100 130 C 120 130, 130 110, 120 100" stroke="#E6A6A1" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 70 90 C 60 70, 80 60, 90 70" stroke="#A1BFAE" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 120 100 C 130 80, 110 70, 100 80" stroke="#A1BFAE" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="text-2xl font-serif font-semibold" style="color: var(--color-primary);">Hogar Terapéutico</span>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-light h-20">
+        <div class="container flex justify-between items-center h-full max-w-7xl mx-auto px-4">
+            <a href="/" class="flex items-center gap-3 rounded-md p-1">
+                <img src="/images/logo-hogarterapeutico-simplificado.svg" alt="Logo de Hogar Terapéutico" class="h-10">
+                <span class="font-serif text-xl font-semibold text-primary leading-tight md:text-2xl">
+                    Hogar Terapéutico
+                </span>
+            </a>
+            <a href="/" class="cta-button bg-primary text-white text-sm">
+                Volver al inicio
             </a>
         </div>
     </header>
 
-    <main class="py-12 md:py-16">
-        <div class="container">
-            <h1 class="text-4xl font-bold mb-8 text-center">Política de Privacidad</h1>
-
-            <div class="bg-white p-8 rounded-xl shadow-md legal-content space-y-6">
-                
+    <main class="py-16 md:py-24 mt-20">
+        <div class="container max-w-4xl mx-auto px-4">
+            <div class="prose prose-lg max-w-none">
+                <h1>Política de Privacidad</h1>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">1. Responsable del Tratamiento de Datos</h2>
+                    <h2>1. Responsable del Tratamiento de Datos</h2>
                     <p>De conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), se informa que el responsable del tratamiento de los datos personales recabados a través de este sitio web es:</p>
-                    <ul class="list-disc list-inside mt-2 space-y-1">
+                    <ul>
                         <li><strong>Titular:</strong> Angie Sánchez Gallego</li>
                         <li><strong>Nombre Comercial:</strong> Hogar Terapéutico</li>
-                        <li><strong>Correo Electrónico de Contacto:</strong> [TU-EMAIL-PROFESIONAL@ejemplo.com]</li>
+                        <li><strong>Correo Electrónico de Contacto:</strong> info@hogarterapeutico.com</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">2. Finalidad del Tratamiento de Datos</h2>
+                    <h2>2. Finalidad del Tratamiento de Datos</h2>
                     <p>Los datos personales que nos proporciones a través del formulario de contacto o por correo electrónico serán tratados con las siguientes finalidades:</p>
-                    <ul class="list-disc list-inside mt-2 space-y-1">
+                    <ul>
                         <li>Gestionar y responder a las consultas, solicitudes de información o peticiones de cita que realices.</li>
                         <li>Gestionar la relación profesional o pre-profesional y la prestación de los servicios de psicología solicitados.</li>
                         <li>Enviar comunicaciones informativas relacionadas con los servicios, siempre que contemos con tu consentimiento explícito.</li>
@@ -89,30 +54,30 @@
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">3. Legitimación para el Tratamiento</h2>
+                    <h2>3. Legitimación para el Tratamiento</h2>
                     <p>La base legal para el tratamiento de tus datos es el <strong>consentimiento explícito</strong> que otorgas al aceptar esta Política de Privacidad antes de enviar el formulario de contacto o al contactarnos voluntariamente por otros medios.</p>
                     <p>Para la contratación de servicios, la base legal será la ejecución de un contrato de prestación de servicios.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">4. Datos Recabados</h2>
+                    <h2>4. Datos Recabados</h2>
                     <p>Los datos que se solicitan a través del formulario de contacto son los mínimos necesarios para atender tu solicitud: nombre, correo electrónico y el mensaje que desees enviar. No se tratan categorías especiales de datos (como datos de salud) a través de este formulario inicial.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">5. Plazo de Conservación</h2>
+                    <h2>5. Plazo de Conservación</h2>
                     <p>Los datos personales se conservarán durante el tiempo estrictamente necesario para cumplir con la finalidad para la que fueron recabados y para determinar las posibles responsabilidades que se pudieran derivar de dicha finalidad. Una vez finalizada la relación, se procederá a su supresión conforme a la normativa vigente.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">6. Destinatarios de los Datos</h2>
+                    <h2>6. Destinatarios de los Datos</h2>
                     <p>Angie Sánchez Gallego no cederá los datos personales a terceros, salvo obligación legal. Los datos podrán ser tratados por proveedores de servicios que actúan como encargados del tratamiento (por ejemplo, el proveedor de hosting o el servicio de correo electrónico), con quienes se han firmado los correspondientes contratos de confidencialidad.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">7. Derechos del Interesado</h2>
+                    <h2>7. Derechos del Interesado</h2>
                     <p>Como usuario, puedes ejercer en cualquier momento los siguientes derechos sobre tus datos personales:</p>
-                    <ul class="list-disc list-inside mt-2 space-y-1">
+                    <ul>
                         <li><strong>Derecho de Acceso:</strong> A saber qué datos se están tratando.</li>
                         <li><strong>Derecho de Rectificación:</strong> A solicitar la corrección de datos inexactos.</li>
                         <li><strong>Derecho de Supresión (al olvido):</strong> A solicitar la eliminación de tus datos.</li>
@@ -120,24 +85,23 @@
                         <li><strong>Derecho de Portabilidad:</strong> A recibir tus datos en un formato estructurado y de uso común.</li>
                         <li><strong>Derecho de Oposición:</strong> A oponerte al tratamiento de tus datos.</li>
                     </ul>
-                    <p class="mt-2">Para ejercer estos derechos, puedes enviar una solicitud por escrito, acompañada de una copia de tu DNI, al correo electrónico de contacto: [TU-EMAIL-PROFESIONAL@ejemplo.com]. También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) si consideras que tus derechos han sido vulnerados.</p>
+                    <p class="mt-2">Para ejercer estos derechos, puedes enviar una solicitud por escrito, acompañada de una copia de tu DNI, al correo electrónico de contacto: info@hogarterapeutico.com. También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) si consideras que tus derechos han sido vulnerados.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-semibold mb-3">8. Medidas de Seguridad</h2>
+                    <h2>8. Medidas de Seguridad</h2>
                     <p>Angie Sánchez Gallego ha adoptado las medidas de índole técnica y organizativa necesarias para garantizar la seguridad de los datos de carácter personal y evitar su alteración, pérdida, tratamiento o acceso no autorizado, habida cuenta del estado de la tecnología, la naturaleza de los datos almacenados y los riesgos a que están expuestos.</p>
                 </section>
                 
-                <p class="pt-4 text-sm text-gray-500">Última actualización: 7 de agosto de 2025</p>
-
+                <p class="text-sm text-gray-500">Última actualización: 7 de agosto de 2025</p>
             </div>
         </div>
     </main>
 
-    <!-- Footer Simplificado -->
-    <footer class="py-8 mt-12" style="background-color: #6B5B5B; color: #F9F1EF;">
-        <div class="container text-center text-sm">
+    <footer class="bg-[#6B5B5B] text-[#F9F1EF] py-12">
+        <div class="container max-w-7xl mx-auto px-4 text-center">
             <p>&copy; 2025 Hogar Terapéutico. Todos los derechos reservados.</p>
+            <p class="text-sm opacity-80">Un proyecto de Angie Sánchez, Psicóloga General Sanitaria (M-42569).</p>
         </div>
     </footer>
 
