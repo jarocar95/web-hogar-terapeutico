@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollEffects();
     initAnimations();
     initCookieBanner();
+    initContactForm(); // <-- Aquí se añade la nueva función
 });
 
 /**
@@ -18,7 +19,6 @@ function initMobileMenu() {
     const hamburgerIcon = document.getElementById('hamburger-icon');
     const closeIcon = document.getElementById('close-icon');
 
-    // Si alguno de los elementos del menú no existe, no se ejecuta el resto del código.
     if (!menuBtn || !mobileMenu || !hamburgerIcon || !closeIcon) {
         return;
     }
@@ -33,7 +33,6 @@ function initMobileMenu() {
 
     menuBtn.addEventListener('click', toggleMenu);
 
-    // Cierra el menú al hacer clic en cualquiera de sus enlaces.
     document.querySelectorAll('.mobile-link').forEach(link => {
         link.addEventListener('click', () => {
             if (!mobileMenu.classList.contains('hidden')) {
@@ -44,8 +43,7 @@ function initMobileMenu() {
 }
 
 /**
- * Inicializa los efectos de scroll, como el encogimiento del header
- * y la aparición del botón "Volver Arriba".
+ * Inicializa los efectos de scroll.
  */
 function initScrollEffects() {
     const header = document.getElementById('main-header');
@@ -58,15 +56,11 @@ function initScrollEffects() {
 
     const handleScroll = () => {
         const isScrolled = window.scrollY > 50;
-        
-        // Ajusta la altura del header y el padding del body.
         header.classList.toggle('h-16', isScrolled);
         header.classList.toggle('h-20', !isScrolled);
         header.classList.toggle('shadow-lg', isScrolled);
         body.classList.toggle('pt-16', isScrolled);
         body.classList.toggle('pt-20', !isScrolled);
-        
-        // Muestra u oculta el botón "Volver Arriba".
         scrollToTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
     };
     
@@ -75,7 +69,7 @@ function initScrollEffects() {
 }
 
 /**
- * Inicializa las animaciones de aparición de elementos al hacer scroll.
+ * Inicializa las animaciones de aparición de elementos.
  */
 function initAnimations() {
     const observer = new IntersectionObserver((entries, obs) => {
@@ -87,10 +81,7 @@ function initAnimations() {
         });
     }, { threshold: 0.1 });
 
-<<<<<<< HEAD
-    // Aplica el observador a todos los elementos que deben animarse.
     document.querySelectorAll('.animate-fade-in-up, .card').forEach(el => {
-        // El banner de cookies tiene su propia lógica de aparición, así que lo excluimos.
         if (el.id !== 'cookie-consent-banner') {
             observer.observe(el);
         }
@@ -98,7 +89,7 @@ function initAnimations() {
 }
 
 /**
- * Inicializa la lógica del banner de consentimiento de cookies.
+ * Inicializa la lógica del banner de cookies.
  */
 function initCookieBanner() {
     const cookieBanner = document.getElementById('cookie-consent-banner');
@@ -108,53 +99,61 @@ function initCookieBanner() {
         return;
     }
 
-    // Si no se han aceptado las cookies previamente, muestra el banner.
-=======
-        document.querySelectorAll('.animate-fade-in-up, .card').forEach(el => observer.observe(el));
-      });
-
-
-// --- Lógica del Banner de Cookies ---
-document.addEventListener('DOMContentLoaded', () => {
-    // ... (el código del header, menú móvil, etc., ya está aquí arriba)
-
-    const cookieBanner = document.getElementById('cookie-consent-banner');
-    const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
-
-    // Si no hay una cookie guardada que indique que ya se aceptaron, muestra el banner.
->>>>>>> 5a1ee81 (Añade banner de consentimiento de cookies)
     if (!localStorage.getItem('cookiesAccepted')) {
         cookieBanner.classList.remove('hidden');
         cookieBanner.style.animationPlayState = 'running';
     }
 
-<<<<<<< HEAD
     acceptCookiesBtn.addEventListener('click', () => {
         localStorage.setItem('cookiesAccepted', 'true');
-        
-        // Oculta el banner con una transición suave.
-=======
-    // Cuando el usuario hace clic en "Aceptar"
-    acceptCookiesBtn.addEventListener('click', () => {
-        // Guarda la preferencia en el navegador para no volver a mostrarlo.
-        localStorage.setItem('cookiesAccepted', 'true');
-        
-        // Oculta el banner con una transición suave
->>>>>>> 5a1ee81 (Añade banner de consentimiento de cookies)
         cookieBanner.style.transition = 'opacity 0.5s ease';
         cookieBanner.style.opacity = '0';
-        
         setTimeout(() => {
             cookieBanner.style.display = 'none';
-<<<<<<< HEAD
         }, 500);
     });
 }
-=======
-        }, 500); // Espera a que termine la transición para ocultarlo del todo
+
+/**
+ * Inicializa la lógica del formulario de contacto para enviarlo sin recargar la página.
+ */
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('form-status');
+
+    if (!contactForm || !formStatus) {
+        return;
+    }
+
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const data = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        formStatus.innerHTML = '<p class="text-center text-gray-500">Enviando...</p>';
+        submitButton.disabled = true;
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                formStatus.innerHTML = '<p class="p-4 rounded-lg bg-green-100 text-green-800 text-center">¡Gracias por tu mensaje! Te responderé lo antes posible.</p>';
+                form.reset();
+            } else {
+                throw new Error('Error en el envío del formulario');
+            }
+        } catch (error) {
+            formStatus.innerHTML = '<p class="p-4 rounded-lg bg-red-100 text-red-800 text-center">Oops! Hubo un problema. Por favor, inténtalo de nuevo o contáctame directamente.</p>';
+        } finally {
+            submitButton.disabled = false;
+            setTimeout(() => {
+                formStatus.innerHTML = '';
+            }, 6000); // Limpia el mensaje después de 6 segundos
+        }
     });
-});
-
-
-    </script>
->>>>>>> 5a1ee81 (Añade banner de consentimiento de cookies)
+}
