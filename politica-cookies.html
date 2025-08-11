@@ -1,107 +1,76 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Cookies | Hogar Terapéutico</title>
     <meta name="description" content="Información detallada sobre el uso de cookies en el sitio web de Hogar Terapéutico.">
-    
-    <!-- Evita que los motores de búsqueda indexen esta página legal -->
     <meta name="robots" content="noindex, nofollow">
 
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: '#9C6666',
-              secondary: '#A1BFAE',
-              text: '#4A3B3B',
-              background: '#FEFBF8',
-              light: '#F6EEEE',
-              accent: '#E6A6A1',
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Playfair Display', 'serif'],
-            }
-          }
-        }
-      }
-    </script>
-    <style type="text/tailwindcss">
-        @layer base {
-            body { @apply font-sans bg-background text-text leading-relaxed; }
-            h1, h2, h3, h4 { @apply text-text leading-tight font-serif font-semibold; }
-            .container { @apply max-w-4xl mx-auto px-4; }
-            a { @apply text-primary underline hover:text-accent; }
-        }
-    </style>
+    <link rel="stylesheet" href="/dist/output.css">
 </head>
-<body class="pt-20">
+<body class="bg-background text-text font-sans">
 
-    <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-light h-20">
-        <div class="container flex justify-between items-center h-full max-w-7xl">
+        <div class="container flex justify-between items-center h-full max-w-7xl mx-auto px-4">
             <a href="/" class="flex items-center gap-3 rounded-md p-1">
                 <img src="/images/logo-hogarterapeutico-simplificado.svg" alt="Logo de Hogar Terapéutico" class="h-10">
-                <span class="font-serif text-xl font-semibold text-primary leading-tight text-center md:text-2xl md:text-left">
+                <span class="font-serif text-xl font-semibold text-primary leading-tight md:text-2xl">
                     Hogar Terapéutico
                 </span>
             </a>
-            <a href="/" class="cta-button bg-primary text-white text-sm" style="display: inline-block; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 9999px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); transition: all 0.3s; transform: scale(1); text-decoration: none;">
+            <a href="/" class="cta-button bg-primary text-white text-sm">
                 Volver al inicio
             </a>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="py-16 md:py-24">
-        <div class="container prose prose-lg max-w-4xl">
-            <h1>Política de Cookies</h1>
-            <p class="text-sm text-gray-500">Última actualización: 10 de agosto de 2025</p>
+    <main class="py-16 md:py-24 mt-20">
+        <div class="container max-w-4xl mx-auto px-4">
+            <div class="prose prose-lg max-w-none">
+                <h1>Política de Cookies</h1>
+                <p class="text-sm text-gray-500">Última actualización: 10 de agosto de 2025</p>
 
-            <p>En Hogar Terapéutico, utilizamos cookies y tecnologías similares para asegurar que te ofrecemos la mejor experiencia en nuestro sitio web, así como para analizar el tráfico y personalizar el contenido. Esta política explica qué son las cookies, cuáles utilizamos, por qué, y cómo puedes gestionarlas.</p>
+                <p>En Hogar Terapéutico, utilizamos cookies y tecnologías similares para asegurar que te ofrecemos la mejor experiencia en nuestro sitio web, así como para analizar el tráfico y personalizar el contenido. Esta política explica qué son las cookies, cuáles utilizamos, por qué, y cómo puedes gestionarlas.</p>
 
-            <h2>1. ¿Qué son las cookies?</h2>
-            <p>Una cookie es un pequeño fichero de texto que un sitio web almacena en tu ordenador o dispositivo móvil cuando visitas el sitio. Las cookies permiten a la web recordar tus acciones y preferencias (como el inicio de sesión, idioma, tamaño de letra y otras preferencias de visualización) durante un período de tiempo, para que no tengas que volver a configurarlas cada vez que regreses al sitio o navegues de una página a otra.</p>
+                <h2>1. ¿Qué son las cookies?</h2>
+                <p>Una cookie es un pequeño fichero de texto que un sitio web almacena en tu ordenador o dispositivo móvil cuando visitas el sitio. Las cookies permiten a la web recordar tus acciones y preferencias (como el inicio de sesión, idioma, tamaño de letra y otras preferencias de visualización) durante un período de tiempo, para que no tengas que volver a configurarlas cada vez que regreses al sitio o navegues de una página a otra.</p>
 
-            <h2>2. ¿Qué tipo de cookies utilizamos?</h2>
-            <p>En nuestro sitio web utilizamos los siguientes tipos de cookies:</p>
-            <ul>
-                <li><strong>Cookies técnicas o esenciales:</strong> Son aquellas imprescindibles para el funcionamiento de la web. Sin ellas, la página no podría funcionar correctamente. Por ejemplo, la cookie que utilizamos para guardar tu consentimiento sobre el uso de cookies.</li>
-                <li><strong>Cookies de análisis o rendimiento:</strong> Nos permiten reconocer y contar el número de visitantes, así como analizar cómo se mueven por el sitio web. Esto nos ayuda a mejorar el funcionamiento de nuestra web, por ejemplo, asegurando que los usuarios encuentren lo que buscan fácilmente. Utilizamos herramientas como Google Analytics para este propósito.</li>
-                <li><strong>Cookies de funcionalidad:</strong> Se utilizan para reconocerte cuando regresas a nuestro sitio web. Esto nos permite personalizar nuestro contenido para ti y recordar tus preferencias.</li>
-            </ul>
+                <h2>2. ¿Qué tipo de cookies utilizamos?</h2>
+                <p>En nuestro sitio web utilizamos los siguientes tipos de cookies:</p>
+                <ul>
+                    <li><strong>Cookies técnicas o esenciales:</strong> Son aquellas imprescindibles para el funcionamiento de la web. Sin ellas, la página no podría funcionar correctamente. Por ejemplo, la cookie que utilizamos para guardar tu consentimiento sobre el uso de cookies.</li>
+                    <li><strong>Cookies de análisis o rendimiento:</strong> Nos permiten reconocer y contar el número de visitantes, así como analizar cómo se mueven por el sitio web. Esto nos ayuda a mejorar el funcionamiento de nuestra web, por ejemplo, asegurando que los usuarios encuentren lo que buscan fácilmente. Utilizamos herramientas como Google Analytics para este propósito.</li>
+                    <li><strong>Cookies de funcionalidad:</strong> Se utilizan para reconocerte cuando regresas a nuestro sitio web. Esto nos permite personalizar nuestro contenido para ti y recordar tus preferencias.</li>
+                </ul>
 
-            <h2>3. ¿Cómo puedes gestionar las cookies?</h2>
-            <p>Puedes controlar y/o eliminar las cookies como desees. Para más información, consulta <a href="https://www.aboutcookies.org" target="_blank" rel="noopener noreferrer">aboutcookies.org</a>. Tienes la posibilidad de eliminar todas las cookies que ya se encuentran en tu ordenador y de configurar la mayoría de los navegadores para que dejen de aceptarlas.</p>
-            <p>A continuación, te proporcionamos enlaces a las instrucciones para gestionar las cookies en los navegadores más comunes:</p>
-            <ul>
-                <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
-                <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
-                <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
-                <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari (Mac)</a></li>
-                <li><a href="https://support.apple.com/es-es/HT201265" target="_blank" rel="noopener noreferrer">Safari (iOS)</a></li>
-            </ul>
-            <p>Ten en cuenta que, si decides bloquear las cookies, es posible que algunas partes de nuestro sitio web no funcionen correctamente.</p>
+                <h2>3. ¿Cómo puedes gestionar las cookies?</h2>
+                <p>Puedes controlar y/o eliminar las cookies como desees. Para más información, consulta <a href="https://www.aboutcookies.org" target="_blank" rel="noopener noreferrer">aboutcookies.org</a>. Tienes la posibilidad de eliminar todas las cookies que ya se encuentran en tu ordenador y de configurar la mayoría de los navegadores para que dejen de aceptarlas.</p>
+                <p>A continuación, te proporcionamos enlaces a las instrucciones para gestionar las cookies en los navegadores más comunes:</p>
+                <ul>
+                    <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+                    <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+                    <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+                    <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari (Mac)</a></li>
+                    <li><a href="https://support.apple.com/es-es/HT201265" target="_blank" rel="noopener noreferrer">Safari (iOS)</a></li>
+                </ul>
+                <p>Ten en cuenta que, si decides bloquear las cookies, es posible que algunas partes de nuestro sitio web no funcionen correctamente.</p>
 
-            <h2>4. Cambios en la Política de Cookies</h2>
-            <p>Podemos actualizar nuestra Política de Cookies ocasionalmente. Te notificaremos de cualquier cambio publicando la nueva política en esta página. Te recomendamos revisar esta Política de Cookies periódicamente para cualquier cambio.</p>
+                <h2>4. Cambios en la Política de Cookies</h2>
+                <p>Podemos actualizar nuestra Política de Cookies ocasionalmente. Te notificaremos de cualquier cambio publicando la nueva política en esta página. Te recomendamos revisar esta Política de Cookies periódicamente para cualquier cambio.</p>
 
-            <h2>5. Contacto</h2>
-            <p>Si tienes alguna pregunta sobre nuestra Política de Cookies, no dudes en contactarnos a través de la información proporcionada en nuestro sitio web.</p>
+                <h2>5. Contacto</h2>
+                <p>Si tienes alguna pregunta sobre nuestra Política de Cookies, no dudes en contactarnos a través de la información proporcionada en nuestro sitio web.</p>
+            </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-[#6B5B5B] text-[#F9F1EF] py-12 mt-12">
-        <div class="container max-w-7xl text-center">
+    <footer class="bg-[#6B5B5B] text-[#F9F1EF] py-12">
+        <div class="container max-w-7xl mx-auto px-4 text-center">
             <p>&copy; 2025 Hogar Terapéutico. Todos los derechos reservados.</p>
             <p class="text-sm opacity-80">Un proyecto de Angie Sánchez, Psicóloga General Sanitaria (M-42569).</p>
         </div>
@@ -109,4 +78,3 @@
 
 </body>
 </html>
-
