@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://hogarterapeutico.com/sitemap.xml
