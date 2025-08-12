@@ -2,6 +2,7 @@ const { DateTime } = require("luxon");
 
 module.exports = function(eleventyConfig) {
 
+    eleventyConfig.addPassthroughCopy("./src/dist");
     // Copiar archivos estáticos (imágenes y scripts) a la carpeta de salida.
     // Hemos eliminado la línea que copiaba la carpeta 'dist'.
     eleventyConfig.addPassthroughCopy("./src/images");

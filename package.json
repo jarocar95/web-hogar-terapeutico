@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-     "build:css": "tailwindcss -i ./src/input.css -o ./public/dist/output.css --minify",
+     "build:css": "tailwindcss -i ./src/input.css -o ./src/dist/output.css --minify",
      "build:11ty": "eleventy",
      "build": "npm-run-all build:11ty build:css",
      "start": "npm-run-all --parallel watch:*",
-     "watch:css": "tailwindcss -i ./src/input.css -o ./public/dist/output.css --watch",
+     "watch:css": "tailwindcss -i ./src/input.css -o ./src/dist/output.css --watch",
      "watch:11ty": "eleventy --serve"
    },
 
