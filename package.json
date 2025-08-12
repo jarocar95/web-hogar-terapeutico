@@ -6,7 +6,7 @@
   "scripts": {
      "build:css": "tailwindcss -i ./src/input.css -o ./src/dist/output.css --minify",
      "build:11ty": "eleventy",
-     "build": "npm-run-all build:11ty build:css",
+     "build": "npm-run-all build:css build:11ty",
      "start": "npm-run-all --parallel watch:*",
      "watch:css": "tailwindcss -i ./src/input.css -o ./src/dist/output.css --watch",
      "watch:11ty": "eleventy --serve"
