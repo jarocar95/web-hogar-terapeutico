@@ -99,13 +99,32 @@ function initCookieBanner() {
         return;
     }
 
-    if (!localStorage.getItem('cookiesAccepted')) {
+    // Función para otorgar el consentimiento a Google Analytics
+    const grantConsent = () => {
+        // Comprueba que la función gtag exista para evitar errores
+        if (typeof gtag === 'function') {
+            gtag('consent', 'update', {
+                'analytics_storage': 'granted'
+            });
+            console.log('Consentimiento de Analytics otorgado.');
+        }
+    };
+
+    // Comprueba si las cookies ya fueron aceptadas en una visita anterior
+    if (localStorage.getItem('cookiesAccepted') === 'true') {
+        grantConsent(); // Si es así, activa Analytics directamente
+    } else {
+        // Si no, muestra el banner para pedir consentimiento
         cookieBanner.classList.remove('hidden');
         cookieBanner.style.animationPlayState = 'running';
     }
 
+    // Añade el evento al botón de aceptar
     acceptCookiesBtn.addEventListener('click', () => {
         localStorage.setItem('cookiesAccepted', 'true');
+        grantConsent(); // Otorga el consentimiento al hacer clic
+
+        // Oculta el banner con una transición suave
         cookieBanner.style.transition = 'opacity 0.5s ease';
         cookieBanner.style.opacity = '0';
         setTimeout(() => {
@@ -113,6 +132,7 @@ function initCookieBanner() {
         }, 500);
     });
 }
+
 
 /**
  * Inicializa la lógica del formulario de contacto para enviarlo sin recargar la página.
