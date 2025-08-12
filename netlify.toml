@@ -1,0 +1,7 @@
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[context.production.environment]
+  NODE_VERSION = "18" # Especifica una versión de Node.js recomendada
