@@ -1,0 +1,36 @@
+---
+layout: base.njk
+---
+<article class="py-16 md:py-20">
+    <header class="container max-w-4xl mx-auto text-center animate-fade-in-up mb-12">
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">{{ title }}</h1>
+        <p class="text-text/70">
+            Escrito por <a href="/#about" class="text-primary font-semibold hover:underline">Angie Sánchez</a> 
+            <span class="mx-2">•</span> 
+            Publicado el {{ date | readableDate }}
+        </p>
+    </header>
+
+    {% if featured_image %}
+    <div class="container max-w-5xl mx-auto mb-12 animate-fade-in-up">
+        <img src="{{ featured_image }}" alt="Portada del artículo: {{ title }}" class="rounded-xl shadow-lg w-full">
+    </div>
+    {% endif %}
+
+    <div class="container max-w-3xl mx-auto prose lg:prose-lg prose-h2:font-serif prose-h2:text-primary prose-a:text-primary hover:prose-a:underline prose-strong:text-text">
+        {{ content | safe }}
+    </div>
+</article>
+
+<section class="container max-w-3xl mx-auto mt-12 pt-8 border-t border-light">
+    <div class="flex items-center gap-6 bg-light p-6 rounded-xl">
+        <img src="/images/foto-perfil.jpg" alt="Angie Sánchez" class="h-24 w-24 rounded-full object-cover">
+        <div>
+            <h4 class="font-bold text-lg text-primary">Escrito por Angie Sánchez</h4>
+            <p class="text-sm text-text/80 mt-1">
+                Psicóloga General Sanitaria (M-42569), fundadora de Hogar Terapéutico. Mi misión es ofrecerte un espacio seguro y herramientas eficaces para que puedas sanar, crecer y recuperar tu bienestar emocional.
+            </p>
+            <a href="/#contact" class="text-primary font-semibold text-sm hover:underline mt-2 inline-block">Contactar →</a>
+        </div>
+    </div>
+</section>

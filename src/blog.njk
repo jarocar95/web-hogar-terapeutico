@@ -1,0 +1,70 @@
+---
+layout: base.njk
+title: "Blog de Bienestar Emocional"
+description: "Un espacio con recursos, reflexiones y herramientas para cultivar tu bienestar emocional."
+pagination:
+  data: collections.post
+  size: 100
+  alias: posts
+  reverse: true
+---
+
+<main role="main">
+    <section aria-labelledby="blog-title" class="text-center py-16 md:py-20 bg-light">
+        <div class="container animate-fade-in-up">
+            <h1 id="blog-title" class="text-4xl md:text-5xl font-bold font-serif text-primary">
+                Blog de Hogar Terapéutico
+            </h1>
+            <p class="text-lg md:text-xl mt-4 max-w-2xl mx-auto text-text">
+                Un espacio con recursos, reflexiones y herramientas para cultivar tu bienestar emocional.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-20">
+        <div class="container">
+            <!-- Artículo Destacado (el primero y más reciente de la colección) -->
+            {% set featuredPost = posts[0] %}
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20 animate-fade-in-up">
+                <a href="{{ featuredPost.url }}">
+                    <img src="{{ featuredPost.data.featured_image }}" alt="Portada del artículo: {{ featuredPost.data.title }}" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105">
+                </a>
+                <div>
+                    <p class="text-sm font-semibold text-primary mb-2">ARTÍCULO DESTACADO</p>
+                    <a href="{{ featuredPost.url }}">
+                        <h2 class="text-3xl font-serif font-bold mb-4 hover:text-primary transition">
+                            {{ featuredPost.data.title }}
+                        </h2>
+                    </a>
+                    <p class="mb-4 text-text/80">
+                        {{ featuredPost.data.description }}
+                    </p>
+                    <a href="{{ featuredPost.url }}" class="cta-button bg-primary text-white">Leer Artículo</a>
+                </div>
+            </div>
+
+            <!-- Listado del resto de artículos -->
+            <h3 class="text-3xl font-serif font-bold text-center mb-12">Más Artículos</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Hacemos un bucle desde el segundo artículo en adelante -->
+                {% for post in posts | slice(1) %}
+                    <div class="card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <a href="{{ post.url }}">
+                            <img src="{{ post.data.featured_image }}" alt="Portada del artículo: {{ post.data.title }}" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-serif font-semibold mb-3 flex-grow">
+                                <a href="{{ post.url }}" class="hover:text-primary transition">{{ post.data.title }}</a>
+                            </h4>
+                            <p class="text-sm text-text/70 mb-4">
+                                {{ post.data.description | truncate(120) }}
+                            </p>
+                            <a href="{{ post.url }}" class="text-primary font-semibold hover:underline mt-auto">Leer más →</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+
