@@ -37,7 +37,7 @@ module.exports = function(eleventyConfig) {
     // También copiaremos los archivos de la raíz como robots.txt y sitemap.xml
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
     eleventyConfig.addPassthroughCopy("./src/sitemap.xml");
-    eleventyConfig,addPassthroughCopy("./src/images/favicon");
+    eleventyConfig.addPassthroughCopy("./src/images/favicon");
 
 
     // Formateador de fechas legible
