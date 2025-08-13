@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: "Blog de Bienestar Emocional"
+title: "Blog de Hogar Terapeútico"
 description: "Un espacio con recursos, reflexiones y herramientas para cultivar tu bienestar emocional."
 pagination:
   data: collections.post
@@ -24,11 +24,15 @@ pagination:
     <section class="py-16 md:py-20">
         <div class="container">
             <!-- Artículo Destacado (el primero y más reciente de la colección) -->
-            {% set featuredPost = posts[0] %}
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-20 animate-fade-in-up">
-                <a href="{{ featuredPost.url }}">
-                    <img src="{{ featuredPost.data.featured_image }}" alt="Portada del artículo: {{ featuredPost.data.title }}" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105">
-                </a>
+            {% if posts and posts.length > 0 %}
+
+	    	{% set featuredPost = posts[0] %}
+            	<div class="grid md:grid-cols-2 gap-12 items-center mb-20 animate-fade-in-up">
+                    <a href="{{ featuredPost.url }}">
+                    	{% if featuredPost.data.featured_image %}
+			    {% image featuredPost.data.featured_image, "Portada del artículo: " + featuredPost.data.title, "(min-width: 768px) 50vw, 100vw" %}
+                	{% endif %}
+		    </a>
                 <div>
                     <p class="text-sm font-semibold text-primary mb-2">ARTÍCULO DESTACADO</p>
                     <a href="{{ featuredPost.url }}">
@@ -44,13 +48,16 @@ pagination:
             </div>
 
             <!-- Listado del resto de artículos -->
-            <h3 class="text-3xl font-serif font-bold text-center mb-12">Más Artículos</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Hacemos un bucle desde el segundo artículo en adelante -->
-                {% for post in posts | slice(1) %}
-                    <div class="card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
-                        <a href="{{ post.url }}">
-                            <img src="{{ post.data.featured_image }}" alt="Portada del artículo: {{ post.data.title }}" class="w-full h-48 object-cover">
+	    {% if posts.length > 1 %}
+            	<h3 class="text-3xl font-serif font-bold text-center mb-12">Más Artículos</h3>
+            	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Hacemos un bucle desde el segundo artículo en adelante -->
+                    {% for post in posts | slice(1) %}
+                    	<div class="card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                            <a href="{{ post.url }}">
+				{% if post.data.featured_image %}
+                            	    {% image post.data.featured_image, "Portada del artículo: " + post.data.title, "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" %}
+				{% endif %}
                         </a>
                         <div class="p-6 flex flex-col flex-grow">
                             <h4 class="text-xl font-serif font-semibold mb-3 flex-grow">
@@ -64,6 +71,13 @@ pagination:
                     </div>
                 {% endfor %}
             </div>
+	{% endif %}
+
+    {% else %}
+	<div class="text-center">
+	    <p class ="text-lg text-gray-600">Aún no hay artículos en el blog. ¡Vuelve pronto!</p>
+	</div>
+    {% endif %}
         </div>
     </section>
 </main>
