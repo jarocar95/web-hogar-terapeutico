@@ -3,6 +3,10 @@ const Image = require("@11ty/eleventy-img");
 
 // Función asíncrona para el shortcode de imágenes
 async function imageShortcode(src, alt, sizes = "100vw") {
+
+    if (alt === undefined) {
+	throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
+    }
     // Opciones para el procesamiento de imágenes
     let metadata = await Image(src, {
 	widths: [300, 600, 900, "auto"],
@@ -33,6 +37,7 @@ module.exports = function(eleventyConfig) {
     // También copiaremos los archivos de la raíz como robots.txt y sitemap.xml
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
     eleventyConfig.addPassthroughCopy("./src/sitemap.xml");
+    eleventyConfig,addPassthroughCopy("./src/images/favicon");
 
 
     // Formateador de fechas legible

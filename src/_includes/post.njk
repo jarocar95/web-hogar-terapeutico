@@ -10,13 +10,10 @@ layout: base.njk
             <span class="mx-2">•</span> 
             Publicado el {{ date | readableDate }}
         </p>
+	{% if featured_image %}
+            {% image featured_image, title, "(min-width: 768px) 700px, 100vw" %}
+        {% endif %}
     </header>
-
-    {% if featured_image %}
-    <div class="container max-w-5xl mx-auto mb-12 animate-fade-in-up">
-{% image featured_image, title, "100vw" %}
-    </div>
-    {% endif %}
 
     <div class="container max-w-3xl mx-auto prose lg:prose-lg prose-h2:font-serif prose-h2:text-primary prose-a:text-primary hover:prose-a:underline prose-strong:text-text">
         {{ content | safe }}
