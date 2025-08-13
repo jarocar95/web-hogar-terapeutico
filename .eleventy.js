@@ -21,6 +21,15 @@ module.exports = function(eleventyConfig) {
         return '';
     });
 
+    // =========== INICIO DEL CAMBIO ===========
+    // Nuevo filtro para formatear la fecha a formato ISO (YYYY-MM-DD) para Schema.org
+    eleventyConfig.addFilter("isoDate", (dateObj) => {
+        if (dateObj) {
+            return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toISODate();
+        }
+        return '';
+    });
+
     return {
         dir: {
             input: "src",

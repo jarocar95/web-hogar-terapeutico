@@ -20,11 +20,10 @@ layout: base.njk
     "name": "Hogar Terapéutico",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.hogarterapeutico.com/images/logo-hogarterapeutico-simplificado.svg"
+      "url": "https://www.hogarterapeutico.com/images/web-app-manifest-512x512.png"
     }
   },
-  "datePublished": "{{ date |
-iso }}",
+  "datePublished": "{{ date | isoDate }}",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://www.hogarterapeutico.com{{ page.url }}"
