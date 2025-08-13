@@ -3,7 +3,7 @@ layout: post.njk
 title: "¿Qué es la Ansiedad? Síntomas y Claves para Saber si Necesitas Ayuda"
 description: "Aprende a identificar qué es la ansiedad, sus síntomas más comunes y cuándo es el momento de buscar ayuda profesional. Guía clara por la psicóloga Angie Sánchez."
 date: 2025-08-12
-featured_image: "/images/blog/ansiedad-imagen-portada.webp"
+featured_image: "./src/images/blog/ansiedad-imagen-portada.webp"
 tags:
   - post
 ---

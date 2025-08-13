@@ -14,7 +14,7 @@ layout: base.njk
 
     {% if featured_image %}
     <div class="container max-w-5xl mx-auto mb-12 animate-fade-in-up">
-        <img src="{{ featured_image }}" alt="Portada del artículo: {{ title }}" class="rounded-xl shadow-lg w-full">
+        {% image featured_image, title, "100vw" %}
     </div>
     {% endif %}
 
