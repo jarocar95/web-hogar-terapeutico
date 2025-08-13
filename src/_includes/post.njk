@@ -2,36 +2,6 @@
 layout: base.njk
 ---
 
-{% block page_schemas %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ title }}",
-  "description": "{{ description }}",
-  "image": "https://www.hogarterapeutico.com{{ featured_image }}",
-  "author": {
-    "@type": "Person",
-    "name": "Angie Sánchez",
-    "url": "https://www.hogarterapeutico.com/#about"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hogar Terapéutico",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.hogarterapeutico.com/images/web-app-manifest-512x512.png"
-    }
-  },
-  "datePublished": "{{ date | isoDate }}",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.hogarterapeutico.com{{ page.url }}"
-  }
-}
-</script>
-{% endblock %}
-
 <article class="py-16 md:py-20">
     <header class="container max-w-4xl mx-auto text-center animate-fade-in-up mb-12">
         <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">{{ title }}</h1>
