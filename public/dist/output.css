@@ -1673,11 +1673,6 @@ details > summary::-webkit-details-marker {
   background-color: rgb(254 251 248 / 0.9);
 }
 
-.bg-blue-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(219 234 254 / var(--tw-bg-opacity, 1));
-}
-
 .bg-green-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 252 231 / var(--tw-bg-opacity, 1));
@@ -1905,11 +1900,6 @@ details > summary::-webkit-details-marker {
 .text-\[\#F9F1EF\] {
   --tw-text-opacity: 1;
   color: rgb(249 241 239 / var(--tw-text-opacity, 1));
-}
-
-.text-blue-800 {
-  --tw-text-opacity: 1;
-  color: rgb(30 64 175 / var(--tw-text-opacity, 1));
 }
 
 .text-gray-400 {
