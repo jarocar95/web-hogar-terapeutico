@@ -56,4 +56,4 @@ Modificar estos tres pilares —**Cuerpo, Mente y Entorno**— es un acto de pro
 
 Construir estos hábitos lleva tiempo y, a veces, es difícil saber por dónde empezar o cómo identificar los patrones más arraigados. Si sientes que necesitas una guía personalizada en este proceso, la terapia te ofrece exactamente eso: un espacio seguro para entender tus disparadores y un plan a medida para construir una calma duradera.
 
-**Da el siguiente paso. Empieza a construir tu bienestar desde los cimientos.**
+**Da el siguiente paso. Empieza a construir tu bienestar desde los cimientos.** **[Reserva tu primera sesión por 35€](#services-pricing)**.

@@ -57,7 +57,7 @@ La ansiedad modifica tu comportamiento para intentar (sin éxito) controlar el m
 * Necesidad constante de **buscar reaseguración** en los demás.
 * **Procrastinación** por miedo a no hacer las cosas perfectamente.
 
-> ***¿Te identificas con varios de estos síntomas?*** *No tienes que gestionarlo en soledad. Una* ***[primera sesión de valoración](#contact)*** *puede darte la claridad que necesitas para empezar a sentirte mejor.*
+> ***¿Te identificas con varios de estos síntomas?*** *No tienes que gestionarlo en soledad. Una* ***[primera sesión](#contact)*** *puede darte la claridad que necesitas para empezar a sentirte mejor.*
 
 ## ¿Cuándo la Ansiedad Deja de Ser Normal y se Convierte en un Problema?
 
@@ -99,4 +99,4 @@ Como psicóloga, mi trabajo es ofrecerte un espacio seguro y sin juicios donde p
 * **Procesar experiencias pasadas** que puedan estar contribuyendo a tu malestar actual, utilizando técnicas avanzadas como la terapia **EMDR**.
 * **Construir una autoestima sólida** para que te sientas capaz de enfrentar los desafíos de la vida con confianza.
 
-Dar el primer paso es la decisión más valiente. Si estás lista/o para trabajar en tu ansiedad y construir una vida con mayor calma y libertad, explora las tarifas y **[reserva tu primera sesión por 35€](#services-pricing)**. Empecemos a caminar juntos.
+Dar el primer paso es la decisión más valiente. Si estás lista/o para trabajar en tu ansiedad y construir una vida con mayor calma y libertad, **[reserva tu primera sesión por 35€](#services-pricing)**. Empecemos a caminar juntos.
