@@ -1,6 +1,6 @@
 const { DateTime } = require("luxon");
 const Image = require("@11ty/eleventy-img");
-const htmlmin = require("html-minifier");
+const htmlmin = require("html-minifier-terser");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
 // Función asíncrona para el shortcode de imágenes
@@ -52,7 +52,6 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addAsyncShortcode("image", imageShortcode);
-    eleventyConfig.addPassthroughCopy("./src/dist");
     eleventyConfig.addPassthroughCopy("./src/scripts.js");
     // También copiaremos los archivos de la raíz como robots.txt
     eleventyConfig.addPassthroughCopy("./src/robots.txt");

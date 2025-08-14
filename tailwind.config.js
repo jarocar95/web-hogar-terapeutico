@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,md,njk}"], // Archivos que va a escanear
+  content: ["./src/**/*.{html,njk,js,md}"], // Archivos que va a escanear
   theme: {
     extend: {
       colors: {
@@ -17,7 +17,5 @@ module.exports = {
       }
     },
   },
-  plugins: [
-	require('@tailwindcss/typography'),
-  ],
+  plugins: [],
 }
