@@ -23,12 +23,53 @@ function initMobileMenu() {
         return;
     }
 
+    let focusableElements = [];
+    let firstFocusableElement;
+    let lastFocusableElement;
+
+    const setFocusableElements = () => {
+        focusableElements = Array.from(mobileMenu.querySelectorAll('a[href], button:not([disabled]), textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'));
+        firstFocusableElement = focusableElements[0];
+        lastFocusableElement = focusableElements[focusableElements.length - 1];
+    }
+
+    const handleKeyDown = (e) => {
+        let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+        if (!isTabPressed) {
+            return;
+        }
+
+        if (e.shiftKey) { // shift + tab
+            if (document.activeElement === firstFocusableElement) {
+                lastFocusableElement.focus();
+                e.preventDefault();
+            }
+        } else { // tab
+            if (document.activeElement === lastFocusableElement) {
+                firstFocusableElement.focus();
+                e.preventDefault();
+            }
+        }
+    }
+
     const toggleMenu = () => {
         const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
         mobileMenu.classList.toggle('hidden');
         hamburgerIcon.classList.toggle('hidden');
         closeIcon.classList.toggle('hidden');
         menuBtn.setAttribute('aria-expanded', String(!isExpanded));
+
+        if (mobileMenu.classList.contains('hidden')) {
+            document.removeEventListener('keydown', handleKeyDown);
+            menuBtn.focus();
+        } else {
+            setFocusableElements();
+            if (focusableElements.length > 0) {
+                firstFocusableElement.focus();
+                document.addEventListener('keydown', handleKeyDown);
+            }
+        }
     };
 
     menuBtn.addEventListener('click', toggleMenu);
