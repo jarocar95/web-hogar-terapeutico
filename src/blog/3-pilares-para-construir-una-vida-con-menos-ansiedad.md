@@ -16,9 +16,7 @@ La gestión de la ansiedad no va solo de reaccionar a la crisis. Va de construir
 
 Aquí te presentamos los 3 pilares fundamentales para lograrlo.
 
----
-
-### Pilar 1: Regula tu Sistema Nervioso a través del Cuerpo
+## Pilar 1: Regula tu Sistema Nervioso a través del Cuerpo
 
 Tu cuerpo y tu mente están en constante conversación. Si tu cuerpo está en estado de alerta permanente, tu mente lo interpretará como una señal de peligro. Cuidar tu fisiología es el primer paso para enviar un mensaje de calma a tu cerebro.
 
@@ -28,9 +26,7 @@ Tu cuerpo y tu mente están en constante conversación. Si tu cuerpo está en es
 
 * **Nutrición Consciente:** Lo que comes puede alimentar tu calma o tu ansiedad. Estimulantes como la cafeína en exceso o los picos de azúcar pueden provocar síntomas casi idénticos a los de un ataque de ansiedad (taquicardia, nerviosismo). No necesitas una dieta restrictiva, solo ser consciente de la conexión que existe entre tu intestino y tu cerebro.
 
----
-
-### Pilar 2: Entrena tu Mente para Reducir el Ruido
+## Pilar 2: Entrena tu Mente para Reducir el Ruido
 
 La ansiedad a menudo se alimenta de patrones de pensamiento que funcionan en piloto automático. Aprender a observarlos sin juzgarlos es una habilidad que lo cambia todo.
 
@@ -38,9 +34,7 @@ La ansiedad a menudo se alimenta de patrones de pensamiento que funcionan en pil
 
 * **Crea un "Espacio para Preocuparte":** La mente ansiosa tiende a rumiar los problemas durante todo el día. Una técnica contraintuitiva pero eficaz es "citarte" con tus preocupaciones. Designa 15 minutos al día (¡y solo 15!) para sentarte y preocuparte activamente. Cuando una preocupación aparezca fuera de ese horario, dile amablemente: "Te veo, pero ahora no es nuestro momento. Nos vemos a las 7 de la tarde". Esto te ayuda a contener la preocupación en lugar de que ella te controle a ti.
 
----
-
-### Pilar 3: Diseña un Entorno que te Sostenga
+## Pilar 3: Diseña un Entorno que te Sostenga
 
 A menudo, subestimamos cómo nuestro entorno físico y digital moldea nuestro estado de ánimo. Puedes convertirlo en tu refugio o dejar que sea una fuente constante de estrés.
 
@@ -48,12 +42,10 @@ A menudo, subestimamos cómo nuestro entorno físico y digital moldea nuestro es
 
 * **Busca Conexiones que Sanan:** La soledad es un potente amplificador de la ansiedad. El apoyo social, sentir que perteneces y que puedes hablar con alguien de confianza, es uno de los amortiguadores más potentes contra el estrés. No necesitas cientos de amigos, sino una o dos conexiones genuinas donde te sientas seguro para ser tú mismo.
 
----
-
-### De la Reacción a la Creación
+## De la Reacción a la Creación
 
 Modificar estos tres pilares —**Cuerpo, Mente y Entorno**— es un acto de profundo autocuidado. Las técnicas del artículo anterior son tu respuesta a corto plazo; estos pilares son tu estrategia a largo plazo.
 
 Construir estos hábitos lleva tiempo y, a veces, es difícil saber por dónde empezar o cómo identificar los patrones más arraigados. Si sientes que necesitas una guía personalizada en este proceso, la terapia te ofrece exactamente eso: un espacio seguro para entender tus disparadores y un plan a medida para construir una calma duradera.
 
-**Da el siguiente paso. Empieza a construir tu bienestar desde los cimientos.** **[Reserva tu primera sesión por 35€](#services-pricing)**.
+> ***Da el siguiente paso. Empieza a construir tu bienestar desde los cimientos.*** **[Reserva tu primera sesión por 35€](#services-pricing)**.

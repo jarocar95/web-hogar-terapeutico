@@ -56,6 +56,7 @@ module.exports = function(eleventyConfig) {
     // También copiaremos los archivos de la raíz como robots.txt
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
     eleventyConfig.addPassthroughCopy("./src/images/favicon");
+    eleventyConfig.addPassthroughCopy("./src/prose.css");
 
 
     // Formateador de fechas legible

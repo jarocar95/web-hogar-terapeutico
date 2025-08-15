@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:hello": "echo 'Hello World'",
     "build:css": "./node_modules/.bin/tailwindcss -i ./src/input.css -o ./public/dist/output.css --minify",
     "build:11ty": "eleventy",
     "build": "npm-run-all build:css build:11ty",
