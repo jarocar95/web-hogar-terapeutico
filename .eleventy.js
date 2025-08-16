@@ -55,7 +55,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/scripts.js");
     // También copiaremos los archivos de la raíz como robots.txt
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
-    eleventyConfig.addPassthroughCopy("./src/images/favicon");
+    eleventyConfig.addPassthroughCopy("./src/images"); // Copy all images
     eleventyConfig.addPassthroughCopy("./src/prose.css");
 
 
