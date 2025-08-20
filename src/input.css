@@ -14,10 +14,10 @@
   details > summary::-webkit-details-marker { display: none; }
 }
 @layer components {
-  .cta-button { @apply inline-block py-3 px-6 font-semibold rounded-full shadow-md transition-all duration-300 transform hover:scale-105 hover:brightness-110; }
-  .section-padding { @apply py-16 md:py-20; }
+  .cta-button { @apply inline-block py-3 px-6 font-semibold rounded-full shadow-md transition-all duration-300 transform hover:scale-105 hover:brightness-110 hover:-translate-y-0.5 hover:shadow-xl; }
+  .section-padding { @apply py-24 md:py-28; }
   .card { @apply transition-all duration-300; }
-  .card:hover { @apply transform -translate-y-1.5 shadow-xl; }
+  .card:hover { @apply transform -translate-y-0.5 shadow-xl; }
   .highlight { @apply bg-gradient-to-t from-accent/30 from-40% to-transparent to-60% font-semibold px-1; }
 }
 @layer utilities {

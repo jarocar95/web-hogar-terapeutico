@@ -10,15 +10,19 @@ module.exports = {
         background: '#FEFBF8',
         light: '#F6EEEE',
         accent: '#E6A6A1',
+        'primary-darker': '#8B5A5A',
+        'footer-bg': '#6B5B5B',
+        'footer-text': '#F9F1EF',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['Public Sans', 'sans-serif'],
+        serif: ['Frank Ruhl Libre', 'serif'],
       },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
             color: theme('colors.text'),
+            lineHeight: '1.75',
             a: {
               color: theme('colors.primary'),
               textDecoration: 'none',
