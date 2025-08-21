@@ -1,4 +1,19 @@
 /**
+ * Debounce function to limit how often a function is called.
+ * @param {function} func - The function to debounce.
+ * @param {number} delay - The delay in milliseconds.
+ * @returns {function} The debounced function.
+ */
+function debounce(func, delay) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
+/**
  * Función principal que se ejecuta cuando el contenido del DOM ha sido cargado.
  * Llama a las funciones que inicializan las diferentes funcionalidades de la página.
  */
@@ -93,26 +108,17 @@ function initScrollEffects() {
 
     // New: Mobile CTA Bar
     const mobileCtaBar = document.getElementById('mobile-cta-bar');
-    let lastScrollY = window.scrollY; // Track last scroll position
-    const scrollThreshold = 100; // Pixels to scroll before showing/hiding
+    let lastScrollY = window.scrollY; // Track last scroll position, now updated inside debounce
 
     // if (!header || !body || !scrollToTopBtn) { // Removed scrollToTopBtn check
     if (!header || !body || !mobileCtaBar) { // Added mobileCtaBar check
         return;
     }
 
-    const handleScroll = () => {
-        const currentScrollY = window.scrollY;
-        const isScrolled = currentScrollY > 50;
-        header.classList.toggle('h-16', isScrolled);
-        header.classList.toggle('h-20', !isScrolled);
-        header.classList.toggle('shadow-lg', isScrolled);
-        body.classList.toggle('pt-16', isScrolled);
-        body.classList.toggle('pt-20', !isScrolled);
-        // scrollToTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none'; // Removed scrollToTopBtn logic
+    const debouncedCtaBarLogic = debounce((currentScrollY) => {
+        const newScrollThreshold = 150; // Slightly increased threshold
 
-        // New: Mobile CTA Bar logic
-        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+        if (currentScrollY > lastScrollY && currentScrollY > newScrollThreshold) {
             // Scrolling down and past threshold, show bar
             mobileCtaBar.classList.remove('hidden'); // Remove hidden first
             mobileCtaBar.classList.remove('opacity-0'); // Then remove opacity
@@ -123,11 +129,19 @@ function initScrollEffects() {
                 mobileCtaBar.classList.add('hidden');
             }, 500); // Match transition duration
         }
-        lastScrollY = currentScrollY; // Update last scroll position
-    };
+        lastScrollY = currentScrollY; // IMPORTANT: Update lastScrollY inside the debounced function
+    }, 100); // Debounce delay of 100ms
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    // scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' })); // Removed scrollToTopBtn event listener
+    window.addEventListener('scroll', () => {
+        debouncedCtaBarLogic(window.scrollY);
+        // The header/body class toggling can remain outside debounce if it needs to be more responsive
+        const isScrolled = window.scrollY > 50;
+        header.classList.toggle('h-16', isScrolled);
+        header.classList.toggle('h-20', !isScrolled);
+        header.classList.toggle('shadow-lg', isScrolled);
+        body.classList.toggle('pt-16', isScrolled);
+        body.classList.toggle('pt-20', !isScrolled);
+    }, { passive: true });
 }
 
 /**
