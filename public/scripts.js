@@ -89,24 +89,45 @@ function initMobileMenu() {
 function initScrollEffects() {
     const header = document.getElementById('main-header');
     const body = document.body;
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    // const scrollToTopBtn = document.getElementById("scrollToTopBtn"); // This button was removed
 
-    if (!header || !body || !scrollToTopBtn) {
+    // New: Mobile CTA Bar
+    const mobileCtaBar = document.getElementById('mobile-cta-bar');
+    let lastScrollY = window.scrollY; // Track last scroll position
+    const scrollThreshold = 100; // Pixels to scroll before showing/hiding
+
+    // if (!header || !body || !scrollToTopBtn) { // Removed scrollToTopBtn check
+    if (!header || !body || !mobileCtaBar) { // Added mobileCtaBar check
         return;
     }
 
     const handleScroll = () => {
-        const isScrolled = window.scrollY > 50;
+        const currentScrollY = window.scrollY;
+        const isScrolled = currentScrollY > 50;
         header.classList.toggle('h-16', isScrolled);
         header.classList.toggle('h-20', !isScrolled);
         header.classList.toggle('shadow-lg', isScrolled);
         body.classList.toggle('pt-16', isScrolled);
         body.classList.toggle('pt-20', !isScrolled);
-        scrollToTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+        // scrollToTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none'; // Removed scrollToTopBtn logic
+
+        // New: Mobile CTA Bar logic
+        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+            // Scrolling down and past threshold, show bar
+            mobileCtaBar.classList.remove('hidden'); // Remove hidden first
+            mobileCtaBar.classList.remove('opacity-0'); // Then remove opacity
+        } else if (currentScrollY < 50) { // Disappear only when near the very top
+            // Scrolling up or near top, hide bar
+            mobileCtaBar.classList.add('opacity-0'); // Add opacity first
+            setTimeout(() => { // Then add hidden after transition
+                mobileCtaBar.classList.add('hidden');
+            }, 500); // Match transition duration
+        }
+        lastScrollY = currentScrollY; // Update last scroll position
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    // scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' })); // Removed scrollToTopBtn event listener
 }
 
 /**
