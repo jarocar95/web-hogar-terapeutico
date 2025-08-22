@@ -55,7 +55,16 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/scripts.js");
     // También copiaremos los archivos de la raíz como robots.txt
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
-    eleventyConfig.addPassthroughCopy("./src/images"); // Copy all images
+    eleventyConfig.addPassthroughCopy({
+        "./src/images/imagen-background.webp": "/images/imagen-background.webp",
+        "./src/images/imagen-background.jpeg": "/images/imagen-background.jpeg",
+        "./src/images/foto-perfil.jpg": "/images/foto-perfil.jpg",
+        "./src/images/imagen-compartir.png": "/images/imagen-compartir.png",
+        "./src/images/logo-hogarterapeutico-simplificado.svg": "/images/logo-hogarterapeutico-simplificado.svg",
+        "./src/images/doctoralia-logo.png": "/images/doctoralia-logo.png",
+        "./src/images/blog": "/images/blog",
+        "./src/images/favicon": "/images/favicon"
+    });
     eleventyConfig.addPassthroughCopy("./src/prose.css");
 
 

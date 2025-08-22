@@ -115,13 +115,9 @@ function initScrollEffects() {
         if (currentScrollY > lastScrollY && currentScrollY > newScrollThreshold) {
             // Scrolling down and past threshold, show bar
             mobileCtaBar.classList.remove('hidden'); // Make it visible
-            // Ensure opacity-0 is present before transitioning to full opacity
-            // This is crucial for the transition to work on appearance
-            mobileCtaBar.classList.add('opacity-0'); 
-            // Use a small timeout to allow the browser to apply opacity-0 before removing it
-            setTimeout(() => {
-                mobileCtaBar.classList.remove('opacity-0'); // Transition to full opacity
-            }, 10); // Small delay
+            // Force reflow to ensure 'hidden' is removed before transition starts
+            mobileCtaBar.offsetHeight; // Trigger reflow
+            mobileCtaBar.classList.remove('opacity-0'); // Transition to full opacity
         } else if (currentScrollY < 50) { // Disappear only when near the very top
             // Scrolling up or near top, hide bar
             mobileCtaBar.classList.add('opacity-0'); // Add opacity first
