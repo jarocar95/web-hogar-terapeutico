@@ -7,7 +7,7 @@
   body { @apply font-sans bg-background text-text leading-relaxed transition-all duration-300; }
   h1, h2, h3, h4 { @apply text-text leading-tight; }
   h1, h2 { @apply font-serif font-semibold; }
-  section { @apply section-padding; }
+  section { @apply py-24 md:py-28; }
   .container { @apply max-w-7xl mx-auto px-4; }
   input:focus, textarea:focus, button:focus { @apply outline-none ring-2 ring-accent/50; }
   details > summary { list-style: none; cursor: pointer; }
@@ -15,7 +15,6 @@
 }
 @layer components {
   .cta-button { @apply inline-block py-3 px-6 font-semibold rounded-full shadow-md transition-all duration-300 transform hover:scale-105 hover:brightness-110 hover:-translate-y-0.5 hover:shadow-xl; }
-  .section-padding { @apply py-24 md:py-28; }
   .card { @apply transition-all duration-300; }
   .card:hover { @apply transform -translate-y-0.5 shadow-xl; }
   .highlight { @apply bg-gradient-to-t from-accent/30 from-40% to-transparent to-60% font-semibold px-1; }

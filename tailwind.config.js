@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,njk,js,md}"], // Archivos que va a escanear
+  safelist: [
+    'text-right',
+  ],
   theme: {
     extend: {
       colors: {
