@@ -11,7 +11,7 @@ async function imageShortcode(src, alt, sizes = "100vw") {
     }
     // Opciones para el procesamiento de imágenes
     let metadata = await Image(src, {
-	widths: [300, 600, 900, "auto"],
+	widths: [24, 28, 40, 300, 600, 900, "auto"],
 	formats: ["webp", "jpeg"],
 	// La carpeta de salida debe coincidir con la de tu configuración
 	outputDir: "./public/img/",
