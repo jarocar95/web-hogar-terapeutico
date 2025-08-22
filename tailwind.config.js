@@ -14,6 +14,7 @@ module.exports = {
         light: '#F6EEEE',
         accent: '#E6A6A1',
         'primary-darker': '#8B5A5A',
+        'secondary-darker': '#8FA89B',
         'footer-bg': '#6B5B5B',
         'footer-text': '#F9F1EF',
       },
