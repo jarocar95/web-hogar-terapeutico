@@ -1,0 +1,39 @@
+name: Scrape Doctoralia Calendar
+
+on:
+  workflow_dispatch: # Permite ejecutarlo manualmente desde GitHub
+  schedule:
+    # Se ejecuta cada 6 horas (a las 00:00, 06:00, 12:00, 18:00 UTC)
+    - cron: "0 */6 * * *"
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Set up Google Chrome
+      uses: browser-actions/setup-chrome@v1
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install selenium webdriver-manager
+
+    - name: Run scraper
+      run: python scraper.py # Asegúrate de que tu script se llame scraper.py
+
+    - name: Commit and push if changed
+      run: |
+        git config --global user.name "GitHub Actions Bot"
+        git config --global user.email "actions@github.com"
+        git add public/api/horarios.json
+        # Solo crea un commit y hace push si el archivo ha cambiado
+        git diff --staged --quiet || (git commit -m "chore: Actualizar horarios de Doctoralia" && git push)
