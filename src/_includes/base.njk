@@ -47,8 +47,54 @@
         gtag('config', 'G-RD78QPWW3F');
     </script>
      
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+    <style>
+        .litepicker {
+            font-family: 'Public Sans', sans-serif;
+            border: none;
+            box-shadow: none;
+        }
+        .litepicker .container__months .month-item-header {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 1.25rem;
+        }
+        .litepicker .container__days .day-item {
+            color: #4A3B3B !important;
+            background-color: #FEFBF8 !important; /* Ensure default background is brand background */
+        }
+        .litepicker .container__days .day-item.is-today {
+            color: #9C6666 !important;
+            font-weight: bold;
+            background-color: transparent !important;
+        }
+        .litepicker .container__days .day-item.is-available {
+            background-color: #F6EEEE !important;
+            border: 1px solid #E6A6A1 !important;
+            color: #4A3B3B !important;
+            border-radius: 0.5rem;
+        }
+        .litepicker .container__days .day-item.is-selected {
+            background-color: #9C6666 !important;
+            color: #FEFBF8 !important;
+            border-radius: 0.5rem;
+        }
+        .litepicker .container__days .day-item:hover {
+            background-color: #F6EEEE !important;
+            border-radius: 0.5rem;
+        }
+        .litepicker .button-previous-month, .litepicker .button-next-month {
+            background-color: #A1BFAE !important;
+            color: #FEFBF8 !important;
+            border-radius: 9999px;
+        }
+        .litepicker .button-previous-month:hover, .litepicker .button-next-month:hover {
+            background-color: #8FA89B !important;
+        }
+    </style>
+    
     {% include "schemas.njk" %}
     </head>
+
 <body class="pt-20">
     
     <!-- HEADER (Copiado de tu index.html) -->
@@ -130,7 +176,11 @@
         </a>
     </div>
 
-    <script src="/scripts.js" defer></script>
+    </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/litepicker@2.0.12/dist/litepicker.js"></script>
+    <script defer src="/scripts.js"></script>
     
     <div id="cookie-consent-banner" class="hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg p-4 border-t border-light shadow-2xl z-50 animate-fade-in-up" style="animation-play-state: paused;">
         <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center text-sm gap-4">
@@ -143,6 +193,6 @@
         </div>
     </div>
 
+
 </body>
 </html>
-

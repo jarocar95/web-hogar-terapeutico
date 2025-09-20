@@ -35,6 +35,65 @@
     object-position: center; /* Center the image */
   }
 }
+
+/* Litepicker overrides for accent color */
+@layer components {
+  .litepicker .container__days__day.is-selected,
+  .litepicker .container__days__day.is-start-date,
+  .litepicker .container__days__day.is-end-date,
+  .litepicker .container__days__day.is-in-range,
+  .litepicker .container__days__day.is-available {
+    background-color: #E6A6A1 !important; /* accent color */
+    color: white !important;
+  }
+
+  .litepicker .container__days__day.is-today {
+    border-color: #E6A6A1 !important; /* accent color */
+  }
+
+  .litepicker .button-primary {
+    background-color: #E6A6A1 !important; /* accent color */
+    border-color: #E6A6A1 !important; /* accent color */
+  }
+
+  .litepicker .container__months__month-item.month-item-header {
+    color: #E6A6A1 !important; /* accent color for month header */
+  }
+
+  .litepicker .container__months__month-item.month-item-header .month-item-header-label {
+    color: #E6A6A1 !important; /* accent color for month header label */
+  }
+
+  .litepicker .container__months__month-item.month-item-header .button-previous-month,
+  .litepicker .container__months__month-item.month-item-header .button-next-month {
+    color: #E6A6A1 !important; /* accent color for navigation buttons */
+  }
+
+  /* More aggressive overrides for selected/hover states */
+  .litepicker .container__days__day.is-selected,
+  .litepicker .container__days__day.is-selected:hover,
+  .litepicker .container__days__day.is-available:hover {
+    background-color: #E6A6A1 !important;
+    color: white !important;
+  }
+
+  .litepicker .container__days__day:hover {
+    background-color: #F6EEEE !important; /* light color for hover on non-selected days */
+    color: #4A3B3B !important; /* text color */
+    border-color: transparent !important; /* Remove blue border on hover */
+  }
+
+  /* Ensure selected day has accent color */
+  .litepicker .container__days__day.is-selected {
+    background-color: #E6A6A1 !important;
+    color: white !important;
+  }
+
+  /* General day styling to ensure consistent text color */
+  .litepicker .container__days__day {
+    color: #4A3B3B !important; /* text color */
+  }
+}
 @layer utilities {
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
