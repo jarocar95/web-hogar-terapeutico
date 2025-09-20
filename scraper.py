@@ -1,20 +1,20 @@
 import json
 import time
 import locale
-from datetime import date, datetime, timedelta
+from datetime import date
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 
 # Configurar el locale a español
 try:
     locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+    print("🌍 Locale 'es_ES.UTF-8' configurado.")
 except locale.Error:
-    print("⚠️  Locale 'es_ES.UTF-8' no encontrado. Usando el locale por defecto.")
+    print("⚠️  Locale 'es_ES.UTF-8' no encontrado. Se usará el locale por defecto.")
 
 def guardar_horarios_json(horarios_encontrados):
     """
@@ -23,8 +23,8 @@ def guardar_horarios_json(horarios_encontrados):
     print("\n💾 Procesando y guardando horarios en formato JSON...")
 
     meses = {
-        "Ene": 1, "Feb": 2, "Mar": 3, "Abr": 4, "May": 5, "Jun": 6,
-        "Jul": 7, "Ago": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dic": 12
+        "ene": 1, "feb": 2, "mar": 3, "abr": 4, "may": 5, "jun": 6,
+        "jul": 7, "ago": 8, "sep": 9, "oct": 10, "nov": 11, "dic": 12
     }
     
     hoy = date.today()
@@ -32,18 +32,16 @@ def guardar_horarios_json(horarios_encontrados):
 
     for fecha_str, horas in horarios_encontrados.items():
         try:
-            dia_str, mes_str = fecha_str.split()
+            dia_str, mes_str = fecha_str.lower().split()
             dia = int(dia_str)
             mes = meses.get(mes_str)
             if not mes: continue
 
             año = hoy.year
-            # Si el mes scrapeado es anterior al actual, asumimos que es del próximo año
             if mes < hoy.month:
                 año += 1
             
             fecha_obj = date(año, mes, dia)
-            # Formato YYYY-MM-DD para compatibilidad con JavaScript
             fecha_iso = fecha_obj.strftime('%Y-%m-%d')
             
             horarios_procesados.append({
@@ -54,11 +52,8 @@ def guardar_horarios_json(horarios_encontrados):
             print(f"⚠️ Error procesando la fecha '{fecha_str}': {e}")
             continue
 
-    # Ordenar por fecha
     horarios_procesados.sort(key=lambda x: x["fecha"])
     
-    # Guardar en el archivo JSON
-    # La ruta es relativa a la raíz del proyecto
     output_path = 'public/api/horarios.json'
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(horarios_procesados, f, ensure_ascii=False, indent=4)
@@ -92,21 +87,35 @@ def obtener_horarios_disponibles(url):
 
         for i in range(5):
             print(f"\n🔍 Analizando semana {i + 1}...")
-            time.sleep(1.5) # Pausa extra para asegurar la carga completa
+            time.sleep(2) # Pausa estratégica para que la página se estabilice
             
+            # Volvemos a buscar los días visibles en cada iteración para evitar elementos "stale"
             dias_visibles = driver.find_elements(By.CSS_SELECTOR, "div.calendar-day.day-available")
             
             for dia in dias_visibles:
                 try:
-                    fecha_str = dia.find_element(By.CSS_SELECTOR, "p.small.text-muted").text.strip()
-                    slots = dia.find_elements(By.CSS_SELECTOR, "button.calendar-slot-available")
-                    if slots and fecha_str:
-                        horas = [s.text.strip() for s in slots if s.text.strip()]
-                        if fecha_str not in horarios_encontrados:
-                            horarios_encontrados[fecha_str] = horas
-                            print(f"   -> Encontrados {len(horas)} horarios para el {fecha_str}.")
+                    # Bucle para reintentar en caso de StaleElementReferenceException
+                    for reintento in range(3):
+                        try:
+                            fecha_str = dia.find_element(By.CSS_SELECTOR, "p.small.text-muted").text.strip()
+                            slots = dia.find_elements(By.CSS_SELECTOR, "button.calendar-slot-available")
+                            if slots and fecha_str:
+                                horas = [s.text.strip() for s in slots if s.text.strip()]
+                                if fecha_str not in horarios_encontrados:
+                                    horarios_encontrados[fecha_str] = horas
+                                    print(f"   -> Encontrados {len(horas)} horarios para el {fecha_str}.")
+                            break # Si todo va bien, salimos del bucle de reintentos
+                        except StaleElementReferenceException:
+                            print(f"   ... Elemento 'stale' detectado, reintentando ({reintento + 1}/3)...")
+                            time.sleep(0.5)
+                            # Es crucial volver a encontrar el elemento 'dia' dentro del DOM actual
+                            dias_visibles = driver.find_elements(By.CSS_SELECTOR, "div.calendar-day.day-available")
+                            if i < len(dias_visibles):
+                                dia = dias_visibles[i] # Intenta reasignar el elemento
+                            else:
+                                break # Si ya no se encuentra, pasa al siguiente
                 except NoSuchElementException:
-                    continue
+                    continue # Si un día no tiene los elementos esperados, lo ignoramos
             
             if i < 4:
                 try:
