@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   # Ejecuta el script cada 6 horas
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 */1 * * *"
 
 jobs:
   scrape:
