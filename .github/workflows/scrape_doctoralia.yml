@@ -34,8 +34,7 @@ jobs:
       run: |
         git config --global user.name "GitHub Actions Bot"
         git config --global user.email "actions@github.com"
+        git pull --rebase
         git add public/api/horarios.json
         # Solo crea un commit y hace push si el archivo ha cambiado
-        git diff --staged --quiet || (git commit -m "chore: Actualizar horarios de Doctoralia" && 
-        git pull --rebase &&
-        git push)
+        git diff --staged --quiet || (git commit -m "chore: Actualizar horarios de Doctoralia" && git push)
