@@ -41,3 +41,4 @@ jobs:
         with:
           commit_message: "chore: Actualizar horarios de Doctoralia"
           file_pattern: public/api/horarios.json
+          pull: true  # <-- Esto permite a la acción hacer pull antes del push
