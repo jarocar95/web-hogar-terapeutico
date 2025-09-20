@@ -86,7 +86,7 @@ def obtener_horarios_disponibles(url):
         except TimeoutException:
             print("🍪 No se encontró el banner de cookies o ya estaba aceptado.")
 
-        for i in range(5):
+        for i in range(10):
             print(f"\n🔍 Analizando semana {i + 1}...")
             time.sleep(2) # Pausa estratégica para que la página se estabilice
             
@@ -118,7 +118,7 @@ def obtener_horarios_disponibles(url):
                 except NoSuchElementException:
                     continue # Si un día no tiene los elementos esperados, lo ignoramos
             
-            if i < 4:
+            if i < 9:
                 try:
                     next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[aria-label='Next']")))
                     driver.execute_script("arguments[0].click();", next_button)
