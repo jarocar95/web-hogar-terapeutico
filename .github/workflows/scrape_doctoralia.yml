@@ -31,21 +31,7 @@ jobs:
       run: python scraper.py # Asegúrate de que tu script se llame scraper.py
 
     - name: Commit and push if changed
-      run: |
-        git config --global user.name "GitHub Actions Bot"
-        git config --global user.email "actions@github.com"
-        git add public/api/horarios.json
-        # Solo crea un commit y hace push si el archivo ha cambiado
-        if ! git diff --staged --quiet; then
-          git commit -m "chore: Actualizar horarios de Doctoralia"
-      
-          # Intenta hacer push hasta 5 veces si falla por estar desactualizado
-          for i in 1 2 3 4 5; do
-            git push && break  # Si el push funciona, salimos del bucle
-            echo "Push fallido. Reintentando ($i/5) después de sincronizar..."
-            sleep 2 # Pequeña pausa
-            git pull --rebase # Sincroniza los cambios
-          done
-        else
-          echo "No hay cambios en los horarios para commitear."
-        fi
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "chore: Actualizar horarios de Doctoralia"
+        file_pattern: public/api/horarios.json
