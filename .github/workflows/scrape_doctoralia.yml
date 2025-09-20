@@ -1,61 +1,52 @@
 name: Scrape Doctoralia Calendar
 
 on:
+  # Permite ejecutarlo manualmente desde la pestaña "Actions"
   workflow_dispatch:
+  # Ejecuta el script cada 6 horas
   schedule:
-    - cron: "0 */1 * * *"
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
+    - cron: "0 */6 * * *"
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     
-    # 👇 ESTA SECCIÓN ES CLAVE 👇
-    # Le da permiso a ESTA ACCIÓN específica para escribir en tu repositorio.
-    # No es una credencial, es una regla de seguridad para este flujo de trabajo.
+    # Le da permiso a ESTA TAREA para que pueda escribir en tu repositorio.
+    # Es la forma moderna y segura de hacerlo.
     permissions:
       contents: write
 
     steps:
+      # 1. Descargar tu código
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-          fetch-tags: true
 
+      # 2. Configurar Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
+      # 3. Configurar Chrome para Selenium
       - name: Set up Google Chrome
         uses: browser-actions/setup-chrome@v1
 
+      # 4. Instalar las librerías de Python
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install selenium webdriver-manager
 
+      # 5. Ejecutar tu script para crear/actualizar el archivo horarios.json
       - name: Run scraper
         run: python scraper.py
-      
-      - name: Sync with remote before committing
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout main
-          git pull --rebase origin main
 
-
-      # Usamos la Action especializada que se encargará de todo automáticamente
+      # 6. Usar la herramienta experta para guardar los cambios
+      # Esta action se encarga de todo: comprueba si hay cambios, sincroniza,
+      # hace commit y empuja (push) automáticamente.
       - name: Commit and push if changed
-        uses: stefanzweifel/git-auto-commit-action@v6
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: Actualizar horarios de Doctoralia"
+          commit_message: "chore(bot): Actualizar horarios de Doctoralia"
+          # El archivo específico que debe vigilar
           file_pattern: public/api/horarios.json
-          branch: main
-          pull: true  # <-- Esto permite a la acción hacer pull antes del push
