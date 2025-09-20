@@ -38,7 +38,15 @@ jobs:
 
       - name: Run scraper
         run: python scraper.py
+      
+      - name: Sync with remote before committing
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout main
+          git pull --rebase origin main
 
+          
       # Usamos la Action especializada que se encargará de todo automáticamente
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v6
