@@ -18,6 +18,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          fetch-tags: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -37,8 +41,9 @@ jobs:
 
       # Usamos la Action especializada que se encargará de todo automáticamente
       - name: Commit and push if changed
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: "chore: Actualizar horarios de Doctoralia"
           file_pattern: public/api/horarios.json
+          branch: main
           pull: true  # <-- Esto permite a la acción hacer pull antes del push
