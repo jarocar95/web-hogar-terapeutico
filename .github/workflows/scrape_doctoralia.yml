@@ -9,10 +9,13 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+  
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -31,7 +34,11 @@ jobs:
       run: python scraper.py # Asegúrate de que tu script se llame scraper.py
 
     - name: Commit and push if changed
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: "chore: Actualizar horarios de Doctoralia"
-        file_pattern: public/api/horarios.json
+      run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/api/horarios.json
+          # Solo hacer commit si hay cambios
+          git diff --staged --quiet || git commit -m "chore: Actualizar horarios de Doctoralia"
+          # Sincronizar y subir los cambios
+          git push
