@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: "0 */6 * * *"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -46,7 +50,7 @@ jobs:
           git checkout main
           git pull --rebase origin main
 
-          
+
       # Usamos la Action especializada que se encargará de todo automáticamente
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v6
