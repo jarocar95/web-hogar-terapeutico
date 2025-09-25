@@ -4,100 +4,231 @@
 @tailwind utilities;
 
 @layer base {
-  body { @apply font-sans bg-background text-text leading-relaxed transition-all duration-300; }
-  h1, h2, h3, h4 { @apply text-text leading-tight; }
-  h1, h2 { @apply font-serif font-semibold; }
-  section { @apply py-24 lg:py-28; }
-  .container { @apply max-w-7xl mx-auto px-4; }
-  input:focus, textarea:focus, button:focus { @apply outline-none ring-2 ring-accent/50; }
+  body {
+    @apply font-sans bg-background text-text leading-relaxed transition-all duration-300;
+  }
+
+  h1, h2 {
+    @apply font-serif font-semibold;
+  }
+
+  section {
+    @apply py-24 lg:py-28;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+
+  input:focus, textarea:focus, button:focus {
+    @apply outline-none ring-2 ring-accent/50;
+  }
+
   details > summary { list-style: none; cursor: pointer; }
   details > summary::-webkit-details-marker { display: none; }
 }
+
 @layer components {
-  .cta-button { @apply inline-block py-3 px-6 font-semibold rounded-full shadow-md transition-all duration-300 transform hover:scale-105 hover:brightness-110 hover:-translate-y-0.5 hover:shadow-xl; }
-  .card { @apply transition-all duration-300; }
-  .card:hover { @apply transform -translate-y-0.5 shadow-xl; }
-  .highlight { @apply bg-gradient-to-t from-accent/30 from-40% to-transparent to-60% font-semibold px-1; }
+  .cta-button {
+    @apply inline-block py-3 px-6 font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg bg-primary text-white hover:bg-primary-darker;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md transition-all duration-300 hover:shadow-lg;
+  }
+
+  .highlight {
+    @apply bg-gradient-to-t from-accent/30 from-40% to-transparent to-60% font-semibold px-1;
+  }
+
   .hero-background-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Ensure it's behind the content */
-    overflow: hidden; /* Hide any overflow from object-fit */
+    z-index: -1;
+    overflow: hidden;
   }
-  
+
   .hero-background-image img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover; /* Cover the entire area */
-    object-position: center; /* Center the image */
+    object-fit: cover;
+    object-position: center;
   }
 }
 
-/* Litepicker overrides for accent color */
-@layer components {
-  .litepicker .container__days__day.is-selected,
-  .litepicker .container__days__day.is-start-date,
-  .litepicker .container__days__day.is-end-date,
-  .litepicker .container__days__day.is-in-range,
-  .litepicker .container__days__day.is-available {
-    background-color: #E6A6A1 !important; /* accent color */
-    color: white !important;
-  }
-
-  .litepicker .container__days__day.is-today {
-    border-color: #E6A6A1 !important; /* accent color */
-  }
-
-  .litepicker .button-primary {
-    background-color: #E6A6A1 !important; /* accent color */
-    border-color: #E6A6A1 !important; /* accent color */
-  }
-
-  .litepicker .container__months__month-item.month-item-header {
-    color: #E6A6A1 !important; /* accent color for month header */
-  }
-
-  .litepicker .container__months__month-item.month-item-header .month-item-header-label {
-    color: #E6A6A1 !important; /* accent color for month header label */
-  }
-
-  .litepicker .container__months__month-item.month-item-header .button-previous-month,
-  .litepicker .container__months__month-item.month-item-header .button-next-month {
-    color: #E6A6A1 !important; /* accent color for navigation buttons */
-  }
-
-  /* More aggressive overrides for selected/hover states */
-  .litepicker .container__days__day.is-selected,
-  .litepicker .container__days__day.is-selected:hover,
-  .litepicker .container__days__day.is-available:hover {
-    background-color: #E6A6A1 !important;
-    color: white !important;
-  }
-
-  .litepicker .container__days__day:hover {
-    background-color: #F6EEEE !important; /* light color for hover on non-selected days */
-    color: #4A3B3B !important; /* text color */
-    border-color: transparent !important; /* Remove blue border on hover */
-  }
-
-  /* Ensure selected day has accent color */
-  .litepicker .container__days__day.is-selected {
-    background-color: #E6A6A1 !important;
-    color: white !important;
-  }
-
-  /* General day styling to ensure consistent text color */
-  .litepicker .container__days__day {
-    color: #4A3B3B !important; /* text color */
-  }
+/* Estilos mejorados para el calendario de Doctoralia */
+.calendar-layout {
+  background: transparent;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 0 auto;
 }
+
+.calendar-layout .litepicker {
+  background: white !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05) !important;
+  padding: 1rem !important;
+  border: none !important;
+}
+
+/* Enhanced calendar styling */
+#calendar-container .litepicker .container__days .day-item.is-available {
+  background: linear-gradient(135deg, #F6EEEE 0%, #E6A6A1 100%) !important;
+  border: 2px solid #9C6666 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 8px rgba(156, 102, 102, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+#calendar-container .litepicker .container__days .day-item.is-available:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 6px 12px rgba(156, 102, 102, 0.3) !important;
+  background: linear-gradient(135deg, #E6A6A1 0%, #9C6666 100%) !important;
+  color: white !important;
+}
+
+#calendar-container .litepicker .container__days .day-item.is-today {
+  background: transparent !important;
+  color: #9C6666 !important;
+  font-weight: 700 !important;
+  border: none !important;
+}
+
+/* Enhanced time slot styling */
+.time-slot-enhanced {
+  background: linear-gradient(135deg, #9C6666 0%, #E6A6A1 100%) !important;
+  color: white !important;
+  padding: 1rem !important;
+  border-radius: 0.75rem !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(156, 102, 102, 0.2) !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+.time-slot-enhanced:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 8px 15px rgba(156, 102, 102, 0.3) !important;
+  background: linear-gradient(135deg, #7d5252 0%, #9C6666 100%) !important;
+}
+
+/* Loading states */
+.loading-spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #9C6666;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Enhanced button styles for time slots */
+#available-times .cta-button {
+  background: linear-gradient(135deg, #9C6666 0%, #E6A6A1 100%) !important;
+  color: white !important;
+  border-radius: 0.75rem !important;
+  padding: 1rem !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  margin: 0.5rem !important;
+  box-shadow: 0 4px 6px rgba(156, 102, 102, 0.2) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+#available-times .cta-button:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 8px 15px rgba(156, 102, 102, 0.3) !important;
+  background: linear-gradient(135deg, #7d5252 0%, #9C6666 100%) !important;
+}
+
+/* Urgency counter animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+#remaining-slots {
+  animation: pulse 2s infinite;
+}
+
+/* Enhanced calendar container */
+#calendar-container {
+  position: relative;
+}
+
+.times-wrapper {
+  background: transparent;
+  border-radius: 0.5rem;
+  padding: 0;
+  min-height: 200px;
+}
+
+.times-wrapper h3 {
+  color: #4A3B3B;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#available-times .cta-button {
+  background: #9C6666 !important;
+  color: white !important;
+  border-radius: 0.375rem !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  margin: 0.25rem !important;
+}
+
+#available-times .cta-button:hover {
+  background: #7d5252 !important;
+}
+
 @layer utilities {
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .animate-fade-in-up { animation: fadeIn 0.7s ease-out forwards; opacity: 0; }
+  .animate-fade-in-up { animation: fadeIn 0.5s ease-out forwards; opacity: 0; }
+
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif font-bold mb-8 text-center;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors duration-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  .clean-card {
+    @apply bg-white rounded-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-lg;
+  }
+
+  .clean-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
 }

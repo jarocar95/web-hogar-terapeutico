@@ -20,7 +20,7 @@ description: "Terapia online integradora. Psicóloga colegiada en Madrid (M-4256
             Para ti, que sientes que algo a nivel emocional te limita en tu día a día. Soy Angie Sánchez y he creado Hogar Terapeútico para darte las herramientas que necesitas y acompañarte a sanar y reencontrar tu equilibrio.
         </p>
         <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a href="#services-pricing" class="cta-button bg-white text-primary">Descubre cómo puedo ayudarte</a>
+            <a href="#commitment" class="cta-button bg-white text-primary">Descubre cómo puedo ayudarte</a>
             <a href="#areas-of-intervention" class="cta-button bg-transparent border-2 border-white text-white hover:bg-white/10">Ver áreas de especialización</a>
         </div>
     </div>
@@ -322,16 +322,79 @@ description: "Terapia online integradora. Psicóloga colegiada en Madrid (M-4256
             </div>
         </section>
 
-        <section id="booking-calendar" aria-labelledby="calendar-title">
-            <div class="container text-center animate-fade-in-up">
-                <h2 id="calendar-title" class="text-3xl md:text-4xl text-primary mb-4">Agenda tu Sesión</h2>
-                <p class="text-lg mb-12 max-w-2xl mx-auto">Elige un día de los que aparecen marcados para ver las horas disponibles y dar el primer paso.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start max-w-4xl mx-auto">
-                    <div id="calendar-container"></div>
-                    <div id="times-container">
-                        <h3 class="text-xl font-serif font-semibold mb-4 text-left text-primary">Horas Disponibles</h3>
-                        <div id="available-times" class="text-left p-6 bg-light rounded-lg min-h-[200px]">
-                            <p class="text-text/70">Por favor, selecciona un día con citas disponibles para ver los horarios.</p>
+        <section id="booking-calendar" aria-labelledby="calendar-title" class="bg-light">
+            <div class="container animate-fade-in-up">
+                <div class="text-center mb-12">
+                    <h2 id="calendar-title" class="text-3xl md:text-4xl text-primary mb-4">Da el Primer Paso Hacia Tu Bienestar</h2>
+                    <p class="text-lg max-w-2xl mx-auto mb-6">Agenda tu primera sesión por solo 35€ y descubre cómo la terapia puede ayudarte a recuperar tu equlibrio.</p>
+                </div>
+                <!-- Cómo funciona -->
+                <div class="max-w-6xl mx-auto mb-8">
+                    <div class="bg-light/50 p-6 rounded-lg">
+                        <h3 class="font-semibold mb-4 text-center text-lg">¿Cómo funciona?</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                            <div class="flex flex-col items-center">
+                                <div class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-2">1</div>
+                                <p class="text-sm font-medium">Selecciona tu fecha</p>
+                                <p class="text-xs text-text/60">Elige del calendario</p>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-2">2</div>
+                                <p class="text-sm font-medium">Elige horario</p>
+                                <p class="text-xs text-text/60">El que mejor te convenga</p>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-2">3</div>
+                                <p class="text-sm font-medium">Confirma por WhatsApp</p>
+                                <p class="text-xs text-text/60">Recibirás instrucciones</p>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-2">4</div>
+                                <p class="text-sm font-medium">¡Listo para tu sesión!</p>
+                                <p class="text-xs text-text/60">Comienza tu transformación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="max-w-6xl mx-auto">
+                    <div class="relative mb-8">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl blur-xl"></div>
+                        <div class="relative bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-primary/10">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                                <!-- Calendario -->
+                                <div class="order-2 lg:order-1">
+                                    <div class="text-center mb-6">
+                                        <h3 class="text-2xl font-serif font-semibold text-primary mb-2">Selecciona una fecha</h3>
+                                        <p class="text-text/70">Los días disponibles están resaltados</p>
+                                    </div>
+                                    <div id="calendar-container" class="bg-light/50 rounded-xl p-6"></div>
+                                </div>
+
+                                <!-- Horas disponibles -->
+                                <div class="order-1 lg:order-2">
+                                    <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 h-full">
+                                        <div class="flex items-center gap-3 mb-6">
+                                            <div class="bg-primary p-3 rounded-full">
+                                                <i class="ri-time-line text-white text-2xl"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="text-2xl font-serif font-semibold text-primary">Horas Disponibles</h3>
+                                                <p class="text-text/70 text-sm">Selecciona una fecha para ver los horarios</p>
+                                            </div>
+                                        </div>
+
+                                        <div id="available-times" class="min-h-[300px]">
+                                            <div class="flex items-center justify-center h-full text-center">
+                                                <div class="space-y-3">
+                                                    <i class="ri-calendar-event-line text-4xl text-primary/30"></i>
+                                                    <p class="text-text/60">Por favor, selecciona un día con citas disponibles para ver los horarios.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

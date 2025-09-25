@@ -1,11 +1,119 @@
 {%- if page.url == '/' -%}
 {# --- Este es el schema solo para la PÁGINA DE INICIO --- #}
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Hogar Terapéutico",
+  "url": "https://www.hogarterapeutico.com",
+  "logo": "https://www.hogarterapeutico.com/images/favicon/web-app-manifest-512x512.png",
+  "description": "{{ description }}",
+  "telephone": "+34 621 348 616",
+  "email": "info@hogarterapeutico.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Madrid",
+    "addressCountry": "ES"
+  },
+  "priceRange": "35€ - 60€",
+  "openingHours": "Mo-Fr 09:00-20:00",
+  "sameAs": [
+    "https://es.linkedin.com/in/angie-s%C3%A1nchez-60268814b",
+    "https://www.doctoralia.es/angie-sanchez-gallego/psicologo/madrid"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+34 621 348 616",
+    "contactType": "customer service",
+    "availableLanguage": ["Spanish"]
+  }
+}
+</script>
+
+<!-- Professional Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Hogar Terapéutico - Servicios de Psicología",
+  "description": "{{ description }}",
+  "url": "https://www.hogarterapeutico.com",
+  "telephone": "+34 621 348 616",
+  "priceRange": "35€ - 60€",
+  "serviceType": [
+    "Terapia Online",
+    "Psicoterapia Integradora",
+    "EMDR",
+    "Terapia para Ansiedad",
+    "Terapia para Trauma",
+    "Terapia para Autoestima",
+    "Coaching Emocional"
+  ],
+  "areaServed": "ES",
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://www.hogarterapeutico.com",
+    "serviceLocation": {
+      "@type": "VirtualLocation",
+      "url": "https://www.hogarterapeutico.com"
+    }
+  }
+}
+</script>
+
+<!-- Person Schema for Founder -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Angie Sánchez Gallego",
+  "description": "Psicóloga General Sanitaria especializada en terapia integradora y EMDR",
+  "image": "https://www.hogarterapeutico.com/images/foto-perfil.jpg",
+  "jobTitle": "Psicóloga General Sanitaria",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Hogar Terapéutico"
+  },
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Universidad de Málaga"
+  },
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Psicóloga",
+    "occupationLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Madrid",
+        "addressCountry": "ES"
+      }
+    },
+    "description": "Proporciona terapia psicológica online con enfoque integrador"
+  },
+  "sameAs": [
+    "https://es.linkedin.com/in/angie-s%C3%A1nchez-60268814b",
+    "https://www.doctoralia.es/angie-sanchez-gallego/psicologo/madrid"
+  ],
+  "knowsAbout": [
+    "Psicoterapia",
+    "EMDR",
+    "Ansiedad",
+    "Trauma",
+    "Autoestima",
+    "Salud Mental"
+  ]
+}
+</script>
+
+<!-- MedicalBusiness Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
   "name": "Hogar Terapéutico",
-  "image": "https://www.hogarterapeutico.com/images/foto-perfil.jpg",
+  "medicalSpecialty": "Psychotherapy",
   "description": "{{ description }}",
   "url": "https://www.hogarterapeutico.com",
   "telephone": "+34 621 348 616",
@@ -13,20 +121,31 @@
   "founder": {
     "@type": "Physician",
     "name": "Angie Sánchez Gallego",
-    "description": "Psicóloga General Sanitaria",
-    "image": "https://www.hogarterapeutico.com/images/foto-perfil.jpg",
-    "medicalSpecialty": "Psychiatric",
-    "sameAs": [
-      "https://es.linkedin.com/in/angie-s%C3%A1nchez-60268814b",
-      "https://www.doctoralia.es/angie-sanchez-gallego/psicologo/madrid"
-    ]
+    "medicalSpecialty": "Psychotherapy",
+    "licenseNumber": "M-42569"
   },
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Madrid",
     "addressCountry": "ES"
   },
-  "priceRange": "35€ - 60€"
+  "priceRange": "35€ - 60€",
+  "availableService": [
+    {
+      "@type": "MedicalTherapy",
+      "name": "Primera Sesión",
+      "description": "Sesión inicial de evaluación y plan terapéutico",
+      "price": "35€",
+      "priceCurrency": "EUR"
+    },
+    {
+      "@type": "MedicalTherapy",
+      "name": "Sesión Individual Online",
+      "description": "Sesión de seguimiento terapéutico de 50 minutos",
+      "price": "60€",
+      "priceCurrency": "EUR"
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">

@@ -1,24 +1,7 @@
 /**
- * Debounce function to limit how often a function is called.
- * @param {function} func - The function to debounce.
- * @param {number} delay - The delay in milliseconds.
- * @returns {function} The debounced function.
- */
-function debounce(func, delay) {
-    let timeout;
-    return function(...args) {
-        const context = this;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), delay);
-    };
-}
-
-/**
- * Función principal que se ejecuta cuando el contenido del DOM ha sido cargado.
- * Llama a las funciones que inicializan las diferentes funcionalidades de la página.
+ * Función principal minimalista - solo funcionalidades esenciales
  */
 document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu();
     initScrollEffects();
     initAnimations();
     initCookieBanner();
@@ -26,48 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initBookingCalendar();
 });
 
-/**
- * Inicializa la lógica para el menú de navegación móvil (hamburguesa).
- */
+// MINIMALISTA: Función mobile menu simplificada
 function initMobileMenu() {
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const hamburgerIcon = document.getElementById('hamburger-icon');
     const closeIcon = document.getElementById('close-icon');
 
-    if (!menuBtn || !mobileMenu || !hamburgerIcon || !closeIcon) {
-        return;
-    }
-
-    let focusableElements = [];
-    let firstFocusableElement;
-    let lastFocusableElement;
-
-    const setFocusableElements = () => {
-        focusableElements = Array.from(mobileMenu.querySelectorAll('a[href], button:not([disabled]), textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'));
-        firstFocusableElement = focusableElements[0];
-        lastFocusableElement = focusableElements[focusableElements.length - 1];
-    }
-
-    const handleKeyDown = (e) => {
-        let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
-
-        if (!isTabPressed) {
-            return;
-        }
-
-        if (e.shiftKey) { // shift + tab
-            if (document.activeElement === firstFocusableElement) {
-                lastFocusableElement.focus();
-                e.preventDefault();
-            }
-        } else { // tab
-            if (document.activeElement === lastFocusableElement) {
-                firstFocusableElement.focus();
-                e.preventDefault();
-            }
-        }
-    }
+    if (!menuBtn || !mobileMenu || !hamburgerIcon || !closeIcon) return;
 
     const toggleMenu = () => {
         const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
@@ -75,20 +24,13 @@ function initMobileMenu() {
         hamburgerIcon.classList.toggle('hidden');
         closeIcon.classList.toggle('hidden');
         menuBtn.setAttribute('aria-expanded', String(!isExpanded));
-
-        if (mobileMenu.classList.contains('hidden')) {
-            document.removeEventListener('keydown', handleKeyDown);
-            menuBtn.focus();
-        }
     };
 
     menuBtn.addEventListener('click', toggleMenu);
 
     document.querySelectorAll('.mobile-link').forEach(link => {
         link.addEventListener('click', () => {
-            if (!mobileMenu.classList.contains('hidden')) {
-                toggleMenu();
-            }
+            if (!mobileMenu.classList.contains('hidden')) toggleMenu();
         });
     });
 }
@@ -377,7 +319,13 @@ function initBookingCalendar() {
         })
         .then(horarios => {
             if (!horarios || horarios.length === 0) {
-                calendarContainer.innerHTML = '<p class="font-semibold text-primary p-4">Actualmente no hay citas disponibles. Por favor, vuelve a consultarlo más tarde.</p>';
+                calendarContainer.innerHTML = `
+                    <div class="text-center p-8">
+                        <i class="ri-calendar-close-line text-4xl text-primary/30 mb-4"></i>
+                        <p class="font-semibold text-primary">Actualmente no hay citas disponibles</p>
+                        <p class="text-text/70 mt-2">Por favor, vuelve a consultarlo más tarde o contáctame directamente.</p>
+                    </div>
+                `;
                 availableTimesContainer.innerHTML = '';
                 return;
             }
@@ -426,7 +374,15 @@ function initBookingCalendar() {
                         if (scheduleForDate && scheduleForDate.horas.length > 0) {
                             displayAvailableTimes(scheduleForDate);
                         } else {
-                            availableTimesContainer.innerHTML = '<p class="text-text/70 p-4">No hay horarios disponibles para este día.</p>';
+                            availableTimesContainer.innerHTML = `
+                                <div class="flex items-center justify-center h-full text-center">
+                                    <div class="space-y-3">
+                                        <i class="ri-calendar-close-line text-4xl text-primary/30"></i>
+                                        <p class="text-text/60">No hay horarios disponibles para este día.</p>
+                                        <p class="text-text/50 text-sm">Por favor, selecciona otra fecha.</p>
+                                    </div>
+                                </div>
+                            `;
                         }
                     });
                 },
@@ -452,16 +408,61 @@ function initBookingCalendar() {
             weekday: 'long', day: 'numeric', month: 'long'
         });
 
-        let html = `<p class="font-semibold mb-4">Horas disponibles para el ${fechaFormateada}:</p>`;
-        html += '<div class="grid grid-cols-3 gap-2">';
+        let html = '';
+        html += '<div class="space-y-4" role="region" aria-label="Horarios disponibles">';
+        html += '<div class="flex items-center gap-2 text-text/80">';
+        html += '<i class="ri-calendar-check-line text-accent text-xl"></i>';
+        html += `<span class="font-medium">Horas disponibles para el ${fechaFormateada}:</span>`;
+        html += '</div>';
+
+        html += '<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">';
 
         horas.forEach(hora => {
             const mensaje = `Hola Angie, te escribo desde la web de Hogar Terapéutico. Me gustaría reservar una cita para el día ${fecha} a las ${hora}.`;
             const whatsappLink = `https://wa.me/34621348616?text=${encodeURIComponent(mensaje)}`;
-            html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" class="cta-button bg-secondary text-white text-center text-sm py-2 px-1">${hora}</a>`;
+            html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" class="cta-button bg-secondary text-white text-center py-3 px-4 hover:bg-primary-darker transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center gap-2" role="button" aria-label="Reservar cita a las ${hora}">`;
+            html += `<i class="ri-whatsapp-line text-lg"></i>`;
+            html += `<span>${hora}</span>`;
+            html += `</a>`;
         });
-        
+
+        html += '</div>';
+
+        // Add confirmation message
+        html += '<div class="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">';
+        html += '<div class="flex items-center gap-3 mb-2">';
+        html += '<i class="ri-information-line text-green-600 text-xl"></i>';
+        html += '<h4 class="font-semibold text-green-800">¡Solicitud recibida!</h4>';
+        html += '</div>';
+        html += '<p class="text-sm text-green-700">Al hacer clic en tu horario preferido, serás redirigido a WhatsApp para confirmar tu cita. Te espero al otro lado.</p>';
+        html += '</div>';
+
         html += '</div>';
         availableTimesContainer.innerHTML = html;
+
+        // Update remaining slots counter
+        updateRemainingSlots();
+    }
+
+    function updateRemainingSlots() {
+        const remainingSlotsElement = document.getElementById('remaining-slots');
+        if (remainingSlotsElement) {
+            const currentSlots = parseInt(remainingSlotsElement.textContent);
+            if (currentSlots > 0) {
+                remainingSlotsElement.textContent = Math.max(0, currentSlots - 1);
+            }
+        }
+    }
+
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
     }
 }
