@@ -3,12 +3,10 @@
  * Handles header shrink and mobile CTA bar behavior
  */
 export function initScrollEffects() {
-    const header = document.getElementById('main-header');
-    const body = document.body;
     const mobileCtaBar = document.getElementById('mobile-cta-bar');
     let lastScrollY = window.scrollY;
 
-    if (!header || !body || !mobileCtaBar) {
+    if (!mobileCtaBar) {
         return;
     }
 
@@ -45,11 +43,5 @@ export function initScrollEffects() {
 
     window.addEventListener('scroll', () => {
         debouncedCtaBarLogic(window.scrollY);
-        const isScrolled = window.scrollY > 50;
-        header.classList.toggle('h-16', isScrolled);
-        header.classList.toggle('h-20', !isScrolled);
-        header.classList.toggle('shadow-lg', isScrolled);
-        body.classList.toggle('pt-16', isScrolled);
-        body.classList.toggle('pt-20', !isScrolled);
     }, { passive: true });
 }

@@ -11,7 +11,7 @@ pagination:
 
 <main role="main">
     <section aria-labelledby="blog-title" class="text-center py-16 md:py-20 bg-light">
-        <div class="container animate-fade-in-up">
+        <div class="container ">
             <h1 id="blog-title" class="text-4xl md:text-5xl font-bold font-serif text-primary">
                 Blog de Hogar Terapéutico
             </h1>
@@ -27,7 +27,7 @@ pagination:
             {% if posts and posts.length > 0 %}
 
 	    	{% set featuredPost = posts[0] %}
-            	<div class="grid md:grid-cols-2 gap-12 items-center mb-20 animate-fade-in-up">
+            	<div class="grid md:grid-cols-2 gap-12 items-center mb-20 ">
                     <a href="{{ featuredPost.url }}">
                     	{% if featuredPost.data.featured_image %}
 			    {% image featuredPost.data.featured_image, "Portada del artículo: " + featuredPost.data.title, "(min-width: 768px) 50vw, 100vw" %}
