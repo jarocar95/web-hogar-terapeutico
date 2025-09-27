@@ -1,5 +1,6 @@
 /**
- * Booking calendar functionality
+ * Enhanced booking calendar functionality
+ * Optimized for mobile performance and stability
  * Handles Doctoralia integration and Litepicker calendar
  */
 
@@ -125,6 +126,17 @@ export function initBookingCalendar() {
         return;
     }
 
+    // Hide loading message immediately for better UX
+    availableTimesContainer.style.opacity = '0';
+
+    // Performance optimization: use requestAnimationFrame for DOM updates
+    const updateAvailableTimes = (content) => {
+        requestAnimationFrame(() => {
+            availableTimesContainer.innerHTML = content;
+            availableTimesContainer.style.opacity = '1';
+        });
+    };
+
     fetch('/api/horarios.json')
         .then(response => {
             if (!response.ok) {
@@ -135,11 +147,26 @@ export function initBookingCalendar() {
         .then(horarios => {
             if (!horarios || horarios.length === 0) {
                 calendarContainer.innerHTML = '<p class="font-semibold text-primary p-4">Actualmente no hay citas disponibles. Por favor, vuelve a consultarlo más tarde.</p>';
-                availableTimesContainer.innerHTML = '';
+                updateAvailableTimes('');
                 return;
             }
 
-            const availableDates = horarios.map(h => h.fecha);
+            // Filter out past dates and dates with no available hours
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const validHorarios = horarios.filter(h => {
+                const scheduleDate = new Date(h.fecha + 'T00:00:00');
+                return scheduleDate >= today && h.horas.length > 0;
+            });
+
+            if (validHorarios.length === 0) {
+                calendarContainer.innerHTML = '<p class="font-semibold text-primary p-4">Actualmente no hay citas disponibles. Por favor, vuelve a consultarlo más tarde.</p>';
+                updateAvailableTimes('');
+                return;
+            }
+
+            const availableDates = validHorarios.map(h => h.fecha);
             const firstAvailableDate = availableDates[0];
 
             const picker = new Litepicker({
@@ -147,11 +174,11 @@ export function initBookingCalendar() {
                 inlineMode: true,
                 singleMode: true,
                 lang: 'es-ES',
-                minDate: new Date(),
+                minDate: today,
                 startDate: firstAvailableDate,
                 lockDaysFilter: (date) => {
                     const d = date.format('YYYY-MM-DD');
-                    const schedule = horarios.find(h => h.fecha === d);
+                    const schedule = validHorarios.find(h => h.fecha === d);
                     return !schedule || schedule.horas.length === 0;
                 },
                 setup: (picker) => {
@@ -177,12 +204,12 @@ export function initBookingCalendar() {
 
                     picker.on('selected', (date) => {
                         const selectedDate = date.format('YYYY-MM-DD');
-                        const scheduleForDate = horarios.find(h => h.fecha === selectedDate);
+                        const scheduleForDate = validHorarios.find(h => h.fecha === selectedDate);
 
                         if (scheduleForDate && scheduleForDate.horas.length > 0) {
                             displayAvailableTimes(scheduleForDate, availableTimesContainer);
                         } else {
-                            availableTimesContainer.innerHTML = '<p class="text-text/70 p-4">No hay horarios disponibles para este día.</p>';
+                            updateAvailableTimes('<p class="text-text/70 p-4">No hay horarios disponibles para este día.</p>');
                         }
                     });
                 },
@@ -190,14 +217,9 @@ export function initBookingCalendar() {
 
             injectLitepickerStyles();
 
-            const firstSchedule = horarios.find(h => h.fecha === firstAvailableDate);
-            if (firstSchedule) {
-                displayAvailableTimes(firstSchedule, availableTimesContainer);
-            }
-
         })
         .catch(error => {
             console.error('Error al cargar horarios.json:', error);
-            availableTimesContainer.innerHTML = '<p class="text-red-600 font-semibold p-4">Lo siento, ha ocurrido un problema al cargar la disponibilidad. Por favor, inténtalo de nuevo más tarde.</p>';
+            updateAvailableTimes('<p class="text-red-600 font-semibold p-4">Lo siento, ha ocurrido un problema al cargar la disponibilidad. Por favor, inténtalo de nuevo más tarde.</p>');
         });
 }

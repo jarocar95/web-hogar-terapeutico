@@ -362,17 +362,8 @@ description: "Terapia online integradora. Psicóloga colegiada en Madrid (M-4256
                         <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl blur-xl"></div>
                         <div class="relative bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-primary/10">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                                <!-- Calendario -->
-                                <div class="order-2 lg:order-1">
-                                    <div class="text-center mb-6">
-                                        <h3 class="text-2xl font-serif font-semibold text-primary mb-2">Selecciona una fecha</h3>
-                                        <p class="text-text/70">Los días disponibles están resaltados</p>
-                                    </div>
-                                    <div id="calendar-container" class="bg-light/50 rounded-xl p-6"></div>
-                                </div>
-
-                                <!-- Horas disponibles -->
-                                <div class="order-1 lg:order-2">
+                                <!-- Mobile: show time slots first -->
+                                <div class="order-1 lg:order-2 lg:block">
                                     <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 h-full">
                                         <div class="flex items-center gap-3 mb-6">
                                             <div class="bg-primary p-3 rounded-full">
@@ -383,7 +374,6 @@ description: "Terapia online integradora. Psicóloga colegiada en Madrid (M-4256
                                                 <p class="text-text/70 text-sm">Selecciona una fecha para ver los horarios</p>
                                             </div>
                                         </div>
-
                                         <div id="available-times" class="min-h-[300px]">
                                             <div class="flex items-center justify-center h-full text-center">
                                                 <div class="space-y-3">
@@ -394,7 +384,16 @@ description: "Terapia online integradora. Psicóloga colegiada en Madrid (M-4256
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <!-- Mobile: show calendar second -->
+                                <div class="order-2 lg:order-1 lg:block">
+                                    <div class="text-center mb-6">
+                                        <h3 class="text-2xl font-serif font-semibold text-primary mb-2">Selecciona una fecha</h3>
+                                        <p class="text-text/70">Los días disponibles están resaltados</p>
+                                    </div>
+                                    <div id="calendar-container" class="bg-light/50 rounded-xl p-6 mx-auto" style="max-width: fit-content;"></div>
+                                </div>
+
+                              </div>
                         </div>
                     </div>
                 </div>
