@@ -23,21 +23,24 @@ export function initScrollEffects() {
     };
 
     const debouncedCtaBarLogic = debounce((currentScrollY) => {
-        const newScrollThreshold = 150;
+        const showThreshold = 300;
 
-        if (currentScrollY > lastScrollY && currentScrollY > newScrollThreshold) {
-            // Scrolling down and past threshold, show bar
+        if (currentScrollY > showThreshold) {
+            // Past threshold, show floating button
             mobileCtaBar.classList.remove('hidden');
             mobileCtaBar.offsetHeight; // Trigger reflow
             mobileCtaBar.classList.remove('opacity-0');
-        } else if (currentScrollY < 50) {
-            // Scrolling up or near top, hide bar
+            mobileCtaBar.classList.remove('scale-95');
+            mobileCtaBar.classList.add('scale-100');
+        } else {
+            // Near top, hide floating button
             mobileCtaBar.classList.add('opacity-0');
+            mobileCtaBar.classList.remove('scale-100');
+            mobileCtaBar.classList.add('scale-95');
             setTimeout(() => {
                 mobileCtaBar.classList.add('hidden');
-            }, 500);
+            }, 300);
         }
-        lastScrollY = currentScrollY;
     }, 100);
 
     window.addEventListener('scroll', () => {

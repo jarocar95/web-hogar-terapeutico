@@ -6,13 +6,11 @@
 // Core functionality - loaded immediately
 import { initMobileMenu } from './modules/mobile-menu.js';
 import { initScrollEffects } from './modules/scroll-effects.js';
-import { initAnimations } from './modules/animations.js';
 
 // Initialize critical functionality immediately
 document.addEventListener('DOMContentLoaded', () => {
     // initMobileMenu(); // Temporarily disabled to avoid conflicts
     initScrollEffects();
-    initAnimations();
 
     // Lazy load non-critical functionality
     loadNonCriticalModules();
