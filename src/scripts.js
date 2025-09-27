@@ -420,7 +420,7 @@ function initBookingCalendar() {
         horas.forEach(hora => {
             const mensaje = `Hola Angie, te escribo desde la web de Hogar Terapéutico. Me gustaría reservar una cita para el día ${fecha} a las ${hora}.`;
             const whatsappLink = `https://wa.me/34621348616?text=${encodeURIComponent(mensaje)}`;
-            html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" class="cta-button bg-secondary text-white text-center py-3 px-4 hover:bg-primary-darker transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center gap-2" role="button" aria-label="Reservar cita a las ${hora}">`;
+            html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" class="cta-button bg-secondary text-white text-center py-3 px-4 hover:bg-primary-darker transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center gap-2" role="button" aria-label="Reservar cita a las ${hora}">`;
             html += `<i class="ri-whatsapp-line text-lg"></i>`;
             html += `<span>${hora}</span>`;
             html += `</a>`;

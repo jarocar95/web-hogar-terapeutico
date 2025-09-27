@@ -266,7 +266,7 @@ export class LoadingStates {
                     <span class="text-sm text-text-muted">0/${total}</span>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div class="bg-primary h-2 rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
+                    <div class="bg-primary h-2 rounded-full" style="width: 0%"></div>
                 </div>
             </div>
         `;

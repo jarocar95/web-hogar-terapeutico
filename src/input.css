@@ -225,7 +225,7 @@
   }
 
   .clean-card {
-    @apply bg-white rounded-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-lg;
+    @apply bg-white rounded-lg border border-gray-100 p-6 hover:shadow-lg;
   }
 
   .clean-card:hover {
