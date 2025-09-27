@@ -5,7 +5,7 @@
 
 @layer base {
   body {
-    @apply font-sans bg-background text-text leading-relaxed transition-all duration-300;
+    @apply font-sans bg-background text-text leading-relaxed;
   }
 
   h1, h2 {
