@@ -1,8 +1,13 @@
 /**
- * Animation functionality
+ * Animation functionality - DISABLED for better mobile performance
  * Handles intersection observer for fade-in animations
  */
 export function initAnimations() {
+    // Animations disabled for better mobile performance
+    return;
+
+    // Original code below commented out:
+    /*
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -17,4 +22,5 @@ export function initAnimations() {
             observer.observe(el);
         }
     });
+    */
 }

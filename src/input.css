@@ -117,20 +117,17 @@
   background: linear-gradient(135deg, #7d5252 0%, #9C6666 100%) !important;
 }
 
-/* Loading states */
+/* Loading states - Animation disabled for better mobile performance */
 .loading-spinner {
   border: 3px solid #f3f3f3;
   border-top: 3px solid #9C6666;
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  animation: spin 1s linear infinite;
+  /* Animation removed for better mobile performance */
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+/* @keyframes spin removed for better mobile performance */
 
 /* Enhanced button styles for time slots */
 #available-times .cta-button {
@@ -152,15 +149,11 @@
   background: linear-gradient(135deg, #7d5252 0%, #9C6666 100%) !important;
 }
 
-/* Urgency counter animation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
+/* Urgency counter - Animation disabled for better mobile performance */
+/* @keyframes pulse removed for better mobile performance */
 
 #remaining-slots {
-  animation: pulse 2s infinite;
+  /* Animation removed for better mobile performance */
 }
 
 /* Enhanced calendar container */
@@ -197,19 +190,15 @@
 }
 
 @layer utilities {
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-in-up { animation: fadeIn 0.5s ease-out forwards; opacity: 0; }
+  /* @keyframes fadeIn removed for better mobile performance */
+  /* .animate-fade-in-up removed for better mobile performance */
 
   .hover-lift {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Transitions removed for better mobile performance */
   }
 
   .hover-lift:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Transform removed for better mobile performance */
   }
 
   .section-title {

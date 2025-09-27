@@ -1,8 +1,13 @@
 /**
- * Scroll effects functionality
+ * Scroll effects functionality - DISABLED for better mobile performance
  * Handles header shrink and mobile CTA bar behavior
  */
 export function initScrollEffects() {
+    // Scroll effects disabled for better mobile performance
+    return;
+
+    // Original code below commented out:
+    /*
     const mobileCtaBar = document.getElementById('mobile-cta-bar');
     let lastScrollY = window.scrollY;
 
@@ -44,4 +49,5 @@ export function initScrollEffects() {
     window.addEventListener('scroll', () => {
         debouncedCtaBarLogic(window.scrollY);
     }, { passive: true });
+    */
 }

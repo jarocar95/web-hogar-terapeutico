@@ -33,12 +33,12 @@ function injectLitepickerStyles() {
         #calendar-container .litepicker .button-next-month {
             background-color: #F6EEEE !important;
             border-radius: 9999px !important;
-            transition: all 0.3s ease;
+            /* Transitions removed for better mobile performance */
         }
         #calendar-container .litepicker .button-previous-month:hover,
         #calendar-container .litepicker .button-next-month:hover {
             background-color: #E6A6A1 !important;
-            transform: scale(1.1);
+            /* Transform removed for better mobile performance */
         }
         #calendar-container .litepicker .button-previous-month svg,
         #calendar-container .litepicker .button-next-month svg {
@@ -56,7 +56,7 @@ function injectLitepickerStyles() {
             background-color: transparent !important;
             border: 1px solid transparent !important;
             border-radius: 0.75rem !important;
-            transition: all 0.2s ease-in-out;
+            /* Transitions removed for better mobile performance */
         }
 
         #calendar-container .litepicker .container__days .day-item.is-today {
@@ -72,20 +72,20 @@ function injectLitepickerStyles() {
         #calendar-container .litepicker .container__days .day-item.is-available:hover {
             background-color: #E6A6A1 !important;
             color: white !important;
-            transform: translateY(-2px);
+            /* Transform removed for better mobile performance */
             box-shadow: 0 8px 15px rgba(140, 90, 90, 0.2);
         }
 
         #calendar-container .litepicker .container__days .day-item:not(.is-available):not(.is-locked):not(.is-start-date):hover {
             background-color: #f5f5f5 !important;
-            transform: translateY(-1px);
+            /* Transform removed for better mobile performance */
         }
 
         #calendar-container .litepicker .container__days .day-item.is-start-date {
             background-image: linear-gradient(to top, #E6A6A1, #eebbbb) !important;
             color: white !important;
             font-weight: 700 !important;
-            transform: scale(1.05);
+            /* Transform removed for better mobile performance */
             box-shadow: 0 4px 10px rgba(140, 90, 90, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.4);
         }
 
