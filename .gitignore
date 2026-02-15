@@ -3,3 +3,5 @@ src/dist
 public/dist
 public/prose.css
 .DS_Store
+/public/js
+/public/public
