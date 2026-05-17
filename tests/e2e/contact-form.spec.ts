@@ -40,8 +40,11 @@ test.describe('Contact Form', () => {
 
   test('should show loading state during form submission', async ({ page }) => {
     // Fill out the form
+    await expect(page.locator('input[name="name"]')).toBeVisible();
     await page.fill('input[name="name"]', 'Test User');
+    await expect(page.locator('input[name="email"]')).toBeVisible();
     await page.fill('input[name="email"]', 'test@example.com');
+    await expect(page.locator('textarea[name="message"]')).toBeVisible();
     await page.fill('textarea[name="message"]', 'This is a test message');
 
     // Mock the form submission to avoid actual API call
@@ -57,6 +60,7 @@ test.describe('Contact Form', () => {
     const formStatus = page.locator('#form-status');
 
     // Submit the form
+    await expect(submitButton).toBeEnabled();
     await submitButton.click();
 
     // Check loading state
@@ -70,8 +74,11 @@ test.describe('Contact Form', () => {
 
   test('should handle form submission errors gracefully', async ({ page }) => {
     // Fill out the form
+    await expect(page.locator('input[name="name"]')).toBeVisible();
     await page.fill('input[name="name"]', 'Test User');
+    await expect(page.locator('input[name="email"]')).toBeVisible();
     await page.fill('input[name="email"]', 'test@example.com');
+    await expect(page.locator('textarea[name="message"]')).toBeVisible();
     await page.fill('textarea[name="message"]', 'This is a test message');
 
     // Mock network error
@@ -83,6 +90,7 @@ test.describe('Contact Form', () => {
     const formStatus = page.locator('#form-status');
 
     // Submit the form
+    await expect(submitButton).toBeEnabled();
     await submitButton.click();
 
     // Check error message
@@ -92,8 +100,11 @@ test.describe('Contact Form', () => {
 
   test('should reset form after successful submission', async ({ page }) => {
     // Fill out the form
+    await expect(page.locator('input[name="name"]')).toBeVisible();
     await page.fill('input[name="name"]', 'Test User');
+    await expect(page.locator('input[name="email"]')).toBeVisible();
     await page.fill('input[name="email"]', 'test@example.com');
+    await expect(page.locator('textarea[name="message"]')).toBeVisible();
     await page.fill('textarea[name="message"]', 'This is a test message');
 
     // Mock successful submission
@@ -108,6 +119,7 @@ test.describe('Contact Form', () => {
     const submitButton = page.locator('#contactForm button[type="submit"]');
 
     // Submit the form
+    await expect(submitButton).toBeEnabled();
     await submitButton.click();
 
     // Wait for success message
@@ -121,8 +133,11 @@ test.describe('Contact Form', () => {
 
   test('should clear status message after timeout', async ({ page }) => {
     // Fill out the form
+    await expect(page.locator('input[name="name"]')).toBeVisible();
     await page.fill('input[name="name"]', 'Test User');
+    await expect(page.locator('input[name="email"]')).toBeVisible();
     await page.fill('input[name="email"]', 'test@example.com');
+    await expect(page.locator('textarea[name="message"]')).toBeVisible();
     await page.fill('textarea[name="message"]', 'This is a test message');
 
     // Mock successful submission
@@ -137,6 +152,7 @@ test.describe('Contact Form', () => {
     const formStatus = page.locator('#form-status');
 
     // Submit the form
+    await expect(page.locator('#contactForm button[type="submit"]')).toBeEnabled();
     await page.locator('#contactForm button[type="submit"]').click();
 
     // Wait for success message
@@ -153,6 +169,7 @@ test.describe('Contact Form', () => {
     const emailInput = page.locator('input[name="email"]');
 
     // Try invalid email
+    await expect(emailInput).toBeVisible();
     await emailInput.fill('invalid-email');
     await emailInput.blur();
 
@@ -164,6 +181,7 @@ test.describe('Contact Form', () => {
     expect(isValid).toBe(false);
 
     // Try valid email
+    await expect(emailInput).toBeVisible();
     await emailInput.fill('valid@example.com');
     await emailInput.blur();
 

@@ -28,6 +28,7 @@ test.describe('Mobile Menu', () => {
     await expect(closeIcon).toBeHidden();
 
     // Click to open menu
+    await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
 
     // Menu should be visible
@@ -37,6 +38,7 @@ test.describe('Mobile Menu', () => {
     await expect(closeIcon).toBeVisible();
 
     // Click to close menu
+    await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
 
     // Menu should be hidden again
@@ -51,11 +53,13 @@ test.describe('Mobile Menu', () => {
     const mobileMenu = page.locator('#mobile-menu');
 
     // Open menu
+    await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
     await expect(mobileMenu).not.toHaveClass(/hidden/);
 
     // Click on a mobile link
     const mobileLink = page.locator('.mobile-link').first();
+    await expect(mobileLink).toBeEnabled(); // Added explicit wait
     await mobileLink.click();
 
     // Wait for navigation
@@ -71,6 +75,7 @@ test.describe('Mobile Menu', () => {
     const mobileMenu = page.locator('#mobile-menu');
 
     // Open menu
+    await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
     await expect(mobileMenu).not.toHaveClass(/hidden/);
 
@@ -82,6 +87,7 @@ test.describe('Mobile Menu', () => {
     // Test keyboard navigation
     if (focusableElements.length > 0) {
       // Focus on first element
+      await expect(focusableElements[0]).toBeVisible(); // Added explicit wait
       await focusableElements[0].focus();
       await expect(focusableElements[0]).toBeFocused();
 
@@ -102,16 +108,19 @@ test.describe('Mobile Menu', () => {
     const mobileMenu = page.locator('#mobile-menu');
 
     // Open menu
+    await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
     await expect(mobileMenu).not.toHaveClass(/hidden/);
 
     // Click outside the menu
+    await expect(page.locator('body')).toBeVisible(); // Added explicit wait
     await page.click('body', { position: { x: 10, y: 10 } });
 
     // Menu should remain open (since there's no outside click handler in the current code)
     await expect(mobileMenu).not.toHaveClass(/hidden/);
 
     // Close menu using button
+    await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
     await expect(mobileMenu).toHaveClass(/hidden/);
   });
@@ -121,6 +130,7 @@ test.describe('Mobile Menu', () => {
     const mobileMenu = page.locator('#mobile-menu');
 
     // Open menu
+    await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
 
     // Check for navigation links
@@ -146,12 +156,14 @@ test.describe('Mobile Menu', () => {
     await expect(menuButton).toHaveAttribute('aria-label', /menú/i);
 
     // Open menu
+    await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
 
     // Check accessibility attributes when open
     await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
 
     // Close menu
+    await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
 
     // Check accessibility attributes when closed
@@ -163,22 +175,27 @@ test.describe('Mobile Menu', () => {
     const mobileMenu = page.locator('#mobile-menu');
 
     // Focus menu button
+    await expect(menuButton).toBeVisible(); // Added explicit wait
     await menuButton.focus();
     await expect(menuButton).toBeFocused();
 
     // Open menu with Enter key
+    await expect(menuButton).toBeFocused(); // Added explicit wait
     await page.keyboard.press('Enter');
     await expect(mobileMenu).not.toHaveClass(/hidden/);
 
     // Close menu with Enter key
+    await expect(menuButton).toBeFocused(); // Added explicit wait
     await page.keyboard.press('Enter');
     await expect(mobileMenu).toHaveClass(/hidden/);
 
     // Open menu with Space key
+    await expect(menuButton).toBeFocused(); // Added explicit wait
     await page.keyboard.press('Space');
     await expect(mobileMenu).not.toHaveClass(/hidden/);
 
     // Close menu with Escape key
+    await expect(mobileMenu).not.toHaveClass(/hidden/); // Added explicit wait
     await page.keyboard.press('Escape');
     await expect(mobileMenu).toHaveClass(/hidden/);
   });
