@@ -8,8 +8,12 @@ describe('Cookie Banner', () => {
   let acceptCookiesBtn: HTMLButtonElement;
 
   beforeEach(() => {
-    // Clear localStorage mock
-    localStorage.clear();
+    // Spy on localStorage methods and mock them
+    jest.spyOn(Storage.prototype, 'getItem').mockReturnValue(null); // Default to no cookies accepted
+    jest.spyOn(Storage.prototype, 'setItem');
+    jest.spyOn(Storage.prototype, 'removeItem');
+
+    // Clear mocks before each test
     jest.clearAllMocks();
 
     // Setup DOM elements

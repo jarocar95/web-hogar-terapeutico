@@ -2,7 +2,7 @@
  * Contact form functionality
  * Handles form submission without page reload
  */
-import { Logger } from '../utils/logger.js';
+import { Logger } from '../utils/logger';
 
 export function initContactForm(): void {
     const logger = Logger.getInstance();

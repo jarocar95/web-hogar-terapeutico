@@ -9,10 +9,8 @@ export function initMobileMenu(): void {
     const hamburgerIcon = document.getElementById('hamburger-icon') as HTMLElement | null;
     const closeIcon = document.getElementById('close-icon') as HTMLElement | null;
 
-    console.log('Mobile menu init:', { menuBtn: !!menuBtn, mobileMenu: !!mobileMenu, hamburgerIcon: !!hamburgerIcon, closeIcon: !!closeIcon });
 
     if (!menuBtn || !mobileMenu || !hamburgerIcon || !closeIcon) {
-        console.warn('Mobile menu elements not found');
         return;
     }
 
@@ -50,7 +48,6 @@ export function initMobileMenu(): void {
 
     const toggleMenu = (): void => {
         const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-        console.log('Toggle menu:', { isExpanded, willBe: !isExpanded });
         mobileMenu.classList.toggle('hidden');
         hamburgerIcon.classList.toggle('hidden');
         closeIcon.classList.toggle('hidden');
@@ -68,9 +65,6 @@ export function initMobileMenu(): void {
     menuBtn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log('Menu button clicked', e);
-        console.log('Menu button element:', menuBtn);
-        console.log('Mobile menu element:', mobileMenu);
         toggleMenu();
     });
 

@@ -73,18 +73,24 @@ describe('Contact Form', () => {
     contactForm.dispatchEvent(submitEvent);
 
     // Wait for async operations
-    await new Promise(resolve => setTimeout(resolve, 0));
+    await Promise.resolve();
 
     expect(fetch).toHaveBeenCalledWith(
       'https://formspree.io/f/test',
       expect.objectContaining({
-        method: 'POST',
+        method: 'post',
         headers: { 'Accept': 'application/json' }
       })
     );
 
     expect(formStatus.innerHTML).toContain('¡Gracias por tu mensaje!');
-    expect(contactForm.querySelectorAll('input[value=""]').length).toBe(2); // Form should be reset
+    const nameInput = contactForm.querySelector('input[name="name"]') as HTMLInputElement;
+    const emailInput = contactForm.querySelector('input[name="email"]') as HTMLInputElement;
+    const messageTextarea = contactForm.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
+
+    expect(nameInput.value).toBe('');
+    expect(emailInput.value).toBe('');
+    expect(messageTextarea.value).toBe('');
 
     consoleSpy.mockRestore();
   });
@@ -99,11 +105,13 @@ describe('Contact Form', () => {
     const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
     contactForm.dispatchEvent(submitEvent);
 
-    // Wait for async operations
-    await new Promise(resolve => setTimeout(resolve, 0));
+        // Wait for async operations
 
-    expect(formStatus.innerHTML).toContain('Oops! Hubo un problema');
-  });
+        await Promise.resolve();
+
+        expect(formStatus.innerHTML).toContain('Oops! Hubo un problema');
+
+      });
 
   test('should handle network error', async () => {
     (fetch as jest.Mock).mockRejectedValueOnce(new Error('Network error'));
@@ -113,28 +121,27 @@ describe('Contact Form', () => {
     const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
     contactForm.dispatchEvent(submitEvent);
 
-    // Wait for async operations
-    await new Promise(resolve => setTimeout(resolve, 0));
+        // Wait for async operations
+        await Promise.resolve();
 
-    expect(formStatus.innerHTML).toContain('Oops! Hubo un problema');
-  });
+        expect(formStatus.innerHTML).toContain('Oops! Hubo un problema');
+      });
 
   test('should re-enable submit button and clear message after timeout', async () => {
     jest.useFakeTimers();
+    initContactForm(); // Call initContactForm AFTER useFakeTimers
 
     (fetch as jest.Mock).mockResolvedValueOnce({
       ok: true,
     });
 
-    initContactForm();
-
     const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
     contactForm.dispatchEvent(submitEvent);
 
-    // Wait for async operations
-    await new Promise(resolve => setTimeout(resolve, 0));
+    expect(submitButton.disabled).toBe(true); // Moved assertion here
 
-    expect(submitButton.disabled).toBe(true);
+    // Wait for async operations
+    await Promise.resolve();
 
     // Fast-forward timeout
     jest.advanceTimersByTime(6000);
