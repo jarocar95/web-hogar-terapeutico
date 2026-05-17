@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 import { test, expect } from '@playwright/test';
 
 test.describe('Cookie Banner', () => {
@@ -176,7 +182,7 @@ test.describe('Cookie Banner', () => {
     await acceptButton.click();
 
     // Create new context (simulates new browser session)
-    const newContext = await context.browser().newContext();
+    const newContext = await context.browser()!.newContext();
     const newPage = await newContext.newPage();
 
     await newPage.goto('/');
