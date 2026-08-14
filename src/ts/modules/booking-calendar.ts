@@ -175,6 +175,23 @@ export function initBookingCalendar(): void {
                 skeletonElement.style.display = 'none';
             }
 
+            // Litepicker renders its prev/next month buttons as bare SVG
+            // icons with no text, so screen readers announce them as
+            // unlabeled "button". Label them ourselves.
+            const labelNavigationButtons = (): void => {
+                const cal = calendarContainer;
+                if (!cal) return;
+
+                const prevButton = cal.querySelector('.button-previous-month');
+                const nextButton = cal.querySelector('.button-next-month');
+                if (prevButton && !prevButton.hasAttribute('aria-label')) {
+                    prevButton.setAttribute('aria-label', 'Mes anterior');
+                }
+                if (nextButton && !nextButton.hasAttribute('aria-label')) {
+                    nextButton.setAttribute('aria-label', 'Mes siguiente');
+                }
+            };
+
             // @ts-ignore - LitePicker is loaded from CDN
             const picker = new Litepicker({
                 element: calendarContainer,
@@ -203,10 +220,12 @@ export function initBookingCalendar(): void {
 
                     picker.on('show', () => {
                         highlightAvailableDates();
+                        labelNavigationButtons();
                     });
 
                     picker.on('monthchange', () => {
                         setTimeout(highlightAvailableDates, 100);
+                        labelNavigationButtons();
                     });
 
                     picker.on('selected', (date: any) => {
@@ -223,6 +242,7 @@ export function initBookingCalendar(): void {
             });
 
             injectLitepickerStyles();
+            labelNavigationButtons();
 
             const firstSchedule = horarios.find((h) => h.fecha === firstAvailableDate);
             if (firstSchedule) {
