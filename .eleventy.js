@@ -5,7 +5,7 @@ const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const { execSync } = require('child_process');
 
 // Función asíncrona para el shortcode de imágenes
-async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy") {
+async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy", imgClass = "") {
 
     if (alt === undefined) {
 	throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
@@ -28,6 +28,7 @@ async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy") {
 	sizes,
 	loading,
 	decoding: "async",
+	...(imgClass ? { class: imgClass } : {}),
 	...(loading === "eager" ? { fetchpriority: "high" } : {}),
     };
 
@@ -83,7 +84,7 @@ module.exports = function(eleventyConfig) {
         "./src/images/foto-perfil.jpg": "/images/foto-perfil.jpg",
         "./src/images/imagen-compartir.png": "/images/imagen-compartir.png",
         "./src/images/logo-hogarterapeutico-simplificado.svg": "/images/logo-hogarterapeutico-simplificado.svg",
-        "./src/images/doctoralia-logo.png": "/images/doctoralia-logo.png",
+        "./src/images/doctoralia-logo.webp": "/images/doctoralia-logo.webp",
         "./src/images/blog": "/images/blog",
         "./src/images/favicon": "/images/favicon"
     });
