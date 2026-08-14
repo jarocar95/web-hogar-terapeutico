@@ -54,7 +54,7 @@ test.describe('Scroll Effects', () => {
     const mobileCtaBar = page.locator('#mobile-cta-bar');
 
     // Initially hidden
-    await expect(mobileCtaBar).toHaveClass(/hidden/);
+    await expect(mobileCtaBar).toHaveClass(/(^|\s)hidden(\s|$)/);
     await expect(mobileCtaBar).toHaveClass(/opacity-0/);
 
     // Scroll down past threshold (150px)
@@ -65,7 +65,7 @@ test.describe('Scroll Effects', () => {
     await page.waitForTimeout(500); // Wait for debounce
 
     // Should become visible
-    await expect(mobileCtaBar).not.toHaveClass(/hidden/);
+    await expect(mobileCtaBar).not.toHaveClass(/(^|\s)hidden(\s|$)/);
     await expect(mobileCtaBar).not.toHaveClass(/opacity-0/);
 
     // Scroll back up near top
@@ -81,7 +81,7 @@ test.describe('Scroll Effects', () => {
     // Wait for transition
     await page.waitForTimeout(500);
 
-    await expect(mobileCtaBar).toHaveClass(/hidden/);
+    await expect(mobileCtaBar).toHaveClass(/(^|\s)hidden(\s|$)/);
   });
 
   test('should handle scroll events with debounce', async ({ page }) => {
@@ -139,8 +139,11 @@ test.describe('Scroll Effects', () => {
 
     await page.waitForTimeout(500);
 
-    // Mobile CTA bar should remain hidden on desktop
-    await expect(mobileCtaBar).toHaveClass(/hidden/);
+    // The scroll handler always clears the "hidden"/"opacity-0" classes on
+    // scroll-down regardless of viewport — it's the "lg:hidden" responsive
+    // utility class that actually keeps the bar off-screen on desktop, so
+    // check real visibility rather than which JS-controlled class is set.
+    await expect(mobileCtaBar).toBeHidden();
 
     // Switch to mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
@@ -157,7 +160,7 @@ test.describe('Scroll Effects', () => {
     await page.waitForTimeout(500);
 
     // Mobile CTA bar should be visible on mobile
-    await expect(mobileCtaBar).not.toHaveClass(/hidden/);
+    await expect(mobileCtaBar).not.toHaveClass(/(^|\s)hidden(\s|$)/);
   });
 
   test('should work with smooth scrolling enabled', async ({ page }) => {
@@ -169,8 +172,9 @@ test.describe('Scroll Effects', () => {
 
     expect(hasSmoothScroll).toBe(true);
 
-    // Test smooth scrolling to section
-    await page.click('a[href="#about"]');
+    // Test smooth scrolling to section (nav links use "/#about", not a bare
+    // "#about", so they still work correctly from any page, not just "/")
+    await page.click('a[href="/#about"]');
     await page.waitForTimeout(1500);
 
     const aboutSection = page.locator('#about');
@@ -194,7 +198,7 @@ test.describe('Scroll Effects', () => {
     await expect(header).toHaveClass(/h-16/);
 
     // Navigate to another page
-    await page.goto('/blog/');
+    await page.goto('/aviso-legal/');
     await page.waitForLoadState('networkidle');
 
     // Scroll position should be reset
@@ -232,7 +236,7 @@ test.describe('Scroll Effects', () => {
     await page.waitForTimeout(300);
 
     // Navigate to another page
-    await page.goto('/blog/');
+    await page.goto('/aviso-legal/');
     await page.waitForLoadState('networkidle');
 
     // Go back

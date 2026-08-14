@@ -9,7 +9,9 @@ test.describe('Accessibility', () => {
   test('should have proper HTML structure and semantic elements', async ({ page }) => {
     // Check for proper document structure
     await expect(page.locator('html')).toHaveAttribute('lang', 'es');
-    await expect(page.locator('head')).toBeVisible();
+    // <head> never has a rendering box (browsers force display:none on it),
+    // so toBeVisible() can never pass here — just confirm it exists.
+    await expect(page.locator('head')).toHaveCount(1);
     await expect(page.locator('body')).toBeVisible();
 
     // Check for semantic elements
@@ -137,8 +139,11 @@ test.describe('Accessibility', () => {
       const element = focusableElements.nth(i);
       await element.focus();
 
-      const activeElement = page.locator(':focus');
-      await expect(activeElement).toBe(element);
+      // Locator.toBe() compares Locator objects, not resolved DOM nodes, so
+      // two locators built from different selectors are never equal even
+      // when they resolve to the same element. Compare the actual node.
+      const isFocused = await element.evaluate((el) => el === document.activeElement);
+      expect(isFocused).toBe(true);
 
       // Check if element has visible focus styles
       const computedStyle = await element.evaluate((element) => {
@@ -306,9 +311,14 @@ test.describe('Accessibility', () => {
       const mainContent = page.locator('main, #main-content');
       await expect(mainContent).toBeVisible();
 
-      // Check that navigation is accessible
-      const nav = page.locator('nav').first();
-      await expect(nav).toBeVisible();
+      // Check that navigation is accessible: below the lg breakpoint the
+      // full <nav> is intentionally hidden behind the hamburger button
+      // (progressive disclosure), so either a visible nav or a visible
+      // menu toggle counts as "navigation is reachable".
+      const visibleNav = page.locator('nav:visible').first();
+      const menuToggle = page.locator('#menu-btn-fixed:visible').first();
+      const navReachable = (await visibleNav.count()) > 0 || (await menuToggle.count()) > 0;
+      expect(navReachable).toBe(true);
 
       // Test keyboard navigation on mobile
       const focusableElements = page.locator(

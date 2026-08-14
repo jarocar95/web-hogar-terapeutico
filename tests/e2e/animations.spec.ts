@@ -110,21 +110,21 @@ test.describe('Animations', () => {
   });
 
   test('should work with CSS animations and transitions', async ({ page }) => {
-    // Check if CSS animations are properly defined
-    const animatedElements = page.locator('.animate-fade-in-up');
-    const elementCount = await animatedElements.count();
+    // input.css deliberately strips the @keyframes for .animate-fade-in-up
+    // ("Animation removed for better mobile performance") — the reveal
+    // mechanism now works purely through the IntersectionObserver setting
+    // inline opacity (enhanced-ui.ts), not a CSS animation. So the
+    // meaningful check is that a scrolled-into-view element reaches
+    // opacity 1, not that a keyframe animation is attached.
+    const revealTarget = page.locator('.card').first();
+    await revealTarget.scrollIntoViewIfNeeded();
+    // The reveal is driven by a 0.6s CSS transition, not an instant flip.
+    await page.waitForTimeout(800);
 
-    if (elementCount > 0) {
-      const firstElement = animatedElements.first();
-
-      // Check if element has animation styles
-      const animationName = await firstElement.evaluate((element) => {
-        return window.getComputedStyle(element).animationName;
-      });
-
-      // Should have animation defined
-      expect(animationName).not.toBe('none');
-    }
+    const opacity = await revealTarget.evaluate((element) => {
+      return window.getComputedStyle(element).opacity;
+    });
+    expect(parseFloat(opacity)).toBeGreaterThan(0.95);
   });
 
   test('should maintain animations on different viewport sizes', async ({ page }) => {
@@ -220,9 +220,14 @@ test.describe('Animations', () => {
 
     expect(elementCount).toBeGreaterThan(0);
 
-    // Elements should be visible even if animations fail
+    // Cards start at opacity:0 and only reach opacity:1 once the
+    // IntersectionObserver sees them (enhanced-ui.ts) — most of them are
+    // below the fold on load, so scroll each into view first rather than
+    // checking its pre-reveal state, which would be 0 by design.
     for (let i = 0; i < Math.min(elementCount, 3); i++) {
       const element = animatedElements.nth(i);
+      await element.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(300);
       await expect(element).toBeVisible();
 
       // Element should have fallback styling
