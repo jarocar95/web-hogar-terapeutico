@@ -53,7 +53,6 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addAsyncShortcode("image", imageShortcode);
-    eleventyConfig.addPassthroughCopy("./public/js");
     // También copiaremos los archivos de la raíz como robots.txt
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
     // MINIMALISTA: Incluyendo imagen optimizada

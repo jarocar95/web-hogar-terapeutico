@@ -46,7 +46,7 @@ jobs:
 
     - name: Upload test results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: playwright-results-${{ matrix.browser }}
         path: playwright-report/
@@ -84,7 +84,7 @@ jobs:
 
     - name: Upload mobile test results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: playwright-mobile-results
         path: playwright-report/
@@ -122,7 +122,7 @@ jobs:
 
     - name: Upload accessibility test results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: playwright-accessibility-results
         path: playwright-report/
@@ -163,7 +163,7 @@ jobs:
 
     - name: Upload critical flow results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: playwright-critical-results
         path: playwright-report/

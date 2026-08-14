@@ -11,19 +11,19 @@ test.describe('Mobile Menu', () => {
   });
 
   test('should display mobile menu button on mobile devices', async ({ page }) => {
-    const menuButton = page.locator('#menu-btn');
+    const menuButton = page.locator('#menu-btn-fixed');
     await expect(menuButton).toBeVisible();
     await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
   });
 
   test('should toggle mobile menu visibility when button is clicked', async ({ page }) => {
-    const menuButton = page.locator('#menu-btn');
-    const mobileMenu = page.locator('#mobile-menu');
-    const hamburgerIcon = page.locator('#hamburger-icon');
-    const closeIcon = page.locator('#close-icon');
+    const menuButton = page.locator('#menu-btn-fixed');
+    const mobileMenu = page.locator('#mobile-menu-fixed');
+    const hamburgerIcon = page.locator('#hamburger-icon-fixed');
+    const closeIcon = page.locator('#close-icon-fixed');
 
     // Initial state - menu should be hidden
-    await expect(mobileMenu).toHaveClass(/hidden/);
+    await expect(mobileMenu).toHaveClass(/(^|\s)hidden(\s|$)/);
     await expect(hamburgerIcon).toBeVisible();
     await expect(closeIcon).toBeHidden();
 
@@ -32,7 +32,7 @@ test.describe('Mobile Menu', () => {
     await menuButton.click();
 
     // Menu should be visible
-    await expect(mobileMenu).not.toHaveClass(/hidden/);
+    await expect(mobileMenu).not.toHaveClass(/(^|\s)hidden(\s|$)/);
     await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
     await expect(hamburgerIcon).toBeHidden();
     await expect(closeIcon).toBeVisible();
@@ -42,20 +42,20 @@ test.describe('Mobile Menu', () => {
     await menuButton.click();
 
     // Menu should be hidden again
-    await expect(mobileMenu).toHaveClass(/hidden/);
+    await expect(mobileMenu).toHaveClass(/(^|\s)hidden(\s|$)/);
     await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
     await expect(hamburgerIcon).toBeVisible();
     await expect(closeIcon).toBeHidden();
   });
 
   test('should close menu when mobile link is clicked', async ({ page }) => {
-    const menuButton = page.locator('#menu-btn');
-    const mobileMenu = page.locator('#mobile-menu');
+    const menuButton = page.locator('#menu-btn-fixed');
+    const mobileMenu = page.locator('#mobile-menu-fixed');
 
     // Open menu
     await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
-    await expect(mobileMenu).not.toHaveClass(/hidden/);
+    await expect(mobileMenu).not.toHaveClass(/(^|\s)hidden(\s|$)/);
 
     // Click on a mobile link
     const mobileLink = page.locator('.mobile-link').first();
@@ -66,18 +66,18 @@ test.describe('Mobile Menu', () => {
     await page.waitForLoadState('networkidle');
 
     // Menu should be closed
-    await expect(mobileMenu).toHaveClass(/hidden/);
+    await expect(mobileMenu).toHaveClass(/(^|\s)hidden(\s|$)/);
     await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
   });
 
   test('should maintain focus management within menu', async ({ page }) => {
-    const menuButton = page.locator('#menu-btn');
-    const mobileMenu = page.locator('#mobile-menu');
+    const menuButton = page.locator('#menu-btn-fixed');
+    const mobileMenu = page.locator('#mobile-menu-fixed');
 
     // Open menu
     await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
-    await expect(mobileMenu).not.toHaveClass(/hidden/);
+    await expect(mobileMenu).not.toHaveClass(/(^|\s)hidden(\s|$)/);
 
     // Get focusable elements within menu
     const focusableElements = await mobileMenu.locator(
@@ -104,30 +104,30 @@ test.describe('Mobile Menu', () => {
   });
 
   test('should close menu when clicking outside', async ({ page }) => {
-    const menuButton = page.locator('#menu-btn');
-    const mobileMenu = page.locator('#mobile-menu');
+    const menuButton = page.locator('#menu-btn-fixed');
+    const mobileMenu = page.locator('#mobile-menu-fixed');
 
     // Open menu
     await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
-    await expect(mobileMenu).not.toHaveClass(/hidden/);
+    await expect(mobileMenu).not.toHaveClass(/(^|\s)hidden(\s|$)/);
 
     // Click outside the menu
     await expect(page.locator('body')).toBeVisible(); // Added explicit wait
     await page.click('body', { position: { x: 10, y: 10 } });
 
     // Menu should remain open (since there's no outside click handler in the current code)
-    await expect(mobileMenu).not.toHaveClass(/hidden/);
+    await expect(mobileMenu).not.toHaveClass(/(^|\s)hidden(\s|$)/);
 
     // Close menu using button
     await expect(menuButton).toBeEnabled(); // Added explicit wait
     await menuButton.click();
-    await expect(mobileMenu).toHaveClass(/hidden/);
+    await expect(mobileMenu).toHaveClass(/(^|\s)hidden(\s|$)/);
   });
 
   test('should display navigation links in mobile menu', async ({ page }) => {
-    const menuButton = page.locator('#menu-btn');
-    const mobileMenu = page.locator('#mobile-menu');
+    const menuButton = page.locator('#menu-btn-fixed');
+    const mobileMenu = page.locator('#mobile-menu-fixed');
 
     // Open menu
     await expect(menuButton).toBeEnabled(); // Added explicit wait
@@ -148,8 +148,8 @@ test.describe('Mobile Menu', () => {
   });
 
   test('should handle menu accessibility attributes', async ({ page }) => {
-    const menuButton = page.locator('#menu-btn');
-    const mobileMenu = page.locator('#mobile-menu');
+    const menuButton = page.locator('#menu-btn-fixed');
+    const mobileMenu = page.locator('#mobile-menu-fixed');
 
     // Check initial accessibility attributes
     await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
@@ -171,8 +171,8 @@ test.describe('Mobile Menu', () => {
   });
 
   test('should work with keyboard navigation', async ({ page }) => {
-    const menuButton = page.locator('#menu-btn');
-    const mobileMenu = page.locator('#mobile-menu');
+    const menuButton = page.locator('#menu-btn-fixed');
+    const mobileMenu = page.locator('#mobile-menu-fixed');
 
     // Focus menu button
     await expect(menuButton).toBeVisible(); // Added explicit wait
@@ -182,21 +182,21 @@ test.describe('Mobile Menu', () => {
     // Open menu with Enter key
     await expect(menuButton).toBeFocused(); // Added explicit wait
     await page.keyboard.press('Enter');
-    await expect(mobileMenu).not.toHaveClass(/hidden/);
+    await expect(mobileMenu).not.toHaveClass(/(^|\s)hidden(\s|$)/);
 
     // Close menu with Enter key
     await expect(menuButton).toBeFocused(); // Added explicit wait
     await page.keyboard.press('Enter');
-    await expect(mobileMenu).toHaveClass(/hidden/);
+    await expect(mobileMenu).toHaveClass(/(^|\s)hidden(\s|$)/);
 
     // Open menu with Space key
     await expect(menuButton).toBeFocused(); // Added explicit wait
     await page.keyboard.press('Space');
-    await expect(mobileMenu).not.toHaveClass(/hidden/);
+    await expect(mobileMenu).not.toHaveClass(/(^|\s)hidden(\s|$)/);
 
     // Close menu with Escape key
-    await expect(mobileMenu).not.toHaveClass(/hidden/); // Added explicit wait
+    await expect(mobileMenu).not.toHaveClass(/(^|\s)hidden(\s|$)/); // Added explicit wait
     await page.keyboard.press('Escape');
-    await expect(mobileMenu).toHaveClass(/hidden/);
+    await expect(mobileMenu).toHaveClass(/(^|\s)hidden(\s|$)/);
   });
 });

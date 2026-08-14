@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', (): void => {
     setupPerformanceMonitoring();
 
     // Initialize core functionality
-    // initMobileMenu(); // Temporarily disabled to avoid conflicts
+    initMobileMenu();
     initScrollEffects();
     initAnimations();
 

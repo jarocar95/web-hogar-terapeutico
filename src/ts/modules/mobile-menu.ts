@@ -4,10 +4,10 @@
  */
 
 export function initMobileMenu(): void {
-    const menuBtn = document.getElementById('menu-btn') as HTMLButtonElement | null;
-    const mobileMenu = document.getElementById('mobile-menu') as HTMLElement | null;
-    const hamburgerIcon = document.getElementById('hamburger-icon') as HTMLElement | null;
-    const closeIcon = document.getElementById('close-icon') as HTMLElement | null;
+    const menuBtn = document.getElementById('menu-btn-fixed') as HTMLButtonElement | null;
+    const mobileMenu = document.getElementById('mobile-menu-fixed') as HTMLElement | null;
+    const hamburgerIcon = document.getElementById('hamburger-icon-fixed') as HTMLElement | null;
+    const closeIcon = document.getElementById('close-icon-fixed') as HTMLElement | null;
 
 
     if (!menuBtn || !mobileMenu || !hamburgerIcon || !closeIcon) {
@@ -27,6 +27,11 @@ export function initMobileMenu(): void {
     };
 
     const handleKeyDown = (e: KeyboardEvent): void => {
+        if (e.key === 'Escape') {
+            toggleMenu();
+            return;
+        }
+
         const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
 
         if (!isTabPressed) {

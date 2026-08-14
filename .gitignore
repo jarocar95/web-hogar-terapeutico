@@ -5,3 +5,6 @@ public/prose.css
 .DS_Store
 /public/js
 /public/public
+/test-results
+/playwright-report
+/coverage

@@ -765,51 +765,6 @@
     </head>
 
 <body class="pt-20">
-    <!-- Final hamburger menu script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.getElementById('menu-btn-fixed');
-            const mobileMenu = document.getElementById('mobile-menu-fixed');
-            const hamburgerIcon = document.getElementById('hamburger-icon-fixed');
-            const closeIcon = document.getElementById('close-icon-fixed');
-
-            if (menuBtn && mobileMenu && hamburgerIcon && closeIcon) {
-                menuBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-
-                    if (!isExpanded) {
-                        // Abrir menú
-                        mobileMenu.classList.remove('hidden');
-                        mobileMenu.style.display = 'block';
-                        hamburgerIcon.classList.add('hidden');
-                        closeIcon.classList.remove('hidden');
-                        menuBtn.setAttribute('aria-expanded', 'true');
-                    } else {
-                        // Cerrar menú
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.style.display = 'none';
-                        hamburgerIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                        menuBtn.setAttribute('aria-expanded', 'false');
-                    }
-                });
-
-                // Cerrar menú al hacer clic en un enlace
-                document.querySelectorAll('#mobile-menu-fixed .mobile-link').forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.style.display = 'none';
-                        hamburgerIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                        menuBtn.setAttribute('aria-expanded', 'false');
-                    });
-                });
-            }
-        });
-    </script>
     <!-- Skip to main content link for accessibility -->
     <a href="#main-content" class="skip-link">
         Saltar al contenido principal

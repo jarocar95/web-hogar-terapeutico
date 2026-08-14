@@ -12,20 +12,20 @@ describe('Mobile Menu', () => {
   beforeEach(() => {
     // Setup DOM elements
     document.body.innerHTML = `
-      <button id="menu-btn" aria-expanded="false">
-        <span id="hamburger-icon"></span>
-        <span id="close-icon" class="hidden"></span>
+      <button id="menu-btn-fixed" aria-expanded="false">
+        <span id="hamburger-icon-fixed"></span>
+        <span id="close-icon-fixed" class="hidden"></span>
       </button>
-      <div id="mobile-menu" class="hidden">
+      <div id="mobile-menu-fixed" class="hidden">
         <a href="#" class="mobile-link">Link 1</a>
         <a href="#" class="mobile-link">Link 2</a>
       </div>
     `;
 
-    menuBtn = document.getElementById('menu-btn') as HTMLButtonElement;
-    mobileMenu = document.getElementById('mobile-menu') as HTMLElement;
-    hamburgerIcon = document.getElementById('hamburger-icon') as HTMLElement;
-    closeIcon = document.getElementById('close-icon') as HTMLElement;
+    menuBtn = document.getElementById('menu-btn-fixed') as HTMLButtonElement;
+    mobileMenu = document.getElementById('mobile-menu-fixed') as HTMLElement;
+    hamburgerIcon = document.getElementById('hamburger-icon-fixed') as HTMLElement;
+    closeIcon = document.getElementById('close-icon-fixed') as HTMLElement;
   });
 
   afterEach(() => {
