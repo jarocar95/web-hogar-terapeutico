@@ -1,7 +1,7 @@
 ---
 title: "Más Allá de la Crisis: 3 Pilares para Construir una Vida con Menos Ansiedad"
 description: "Has aprendido a calmar la tormenta, ahora aprende a construir un refugio. Descubre los 3 pilares para un cambio real y duradero frente a la ansiedad."
-date: 2025-08-14
+date: 2026-08-12
 tags: 
   - post
 layout: "post.njk"

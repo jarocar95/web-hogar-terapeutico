@@ -35,6 +35,22 @@ async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy") {
     return Image.generateHTML(metadata, imageAttributes);
 }
 
+// Resuelve la URL final publicada (p.ej. /img/HASH-900.jpeg) de una imagen a
+// partir de su ruta de origen en frontmatter (p.ej. "./src/images/blog/foo.webp").
+// Necesario para JSON-LD (schemas.njk), donde no podemos usar el shortcode
+// <picture> — solo hace falta la URL de la variante más grande en jpeg.
+async function imageUrlFilter(src) {
+    if (!src) return "";
+    let metadata = await Image(src, {
+	widths: [24, 28, 40, 300, 600, 900, "auto"],
+	formats: ["webp", "jpeg"],
+	outputDir: "./public/img/",
+	urlPath: "/img/",
+    });
+    const jpegVariants = metadata.jpeg;
+    return jpegVariants[jpegVariants.length - 1].url;
+}
+
 module.exports = function(eleventyConfig) {
 
     eleventyConfig.addPlugin(sitemap, {
@@ -56,6 +72,7 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addAsyncShortcode("image", imageShortcode);
+    eleventyConfig.addAsyncFilter("imageUrl", imageUrlFilter);
     // También copiaremos los archivos de la raíz como robots.txt
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
     // MINIMALISTA: Incluyendo imagen optimizada
