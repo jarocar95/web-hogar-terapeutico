@@ -3,7 +3,7 @@ layout: post.njk
 title: "Qué es el EMDR y Cómo Puede Ayudarte a Superar un Trauma"
 description: "Descubre qué es la terapia EMDR, cómo funciona y por qué es una de las técnicas más eficaces para sanar heridas del pasado. Guía por la psicóloga Angie Sánchez."
 date: 2026-08-12
-featured_image: "./src/images/fondo-prueba.jpg" # ¡Recuerda cambiar esta imagen por una más específica de EMDR/trauma!
+featured_image: "./src/images/blog/emdr.jpeg"
 tags:
   - post
 ---
