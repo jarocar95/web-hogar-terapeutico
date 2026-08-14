@@ -247,8 +247,11 @@
 
         /* Hero section critical styles to prevent flash */
         #hero {
+          /* text-align y justify-content NO se fijan aquí: los controlan las
+             clases de Tailwind del propio elemento (varían según variante/
+             breakpoint), y al ser #hero un selector de ID siempre ganaría el
+             cascade sobre esas clases si se declarasen en los dos sitios. */
           position: relative;
-          text-align: center;
           color: white;
           border-radius: 0 0 1.5rem 1.5rem;
           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -256,7 +259,6 @@
           min-height: 60vh;
           display: flex;
           align-items: center;
-          justify-content: center;
         }
 
         #hero .container {
@@ -299,6 +301,11 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
+          /* La foto tiene su elemento con textura (las espigas) a la izquierda; en
+             viewports estrechos y altos un recorte centrado cae en el degradado
+             vacío de la derecha. Desplazamos el foco a la izquierda por debajo de
+             md para que la espiga se mantenga siempre visible. */
+          object-position: 25% center;
         }
 
         #hero .absolute.inset-0 {
@@ -367,6 +374,12 @@
         @media (min-width: 640px) {
           .flex.sm\\:flex-row {
             flex-direction: row;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .hero-background-image img {
+            object-position: center;
           }
         }
 
@@ -491,94 +504,6 @@
           box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
         }
 
-        /* Mobile menu button */
-        .menu-button {
-          display: block;
-          padding: 0.25rem;
-          border-radius: 0.375rem;
-          color: var(--primary);
-          background: none;
-          border: none;
-          cursor: pointer;
-        }
-
-        .menu-icon {
-          font-size: 1.5rem;
-        }
-
-        /* Hero section critical styles to prevent flash */
-        #hero {
-          position: relative;
-          text-align: center;
-          color: white;
-          border-radius: 1rem;
-          overflow: hidden;
-          min-height: 60vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 2rem;
-        }
-
-        .hero-background {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: -2;
-          overflow: hidden;
-        }
-
-        .hero-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(156, 102, 102, 0.7);
-          z-index: -1;
-        }
-
-        .hero-content {
-          position: relative;
-          z-index: 1;
-          padding: 3rem 1rem;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .hero-title {
-          font-family: 'Frank Ruhl Libre', serif;
-          font-size: 2rem;
-          font-weight: 700;
-          margin-bottom: 1.5rem;
-          color: white;
-        }
-
-        .hero-description {
-          font-size: 1.125rem;
-          margin-bottom: 2.5rem;
-          opacity: 0.9;
-          max-width: 48rem;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .hero-buttons {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-        }
-
-        @media (min-width: 640px) {
-          .hero-buttons {
-            flex-direction: row;
-            justify-content: center;
-          }
-        }
-
         /* Loading states */
         @keyframes spin {
           to { transform: rotate(360deg); }
@@ -645,20 +570,6 @@
 
           body {
             padding-top: 5rem;
-          }
-
-          .hero-title {
-            font-size: 3rem;
-          }
-
-          .hero-description {
-            font-size: 1.25rem;
-          }
-        }
-
-        @media (min-width: 1024px) {
-          .hero-title {
-            font-size: 4rem;
           }
         }
     </style>

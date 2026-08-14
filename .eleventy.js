@@ -5,7 +5,7 @@ const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const { execSync } = require('child_process');
 
 // Función asíncrona para el shortcode de imágenes
-async function imageShortcode(src, alt, sizes = "100vw") {
+async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy") {
 
     if (alt === undefined) {
 	throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
@@ -19,13 +19,16 @@ async function imageShortcode(src, alt, sizes = "100vw") {
 	// La URL base para el atributo src
 	urlPath: "/img/",
     });
-    
+
     // Atributos para la etique <img>
+    // loading="eager" se usa para imágenes críticas (ej. el hero), que nunca deben
+    // retrasarse: son parte del LCP y siempre están en el viewport inicial.
     let imageAttributes = {
 	alt,
 	sizes,
-	loading: "lazy",
+	loading,
 	decoding: "async",
+	...(loading === "eager" ? { fetchpriority: "high" } : {}),
     };
 
     // Genera el HTML completo del elemento <picture>

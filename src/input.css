@@ -55,7 +55,37 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: cover;
-    object-position: center;
+    /* La espiga (el elemento con textura de la foto) está a la izquierda del
+       encuadre; en pantallas estrechas y altas un recorte centrado cae en el
+       degradado vacío de la derecha, así que desplazamos el foco. */
+    object-position: 25% center;
+  }
+
+  @media (min-width: 768px) {
+    .hero-background-image img {
+      object-position: center;
+    }
+  }
+
+  /* Segunda aparición de la foto del hero, en la sección de la cita: mismo
+     archivo (ya generado en varios tamaños, no añade peso extra) pero con el
+     encuadre desplazado a la zona cálida del atardecer en vez de la espiga,
+     para que no se sienta como una repetición literal del hero. */
+  .quote-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .quote-background-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: 75% 35%;
   }
 }
 
