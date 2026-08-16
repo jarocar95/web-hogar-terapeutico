@@ -12,3 +12,7 @@ public/prose.css
 # licencias, que es lo unico que necesita scripts/build-fonts.py
 /fonts/**/static/
 /fonts/**/README.txt
+
+# public/fonts es una copia literal de src/fonts que hace el passthrough de
+# Eleventy en cada build. Las fuentes buenas se versionan en src/fonts.
+/public/fonts
