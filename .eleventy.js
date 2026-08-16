@@ -4,6 +4,18 @@ const htmlmin = require("html-minifier-terser");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const { execSync } = require('child_process');
 
+// Escala de anchos para las imagenes responsive.
+//
+// Antes era [24, 28, 40, 300, 600, 900, "auto"]. El "auto" genera una variante
+// al tamano original del archivo: para el fondo del hero eso eran 6757 px
+// (233 KB en WebP, 520 KB en JPEG). Como el sizes es "100vw" y entre 900 y 6757
+// no habia ningun paso intermedio, cualquier pantalla retina de 1440 px pedia
+// ~2880 px y se llevaba la de 6757. Y es el LCP de la home.
+//
+// Ahora la escala es explicita y con saltos razonables. eleventy-img nunca
+// amplia, asi que para originales pequenos simplemente genera menos variantes.
+const ESCALA_ANCHOS = [40, 320, 480, 640, 900, 1280, 1600, 2000];
+
 // Función asíncrona para el shortcode de imágenes
 async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy", imgClass = "") {
 
@@ -12,7 +24,7 @@ async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy", imgCl
     }
     // Opciones para el procesamiento de imágenes
     let metadata = await Image(src, {
-	widths: [24, 28, 40, 300, 600, 900, "auto"],
+	widths: ESCALA_ANCHOS,
 	formats: ["webp", "jpeg"],
 	// La carpeta de salida debe coincidir con la de tu configuración
 	outputDir: "./public/img/",
@@ -43,13 +55,14 @@ async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy", imgCl
 async function imageUrlFilter(src) {
     if (!src) return "";
     let metadata = await Image(src, {
-	widths: [24, 28, 40, 300, 600, 900, "auto"],
+	widths: ESCALA_ANCHOS,
 	formats: ["webp", "jpeg"],
 	outputDir: "./public/img/",
 	urlPath: "/img/",
     });
+    // La mayor por ancho, sin depender de que el array venga ordenado.
     const jpegVariants = metadata.jpeg;
-    return jpegVariants[jpegVariants.length - 1].url;
+    return jpegVariants.reduce((a, b) => (b.width > a.width ? b : a)).url;
 }
 
 module.exports = function(eleventyConfig) {
@@ -88,9 +101,8 @@ module.exports = function(eleventyConfig) {
         "./src/images/blog": "/images/blog",
         "./src/images/favicon": "/images/favicon"
     });
-    eleventyConfig.addPassthroughCopy("./src/prose.css");
-    eleventyConfig.addPassthroughCopy("./src/critical.css");
-    eleventyConfig.addPassthroughCopy("./public/_headers");
+    // src/prose.css no existe y src/critical.css no lo carga ninguna plantilla
+    // (el CSS critico va inline en base.njk), asi que dejamos de publicarlos.
 
 
     // Formateador de fechas legible

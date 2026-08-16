@@ -21,7 +21,7 @@
     <meta property="og:title" content="{{ title }} | Hogar Terapéutico">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.hogarterapeutico.com{{ url }}">
+    <meta property="og:url" content="https://www.hogarterapeutico.com{{ page.url | url }}">
     <meta property="og:image" content="https://www.hogarterapeutico.com/images/imagen-compartir.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ title }} | Hogar Terapéutico">
@@ -540,10 +540,19 @@
           top: 0;
         }
 
-        /* Focus indicators */
-        *:focus {
-          outline: none;
-          box-shadow: 0 0 0 3px rgba(156, 102, 102, 0.5);
+        /* Indicador de foco: solo en elementos interactivos y solo cuando el
+           navegador considera que procede mostrarlo (teclado), no al hacer clic.
+           Antes era *:focus, que pintaba un anillo alrededor de cualquier
+           elemento enfocable y anulaba el outline nativo en todo el documento. */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible,
+        summary:focus-visible,
+        [tabindex]:focus-visible {
+          outline: 2px solid #9C6666;
+          outline-offset: 2px;
           border-radius: 0.25rem;
         }
 
@@ -688,7 +697,7 @@
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm h-20" role="banner">
         <div class="container flex justify-between items-center h-full">
             <a href="/" class="flex items-center gap-3 rounded-md p-1 transition-colors hover:bg-light/50">
-                <img src="/images/logo-hogarterapeutico-simplificado.svg" alt="" class="h-7 lg:h-10" loading="lazy">
+                <img src="/images/logo-hogarterapeutico-simplificado.svg" alt="" class="h-7 w-auto lg:h-10" width="119" height="40" decoding="async">
                 <span id="logo-text" class="font-serif text-xl font-semibold text-primary leading-tight text-center lg:text-3xl lg:text-left lg:whitespace-nowrap">
                     Hogar Terapéutico
                 </span>
@@ -723,7 +732,7 @@
     </main>
     
     <!-- Breadcrumb Navigation - Solo para páginas internas -->
-    {% if title and title != "Psicóloga online especializada en terapia integradora y trauma" %}
+    {% if page.url != "/" %}
     <nav class="bg-light py-3 border-b border-gray-200" aria-label="Breadcrumb">
         <div class="container">
             <ol class="flex items-center space-x-2 text-sm">
@@ -808,8 +817,6 @@
             <i class="ri-whatsapp-line text-xl"></i>
             <span class="text-sm font-medium">¿Tienes dudas? Escríbeme</span>
         </a>
-    </div>
-
     </div>
 
     <script type="module" src="/js/main.js{% jsVersion %}"></script>

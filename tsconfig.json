@@ -27,6 +27,8 @@
   "exclude": [
     "node_modules",
     "public",
-    "dist"
+    "dist",
+    "src/ts/modules/contact-form.ts",
+    "src/ts/modules/testimonials-carousel.ts"
   ]
 }

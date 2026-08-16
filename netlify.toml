@@ -6,6 +6,25 @@
 [context.production.environment]
   NODE_VERSION = "18" # Especifica una versión de Node.js recomendada
 
+# ---------------------------------------------------------------------------
+# Cabeceras de seguridad, para todo el sitio.
+#
+# Nota: no se anade Content-Security-Policy todavia. La web carga scripts y
+# estilos de googletagmanager, fonts.googleapis, fonts.gstatic y jsdelivr
+# (Remixicon, Litepicker, moment), y envia el formulario a formspree. Una CSP
+# escrita ahora tendria que permitir todo eso y apenas aportaria. Toca ponerla
+# cuando se autoalojen fuentes e iconos y se reduzcan los origenes externos.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Cross-Origin-Opener-Policy = "same-origin"
+
 # Cache headers for static assets
 [[headers]]
   for = "/dist/output.css"

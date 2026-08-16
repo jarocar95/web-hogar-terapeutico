@@ -20,8 +20,18 @@
     @apply max-w-7xl mx-auto px-4;
   }
 
-  input:focus, textarea:focus, button:focus {
-    @apply outline-none ring-2 ring-accent/50;
+  /* focus-visible en vez de focus: el anillo aparece con teclado, no al
+     hacer clic. Y en primary en vez de accent/50, que sobre blanco daba
+     2,03:1 y era practicamente invisible. */
+  input:focus-visible, textarea:focus-visible, button:focus-visible, select:focus-visible {
+    @apply outline-none ring-2 ring-primary/60 border-primary;
+  }
+
+  /* Enlaces, summary y cualquier cosa con tabindex: anillo dibujado con
+     outline, que respeta la forma del elemento (importante en los botones
+     pildora) y no depende de que haya cargado Tailwind. */
+  a:focus-visible, summary:focus-visible, [tabindex]:not([tabindex="-1"]):focus-visible {
+    @apply outline-none ring-2 ring-primary/60 rounded;
   }
 
   details > summary { list-style: none; cursor: pointer; }
