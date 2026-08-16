@@ -69,7 +69,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addPlugin(sitemap, {
         sitemap: {
-            hostname: "https://www.hogarterapeutico.com",
+            hostname: "https://hogarterapeutico.com",
         },
     });
 

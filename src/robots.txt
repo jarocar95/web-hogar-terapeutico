@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.hogarterapeutico.com/sitemap.xml
+Sitemap: https://hogarterapeutico.com/sitemap.xml
