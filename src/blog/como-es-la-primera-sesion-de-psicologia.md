@@ -6,7 +6,6 @@ date: 2026-09-09
 featured_image: "./src/images/fondo-prueba.jpg" # ¡PENDIENTE! Sustituir por una imagen real antes de publicar.
 tags:
   - post
-eleventyExcludeFromCollections: true # Oculto a propósito: no aparece en /blog/ ni en el sitemap hasta quitar esta línea.
 ---
 
 Es de las preguntas que más me hacen antes de reservar: "¿qué va a pasar en la primera sesión?". Es totalmente normal sentir nervios ante algo desconocido, sobre todo cuando se trata de hablar de ti misma/o con alguien a quien todavía no conoces. Así que vamos a quitarle el misterio del todo.

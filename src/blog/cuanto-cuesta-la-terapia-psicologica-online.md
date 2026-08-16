@@ -6,7 +6,6 @@ date: 2026-09-02
 featured_image: "./src/images/fondo-prueba.jpg" # ¡PENDIENTE! Sustituir por una imagen real antes de publicar.
 tags:
   - post
-eleventyExcludeFromCollections: true # Oculto a propósito: no aparece en /blog/ ni en el sitemap hasta quitar esta línea.
 ---
 
 Preguntarte cuánto va a costarte la terapia no tiene nada de malo, aunque a veces dé un poco de reparo decirlo en voz alta, como si hablar de dinero y de tu bienestar emocional en la misma frase resultara incómodo. El dinero es una preocupación real y legítima, y mereces tener esa información con total claridad antes de dar el paso, no después de haberlo dado ya.

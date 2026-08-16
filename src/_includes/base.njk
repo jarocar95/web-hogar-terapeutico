@@ -7,8 +7,11 @@
     <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://formspree.io">
-    <link rel="preconnect" href="https://wa.me">
+    <!-- Solo se preconecta a lo que se usa durante la carga. Lighthouse avisa
+         a partir de 4 preconnect: cada uno reserva una conexion que en movil
+         compite por ancho de banda con el LCP. formspree solo se contacta al
+         enviar el formulario, y wa.me es el destino de un enlace, no una
+         peticion de la pagina: preconectar a ambos era gasto puro. -->
     
     <!-- Título y Descripción dinámicos desde el frontmatter de cada página -->
     <title>{{ title }} | Hogar Terapéutico</title>
@@ -414,7 +417,7 @@
           --accent: #E6A6A1;
           --footer-bg: #4A3B3B;
           --footer-text: #FFFFFF;
-          --footer-text-secondary: '#FEFBF8';
+          --footer-text-secondary-text: '#FEFBF8';
         }
 
         body {

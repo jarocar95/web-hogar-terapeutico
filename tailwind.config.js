@@ -14,6 +14,15 @@ module.exports = {
         light: '#F6EEEE',            // Fondo rosa pálido muy claro
         accent: '#E6A6A1',           // Acento rosa salmón
         'primary-darker': '#8B5A5A', // Versión oscura del primario
+
+        // Variantes legibles: los colores de marca son tonos de SUPERFICIE.
+        // Sobre fondos claros no llegan al 4,5:1 que exige WCAG AA para texto
+        // (primary da 4,08 sobre light; secondary 1,74; accent 1,78), asi que
+        // como color de texto se usan estos, que conservan el tono.
+        'primary-text': '#85554F',   // 5,39 sobre light · 6,16 sobre blanco
+        'secondary-text': '#4A6B5B', // 5,19 sobre light · 5,92 sobre blanco
+        'accent-text': '#A85C51',    // 4,26 sobre light · 4,87 sobre blanco
+        'text-muted': '#6E5B58',     // 5,57 sobre light · 6,36 sobre blanco
         'secondary-darker': '#8FA89B', // Versión oscura del secundario
         'footer-bg': '#4A3B3B',      // Fondo del footer
         'footer-text': '#FFFFFF',    // Texto del footer

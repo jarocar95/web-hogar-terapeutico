@@ -6,7 +6,6 @@ date: 2026-08-26
 featured_image: "./src/images/fondo-prueba.jpg" # ¡PENDIENTE! Sustituir por una imagen real antes de publicar.
 tags:
   - post
-eleventyExcludeFromCollections: true # Oculto a propósito: no aparece en /blog/ ni en el sitemap hasta quitar esta línea.
 ---
 
 Si estás valorando empezar terapia, es muy probable que te haya surgido esta duda: **¿es la terapia online "tan buena" como la presencial, o me estoy conformando con una versión menor?** Es una pregunta legítima, y la buena noticia es que hay respuesta con base científica, no solo opinión.

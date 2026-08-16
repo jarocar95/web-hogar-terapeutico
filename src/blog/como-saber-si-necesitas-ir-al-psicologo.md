@@ -6,7 +6,6 @@ date: 2026-08-19
 featured_image: "./src/images/fondo-prueba.jpg" # ¡PENDIENTE! Sustituir por una imagen real antes de publicar (ver los otros 3 artículos ya en vivo para el estilo).
 tags:
   - post
-eleventyExcludeFromCollections: true # Oculto a propósito: no aparece en /blog/ ni en el sitemap hasta quitar esta línea.
 ---
 
 ¿Te ha pasado alguna vez pensar "no es para tanto, otras personas lo tienen peor" justo cuando más necesitabas hablar con alguien? Es una de las frases que más escucho en consulta, y casi siempre viene acompañada de meses —a veces años— aguantando algo en silencio, esperando a que se pase solo.
