@@ -1,154 +1,184 @@
 /**
- * Tests for contact form functionality
+ * Tests del formulario de contacto.
+ *
+ * Antes este archivo probaba src/ts/modules/contact-form.ts, un modulo que ya
+ * no importaba nadie: el que corre en produccion es enhanced-contact-form, y
+ * hasta ahora solo tenia cobertura e2e. Al borrar el modulo muerto se reapunta
+ * la suite al que de verdad se usa.
  */
-import { initContactForm } from '../../src/ts/modules/contact-form';
+import { EnhancedContactForm } from '../../src/ts/modules/enhanced-contact-form';
 
-describe('Contact Form', () => {
-  let contactForm: HTMLFormElement;
-  let formStatus: HTMLElement;
-  let submitButton: HTMLButtonElement;
+const montarFormulario = (): void => {
+  document.body.innerHTML = `
+    <form id="contactForm" action="https://formspree.io/f/test" method="post">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" required>
+        <p class="field-error hidden"></p>
+      </div>
+      <div class="form-group">
+        <label for="email">Correo</label>
+        <input type="email" id="email" name="email" required>
+        <p class="field-error hidden"></p>
+      </div>
+      <div class="form-group">
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" required></textarea>
+        <p class="field-error hidden"></p>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="privacy" name="privacy" required>
+        <p class="field-error hidden"></p>
+      </div>
+      <button type="submit" id="submit-button"><span id="submit-text">Enviar Mensaje</span></button>
+    </form>
+    <div id="form-status"></div>
+  `;
+};
 
+const rellenarConDatosValidos = (): void => {
+  (document.getElementById('name') as HTMLInputElement).value = 'Javier Romero';
+  (document.getElementById('email') as HTMLInputElement).value = 'javier@ejemplo.com';
+  (document.getElementById('message') as HTMLTextAreaElement).value =
+    'Hola Angie, me gustaria reservar una primera sesion.';
+  (document.getElementById('privacy') as HTMLInputElement).checked = true;
+};
+
+const enviar = (): void => {
+  document.getElementById('contactForm')!
+    .dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+};
+
+describe('EnhancedContactForm', () => {
   beforeEach(() => {
-    // Clear fetch mock
     (fetch as jest.Mock).mockClear();
-
-    // Setup DOM elements
-    document.body.innerHTML = `
-      <form id="contactForm" action="https://formspree.io/f/test" method="POST">
-        <input type="text" name="name" required>
-        <input type="email" name="email" required>
-        <textarea name="message" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-      <div id="form-status"></div>
-    `;
-
-    contactForm = document.getElementById('contactForm') as HTMLFormElement;
-    formStatus = document.getElementById('form-status') as HTMLElement;
-    submitButton = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+    montarFormulario();
   });
 
-  test('should initialize contact form when elements exist', () => {
-    initContactForm();
-
-    expect(contactForm).not.toBeNull();
-    expect(formStatus).not.toBeNull();
-  });
-
-  test('should return early if form is missing', () => {
+  test('no explota si el formulario no esta en la pagina', () => {
     document.body.innerHTML = '<div id="form-status"></div>';
-
-    initContactForm();
-
-    // Should not throw error
-    expect(true).toBe(true);
+    expect(() => new EnhancedContactForm()).not.toThrow();
   });
 
-  test('should show loading state on form submission', async () => {
-    // Mock successful response
-    (fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
+  describe('validacion', () => {
+    test('rechaza el envio con el formulario vacio y no llama a fetch', () => {
+      new EnhancedContactForm();
+      enviar();
+
+      expect(fetch).not.toHaveBeenCalled();
+      expect(document.getElementById('form-status')!.textContent)
+        .toContain('corrige los errores');
     });
 
-    initContactForm();
+    test.each([
+      ['nombre demasiado corto', 'name', 'J', 'al menos 2 caracteres'],
+      ['nombre con numeros', 'name', 'Javier 123', 'solo puede contener letras'],
+      ['email sin arroba', 'email', 'javier.ejemplo.com', 'email válido'],
+      ['mensaje demasiado corto', 'message', 'hola', 'al menos 10 caracteres'],
+    ])('marca el error: %s', (_caso, campo, valor, mensajeEsperado) => {
+      new EnhancedContactForm();
+      rellenarConDatosValidos();
+      const el = document.getElementById(campo) as HTMLInputElement;
+      el.value = valor;
+      enviar();
 
-    const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-    contactForm.dispatchEvent(submitEvent);
+      expect(fetch).not.toHaveBeenCalled();
+      const error = el.closest('.form-group')!.querySelector('.field-error')!;
+      expect(error.textContent).toContain(mensajeEsperado);
+      expect(error.classList.contains('hidden')).toBe(false);
+    });
 
-    expect(formStatus.innerHTML).toContain('Enviando...');
-    expect(submitButton.disabled).toBe(true);
+    test('exige aceptar la politica de privacidad', () => {
+      new EnhancedContactForm();
+      rellenarConDatosValidos();
+      (document.getElementById('privacy') as HTMLInputElement).checked = false;
+      enviar();
+
+      expect(fetch).not.toHaveBeenCalled();
+      const error = document.getElementById('privacy')!
+        .closest('.form-group')!.querySelector('.field-error')!;
+      expect(error.textContent).toContain('política de privacidad');
+    });
+
+    test('acepta nombres con tildes y enes', () => {
+      new EnhancedContactForm();
+      rellenarConDatosValidos();
+      (document.getElementById('name') as HTMLInputElement).value = 'Begoña Muñoz Ibáñez';
+      (fetch as jest.Mock).mockResolvedValueOnce({ ok: true });
+      enviar();
+
+      expect(fetch).toHaveBeenCalled();
+    });
   });
 
-  test('should handle successful form submission', async () => {
-    (fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
+  describe('envio', () => {
+    test('envia al endpoint del formulario con Accept: application/json', async () => {
+      (fetch as jest.Mock).mockResolvedValueOnce({ ok: true });
+      new EnhancedContactForm();
+      rellenarConDatosValidos();
+      enviar();
+      await Promise.resolve();
+
+      expect(fetch).toHaveBeenCalledWith(
+        'https://formspree.io/f/test',
+        expect.objectContaining({
+          method: 'post',
+          headers: { Accept: 'application/json' },
+        })
+      );
     });
 
-    initContactForm();
+    test('marca el boton como ocupado mientras envia', () => {
+      (fetch as jest.Mock).mockReturnValueOnce(new Promise(() => {})); // nunca resuelve
+      new EnhancedContactForm();
+      rellenarConDatosValidos();
+      enviar();
 
-    // Mock console.error to avoid noise in tests
-    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-    contactForm.dispatchEvent(submitEvent);
-
-    // Wait for async operations
-    await Promise.resolve();
-
-    expect(fetch).toHaveBeenCalledWith(
-      'https://formspree.io/f/test',
-      expect.objectContaining({
-        method: 'post',
-        headers: { 'Accept': 'application/json' }
-      })
-    );
-
-    expect(formStatus.innerHTML).toContain('¡Gracias por tu mensaje!');
-    const nameInput = contactForm.querySelector('input[name="name"]') as HTMLInputElement;
-    const emailInput = contactForm.querySelector('input[name="email"]') as HTMLInputElement;
-    const messageTextarea = contactForm.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
-
-    expect(nameInput.value).toBe('');
-    expect(emailInput.value).toBe('');
-    expect(messageTextarea.value).toBe('');
-
-    consoleSpy.mockRestore();
-  });
-
-  test('should handle form submission error', async () => {
-    (fetch as jest.Mock).mockResolvedValueOnce({
-      ok: false,
+      expect((document.getElementById('submit-button') as HTMLButtonElement).disabled).toBe(true);
+      expect(document.getElementById('submit-text')!.textContent).toBe('Enviando...');
     });
 
-    initContactForm();
+    test('vacia el formulario tras un envio correcto', async () => {
+      (fetch as jest.Mock).mockResolvedValueOnce({ ok: true });
+      new EnhancedContactForm();
+      rellenarConDatosValidos();
+      enviar();
+      await new Promise(process.nextTick);
 
-    const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-    contactForm.dispatchEvent(submitEvent);
-
-        // Wait for async operations
-
-        await Promise.resolve();
-
-        expect(formStatus.innerHTML).toContain('Oops! Hubo un problema');
-
-      });
-
-  test('should handle network error', async () => {
-    (fetch as jest.Mock).mockRejectedValueOnce(new Error('Network error'));
-
-    initContactForm();
-
-    const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-    contactForm.dispatchEvent(submitEvent);
-
-        // Wait for async operations
-        await Promise.resolve();
-
-        expect(formStatus.innerHTML).toContain('Oops! Hubo un problema');
-      });
-
-  test('should re-enable submit button and clear message after timeout', async () => {
-    jest.useFakeTimers();
-    initContactForm(); // Call initContactForm AFTER useFakeTimers
-
-    (fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
+      expect((document.getElementById('name') as HTMLInputElement).value).toBe('');
+      expect((document.getElementById('email') as HTMLInputElement).value).toBe('');
+      expect((document.getElementById('message') as HTMLTextAreaElement).value).toBe('');
     });
 
-    const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-    contactForm.dispatchEvent(submitEvent);
+    test('avisa al usuario si el servidor responde mal', async () => {
+      (fetch as jest.Mock).mockResolvedValueOnce({ ok: false });
+      new EnhancedContactForm();
+      rellenarConDatosValidos();
+      enviar();
+      await new Promise(process.nextTick);
 
-    expect(submitButton.disabled).toBe(true); // Moved assertion here
+      expect(document.getElementById('form-status')!.textContent).toContain('problema');
+    });
 
-    // Wait for async operations
-    await Promise.resolve();
+    test('avisa al usuario si falla la red', async () => {
+      (fetch as jest.Mock).mockRejectedValueOnce(new Error('Network error'));
+      new EnhancedContactForm();
+      rellenarConDatosValidos();
+      enviar();
+      await new Promise(process.nextTick);
 
-    // Fast-forward timeout
-    jest.advanceTimersByTime(6000);
+      expect(document.getElementById('form-status')!.textContent).toContain('problema');
+    });
 
-    expect(submitButton.disabled).toBe(false);
-    expect(formStatus.innerHTML).toBe('');
+    test('vuelve a habilitar el boton pase lo que pase', async () => {
+      (fetch as jest.Mock).mockRejectedValueOnce(new Error('Network error'));
+      new EnhancedContactForm();
+      rellenarConDatosValidos();
+      enviar();
+      await new Promise(process.nextTick);
 
-    jest.useRealTimers();
+      expect((document.getElementById('submit-button') as HTMLButtonElement).disabled).toBe(false);
+      expect(document.getElementById('submit-text')!.textContent).toBe('Enviar Mensaje');
+    });
   });
 });
