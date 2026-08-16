@@ -7,8 +7,6 @@
     <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://formspree.io">
     <link rel="preconnect" href="https://wa.me">
     
@@ -39,6 +37,30 @@
     <style>
         /* Critical CSS - Above the fold content */
         /* This CSS is inlined in the head for optimal performance */
+
+        /* Fuentes. La cursiva no se precarga: solo se descarga si la pagina
+           llega a pintar texto en cursiva (testimonios, citas). */
+        @font-face {
+          font-family: 'Public Sans';
+          src: url('/fonts/public-sans-var.woff2') format('woff2');
+          font-weight: 300 700;
+          font-style: normal;
+          font-display: swap;
+        }
+        @font-face {
+          font-family: 'Public Sans';
+          src: url('/fonts/public-sans-italic-var.woff2') format('woff2');
+          font-weight: 400 600;
+          font-style: italic;
+          font-display: swap;
+        }
+        @font-face {
+          font-family: 'Frank Ruhl Libre';
+          src: url('/fonts/frank-ruhl-libre-var.woff2') format('woff2');
+          font-weight: 400 700;
+          font-style: normal;
+          font-display: swap;
+        }
 
         /* Base styles */
         * {
@@ -583,11 +605,14 @@
         }
     </style>
 
-    <!-- Preload fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600&family=Public+Sans:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600&family=Public+Sans:wght@300;400;500;600;700&display=swap"></noscript>
+    <!-- Fuentes autoalojadas.
+         Antes se pedian a fonts.googleapis.com: dos conexiones a terceros y una
+         hoja de estilos bloqueante antes de poder pintar una sola letra. Ahora
+         salen del mismo dominio, con cache de un anio.
+         Son variables: un archivo por familia cubre todos los pesos.
+         Se generan con `python3 scripts/build-fonts.py`. -->
+    <link rel="preload" href="/fonts/public-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/frank-ruhl-libre-var.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Full CSS loaded async with FOUC prevention -->
     <link rel="preload" href="/dist/output.css{% cssVersion %}" as="style" onload="this.onload=null;this.rel='stylesheet'">

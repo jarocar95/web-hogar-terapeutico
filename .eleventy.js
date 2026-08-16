@@ -99,7 +99,8 @@ module.exports = function(eleventyConfig) {
         "./src/images/logo-hogarterapeutico-simplificado.svg": "/images/logo-hogarterapeutico-simplificado.svg",
         "./src/images/doctoralia-logo.webp": "/images/doctoralia-logo.webp",
         "./src/images/blog": "/images/blog",
-        "./src/images/favicon": "/images/favicon"
+        "./src/images/favicon": "/images/favicon",
+        "./src/fonts": "/fonts"
     });
     // src/prose.css no existe y src/critical.css no lo carga ninguna plantilla
     // (el CSS critico va inline en base.njk), asi que dejamos de publicarlos.

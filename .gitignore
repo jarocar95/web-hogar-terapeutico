@@ -8,3 +8,7 @@ public/prose.css
 /test-results
 /playwright-report
 /coverage
+# De las descargas de Google Fonts solo versionamos las variables y las
+# licencias, que es lo unico que necesita scripts/build-fonts.py
+/fonts/**/static/
+/fonts/**/README.txt
