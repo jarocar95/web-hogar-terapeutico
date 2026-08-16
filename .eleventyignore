@@ -1,0 +1,7 @@
+# Archivos que Eleventy no debe tratar como plantillas.
+#
+# src/fonts/README.md explica como se generan las fuentes; sin esto, Eleventy
+# lo compilaba y publicaba una pagina en /fonts/README/ que acababa en el
+# sitemap. La carpeta se copia entera por passthrough, asi que el README llega
+# igual a /fonts/README.md, que es donde tiene sentido.
+src/fonts/README.md

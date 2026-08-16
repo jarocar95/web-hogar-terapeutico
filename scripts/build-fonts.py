@@ -34,6 +34,16 @@ try:
 except ImportError:
     sys.exit("Falta fonttools. Instala con:  pip install fonttools brotli")
 
+# fontTools solo pide brotli al guardar, asi que sin esta comprobacion el fallo
+# aparece al final, despues de haber recortado las tres fuentes.
+try:
+    import brotli  # noqa: F401
+except ImportError:
+    try:
+        import brotlicffi  # noqa: F401
+    except ImportError:
+        sys.exit("Falta brotli, que es lo que comprime WOFF2. Instala con:  pip install brotli")
+
 RAIZ = Path(__file__).resolve().parent.parent
 ORIGEN = RAIZ / "fonts"
 DESTINO = RAIZ / "src" / "fonts"
@@ -90,10 +100,13 @@ def main() -> None:
         fuente = TTFont(entrada)
         original = entrada.stat().st_size
 
-        instancer.instantiateVariableFont(
-            fuente, {"wght": (peso_min, peso_max)}, inplace=True, updateFontNames=False
-        )
-
+        # Primero recortar, luego limitar el eje. En el orden contrario, algunas
+        # versiones de fontTools revientan con KeyError: el instancer reescribe
+        # gvar y deja fuera glifos sin variaciones (por ejemplo uni200D, el
+        # juntador de ancho cero), pero el subsetter sigue teniendolos en su
+        # conjunto y los busca. Recortando antes, gvar llega intacto al
+        # subsetter y el problema no existe. De paso es mas rapido: el
+        # instancer interpola muchos menos glifos.
         opciones = Options()
         opciones.layout_features = CARACTERISTICAS
         opciones.drop_tables += ["DSIG"]
@@ -106,6 +119,19 @@ def main() -> None:
         subsetter.populate(unicodes=unicodes)
         subsetter.subset(fuente)
 
+        # Limitar el rango de pesos es una optimizacion, no un requisito: si
+        # fallara con alguna version de fontTools, seguimos con la fuente
+        # variable entera en vez de dejar al usuario sin fuentes.
+        try:
+            instancer.instantiateVariableFont(
+                fuente, {"wght": (peso_min, peso_max)}, inplace=True, updateFontNames=False
+            )
+            rango = f"peso {peso_min}-{peso_max}"
+        except Exception as error:
+            rango = "rango de pesos completo"
+            print(f"  aviso: no se pudo limitar el eje de peso de {nombre} ({error!r}).")
+            print(f"         Se sigue adelante; el archivo saldra algo mas grande.")
+
         fuente.flavor = "woff2"
         salida = DESTINO / f"{nombre}.woff2"
         fuente.save(salida)
@@ -113,7 +139,7 @@ def main() -> None:
         final = salida.stat().st_size
         total += final
         print(f"  {salida.name:28} {original/1024:6.1f} KB TTF  ->  {final/1024:6.1f} KB WOFF2"
-              f"   (peso {peso_min}-{peso_max})")
+              f"   ({rango})")
 
     for relativo, nombre in LICENCIAS:
         origen = ORIGEN / relativo

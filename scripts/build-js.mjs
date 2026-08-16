@@ -17,7 +17,7 @@
  *   node scripts/build-js.mjs --watch    reconstruye al guardar
  */
 import * as esbuild from 'esbuild';
-import { readdir, stat } from 'node:fs/promises';
+import { readdir, rm, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 
 const SALIDA = './public/js';
@@ -55,6 +55,11 @@ if (watch) {
     await ctx.watch();
     console.log('esbuild en modo watch. Ctrl+C para salir.');
 } else {
+    // Vaciar la carpeta antes de construir. esbuild no limpia su salida, asi que
+    // sin esto quedaban conviviendo los .js y .d.ts de la epoca de tsc, que se
+    // publicaban igualmente y falseaban el recuento de tamano.
+    await rm(SALIDA, { recursive: true, force: true });
+
     await esbuild.build(opciones);
     const kb = (await pesoTotal(SALIDA) / 1024).toFixed(1);
     console.log(`\nJS publicado: ${kb} KB en total (main.js + trozos diferidos).`);
