@@ -53,11 +53,13 @@ document.addEventListener('DOMContentLoaded', (): void => {
  */
 async function loadNonCriticalModules(): Promise<void> {
     try {
-        // Load cookie banner only if user hasn't accepted cookies
-        if (localStorage.getItem('cookiesAccepted') !== 'true') {
-            const { initCookieBanner } = await import('./modules/cookie-banner.js');
-            initCookieBanner();
-        }
+        // El modulo de consentimiento se carga SIEMPRE: decide el solo si
+        // muestra el banner o si se limita a reaplicar la decision guardada.
+        // Antes se saltaba cuando ya se habia aceptado, asi que a los visitantes
+        // recurrentes nunca se les volvia a otorgar el consentimiento de
+        // Analytics y gtag se quedaba en 'denied' para siempre.
+        const { initCookieBanner } = await import('./modules/cookie-banner.js');
+        initCookieBanner();
 
         // Load enhanced contact form only if form exists on page
         if (document.getElementById('contactForm')) {

@@ -25,6 +25,47 @@ test.describe('Cookie Banner', () => {
     await expect(cookieBanner).not.toHaveClass(/hidden/);
     await expect(acceptButton).toBeVisible();
     await expect(acceptButton).toHaveText('Aceptar');
+
+    // La AEPD exige que rechazar sea tan visible y tan facil como aceptar.
+    const rejectButton = page.locator('#reject-cookies-btn');
+    await expect(rejectButton).toBeVisible();
+    await expect(rejectButton).toHaveText('Rechazar');
+  });
+
+  test('should let the visitor reject analytics cookies', async ({ page }) => {
+    await page.addInitScript(() => {
+      window.dataLayer = [];
+      (window as any).gtag = function (...args: any[]) { window.dataLayer.push(args); };
+    });
+    await page.reload();
+    await page.waitForLoadState('networkidle');
+
+    await page.locator('#reject-cookies-btn').click();
+
+    const stored = await page.evaluate(() => ({
+      consent: localStorage.getItem('cookieConsent'),
+      legacy: localStorage.getItem('cookiesAccepted')
+    }));
+    expect(stored.consent).toBe('denied');
+    expect(stored.legacy).toBeNull();
+
+    const consentCall = (await page.evaluate(() => window.dataLayer))
+      .find((call: any[]) => call[0] === 'consent' && call[1] === 'update');
+    expect(consentCall).toBeTruthy();
+    expect(consentCall[2]).toEqual({ analytics_storage: 'denied' });
+
+    await page.reload();
+    await page.waitForLoadState('networkidle');
+    await expect(page.locator('#cookie-consent-banner')).toHaveClass(/hidden/);
+  });
+
+  test('should let the visitor change their mind from the footer', async ({ page }) => {
+    await page.locator('#accept-cookies-btn').click();
+    await page.waitForTimeout(600);
+    await expect(page.locator('#cookie-consent-banner')).toBeHidden();
+
+    await page.locator('#cookie-settings-link').click();
+    await expect(page.locator('#cookie-consent-banner')).toBeVisible();
   });
 
   test('should hide banner when accept button is clicked', async ({ page }) => {

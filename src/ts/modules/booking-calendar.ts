@@ -3,6 +3,27 @@
  * Handles Doctoralia integration and Litepicker calendar
  */
 import type { Schedule } from '../types';
+import { Logger } from '../utils/logger.js';
+
+// Devuelve la fecha de hoy como "YYYY-MM-DD" en hora local.
+// Importante: no usar toISOString(), que convierte a UTC y en Madrid
+// (UTC+1/+2) devuelve el dia anterior durante las primeras horas.
+function hoyLocalISO(): string {
+    const d = new Date();
+    const mes = String(d.getMonth() + 1).padStart(2, '0');
+    const dia = String(d.getDate()).padStart(2, '0');
+    return `${d.getFullYear()}-${mes}-${dia}`;
+}
+
+// Convierte "YYYY-MM-DD" a un Date en medianoche LOCAL.
+// new Date("2026-09-26") lo interpreta como medianoche UTC, mientras que el
+// atributo data-time que genera Litepicker es medianoche local: los dos
+// timestamps nunca coincidian y el resaltado de dias disponibles no llegaba
+// a aplicarse nunca.
+function fechaLocal(iso: string): Date {
+    const [y, m, d] = iso.split('-').map(Number);
+    return new Date(y, m - 1, d);
+}
 
 // Custom CSS injection for Litepicker
 function injectLitepickerStyles(): void {
@@ -122,7 +143,7 @@ function displayAvailableTimes(schedule: Schedule, availableTimesContainer: HTML
     horas.forEach((hora) => {
         const mensaje = `Hola Angie, te escribo desde la web de Hogar Terapéutico. Me gustaría reservar una cita para el día ${fecha} a las ${hora}.`;
         const whatsappLink = `https://wa.me/34621348616?text=${encodeURIComponent(mensaje)}`;
-        html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" class="cta-button bg-secondary text-white text-center text-sm py-2 px-1">${hora}</a>`;
+        html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" class="cta-button bg-primary text-white text-center text-sm py-2 px-1">${hora}</a>`;
     });
 
     html += '</div>';
@@ -159,10 +180,26 @@ export function initBookingCalendar(): void {
             }
             return response.json() as Promise<Schedule[]>;
         })
-        .then((horarios) => {
-            if (!horarios || horarios.length === 0) {
-                calendarContainer.innerHTML = '<p class="font-semibold text-primary p-4">Actualmente no hay citas disponibles. Por favor, vuelve a consultarlo más tarde.</p>';
+        .then((todosLosHorarios) => {
+            // Solo dias de hoy en adelante y con horas libres. Sin esto, un
+            // horarios.json desactualizado abre el calendario en una fecha
+            // pasada y muestra huecos que ya no existen.
+            const hoy = hoyLocalISO();
+            const horarios = (todosLosHorarios || [])
+                .filter((h) => h && h.fecha >= hoy && Array.isArray(h.horas) && h.horas.length > 0)
+                .sort((a, b) => a.fecha.localeCompare(b.fecha));
+
+            if (horarios.length === 0) {
+                calendarContainer.innerHTML = `
+                    <div class="bg-light border border-accent/40 rounded-xl p-6 text-center">
+                        <h3 class="font-semibold text-primary mb-2">Agenda en actualización</h3>
+                        <p class="text-text/80 mb-4">Ahora mismo no hay huecos publicados. Escríbeme y buscamos juntos el que mejor te venga.</p>
+                        <a href="https://wa.me/34621348616?text=Hola%20Angie%2C%20me%20gustar%C3%ADa%20reservar%20una%20primera%20sesi%C3%B3n."
+                           target="_blank" rel="noopener noreferrer"
+                           class="cta-button bg-primary text-white text-sm">Escribir por WhatsApp</a>
+                    </div>`;
                 availableTimesContainer.innerHTML = '';
+                Logger.getInstance().event('calendar_empty', 'booking_calendar', 'sin_fechas_futuras');
                 return;
             }
 
@@ -199,7 +236,7 @@ export function initBookingCalendar(): void {
                 singleMode: true,
                 lang: 'es-ES',
                 minDate: new Date(),
-                startDate: firstAvailableDate,
+                startDate: fechaLocal(firstAvailableDate),
                 lockDaysFilter: (date: any) => {
                     const d = date.format('YYYY-MM-DD');
                     const schedule = horarios.find((h) => h.fecha === d);
@@ -211,7 +248,7 @@ export function initBookingCalendar(): void {
                         if (!cal) return;
 
                         availableDates.forEach((d) => {
-                            const dayEl = cal.querySelector(`[data-time="${new Date(d).getTime()}"]`);
+                            const dayEl = cal.querySelector(`[data-time="${fechaLocal(d).getTime()}"]`);
                             if (dayEl) {
                                 dayEl.classList.add('is-available');
                             }

@@ -768,6 +768,7 @@
                             <li><a href="/aviso-legal" class="text-gray-300 hover:text-white transition">Aviso Legal</a></li>
                             <li><a href="/politica-privacidad" class="text-gray-300 hover:text-white transition">Privacidad</a></li>
                             <li><a href="/politica-cookies" class="text-gray-300 hover:text-white transition">Cookies</a></li>
+                            <li><button type="button" id="cookie-settings-link" class="text-gray-300 hover:text-white transition underline-offset-2 hover:underline">Preferencias de cookies</button></li>
                         </ul>
                     </div>
                 </div>
@@ -813,14 +814,19 @@
 
     <script type="module" src="/js/main.js{% jsVersion %}"></script>
     
-    <div id="cookie-consent-banner" class="hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg p-4 border-t border-light shadow-2xl z-50" role="dialog" aria-label="Aviso de cookies">
+    <div id="cookie-consent-banner" class="hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg p-4 border-t border-light shadow-2xl z-50" role="dialog" aria-label="Aviso de cookies" aria-modal="false">
         <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center text-sm gap-4">
             <p class="text-text text-center lg:text-left">
-                Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas su uso. Puedes leer más en nuestra <a href="/politica-cookies" class="underline hover:text-primary font-semibold">Política de Cookies</a>.
+                Usamos cookies analíticas para entender cómo se usa la web. Son opcionales: puedes aceptarlas o rechazarlas, y cambiar de opinión cuando quieras. Más detalle en la <a href="/politica-cookies" class="underline hover:text-primary font-semibold">Política de Cookies</a>.
             </p>
-            <button id="accept-cookies-btn" type="button" class="cta-button bg-primary text-white text-sm flex-shrink-0 px-8">
-                Aceptar
-            </button>
+            <div class="flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full sm:w-auto">
+                <button id="reject-cookies-btn" type="button" class="cta-button bg-white text-primary border-2 border-primary text-sm px-8 hover:bg-light">
+                    Rechazar
+                </button>
+                <button id="accept-cookies-btn" type="button" class="cta-button bg-primary text-white text-sm px-8">
+                    Aceptar
+                </button>
+            </div>
         </div>
     </div>
 

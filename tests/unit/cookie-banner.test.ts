@@ -6,6 +6,7 @@ import { initCookieBanner } from '../../src/ts/modules/cookie-banner';
 describe('Cookie Banner', () => {
   let cookieBanner: HTMLElement;
   let acceptCookiesBtn: HTMLButtonElement;
+  let rejectCookiesBtn: HTMLButtonElement;
 
   beforeEach(() => {
     // Spy on localStorage methods and mock them
@@ -19,12 +20,15 @@ describe('Cookie Banner', () => {
     // Setup DOM elements
     document.body.innerHTML = `
       <div id="cookie-consent-banner" class="hidden">
+        <button id="reject-cookies-btn">Rechazar</button>
         <button id="accept-cookies-btn">Aceptar</button>
       </div>
+      <button id="cookie-settings-link">Preferencias de cookies</button>
     `;
 
     cookieBanner = document.getElementById('cookie-consent-banner') as HTMLElement;
     acceptCookiesBtn = document.getElementById('accept-cookies-btn') as HTMLButtonElement;
+    rejectCookiesBtn = document.getElementById('reject-cookies-btn') as HTMLButtonElement;
   });
 
   test('should initialize cookie banner when elements exist', () => {
@@ -89,5 +93,56 @@ describe('Cookie Banner', () => {
 
     // Should not throw error even without gtag
     expect(localStorage.setItem).toHaveBeenCalledWith('cookiesAccepted', 'true');
+  });
+
+  test('should reject cookies when reject button is clicked', () => {
+    const gtagSpy = jest.fn();
+    (window as any).gtag = gtagSpy;
+
+    initCookieBanner();
+    rejectCookiesBtn.click();
+
+    expect(localStorage.setItem).toHaveBeenCalledWith('cookieConsent', 'denied');
+    expect(localStorage.removeItem).toHaveBeenCalledWith('cookiesAccepted');
+    expect(gtagSpy).toHaveBeenCalledWith('consent', 'update', {
+      analytics_storage: 'denied'
+    });
+  });
+
+  test('should not show the banner again after rejecting', () => {
+    (localStorage.getItem as jest.Mock).mockImplementation((key: string) =>
+      key === 'cookieConsent' ? 'denied' : null
+    );
+
+    initCookieBanner();
+
+    expect(cookieBanner.classList.contains('hidden')).toBe(true);
+  });
+
+  test('should keep analytics denied for a returning visitor who rejected', () => {
+    (localStorage.getItem as jest.Mock).mockImplementation((key: string) =>
+      key === 'cookieConsent' ? 'denied' : null
+    );
+    const gtagSpy = jest.fn();
+    (window as any).gtag = gtagSpy;
+
+    initCookieBanner();
+
+    expect(gtagSpy).toHaveBeenCalledWith('consent', 'update', {
+      analytics_storage: 'denied'
+    });
+  });
+
+  test('should reopen the banner from the footer preferences link', () => {
+    (localStorage.getItem as jest.Mock).mockImplementation((key: string) =>
+      key === 'cookieConsent' ? 'granted' : null
+    );
+
+    initCookieBanner();
+    expect(cookieBanner.classList.contains('hidden')).toBe(true);
+
+    (document.getElementById('cookie-settings-link') as HTMLElement).click();
+
+    expect(cookieBanner.classList.contains('hidden')).toBe(false);
   });
 });

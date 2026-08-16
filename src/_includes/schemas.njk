@@ -16,7 +16,7 @@
     "addressLocality": "Madrid",
     "addressCountry": "ES"
   },
-  "priceRange": "35€ - 60€",
+  "priceRange": "35€ - 50€",
   "openingHours": "Mo-Fr 09:00-20:00",
   "sameAs": [
     "https://es.linkedin.com/in/angie-s%C3%A1nchez-60268814b",
@@ -40,7 +40,7 @@
   "description": "{{ description }}",
   "url": "https://www.hogarterapeutico.com",
   "telephone": "+34 621 348 616",
-  "priceRange": "35€ - 60€",
+  "priceRange": "35€ - 50€",
   "serviceType": [
     "Terapia Online",
     "Psicoterapia Integradora",
@@ -129,7 +129,7 @@
     "addressLocality": "Madrid",
     "addressCountry": "ES"
   },
-  "priceRange": "35€ - 60€",
+  "priceRange": "35€ - 50€",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
@@ -142,15 +142,23 @@
       "@type": "MedicalTherapy",
       "name": "Primera Sesión",
       "description": "Sesión inicial de evaluación y plan terapéutico",
-      "price": "35€",
-      "priceCurrency": "EUR"
+      "offers": {
+        "@type": "Offer",
+        "price": "35",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
     },
     {
       "@type": "MedicalTherapy",
       "name": "Sesión Individual Online",
       "description": "Sesión de seguimiento terapéutico de 50 minutos",
-      "price": "60€",
-      "priceCurrency": "EUR"
+      "offers": {
+        "@type": "Offer",
+        "price": "50",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
     }
   ]
 }

@@ -38,7 +38,7 @@
   }
 
   .highlight {
-    @apply bg-gradient-to-t from-accent/30 from-40% to-transparent to-60% font-semibold px-1;
+    @apply bg-gradient-to-t from-accent/30 from-40% to-transparent to-60% font-semibold pl-1;
   }
 
   .hero-background-image {
