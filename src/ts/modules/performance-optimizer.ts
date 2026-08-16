@@ -210,12 +210,14 @@ export class PerformanceOptimizer {
      * Setup API response caching
      */
     setupAPICaching() {
-        // This would work with service workers in a production environment
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js').catch(() => {
-                // Service worker registration failed
-            });
-        }
+        // Aqui se registraba un service worker en '/sw.js' que no existe ni ha
+        // existido nunca. El .catch() se tragaba la promesa rechazada, pero el
+        // navegador seguia pidiendo el archivo y dejando un 404 y un error en
+        // consola en cada carga de pagina. Una peticion desperdiciada por
+        // visita, desde el modulo encargado de optimizar el rendimiento.
+        //
+        // Si algun dia hace falta cachear la API, primero hay que escribir el
+        // service worker y publicarlo.
     }
 
     /**
