@@ -86,7 +86,11 @@ async function loadNonCriticalModules(): Promise<void> {
                 loader.id = 'calendar-loading';
                 loader.className = 'text-center py-8';
                 loader.setAttribute('role', 'status');
-                loader.innerHTML = '<div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary" aria-hidden="true"></div><p class="mt-2 text-ink-mute">Cargando calendario...</p>';
+                // Mismo spinner SVG que el boton de envio del formulario, en
+                // vez del truco de rounded-full + border-b-2: dos spinners con
+                // dos tecnicas distintas en la misma pagina no tenian por que
+                // existir.
+                loader.innerHTML = '<svg class="inline-block animate-spin h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg><p class="mt-2 text-ink-mute">Cargando calendario...</p>';
                 calendarContainer.prepend(loader);
             }, 300); // Only show loading if it takes more than 300ms
 
