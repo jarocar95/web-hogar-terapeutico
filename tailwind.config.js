@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,njk,js,md}"], // Archivos que va a escanear
+  // Incluye .ts: los modulos generan marcado (los huecos del calendario, los
+  // estados del formulario) con clases de Tailwind, y al no escanearse aqui
+  // se purgaban. Sobrevivian solo las que por casualidad tambien se usaban en
+  // algun .html; grid-cols-3 no era una de ellas, asi que los horarios se
+  // apilaban a ancho completo en vez de ir en tres columnas.
+  content: ["./src/**/*.{html,njk,js,ts,md}"], // Archivos que va a escanear
   safelist: [
     'text-right',
   ],

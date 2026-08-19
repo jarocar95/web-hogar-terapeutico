@@ -305,35 +305,98 @@
 #calendar-container .litepicker .container__months {
   background: transparent !important;
   box-shadow: none !important;
+  width: 100% !important;
 }
 
-/* Cabecera del mes */
+/* Litepicker fija el mes a 250-266 px, asi que el calendario se quedaba
+   encogido en una columna bastante mas ancha y las celdas salian de 23 px.
+   Se hace fluido para que ocupe el panel y las celdas puedan ser cuadradas
+   y comodas. */
+#calendar-container .litepicker .container__months .month-item {
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+/* Cabecera del mes.
+   Se reparte en tres: flecha, nombre, flecha. Cuando no se puede retroceder
+   (minDate = hoy) Litepicker oculta la flecha anterior y el nombre del mes
+   quedaba descentrado, pegado a la flecha de avanzar. Con visibility en vez
+   de display, el hueco se conserva y la fila no se descuadra. */
 #calendar-container .litepicker .container__months .month-item-header {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
   font-family: 'Frank Ruhl Libre', serif;
   font-size: 1.125rem;
   font-weight: 600;
   color: #4C2F2D;
-  padding: 0 0 0.75rem;
+  padding: 0 0 0.9rem;
+}
+
+#calendar-container .litepicker .container__months .month-item-header > div {
+  flex: 1;
+  text-align: center;
+}
+
+#calendar-container .litepicker .month-item-year {
+  color: #85554F;
+  font-weight: 600;
+}
+
+#calendar-container .litepicker .button-previous-month[disabled],
+#calendar-container .litepicker .button-previous-month.is-hidden {
+  visibility: hidden !important;
+  display: inline-grid !important;
 }
 
 /* Abreviaturas de los dias. Litepicker las sirve a 10,88 px, por debajo del
    suelo de 11 px para texto funcional: son justo la etiqueta que dice a que
    columna corresponde cada numero. */
+#calendar-container .litepicker .container__months .month-item-weekdays-row {
+  gap: 5px;
+}
+
 #calendar-container .litepicker .container__months .month-item-weekdays-row > div {
   font-size: 12px !important;
   font-weight: 700;
-  letter-spacing: .04em;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   color: #85554F;
-  padding-bottom: .4rem;
+  padding-bottom: .55rem;
+}
+
+/* La reticula.
+   Litepicker maqueta los dias con flex y anchos en porcentaje, y las celdas
+   salen pequeñas y apretadas: el calendario parecia una fila de pastillas.
+   Se pasa a grid de 7 columnas iguales, que ademas alinea la fila de
+   iniciales con la de numeros (con flex median 296 y 266 px, o sea que no
+   estaban alineadas) y permite celdas cuadradas de verdad. */
+#calendar-container .litepicker .container__days,
+#calendar-container .litepicker .container__months .month-item-weekdays-row {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 5px;
+  padding: 0;
+  width: 100% !important;
 }
 
 /* Dia normal (no reservable) */
 #calendar-container .litepicker .container__days .day-item {
   color: #7C6A66 !important;
   background-color: transparent !important;
+  border: 1px solid transparent !important;
   border-radius: 10px;
   font-size: 14px;
   font-weight: 500;
+  aspect-ratio: 1 / 1;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  place-items: center;
 }
 
 /* Dia sin hueco: atenuado a proposito, pero legible. Estaba en #D1C7C7

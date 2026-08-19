@@ -196,9 +196,33 @@ export function initBookingCalendar(): void {
                     // repintados (alta inicial, cambio de mes, seleccion) sin
                     // depender de que evento concreto emita cada version de la
                     // libreria.
+                    // Litepicker escribe "lun mar mié jue vie sáb dom": siete
+                    // palabras de tres letras sobre celdas estrechas, que es
+                    // ruido en la fila que menos informacion aporta. Se pasa a
+                    // la inicial, que es la convencion en español, conservando
+                    // el nombre completo para lectores de pantalla.
+                    const INICIALES: Record<string, string> = {
+                        lun: 'L', mar: 'M', mié: 'X', mie: 'X',
+                        jue: 'J', vie: 'V', sáb: 'S', sab: 'S', dom: 'D',
+                    };
+                    const shortenWeekdays = (): void => {
+                        calendarContainer
+                            .querySelectorAll<HTMLElement>('.month-item-weekdays-row > div')
+                            .forEach((el) => {
+                                const texto = (el.textContent || '').trim();
+                                const inicial = INICIALES[texto.toLowerCase()];
+                                if (inicial) {
+                                    el.setAttribute('aria-label', texto);
+                                    el.setAttribute('title', texto);
+                                    el.textContent = inicial;
+                                }
+                            });
+                    };
+
                     const observer = new MutationObserver(() => {
                         highlightAvailableDates();
                         labelNavigationButtons();
+                        shortenWeekdays();
                     });
                     observer.observe(calendarContainer, { childList: true, subtree: true });
 
