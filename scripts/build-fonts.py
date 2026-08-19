@@ -63,7 +63,6 @@ CARACTERISTICAS = ["kern", "liga", "clig", "calt", "ccmp", "locl", "mark", "mkmk
 FUENTES = [
     ("Frank_Ruhl_Libre/FrankRuhlLibre-VariableFont_wght.ttf", "frank-ruhl-libre-var", (400, 700)),
     ("Public_Sans/PublicSans-VariableFont_wght.ttf",          "public-sans-var",      (300, 700)),
-    ("Public_Sans/PublicSans-Italic-VariableFont_wght.ttf",   "public-sans-italic-var", (400, 600)),
 ]
 
 LICENCIAS = [

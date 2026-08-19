@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    {%- if heroPreload %}
+    {# Lo PRIMERO del head: la imagen del hero es el elemento LCP. Estaba
+       detras de 600 lineas de CSS critico y de las dos fuentes, y PageSpeed
+       medía 810 ms entre el inicio de la navegacion y el inicio de su
+       descarga. El escaner de precarga la ve aqui de inmediato. #}
+    {% imagePreload heroPreload, "100vw" %}
+    {%- endif %}
+
     <!-- Preconnect to external domains for performance -->
     <!-- Sin preconnect a terceros: durante la carga inicial ya no se contacta
          con ninguno. jsdelivr solo se usa si el visitante llega al calendario
@@ -42,20 +50,17 @@
         /* Critical CSS - Above the fold content */
         /* This CSS is inlined in the head for optimal performance */
 
-        /* Fuentes. La cursiva no se precarga: solo se descarga si la pagina
-           llega a pintar texto en cursiva (testimonios, citas). */
+        /* Fuentes.
+           No se sirve cursiva real: la pagina tiene cursivas por debajo del
+           pliegue (testimonios y la cita de "Sobre mi"), asi que el archivo se
+           descargaba SIEMPRE, 29 KB compitiendo con la imagen del hero por el
+           LCP. El navegador sintetiza la oblicua a partir de la redonda, que es
+           lo que hacia esta web antes de autoalojar las fuentes. */
         @font-face {
           font-family: 'Public Sans';
           src: url('/fonts/public-sans-var.woff2') format('woff2');
           font-weight: 300 700;
           font-style: normal;
-          font-display: swap;
-        }
-        @font-face {
-          font-family: 'Public Sans';
-          src: url('/fonts/public-sans-italic-var.woff2') format('woff2');
-          font-weight: 400 600;
-          font-style: italic;
           font-display: swap;
         }
         @font-face {

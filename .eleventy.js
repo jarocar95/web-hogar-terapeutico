@@ -48,6 +48,31 @@ async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy", imgCl
     return Image.generateHTML(metadata, imageAttributes);
 }
 
+// Genera el <link rel="preload"> de una imagen que luego pintara el shortcode
+// {% image %}. Sirve para el fondo del hero, que es el elemento LCP.
+//
+// Sin esto, el navegador no descubre la imagen hasta que el parser llega a
+// ella, y para entonces ya ha lanzado las fuentes: PageSpeed medía 810 ms de
+// espera entre el inicio de la navegacion y el comienzo de la descarga.
+//
+// Se emite solo el srcset webp, con su type: los navegadores que no lo
+// soporten ignoran el preload y descargan el jpeg por la via normal. Reutiliza
+// la misma llamada a Image() que el shortcode, asi que los anchos y los hashes
+// no pueden desincronizarse.
+async function imagePreloadShortcode(src, sizes = "100vw") {
+    if (!src) return "";
+    const metadata = await Image(src, {
+	widths: ESCALA_ANCHOS,
+	formats: ["webp", "jpeg"],
+	outputDir: "./public/img/",
+	urlPath: "/img/",
+    });
+    const webp = metadata.webp;
+    if (!webp || !webp.length) return "";
+    const srcset = webp.map((v) => `${v.url} ${v.width}w`).join(", ");
+    return `<link rel="preload" as="image" type="image/webp" imagesrcset="${srcset}" imagesizes="${sizes}" fetchpriority="high">`;
+}
+
 // Resuelve la URL final publicada (p.ej. /img/HASH-900.jpeg) de una imagen a
 // partir de su ruta de origen en frontmatter (p.ej. "./src/images/blog/foo.webp").
 // Necesario para JSON-LD (schemas.njk), donde no podemos usar el shortcode
@@ -87,6 +112,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addAsyncShortcode("image", imageShortcode);
     eleventyConfig.addAsyncFilter("imageUrl", imageUrlFilter);
+    eleventyConfig.addAsyncShortcode("imagePreload", imagePreloadShortcode);
     // También copiaremos los archivos de la raíz como robots.txt
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
     // MINIMALISTA: Incluyendo imagen optimizada
