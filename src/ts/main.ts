@@ -6,13 +6,11 @@
 // Core functionality - loaded immediately
 import { initMobileMenu } from './modules/mobile-menu.js';
 import { initScrollEffects } from './modules/scroll-effects.js';
-import { initAnimations } from './modules/animations.js';
 import { setupGlobalErrorHandling, setupPerformanceMonitoring, Logger } from './utils/logger.js';
 import type { PerformanceEntry } from './types';
 
 // Enhanced UI modules
 import { EnhancedUI } from './modules/enhanced-ui.js';
-import { ScrollAnimations } from './modules/scroll-animations.js';
 import { LoadingStates } from './modules/loading-states.js';
 import { PerformanceOptimizer } from './modules/performance-optimizer.js';
 
@@ -25,13 +23,18 @@ document.addEventListener('DOMContentLoaded', (): void => {
     // Initialize core functionality
     initMobileMenu();
     initScrollEffects();
-    initAnimations();
 
     // Initialize enhanced UI features
     const enhancedUI = new EnhancedUI();
 
-    // Initialize scroll animations
-    const scrollAnimations = new ScrollAnimations();
+    // ScrollAnimations ya no se instancia. Hacia cuatro cosas y las cuatro
+    // sobraban: ocultaba todas las secciones para reaparecerlas al hacer
+    // scroll (la causa del CLS de 1,0 que reporto Lighthouse), movia el fondo
+    // del hero en cada evento de scroll, y animaba contadores y grupos
+    // escalonados cuyos ganchos (.counter, .stagger-group, .parallax-element)
+    // no existen en el HTML.
+    // initAnimations tampoco: solo ponia animationPlayState a elementos cuyas
+    // animaciones CSS se habian borrado hace tiempo.
 
     // Initialize loading states and skeleton screens
     const loadingStates = new LoadingStates();

@@ -12,8 +12,11 @@ export class EnhancedUI {
         this.setupScrollProgress();
         this.setupEnhancedNavigation();
         this.setupMagneticButtons();
-        this.setupIntersectionObserver();
         this.setupSmoothScrolling();
+        // setupIntersectionObserver queda fuera: ponia opacity:0 a las 11
+        // secciones y las 18 tarjetas DESPUES de que el navegador ya las
+        // hubiera pintado, y las devolvia al hacer scroll. En un movil lento
+        // eso significa que la pagina aparece entera y acto seguido se apaga.
     }
 
     /**
@@ -92,6 +95,12 @@ export class EnhancedUI {
 
     /**
      * Setup intersection observer for scroll animations
+     */
+    /**
+     * NO SE USA. Se dejo de llamar desde init() porque apagaba toda la pagina.
+     * Ver el comentario en init(). Se conserva solo como referencia de lo que
+     * habia; la reaparicion al hacer scroll se rehara en CSS, respetando
+     * prefers-reduced-motion, cuando toque el sistema de diseno.
      */
     setupIntersectionObserver() {
         const options = {
