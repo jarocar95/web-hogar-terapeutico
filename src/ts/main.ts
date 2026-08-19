@@ -76,12 +76,13 @@ async function loadNonCriticalModules(): Promise<void> {
             }, 300); // Only show loading if it takes more than 300ms
 
             try {
-                console.log('Starting to load calendar dependencies...');
-                // Load Litepicker dependencies first
+                // La hoja de Litepicker viaja con su JS: antes se pedia desde
+                // el <head> de todas las paginas. Y con la version fijada, que
+                // apuntaba a "litepicker" a secas (o sea, a la ultima) mientras
+                // el JS iba clavado en 2.0.12.
+                loadStyle('https://cdn.jsdelivr.net/npm/litepicker@2.0.12/dist/css/litepicker.css');
                 await loadScript('https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js');
-                console.log('Moment.js loaded successfully');
                 await loadScript('https://cdn.jsdelivr.net/npm/litepicker@2.0.12/dist/litepicker.js');
-                console.log('Litepicker loaded successfully');
 
                 const { initBookingCalendar } = await import('./modules/booking-calendar.js');
                 console.log('Booking calendar module loaded');
@@ -119,6 +120,19 @@ async function loadNonCriticalModules(): Promise<void> {
     } catch (error) {
         console.error('Error loading non-critical modules:', error);
     }
+}
+
+/**
+ * Utility function to load external scripts dynamically
+ * @param src - Script URL
+ * @returns Promise that resolves when script is loaded
+ */
+function loadStyle(href: string): void {
+    if (document.querySelector(`link[href="${href}"]`)) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
 }
 
 /**

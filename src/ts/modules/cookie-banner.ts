@@ -44,9 +44,32 @@ function guardarDecision(valor: Consent): void {
     }
 }
 
+/**
+ * Carga gtag.js. Solo se llama cuando hay consentimiento.
+ *
+ * Antes la libreria se pedia en cada visita desde la cabecera, con el
+ * consentimiento en 'denied': ~90 KB compitiendo por ancho de banda en la ruta
+ * critica sin recoger nada. Las llamadas a gtag() que se hicieron antes de
+ * esto quedan encoladas en dataLayer y se procesan al arrancar la libreria.
+ */
+function cargarAnalytics(): void {
+    const id = (window as any).__ANALYTICS_ID as string | undefined;
+    if (!id) return;
+    if (document.querySelector('script[data-analytics]')) return;
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.dataset.analytics = '';
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+    document.head.appendChild(script);
+}
+
 function aplicarConsentimiento(valor: Consent): void {
     if (typeof window.gtag === 'function') {
         window.gtag('consent', 'update', { analytics_storage: valor });
+    }
+    if (valor === 'granted') {
+        cargarAnalytics();
     }
 }
 

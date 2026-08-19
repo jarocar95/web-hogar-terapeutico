@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Preconnect to external domains for performance -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <!-- Sin preconnect a terceros: durante la carga inicial ya no se contacta
+         con ninguno. jsdelivr solo se usa si el visitante llega al calendario
+         (Litepicker), y googletagmanager solo si acepta las cookies. -->
     <!-- Solo se preconecta a lo que se usa durante la carga. Lighthouse avisa
          a partir de 4 preconnect: cada uno reserva una conexion que en movil
          compite por ancho de banda con el LCP. formspree solo se contacta al
@@ -648,22 +649,28 @@
 
     
 
-    <!-- Iconos y Scripts -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"></noscript>
+    <!-- Los iconos ya no vienen de jsdelivr: van incrustados en output.css. -->
 
-    <!-- Preload Litepicker CSS -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"></noscript>
+    <!-- La hoja de Litepicker ya no se pide aqui. Se cargaba en TODAS las
+         paginas, blog incluido, para un calendario que solo existe en la home
+         y que ademas se inicializa en diferido. Ahora la carga el propio
+         modulo del calendario, junto a su JS. -->
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RD78QPWW3F"></script>
+    <!-- Analytics.
+         La libreria gtag.js NO se carga aqui. Antes se descargaba en cada
+         visita (~90 KB) con el consentimiento en 'denied', o sea que ocupaba
+         ancho de banda en la ruta critica para no recoger absolutamente nada
+         hasta que alguien pulsase "Aceptar". Y la mayoria no pulsa.
+         Ahora solo la carga el modulo de cookies cuando hay consentimiento.
+         Esto de aqui son ~200 bytes que dejan la cola preparada: las llamadas
+         se encolan en dataLayer y gtag.js las procesa al arrancar. -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+        window.__ANALYTICS_ID = 'G-RD78QPWW3F';
         gtag('js', new Date());
         gtag('consent', 'default', { 'analytics_storage': 'denied' });
-        gtag('config', 'G-RD78QPWW3F');
+        gtag('config', window.__ANALYTICS_ID);
     </script>
     <style>
         .litepicker {

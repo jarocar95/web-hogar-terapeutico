@@ -16,3 +16,6 @@ public/prose.css
 # public/fonts es una copia literal de src/fonts que hace el passthrough de
 # Eleventy en cada build. Las fuentes buenas se versionan en src/fonts.
 /public/fonts
+
+# Lo genera scripts/build-icons.mjs en cada build, desde el paquete remixicon.
+/src/icons.css

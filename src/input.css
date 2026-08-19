@@ -1,4 +1,13 @@
 /* src/input.css */
+
+/* Iconos como mask-image, generados por scripts/build-icons.mjs desde el
+   paquete remixicon. Antes se cargaba la hoja completa de Remixicon desde
+   jsdelivr y con ella su tipografia de iconos: una conexion a un tercero y
+   ~100 KB de fuente para usar 31 iconos. Al entrar aqui, acaban dentro de
+   output.css y no cuestan ni una peticion.
+   El @import va el primero porque CSS lo exige. */
+@import "./icons.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
