@@ -181,20 +181,22 @@ export class PerformanceOptimizer {
     }
 
     /**
-     * Load polyfills based on browser support
+     * Polyfills: ya no se cargan.
+     *
+     * Esto pedia https://polyfill.io/v3/polyfill.min.js a un dominio que cambio
+     * de propietario en 2024 y se uso para servir malware a los sitios que lo
+     * enlazaban. Ejecutar codigo arbitrario de un tercero en la web de una
+     * consulta de psicologia, donde la gente escribe por lo que necesita ayuda,
+     * no es un riesgo aceptable, y ademas contradecia el trabajo de "cero
+     * terceros" del resto del proyecto.
+     *
+     * Que se perdia a cambio: IntersectionObserver, fetch y Promise. Los tres
+     * estan en todos los navegadores desde 2019 y el propio codigo comprueba su
+     * existencia antes de usarlos, asi que degrada solo en vez de romperse.
      */
     loadPolyfillsIfNeeded() {
-        const needsIntersectionObserver = !('IntersectionObserver' in window);
-        const needsFetch = !('fetch' in window);
-        const needsPromise = !('Promise' in window);
-
-        if (needsIntersectionObserver || needsFetch || needsPromise) {
-            // Load polyfills from CDN
-            const polyfillScript = document.createElement('script');
-            polyfillScript.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver,fetch,Promise';
-            polyfillScript.async = true;
-            document.head.appendChild(polyfillScript);
-        }
+        // Intencionadamente vacio. Ver el comentario de arriba antes de
+        // reintroducir cualquier polyfill servido desde un CDN de terceros.
     }
 
     /**

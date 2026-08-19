@@ -73,10 +73,27 @@ async function loadNonCriticalModules(): Promise<void> {
         // Load booking calendar only if calendar container exists
         const calendarContainer = document.getElementById('calendar-container');
         if (calendarContainer) {
-            // Show loading state after a small delay to avoid flash for cached content
+            // Estado de carga, en su propio elemento.
+            //
+            // Antes esto escribia directamente en innerHTML del contenedor y se
+            // limpiaba solo con clearTimeout, que impide que el temporizador
+            // vuelva a dispararse pero NO retira lo que ya habia escrito. Si el
+            // CDN tardaba mas de 300 ms, Litepicker se montaba debajo y el
+            // "Cargando calendario..." se quedaba para siempre encima del
+            // calendario ya funcionando.
             const loadingTimeout = setTimeout(() => {
-                calendarContainer.innerHTML = '<div class="text-center py-8"><div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div><p class="mt-2 text-gray-600">Cargando calendario...</p></div>';
+                const loader = document.createElement('div');
+                loader.id = 'calendar-loading';
+                loader.className = 'text-center py-8';
+                loader.setAttribute('role', 'status');
+                loader.innerHTML = '<div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary" aria-hidden="true"></div><p class="mt-2 text-ink-mute">Cargando calendario...</p>';
+                calendarContainer.prepend(loader);
             }, 300); // Only show loading if it takes more than 300ms
+
+            const removeLoader = (): void => {
+                clearTimeout(loadingTimeout);
+                document.getElementById('calendar-loading')?.remove();
+            };
 
             try {
                 // La hoja de Litepicker viaja con su JS: antes se pedia desde
@@ -88,19 +105,18 @@ async function loadNonCriticalModules(): Promise<void> {
                 await loadScript('https://cdn.jsdelivr.net/npm/litepicker@2.0.12/dist/litepicker.js');
 
                 const { initBookingCalendar } = await import('./modules/booking-calendar.js');
-                console.log('Booking calendar module loaded');
-                initBookingCalendar();
-                console.log('Calendar initialized successfully');
 
-                // Clear loading timeout since calendar loaded successfully
-                clearTimeout(loadingTimeout);
+                // Se retira ANTES de montar el calendario: si se hace despues,
+                // Litepicker ya se ha insertado y el aviso queda encima.
+                removeLoader();
+
+                initBookingCalendar();
                 Logger.getInstance().event('calendar_load', 'booking_calendar', 'success');
             } catch (calendarError) {
                 console.error('Error loading calendar:', calendarError);
                 Logger.getInstance().error('Calendar loading failed', { error: calendarError instanceof Error ? calendarError.message : String(calendarError) });
 
-                // Clear loading timeout
-                clearTimeout(loadingTimeout);
+                removeLoader();
 
                 // Show error state with fallback
                 calendarContainer.innerHTML = `

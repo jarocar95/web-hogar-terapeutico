@@ -1,56 +1,56 @@
 /**
  * Scroll effects functionality
- * Handles header shrink and mobile CTA bar behavior
+ * Sombra de la cabecera y barra fija de CTA en movil.
+ *
+ * Antes esto encogia la cabecera de 5rem a 4rem al hacer scroll y, con ella,
+ * cambiaba el padding-top del body. Es decir: desplazaba el documento entero
+ * 16 px a mitad de scroll y forzaba un recalculo de estilos de todo el arbol
+ * en cada evento (los toggles estaban fuera del debounce). Medimos CLS 0,40.
+ * La cabecera ahora mantiene su altura y solo gana una sombra.
+ *
+ * La barra fija tampoco depende ya de la direccion del scroll: aparece cuando
+ * el hero sale de pantalla y desaparece cuando vuelve. Antes solo se ocultaba
+ * por encima de scrollY < 50, asi que en una pagina larga estaba siempre
+ * presente compitiendo con los CTA de cada seccion, incluidos los del hero.
  */
 
 export function initScrollEffects(): void {
     const header = document.getElementById('main-header') as HTMLElement | null;
-    const body = document.body as HTMLBodyElement;
-    const mobileCtaBar = document.getElementById('mobile-cta-bar') as HTMLElement | null;
-    let lastScrollY = window.scrollY;
+    const stickyCta = document.getElementById('mobile-cta-bar') as HTMLElement | null;
 
-    if (!header || !body || !mobileCtaBar) {
+    if (header) {
+        const applyHeaderState = (): void => {
+            header.classList.toggle('shadow-e1', window.scrollY > 8);
+        };
+        applyHeaderState();
+        window.addEventListener('scroll', applyHeaderState, { passive: true });
+    }
+
+    if (!stickyCta) {
         return;
     }
 
-    // Debounce function to limit how often a function is called
-    const debounce = <T extends (...args: any[]) => void>(
-        func: T,
-        delay: number
-    ): ((...args: Parameters<T>) => void) => {
-        let timeout: ReturnType<typeof setTimeout>;
-        return function (this: any, ...args: Parameters<T>) {
-            const context = this;
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(context, args), delay);
-        };
-    };
+    const hero = document.getElementById('hero');
 
-    const debouncedCtaBarLogic = debounce((currentScrollY: number): void => {
-        const newScrollThreshold = 150;
+    // Sin hero (blog, paginas legales) la barra no aplica.
+    if (!hero) {
+        return;
+    }
 
-        if (currentScrollY > lastScrollY && currentScrollY > newScrollThreshold) {
-            // Scrolling down and past threshold, show bar
-            mobileCtaBar.classList.remove('hidden');
-            mobileCtaBar.offsetHeight; // Trigger reflow
-            mobileCtaBar.classList.remove('opacity-0');
-        } else if (currentScrollY < 50) {
-            // Scrolling up or near top, hide bar
-            mobileCtaBar.classList.add('opacity-0');
-            setTimeout(() => {
-                mobileCtaBar.classList.add('hidden');
-            }, 500);
-        }
-        lastScrollY = currentScrollY;
-    }, 100);
+    if (!('IntersectionObserver' in window)) {
+        // Sin soporte, la barra simplemente no aparece: es un atajo, no la
+        // unica via de reserva.
+        return;
+    }
 
-    window.addEventListener('scroll', () => {
-        debouncedCtaBarLogic(window.scrollY);
-        const isScrolled = window.scrollY > 50;
-        header.classList.toggle('h-16', isScrolled);
-        header.classList.toggle('h-20', !isScrolled);
-        header.classList.toggle('shadow-lg', isScrolled);
-        body.classList.toggle('pt-16', isScrolled);
-        body.classList.toggle('pt-20', !isScrolled);
-    }, { passive: true });
+    const observer = new IntersectionObserver(
+        (entries) => {
+            for (const entry of entries) {
+                stickyCta.classList.toggle('is-visible', !entry.isIntersecting);
+            }
+        },
+        { rootMargin: '-80px 0px 0px 0px', threshold: 0 }
+    );
+
+    observer.observe(hero);
 }

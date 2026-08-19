@@ -45,6 +45,18 @@
 
   details > summary { list-style: none; cursor: pointer; }
   details > summary::-webkit-details-marker { display: none; }
+
+  /* Respeto por la preferencia del sistema. Habia un TODO en el codigo y cero
+     implementaciones: en una web que promete calma, el minimo es no mover
+     nada cuando alguien ha pedido que no se mueva nada. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer components {
@@ -52,9 +64,163 @@
     @apply inline-block py-3 px-6 font-semibold rounded-full bg-primary text-white hover:bg-primary-darker;
   }
 
+  /* ---------------------------------------------------------------------
+     Sistema de la home rediseniada.
+     Una sola escala de botones, un solo ritmo de seccion, un solo tipo de
+     tarjeta. Antes habia quince etiquetas de CTA con seis pesos visuales
+     distintos apuntando a cuatro destinos; ahora el peso visual dice de
+     verdad cual es la accion principal.
+     --------------------------------------------------------------------- */
+
+  /* Botones. min-height 44px en todos: es el minimo de zona tactil y antes
+     habia 21 objetivos por debajo. */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5 font-sans text-[15px] font-semibold
+           px-[26px] py-3.5 min-h-[44px] rounded-full no-underline border-[1.5px] border-transparent
+           cursor-pointer whitespace-nowrap transition-[transform,box-shadow,background-color,color] duration-200;
+  }
+  .btn-lg { @apply px-[34px] py-[17px] text-base min-h-[52px]; }
+  .btn-block { @apply w-full; }
+
+  .btn-primary {
+    @apply bg-clay-500 text-white;
+    box-shadow: 0 1px 2px rgba(76,47,45,.18), 0 10px 22px -12px rgba(76,47,45,.65);
+  }
+  .btn-primary:hover { @apply bg-clay-600 -translate-y-0.5; }
+
+  .btn-ghost { @apply bg-transparent text-clay-600 border-clay-200; }
+  .btn-ghost:hover { @apply bg-clay-50 border-clay-300 -translate-y-0.5; }
+
+  .btn-light { @apply bg-white text-clay-600; }
+  .btn-light:hover { @apply -translate-y-0.5 shadow-e2; }
+
+  .btn-outline-light { @apply bg-transparent text-white border-white/50; }
+  .btn-outline-light:hover { @apply bg-white/[.12] border-white; }
+
+  /* Enlace con subrayado propio, para todo lo que NO es la accion principal.
+     Es el escalon que faltaba entre "boton" y "texto plano". */
+  .lnk {
+    @apply inline-flex items-center gap-[7px] font-semibold text-[15px] text-clay-600
+           no-underline border-b-[1.5px] border-clay-200 pb-0.5 min-h-[44px]
+           transition-colors duration-200;
+  }
+  .lnk:hover { @apply text-clay-700 border-clay-500; }
+  .lnk .icon { @apply w-[17px] h-[17px] flex-none; }
+
+  /* Antetitulo. Da a cada seccion un rotulo corto sin gastar un H2. */
+  .eyebrow {
+    @apply inline-flex items-center gap-[9px] font-sans text-[12.5px] font-bold
+           tracking-[.14em] uppercase text-clay-600 mb-[18px];
+  }
+  .eyebrow::before {
+    content: "";
+    @apply w-[26px] h-[1.5px] bg-clay-300;
+  }
+  .eyebrow-on-dark { @apply text-sage-200; }
+  .eyebrow-on-dark::before { @apply bg-sage-500; }
+  .sec-head-center .eyebrow::before { @apply hidden; }
+
+  .h2-display { @apply font-serif font-semibold text-[clamp(2rem,3.6vw,2.9rem)] leading-[1.12] tracking-[-.015em]; }
+  .lead { @apply text-[clamp(1.05rem,1.5vw,1.2rem)] text-ink-soft leading-[1.65] max-w-[62ch]; }
+
   .card {
     @apply bg-white rounded-lg shadow-md;
   }
+
+  /* Tarjeta del sistema nuevo. .card se queda como esta porque la usan el
+     blog y las paginas legales. */
+  .card2 {
+    @apply bg-white border border-clay-100 rounded-lg2 p-[30px] shadow-e1
+           transition-[transform,box-shadow,border-color] duration-200;
+  }
+  .card2:hover { @apply -translate-y-1 shadow-e2 border-clay-200; }
+  .card2-ico { @apply w-[46px] h-[46px] rounded-[14px] bg-clay-50 grid place-items-center mb-[18px]; }
+  .card2-ico .icon { @apply w-[22px] h-[22px] bg-clay-500; }
+  .card2-sage .card2-ico { @apply bg-sage-50; }
+  .card2-sage .card2-ico .icon { @apply bg-sage-500; }
+
+  /* Chips de reconocimiento ("¿te reconoces en algo de esto?") */
+  .chip {
+    @apply bg-white border border-clay-100 rounded-md2 px-[22px] py-[18px]
+           flex gap-3.5 items-start shadow-e1 transition-[transform,border-color] duration-200;
+  }
+  .chip:hover { @apply -translate-y-0.5 border-clay-200; }
+  .chip > .dot { @apply w-2 h-2 rounded-full bg-clay-300 flex-none mt-[9px]; }
+  .chip > span { @apply text-base text-ink-soft leading-[1.55]; }
+
+  /* Pasos del proceso, sobre fondo oscuro */
+  .step { @apply flex gap-[22px] py-[26px] border-t border-white/[.14]; }
+  .step:last-child { @apply border-b border-white/[.14]; }
+  .step-n {
+    @apply flex-none w-11 h-11 rounded-full border border-white/30 grid place-items-center
+           font-serif text-[17px] text-sage-200;
+  }
+
+  /* Planes de precio */
+  .plan {
+    @apply bg-white border border-clay-100 rounded-lg2 px-[30px] py-[34px]
+           flex flex-col shadow-e1 relative;
+  }
+  .plan-featured { @apply border-[1.5px] border-clay-400 shadow-e2; }
+  .plan-tag {
+    @apply absolute -top-[13px] left-[30px] bg-clay-500 text-white text-[11.5px] font-bold
+           tracking-[.1em] uppercase px-3.5 py-1.5 rounded-full;
+  }
+  .plan-amt b { @apply font-serif text-[48px] font-semibold tracking-[-.03em] text-clay-700; }
+
+  /* Testimonios */
+  .tst {
+    @apply bg-white border border-clay-100 rounded-lg2 p-7 flex flex-col shadow-e1
+           transition-[transform,box-shadow] duration-200;
+  }
+  .tst:hover { @apply -translate-y-[3px] shadow-e2; }
+
+  /* Acordeon de preguntas */
+  .acc > details { @apply border-b border-sage-200; }
+  .acc > details:first-child { @apply border-t border-sage-200; }
+  .acc summary {
+    @apply py-[22px] px-1 min-h-[44px] flex gap-5 items-center justify-between
+           font-serif text-[19px] font-semibold text-ink tracking-[-.01em];
+  }
+  .acc summary:hover { @apply text-clay-600; }
+  .acc .plus {
+    @apply flex-none w-[26px] h-[26px] rounded-full border border-sage-300 grid place-items-center
+           relative transition-[transform,background-color] duration-200;
+  }
+  .acc .plus::before, .acc .plus::after {
+    content: "";
+    @apply absolute bg-sage-700 rounded-sm;
+  }
+  .acc .plus::before { @apply w-[11px] h-[1.6px]; }
+  .acc .plus::after  { @apply w-[1.6px] h-[11px] transition-opacity duration-200; }
+  .acc details[open] .plus { @apply bg-sage-200 rotate-90; }
+  .acc details[open] .plus::after { @apply opacity-0; }
+  .acc .ans { @apply pl-1 pr-[46px] pb-6 text-ink-soft text-base max-w-[70ch]; }
+
+  /* Campos de formulario */
+  .fld label { @apply block text-[13.5px] font-semibold text-ink mb-[7px]; }
+  .fld input, .fld textarea {
+    @apply w-full font-sans text-base text-ink px-[15px] py-[13px] min-h-[44px]
+           border border-clay-200 rounded-xl bg-canvas transition-[border-color,box-shadow] duration-200;
+  }
+  .fld input:focus, .fld textarea:focus {
+    @apply outline-none border-clay-400 bg-white;
+    box-shadow: 0 0 0 3px rgba(156,102,102,.16);
+  }
+  .fld textarea { @apply min-h-[120px] resize-y; }
+
+  /* Barra fija movil. Solo aparece cuando el hero ya ha salido de pantalla,
+     asi no tapa los CTA del propio hero. */
+  .sticky-cta {
+    @apply fixed left-4 right-4 bottom-4 z-40 flex gap-2.5 rounded-full p-2
+           border border-clay-200 shadow-e2 lg:hidden
+           opacity-0 translate-y-3 pointer-events-none
+           transition-[opacity,transform] duration-300;
+    background: rgba(253,250,246,.93);
+    backdrop-filter: blur(14px);
+  }
+  .sticky-cta.is-visible { @apply opacity-100 translate-y-0 pointer-events-auto; }
+  .sticky-cta .btn { @apply flex-1 px-4 py-3 text-[14.5px]; }
 
   .highlight {
     @apply bg-gradient-to-t from-accent/30 from-40% to-transparent to-60% font-semibold pl-1;
@@ -62,180 +228,185 @@
 
   .hero-background-image {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
+    overflow: hidden;
+    /* z-index 0, no -1. Con -1 la foto se pintaba por DETRAS del color de
+       fondo del propio #hero, asi que la seccion se veia de un marron plano y
+       la imagen no aparecia nunca. El orden correcto es foto (0) -> velo (0,
+       despues en el DOM) -> contenido (10). */
+    z-index: 0;
+  }
+
+  /* El elemento picture es inline y sin altura propia; sin esto, el height de
+     la imagen que lleva dentro no tiene contra que resolver. */
+  .hero-background-image picture {
+    display: block;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    overflow: hidden;
   }
 
   .hero-background-image img {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover;
-    /* La espiga (el elemento con textura de la foto) está a la izquierda del
-       encuadre; en pantallas estrechas y altas un recorte centrado cae en el
-       degradado vacío de la derecha, así que desplazamos el foco. */
-    object-position: 25% center;
+    /* La luz dorada del marco cae en el tercio superior derecho del encuadre.
+       El texto vive a la izquierda, asi que subimos el recorte para que esa
+       luz quede visible en vez de recortada por abajo. */
+    object-position: 50% 8%;
   }
 
-  @media (min-width: 768px) {
-    .hero-background-image img {
-      object-position: center;
+  /* El velo del hero. Es un degradado, no un color plano: opaco donde vive el
+     texto y casi transparente donde esta la luz de la foto. Un lavado uniforme
+     apagaba justo lo unico que hacia interesante la imagen. */
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(100deg,
+      rgba(30,20,18,.86) 0%,
+      rgba(38,26,24,.68) 30%,
+      rgba(60,38,35,.34) 58%,
+      rgba(76,47,45,.08) 100%);
+  }
+
+  @media (max-width: 767px) {
+    /* En vertical el texto ocupa todo el ancho, asi que el degradado lateral
+       no sirve: pasa a ser vertical y algo mas denso. */
+    .hero-scrim {
+      background: linear-gradient(180deg,
+        rgba(30,20,18,.72) 0%,
+        rgba(34,23,21,.80) 55%,
+        rgba(38,26,24,.88) 100%);
     }
   }
-
-  /* Segunda aparición de la foto del hero, en la sección de la cita: mismo
-     archivo (ya generado en varios tamaños, no añade peso extra) pero con el
-     encuadre desplazado a la zona cálida del atardecer en vez de la espiga,
-     para que no se sienta como una repetición literal del hero. */
-  .quote-background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
-  }
-
-  .quote-background-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    object-position: 75% 35%;
-  }
 }
 
-/* Estilos mejorados para el calendario de Doctoralia */
-.calendar-layout {
+/* =====================================================================
+   Tema del calendario (Litepicker).
+   Un solo bloque. Antes esto estaba repartido entre un <style> en base.njk,
+   otro bloque aqui y los estilos propios de la libreria, y las capas se
+   pisaban entre si: el resultado era que los dias disponibles se pintaban
+   con texto BLANCO sobre rosa palido (#F6EEEE), 1,14:1, o sea numeros que
+   no se leian. La libreria marca el dia inicial como is-start-date y le
+   fuerza color blanco; nuestra regla de is-available le ponia un fondo
+   claro debajo.
+   ===================================================================== */
+
+.calendar-layout,
+#calendar-container .litepicker {
   background: transparent;
-  border-radius: 1rem;
-  padding: 1rem;
-  margin: 0 auto;
-}
-
-.calendar-layout .litepicker {
-  background: white !important;
-  border-radius: 0.75rem !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05) !important;
-  padding: 1rem !important;
   border: none !important;
+  box-shadow: none !important;
+  margin: 0 auto;
+  font-family: 'Public Sans', sans-serif;
 }
 
-/* Enhanced calendar styling */
+#calendar-container .litepicker .container__main,
+#calendar-container .litepicker .container__months {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Cabecera del mes */
+#calendar-container .litepicker .container__months .month-item-header {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #4C2F2D;
+  padding: 0 0 0.75rem;
+}
+
+/* Abreviaturas de los dias. Litepicker las sirve a 10,88 px, por debajo del
+   suelo de 11 px para texto funcional: son justo la etiqueta que dice a que
+   columna corresponde cada numero. */
+#calendar-container .litepicker .container__months .month-item-weekdays-row > div {
+  font-size: 12px !important;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: #85554F;
+  padding-bottom: .4rem;
+}
+
+/* Dia normal (no reservable) */
+#calendar-container .litepicker .container__days .day-item {
+  color: #7C6A66 !important;
+  background-color: transparent !important;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Dia sin hueco: atenuado a proposito, pero legible. Estaba en #D1C7C7
+   (2,0:1 sobre el fondo), que ya no es "atenuado" sino ilegible. */
+#calendar-container .litepicker .container__days .day-item.is-locked {
+  color: #B4A5A2 !important;
+  background-color: transparent !important;
+  text-decoration: none;
+}
+
+/* Dia CON hueco. Es la unica informacion que da el calendario de un vistazo,
+   asi que se marca con relleno propio y borde, no con un fondo casi igual al
+   del panel. */
 #calendar-container .litepicker .container__days .day-item.is-available {
-  background: linear-gradient(135deg, #F6EEEE 0%, #E6A6A1 100%) !important;
-  border: 2px solid #9C6666 !important;
-  font-weight: 600 !important;
-  box-shadow: 0 4px 8px rgba(156, 102, 102, 0.2) !important;
-  transition: all 0.3s ease !important;
+  background-color: #F4E3DF !important;
+  border: 1px solid #D5A49C !important;
+  color: #6B4340 !important;   /* 7,1:1 sobre #F4E3DF */
+  font-weight: 700 !important;
 }
 
 #calendar-container .litepicker .container__days .day-item.is-available:hover {
-  transform: translateY(-2px) scale(1.05) !important;
-  box-shadow: 0 6px 12px rgba(156, 102, 102, 0.3) !important;
-  background: linear-gradient(135deg, #E6A6A1 0%, #9C6666 100%) !important;
-  color: white !important;
+  background-color: #E7C7C1 !important;
+  color: #4C2F2D !important;
+}
+
+/* Dia seleccionado. Va DESPUES de is-available para ganarle, e incluye
+   is-start-date/is-end-date porque son las clases que aplica la libreria en
+   singleMode. */
+#calendar-container .litepicker .container__days .day-item.is-start-date,
+#calendar-container .litepicker .container__days .day-item.is-end-date,
+#calendar-container .litepicker .container__days .day-item.is-selected {
+  background-color: #9C6666 !important;
+  border-color: #9C6666 !important;
+  color: #ffffff !important;   /* 4,67:1 */
+  font-weight: 700 !important;
 }
 
 #calendar-container .litepicker .container__days .day-item.is-today {
-  background: transparent !important;
-  color: #9C6666 !important;
+  color: #85554F !important;
   font-weight: 700 !important;
-  border: none !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* Enhanced time slot styling */
-.time-slot-enhanced {
-  background: linear-gradient(135deg, #9C6666 0%, #E6A6A1 100%) !important;
-  color: white !important;
-  padding: 1rem !important;
-  border-radius: 0.75rem !important;
-  text-align: center !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 4px 6px rgba(156, 102, 102, 0.2) !important;
-  border: none !important;
-  font-weight: 600 !important;
+/* Flechas de mes. Median 21x22 px: imposible acertar con el pulgar, y son la
+   unica forma de llegar al mes siguiente. */
+#calendar-container .litepicker .button-previous-month,
+#calendar-container .litepicker .button-next-month {
+  min-width: 44px !important;
+  min-height: 44px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border-radius: 9999px !important;
+  background-color: #F4E3DF !important;
+  color: #85554F !important;
+  transition: background-color .18s ease;
 }
 
-.time-slot-enhanced:hover {
-  transform: translateY(-2px) scale(1.05) !important;
-  box-shadow: 0 8px 15px rgba(156, 102, 102, 0.3) !important;
-  background: linear-gradient(135deg, #7d5252 0%, #9C6666 100%) !important;
+#calendar-container .litepicker .button-previous-month > svg,
+#calendar-container .litepicker .button-next-month > svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor !important;
 }
 
-/* Loading states - Animation disabled for better mobile performance */
-.loading-spinner {
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #9C6666;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  /* Animation removed for better mobile performance */
+#calendar-container .litepicker .button-previous-month:hover,
+#calendar-container .litepicker .button-next-month:hover {
+  background-color: #E7C7C1 !important;
 }
 
-/* @keyframes spin removed for better mobile performance */
-
-/* Enhanced button styles for time slots */
-#available-times .cta-button {
-  background: linear-gradient(135deg, #9C6666 0%, #E6A6A1 100%) !important;
-  color: white !important;
-  border-radius: 0.75rem !important;
-  padding: 1rem !important;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
-  margin: 0.5rem !important;
-  box-shadow: 0 4px 6px rgba(156, 102, 102, 0.2) !important;
-  border: none !important;
-  transition: all 0.3s ease !important;
-}
-
-#available-times .cta-button:hover {
-  transform: translateY(-2px) scale(1.05) !important;
-  box-shadow: 0 8px 15px rgba(156, 102, 102, 0.3) !important;
-  background: linear-gradient(135deg, #7d5252 0%, #9C6666 100%) !important;
-}
-
-/* Urgency counter - Animation disabled for better mobile performance */
-/* @keyframes pulse removed for better mobile performance */
-
-#remaining-slots {
-  /* Animation removed for better mobile performance */
-}
-
-/* Enhanced calendar container */
 #calendar-container {
   position: relative;
-}
-
-.times-wrapper {
-  background: transparent;
-  border-radius: 0.5rem;
-  padding: 0;
-  min-height: 200px;
-}
-
-.times-wrapper h3 {
-  color: #4A3B3B;
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-#available-times .cta-button {
-  background: #9C6666 !important;
-  color: white !important;
-  border-radius: 0.375rem !important;
-  padding: 0.5rem 1rem !important;
-  font-size: 0.875rem !important;
-  margin: 0.25rem !important;
-}
-
-#available-times .cta-button:hover {
-  background: #7d5252 !important;
 }
 
 @layer utilities {
