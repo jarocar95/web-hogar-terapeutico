@@ -102,7 +102,7 @@ async function loadNonCriticalModules(): Promise<void> {
                 // Show error state with fallback
                 calendarContainer.innerHTML = `
                     <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-                        <i class="ri-calendar-error-line text-4xl text-red-500 mb-2"></i>
+                        <i class="ri-error-warning-line text-4xl text-red-500 mb-2"></i>
                         <h3 class="text-lg font-semibold text-red-800 mb-2">Calendario no disponible</h3>
                         <p class="text-red-600 mb-4">No pudimos cargar el calendario de reservas en este momento.</p>
                         <a href="https://wa.me/34621348616?text=Hola%20Angie,%20me%20gustaría%20agendar%20una%20cita."

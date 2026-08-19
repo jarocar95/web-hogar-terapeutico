@@ -88,8 +88,14 @@ for (const clase of nombres) {
     reglas.push(`.${clase}{-webkit-mask-image:url("${url}");mask-image:url("${url}")}`);
 }
 
+// Los selectores se listan uno a uno en vez de usar [class^="ri-"]. Con el
+// comodin, una clase mal escrita (que no existe en el paquete) heredaba
+// tamano y background-color sin llegar a tener mascara, y se pintaba como un
+// cuadrado solido. Listandolos, lo que no existe simplemente no se ve.
+const base = nombres.filter((c) => indice.has(c.slice(3))).map((c) => `.${c}`).join(',');
+
 const css = `/* Generado por scripts/build-icons.mjs. No editar a mano. */
-[class^="ri-"],[class*=" ri-"]{
+${base}{
   display:inline-block;
   width:1em;
   height:1em;
