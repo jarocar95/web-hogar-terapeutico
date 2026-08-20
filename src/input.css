@@ -290,10 +290,10 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: cover;
-    /* La luz dorada del marco cae en el tercio superior derecho del encuadre.
-       El texto vive a la izquierda, asi que subimos el recorte para que esa
-       luz quede visible en vez de recortada por abajo. */
-    object-position: 50% 8%;
+    /* La escena tiene la estanteria a la izquierda y a Angie sentada al
+       centro-derecha. Bajando el foco al 42% se conserva la franja util
+       (libros, ventana, ella, alfombra) y se recorta el techo vacio. */
+    object-position: 50% 42%;
   }
 
   /* El velo del hero. Es un degradado, no un color plano: opaco donde vive el

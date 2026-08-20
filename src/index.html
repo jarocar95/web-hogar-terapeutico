@@ -2,7 +2,7 @@
 layout: base.njk
 title: "Psicóloga online especializada en terapia integradora y trauma"
 description: "Terapia online integradora. Psicóloga colegiada en Madrid (M-42569). Primera sesión por 35€. Encuentra tu bienestar emocional."
-heroPreload: "./src/images/hero-ventana.jpg"
+heroPreload: "./src/images/hero-sala.jpg"
 ---
 
 <!-- ========================= HERO =========================
@@ -14,11 +14,24 @@ heroPreload: "./src/images/hero-ventana.jpg"
      PEQUENIA, la que queda con la barra del navegador movil desplegada; con
      100vh el contenido se cortaba por abajo justo en el caso que importa.
      Se restan los 5rem de la cabecera fija. -->
+<!-- Ojo: este fichero lo procesa Liquid, no Nunjucks. Los comentarios van en
+     HTML; un {# ... #} se imprimiría tal cual en la página.
+
+     !py-0 anula el py-24 que la capa base aplica a todo <section>: sumaba
+     192 px por encima de la altura mínima, así que el hero medía 809 px y no
+     cabía en pantalla, que es justo lo que se quería evitar. El aire lo pone
+     el py-12 del bloque interior. -->
 <section id="hero" aria-labelledby="hero-title"
-         class="relative overflow-hidden bg-clay-800 flex items-center
+         class="relative overflow-hidden bg-clay-800 flex items-center !py-0
                 min-h-[calc(100vh-5rem)] min-h-[calc(100svh-5rem)]">
+    <!-- Foto real, no de stock. Sustituye a unas tejas de banco de imagenes
+         que podian estar en la web de cualquiera.
+         alt vacio a proposito: es fondo detras del texto, y el mensaje lo
+         llevan el H1 y el parrafo. Describirla haria que un lector de pantalla
+         la anunciase ANTES del titular, que es justo lo que hacia la version
+         anterior ("Fondo de la seccion hero de Hogar Terapeutico"). -->
     <div class="hero-background-image">
-        {% image "./src/images/hero-ventana.jpg", "", "100vw", "eager" %}
+        {% image "./src/images/hero-sala.jpg", "", "100vw", "eager" %}
     </div>
     <div class="hero-scrim"></div>
 
