@@ -130,7 +130,11 @@ heroPreload: "./src/images/hero-sala.jpg"
     <div class="container grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-11 lg:gap-[72px] items-center">
         <div class="relative max-w-[340px] mx-auto lg:mx-0">
             <div class="overflow-hidden shadow-e2" style="border-radius: 200px 200px 24px 24px;">
-                {% image "./src/images/foto-perfil.jpg", "Angie Sánchez, psicóloga fundadora de Hogar Terapéutico", "(min-width: 1024px) 340px, 300px", "lazy", "w-full aspect-[4/5] object-cover" %}
+                <!-- Retrato nuevo. El anterior la mostraba de brazos cruzados,
+                     sin sonreír y sobre fondo oscuro: es la imagen que más pesa
+                     para alguien que duda si esta persona le da confianza, y
+                     transmitía lo contrario de lo que promete el texto. -->
+                {% image "./src/images/angie-retrato.jpg", "Angie Sánchez, psicóloga fundadora de Hogar Terapéutico", "(min-width: 1024px) 340px, 300px", "lazy", "w-full aspect-[4/5] object-cover" %}
             </div>
             <span class="absolute -bottom-[18px] left-1/2 -translate-x-1/2 bg-white border border-clay-100 shadow-e1 rounded-full px-[18px] py-2.5 text-[13px] font-semibold text-clay-600 whitespace-nowrap">
                 Angie Sánchez · M-42569

@@ -51,7 +51,9 @@ layout: base.njk
 <div class="container max-w-[720px] mt-14">
     <div class="flex flex-col sm:flex-row items-start gap-6 bg-clay-50 border border-clay-100 p-7 rounded-lg2">
         <div class="w-20 h-20 rounded-full overflow-hidden flex-none">
-            {% image "./src/images/foto-perfil.jpg", "Angie Sánchez", "80px", "lazy", "w-full h-full object-cover" %}
+            {#- Recorte cuadrado y mas cerrado que el de la home: en un circulo
+                de 80 px un encuadre 4:5 dejaria la cara descentrada. -#}
+            {% image "./src/images/angie-avatar.jpg", "Angie Sánchez", "80px", "lazy", "w-full h-full object-cover" %}
         </div>
         <div>
             <h2 class="font-serif text-lg font-semibold text-ink">Angie Sánchez</h2>

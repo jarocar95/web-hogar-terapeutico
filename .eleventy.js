@@ -121,6 +121,10 @@ module.exports = function(eleventyConfig) {
         "./src/images/imagen-background.jpeg": "/images/imagen-background.jpeg",
         "./src/images/imagen-background-optimized.jpg": "/images/imagen-background-optimized.jpg",
         "./src/images/foto-perfil.jpg": "/images/foto-perfil.jpg",
+        // El retrato nuevo necesita URL directa y estable porque lo referencia
+        // el schema de Person: ahi no vale la imagen que genera el shortcode,
+        // cuyo nombre lleva un hash y cambia con cada build.
+        "./src/images/angie-retrato.jpg": "/images/angie-retrato.jpg",
         "./src/images/imagen-compartir.png": "/images/imagen-compartir.png",
         "./src/images/logo-hogarterapeutico-simplificado.svg": "/images/logo-hogarterapeutico-simplificado.svg",
         "./src/images/doctoralia-logo.webp": "/images/doctoralia-logo.webp",
