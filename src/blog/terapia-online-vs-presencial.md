@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: "Terapia Online vs Presencial: Diferencias y Cómo Elegir"
+title: "Terapia online vs. presencial: diferencias y cómo elegir"
 description: "¿Terapia online o presencial? Compara ventajas, cuándo elegir cada una y cómo funciona una sesión online en la práctica. Guía por la psicóloga Angie Sánchez."
 date: 2026-08-26
 featured_image: "./src/images/fondo-prueba.jpg" # ¡PENDIENTE! Sustituir por una imagen real antes de publicar.

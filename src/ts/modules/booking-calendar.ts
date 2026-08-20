@@ -27,107 +27,22 @@ function fechaLocal(iso: string): Date {
 
 // Custom CSS injection for Litepicker
 function injectLitepickerStyles(): void {
-    const existingStyle = document.getElementById('custom-litepicker-styles') as HTMLStyleElement | null;
-    if (existingStyle) {
-        existingStyle.remove();
-    }
-
-    const style = document.createElement('style');
-    style.id = 'custom-litepicker-styles';
-    style.textContent = `
-        #calendar-container .litepicker,
-        #calendar-container .litepicker * {
-            outline: none !important;
-            box-shadow: none !important;
-            font-family: inherit;
-        }
-
-        #calendar-container {
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        #calendar-container .litepicker {
-            width: 100% !important;
-            box-sizing: border-box !important;
-        }
-
-        #calendar-container .litepicker .month-item-header {
-            padding-bottom: 0.5rem;
-        }
-        #calendar-container .litepicker .month-item-name,
-        #calendar-container .litepicker .month-item-year {
-            color: #8B5A5A;
-            font-weight: 600;
-        }
-        #calendar-container .litepicker .button-previous-month,
-        #calendar-container .litepicker .button-next-month {
-            background-color: #F6EEEE !important;
-            border-radius: 9999px !important;
-            transition: all 0.3s ease;
-        }
-        #calendar-container .litepicker .button-previous-month:hover,
-        #calendar-container .litepicker .button-next-month:hover {
-            background-color: #E6A6A1 !important;
-            transform: scale(1.1);
-        }
-        #calendar-container .litepicker .button-previous-month svg,
-        #calendar-container .litepicker .button-next-month svg {
-            fill: #8B5A5A !important;
-        }
-
-        #calendar-container .litepicker .month-item-weekdays-row {
-            color: #9C6666;
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        #calendar-container .litepicker .container__days .day-item {
-            color: #4A3B3B !important;
-            background-color: transparent !important;
-            border: 1px solid transparent !important;
-            border-radius: 0.75rem !important;
-            transition: all 0.2s ease-in-out;
-        }
-
-        #calendar-container .litepicker .container__days .day-item.is-today {
-            color: #8B5A5A !important;
-            font-weight: 700 !important;
-        }
-
-        #calendar-container .litepicker .container__days .day-item.is-available {
-            background-color: #F6EEEE !important;
-            color: #4A3B3B !important;
-        }
-
-        #calendar-container .litepicker .container__days .day-item.is-available:hover {
-            background-color: #E6A6A1 !important;
-            color: white !important;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(140, 90, 90, 0.2);
-        }
-
-        #calendar-container .litepicker .container__days .day-item:not(.is-available):not(.is-locked):not(.is-start-date):hover {
-            background-color: #f5f5f5 !important;
-            transform: translateY(-1px);
-        }
-
-        #calendar-container .litepicker .container__days .day-item.is-start-date {
-            background-image: linear-gradient(to top, #E6A6A1, #eebbbb) !important;
-            color: white !important;
-            font-weight: 700 !important;
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(140, 90, 90, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.4);
-        }
-
-        #calendar-container .litepicker .container__days .day-item.is-locked {
-            color: #d1c7c7 !important;
-            background-color: transparent !important;
-        }
-    `;
-    document.body.appendChild(style);
+    // Intencionadamente vacia.
+    //
+    // Esto inyectaba en <body> una hoja de ~90 lineas con !important en casi
+    // cada declaracion. Al llegar despues de output.css ganaba SIEMPRE, asi que
+    // el tema del calendario estaba realmente definido aqui, invisible desde
+    // el CSS del proyecto, y contradecia lo que decia input.css.
+    //
+    // El dano concreto: el dia seleccionado se pintaba con
+    // `background-image: linear-gradient(to top, #E6A6A1, #eebbbb)` y
+    // `color: white`, es decir texto blanco sobre rosa claro, alrededor de
+    // 2,1:1. El numero del dia que acabas de elegir era el menos legible del
+    // calendario.
+    //
+    // El tema vive ahora en src/input.css, en un unico bloque comentado.
 }
+
 
 // Display available times for selected date
 function displayAvailableTimes(schedule: Schedule, availableTimesContainer: HTMLElement): void {
@@ -137,16 +52,32 @@ function displayAvailableTimes(schedule: Schedule, availableTimesContainer: HTML
         weekday: 'long', day: 'numeric', month: 'long'
     });
 
-    let html = `<p class="font-semibold mb-4">Horas disponibles para el ${fechaFormateada}:</p>`;
-    html += '<div class="grid grid-cols-3 gap-2">';
+    // El subtitulo estatico decia "Selecciona una fecha para ver los horarios"
+    // mientras el panel ya mostraba los horarios de un dia concreto. Ahora
+    // refleja el estado real.
+    const subtitle = document.getElementById('available-times-subtitle');
+    if (subtitle) {
+        const n = horas.length;
+        subtitle.textContent = `${n} ${n === 1 ? 'hueco' : 'huecos'} · ${fechaFormateada}`;
+    }
+
+    let html = '<div class="grid grid-cols-3 gap-2">';
 
     horas.forEach((hora) => {
         const mensaje = `Hola Angie, te escribo desde la web de Hogar Terapéutico. Me gustaría reservar una cita para el día ${fecha} a las ${hora}.`;
         const whatsappLink = `https://wa.me/34621348616?text=${encodeURIComponent(mensaje)}`;
-        html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" class="cta-button bg-primary text-white text-center text-sm py-2 px-1">${hora}</a>`;
+        // aria-label explicito: "10:00" a secas no dice a un lector de pantalla
+        // ni el dia ni que el enlace abre WhatsApp fuera del sitio.
+        const etiqueta = `Reservar el ${fechaFormateada} a las ${hora} — se abre WhatsApp`;
+        html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" aria-label="${etiqueta}" class="flex items-center justify-center min-h-[44px] rounded-xl bg-sage-50 border border-sage-200 text-sage-700 font-semibold text-[14.5px] no-underline transition-colors hover:bg-sage-200">${hora}</a>`;
     });
 
     html += '</div>';
+    // Aviso de que la reserva aun no esta confirmada. Antes se pulsaba una hora,
+    // se abria WhatsApp en otra pestania y nada decia que la cita no estuviera
+    // hecha: se podia creer que ya tenias sesion cuando solo habias enviado un
+    // mensaje.
+    html += '<p class="mt-4 text-[13px] text-ink-mute leading-snug">Al elegir una hora se abre WhatsApp con el mensaje preparado. La cita queda confirmada cuando te respondo.</p>';
     availableTimesContainer.innerHTML = html;
 }
 
@@ -254,6 +185,46 @@ export function initBookingCalendar(): void {
                             }
                         });
                     };
+
+                    // El texto de la seccion dice "los dias con hueco aparecen
+                    // resaltados" y no habia NI UN elemento con is-available:
+                    // en inlineMode el evento 'show' se dispara antes de que
+                    // Litepicker pinte los dias, asi que la clase se aplicaba
+                    // sobre un grid vacio y no volvia a intentarse.
+                    //
+                    // Un MutationObserver sobre el contenedor cubre todos los
+                    // repintados (alta inicial, cambio de mes, seleccion) sin
+                    // depender de que evento concreto emita cada version de la
+                    // libreria.
+                    // Litepicker escribe "lun mar mié jue vie sáb dom": siete
+                    // palabras de tres letras sobre celdas estrechas, que es
+                    // ruido en la fila que menos informacion aporta. Se pasa a
+                    // la inicial, que es la convencion en español, conservando
+                    // el nombre completo para lectores de pantalla.
+                    const INICIALES: Record<string, string> = {
+                        lun: 'L', mar: 'M', mié: 'X', mie: 'X',
+                        jue: 'J', vie: 'V', sáb: 'S', sab: 'S', dom: 'D',
+                    };
+                    const shortenWeekdays = (): void => {
+                        calendarContainer
+                            .querySelectorAll<HTMLElement>('.month-item-weekdays-row > div')
+                            .forEach((el) => {
+                                const texto = (el.textContent || '').trim();
+                                const inicial = INICIALES[texto.toLowerCase()];
+                                if (inicial) {
+                                    el.setAttribute('aria-label', texto);
+                                    el.setAttribute('title', texto);
+                                    el.textContent = inicial;
+                                }
+                            });
+                    };
+
+                    const observer = new MutationObserver(() => {
+                        highlightAvailableDates();
+                        labelNavigationButtons();
+                        shortenWeekdays();
+                    });
+                    observer.observe(calendarContainer, { childList: true, subtree: true });
 
                     picker.on('show', () => {
                         highlightAvailableDates();

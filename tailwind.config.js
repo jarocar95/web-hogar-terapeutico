@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,njk,js,md}"], // Archivos que va a escanear
+  // Incluye .ts: los modulos generan marcado (los huecos del calendario, los
+  // estados del formulario) con clases de Tailwind, y al no escanearse aqui
+  // se purgaban. Sobrevivian solo las que por casualidad tambien se usaban en
+  // algun .html; grid-cols-3 no era una de ellas, asi que los horarios se
+  // apilaban a ancho completo en vez de ir en tres columnas.
+  content: ["./src/**/*.{html,njk,js,ts,md}"], // Archivos que va a escanear
   safelist: [
     'text-right',
   ],
@@ -28,6 +33,42 @@ module.exports = {
         'footer-text': '#FFFFFF',    // Texto del footer
         'footer-text-secondary': '#FEFBF8', // Texto secundario del footer
 
+        // Escalas completas. Los tokens de arriba son los tonos historicos y se
+        // mantienen para no romper el blog ni las paginas legales; estas escalas
+        // son las que usa la home rediseniada. clay-500 ES primary y sage-300 ES
+        // secondary: la marca no cambia, solo gana los peldanios que le faltaban
+        // para construir jerarquia sin recurrir a grises de Tailwind.
+        clay: {
+          50:  '#FBF2F0',
+          100: '#F4E3DF',
+          200: '#E7C7C1',
+          300: '#D5A49C',
+          400: '#BC8078',
+          500: '#9C6666',  // = primary
+          600: '#85554F',  // = primary-text, 6,16 sobre blanco
+          700: '#6B4340',
+          800: '#4C2F2D',
+        },
+        sage: {
+          50:  '#F1F6F2',
+          100: '#DDE9E1',
+          200: '#BCD3C4',
+          300: '#A1BFAE',  // = secondary
+          500: '#5E8570',
+          700: '#38534A',  // 7,04 sobre sage-50
+          800: '#263A32',
+        },
+        // Tinta: la escala de texto. ink-soft y ink-mute sustituyen a los
+        // text-gray-* que se colaban en la pagina, y ambos pasan AA sobre
+        // canvas y sobre blanco.
+        ink: {
+          DEFAULT: '#2B211F', // 14,8 sobre canvas
+          soft:    '#5C4A47', // 7,42 sobre canvas
+          mute:    '#7C6A66', // 4,86 sobre canvas
+        },
+        canvas: '#FDFAF6',
+        gold: '#B8862B',
+
         // Grises para compatibilidad
         gray: {
           50: '#f9fafb',
@@ -48,6 +89,21 @@ module.exports = {
       fontFamily: {
         sans: ['Public Sans', 'sans-serif'],
         serif: ['Frank Ruhl Libre', 'serif'],
+      },
+
+      // Escala de radios y sombras. Antes se mezclaban rounded-lg/xl/2xl y
+      // shadow-md/lg/xl sin regla: cada componente usaba el escalon que se
+      // tecleo ese dia. Estos son los unicos cuatro radios y las dos unicas
+      // elevaciones que usa la home.
+      borderRadius: {
+        'sm2': '10px',
+        'md2': '16px',
+        'lg2': '24px',
+        'xl2': '32px',
+      },
+      boxShadow: {
+        'e1': '0 1px 2px rgba(43,33,31,.05), 0 4px 14px -6px rgba(43,33,31,.10)',
+        'e2': '0 2px 4px rgba(43,33,31,.05), 0 18px 40px -18px rgba(43,33,31,.22)',
       },
       typography: ({ theme }) => ({
         DEFAULT: {

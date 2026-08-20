@@ -32,6 +32,7 @@ An integrative, personalized approach — no one-size-fits-all method. Angie com
 - Areas of intervention: trauma/attachment/EMDR, anxiety and stress, self-esteem and confidence, emotional management, personal relationships. In-person sessions are explicitly "próximamente" (not yet available) — must not be presented as currently offered.
 - Solo practice: Angie is the only practitioner. Content and design must not imply a multi-therapist clinic or team.
 - Pricing (as currently published, treat as real and subject to change only by the user): first session 35€ (50 min), follow-up individual online session 50€ (50 min).
+- Session availability is genuinely weekday mornings (roughly 10:00–13:00). There is no afternoon/evening availability. The slots published in `public/api/horarios.json` are real, not a data bug — do not "fix" them or invent evening slots in mockups or designs. The "Lu-Vi: 9:00–20:00" in the contact block is the *contact/response* window, not session availability; label it as such so visitors do not read it as bookable hours.
 - Testimonials/reviews must stay sourced from the verified Doctoralia profile (currently 5.0 average, 23 reviews) — never fabricated, invented, or paraphrased into new claims.
 - Legal/compliance surface exists (privacy policy, cookie policy, aviso legal) and must stay consistent with real data-handling practice (Formspree form, cookie consent banner).
 

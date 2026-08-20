@@ -143,31 +143,60 @@ export class EnhancedUI {
      * Setup smooth scrolling with offset for fixed header
      */
     setupSmoothScrolling() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
+        // Delegacion en document en vez de un listener por enlace: los CTA que
+        // el calendario y el formulario inyectan despues no existian cuando
+        // esto corria, asi que se quedaban sin interceptar.
+        //
+        // Se capturan tanto "#x" como "/#x": la cabecera y el pie son
+        // compartidos con el blog, donde el enlace necesita el "/" para volver
+        // a la home. Antes solo se miraba a[href^="#"], asi que en la home esos
+        // enlaces caian al manejo nativo del hash y, si el hash ya coincidia,
+        // el segundo clic no hacia nada.
+        document.addEventListener('click', (e) => {
+            const anchor = (e.target as HTMLElement | null)?.closest?.('a[href^="#"], a[href^="/#"]') as HTMLAnchorElement | null;
+            if (!anchor) return;
 
-                const href = anchor.getAttribute('href');
-                if (href) {
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const header = document.getElementById('main-header');
-                        const headerHeight = header?.offsetHeight || 80;
-                        const targetPosition = (target as HTMLElement).offsetTop - headerHeight - 20;
+            const href = anchor.getAttribute('href');
+            if (!href) return;
 
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+            const hash = href.slice(href.indexOf('#'));
+            if (hash.length < 2) return;
 
-                        // Close mobile menu if open
-                        const mobileMenu = document.getElementById('mobile-menu');
-                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                        }
-                    }
-                }
+            let target: Element | null = null;
+            try {
+                target = document.querySelector(hash);
+            } catch {
+                return; // hash no valido como selector
+            }
+            if (!target) return; // en otra pagina: dejamos que navegue
+
+            e.preventDefault();
+
+            const header = document.getElementById('main-header');
+            const headerHeight = header?.offsetHeight || 80;
+            const targetPosition = (target as HTMLElement).getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: prefersReducedMotion ? 'auto' : 'smooth'
             });
+
+            // Mantener la URL en sintonia sin provocar un salto del navegador.
+            if (history.replaceState) {
+                history.replaceState(null, '', hash);
+            }
+
+            // Cerrar el menu movil. El id correcto es mobile-menu-fixed; el que
+            // habia aqui (mobile-menu) no existe en el DOM.
+            const mobileMenu = document.getElementById('mobile-menu-fixed');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                const menuBtn = document.getElementById('menu-btn-fixed');
+                menuBtn?.setAttribute('aria-expanded', 'false');
+                document.getElementById('hamburger-icon-fixed')?.classList.remove('hidden');
+                document.getElementById('close-icon-fixed')?.classList.add('hidden');
+            }
         });
     }
 

@@ -55,7 +55,12 @@ export class EnhancedContactForm {
             name: (value: string): string | null => {
                 if (!value.trim()) return 'El nombre es obligatorio';
                 if (value.trim().length < 2) return 'El nombre debe tener al menos 2 caracteres';
-                if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s'-]+$/.test(value)) return 'El nombre solo puede contener letras y espacios';
+                // \p{L} = cualquier letra Unicode. La lista cerrada anterior solo
+                // cubria los acentos del castellano, asi que rechazaba a
+                // "Muller", "Jorg", "Josep Lluis" o cualquier apellido catalan,
+                // gallego o extranjero: un residente en Espania con dieresis o
+                // cedilla en el nombre no podia enviar el formulario.
+                if (!/^[\p{L}\p{M}\s'’-]+$/u.test(value)) return 'El nombre solo puede contener letras, espacios, guiones y apóstrofos';
                 return null;
             },
             email: (value: string): string | null => {
@@ -232,7 +237,12 @@ export class EnhancedContactForm {
                 name: (value: string): string | null => {
                     if (!value.trim()) return 'El nombre es obligatorio';
                     if (value.trim().length < 2) return 'El nombre debe tener al menos 2 caracteres';
-                    if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s'-]+$/.test(value)) return 'El nombre solo puede contener letras y espacios';
+                    // \p{L} = cualquier letra Unicode. La lista cerrada anterior solo
+                // cubria los acentos del castellano, asi que rechazaba a
+                // "Muller", "Jorg", "Josep Lluis" o cualquier apellido catalan,
+                // gallego o extranjero: un residente en Espania con dieresis o
+                // cedilla en el nombre no podia enviar el formulario.
+                if (!/^[\p{L}\p{M}\s'’-]+$/u.test(value)) return 'El nombre solo puede contener letras, espacios, guiones y apóstrofos';
                     return null;
                 },
                 email: (value: string): string | null => {

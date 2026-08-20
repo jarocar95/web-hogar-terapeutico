@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: "Cuánto Cuesta la Terapia Psicológica Online en España"
+title: "Cuánto cuesta la terapia psicológica online en España"
 description: "¿Cuánto cuesta ir al psicólogo online en España? Te explico de qué depende el precio, qué rangos son habituales y qué incluye cada sesión, con transparencia total."
 date: 2026-09-02
 featured_image: "./src/images/fondo-prueba.jpg" # ¡PENDIENTE! Sustituir por una imagen real antes de publicar.
