@@ -340,6 +340,13 @@
   box-shadow: none !important;
   margin: 0 auto;
   font-family: 'Public Sans', sans-serif;
+  /* Litepicker se da un ancho propio (296 px: siete celdas de 38 más los
+     huecos). Sin esto, los hijos con width:100% se resolvían contra esos
+     296 px en vez de contra la tarjeta: en móvil el calendario se salía 54 px
+     por la derecha y en escritorio dejaba 109 px muertos a un lado, con lo
+     que no llegaba a verse centrado en ninguno de los dos. */
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 #calendar-container .litepicker .container__main,
@@ -416,10 +423,23 @@
 #calendar-container .litepicker .container__days,
 #calendar-container .litepicker .container__months .month-item-weekdays-row {
   display: grid !important;
-  grid-template-columns: repeat(7, 1fr) !important;
+  /* minmax(0,1fr) y no 1fr a secas. 1fr equivale a minmax(auto, 1fr), y ese
+     minimo automatico lo fija el contenido: Litepicker inserta divs vacios
+     con ancho propio para el hueco anterior al dia 1, asi que esas columnas
+     no bajaban de su tamanio y el resto se repartia las sobras. El resultado
+     eran columnas de 38 px y de 35 px en la misma reticula, con los fines de
+     semana desalineados respecto a su propia fila. */
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
   gap: 5px;
   padding: 0;
   width: 100% !important;
+}
+
+/* Los huecos de relleno tampoco deben imponer ancho. */
+#calendar-container .litepicker .container__days > *,
+#calendar-container .litepicker .container__months .month-item-weekdays-row > * {
+  min-width: 0 !important;
+  width: auto !important;
 }
 
 /* Dia normal (no reservable) */

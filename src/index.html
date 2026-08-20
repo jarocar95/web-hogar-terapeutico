@@ -420,7 +420,11 @@ heroPreload: "./src/images/hero-sala.jpg"
             <p class="lead mt-4 mx-auto">Tu primera sesión son 50 minutos por 35€. Estos son los huecos que tengo abiertos ahora mismo.</p>
         </div>
 
-        <div class="border border-clay-100 rounded-xl2 bg-canvas p-8 lg:p-11 shadow-e1 max-w-5xl mx-auto">
+        <!-- Relleno escalonado. En móvil se apilaban tres niveles (container
+             px-4 + esta caja + la tarjeta interior), y entre los tres dejaban
+             al calendario menos de 250 px: siete columnas ahí salen a 30 px,
+             por debajo de cualquier zona táctil razonable. -->
+        <div class="border border-clay-100 rounded-xl2 bg-canvas p-4 sm:p-8 lg:p-11 shadow-e1 max-w-5xl mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 <div class="flex gap-3.5 items-start">
                     <b class="flex-none w-7 h-7 rounded-full bg-clay-500 text-white text-[13px] font-bold grid place-items-center font-sans" aria-hidden="true">1</b>
@@ -446,10 +450,10 @@ heroPreload: "./src/images/hero-sala.jpg"
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div class="bg-white border border-clay-100 rounded-lg2 p-6">
+                <div class="bg-white border border-clay-100 rounded-lg2 p-4 sm:p-6">
                     <h3 class="font-serif text-base font-semibold mb-1">Selecciona una fecha</h3>
                     <p class="text-ink-mute text-[13.5px]">Los días con hueco aparecen resaltados</p>
-                    <div id="calendar-container" class="mt-4 mx-auto w-full"></div>
+                    <div id="calendar-container" class="mt-4 w-full"></div>
                 </div>
                 <div class="bg-white border border-clay-100 rounded-lg2 p-6">
                     <h3 class="font-serif text-base font-semibold mb-1">Horas disponibles</h3>
