@@ -209,6 +209,47 @@
   }
   .fld textarea { @apply min-h-[120px] resize-y; }
 
+  /* Tipografia de lectura larga: articulos del blog y paginas legales.
+     Sustituye a la tarjeta blanca con shadow-md que envolvia el texto legal
+     y al prose por defecto del blog, que usaban los tonos antiguos. Aqui el
+     texto va directo sobre el lienzo: en modo lectura, la caja no aporta
+     nada y estrecha la medida. */
+  .prose-legal {
+    @apply text-ink-soft text-[17px] leading-[1.75];
+  }
+  .prose-legal > * + * { @apply mt-5; }
+  .prose-legal h2 {
+    @apply font-serif text-ink text-[clamp(1.35rem,2.2vw,1.65rem)] font-semibold
+           leading-snug tracking-[-.01em] mt-12 mb-0 pt-6 border-t border-clay-100;
+  }
+  .prose-legal h3 {
+    @apply font-serif text-ink text-[1.2rem] font-semibold leading-snug mt-9 mb-0;
+  }
+  .prose-legal h2 + *, .prose-legal h3 + * { @apply mt-3; }
+  .prose-legal p { @apply max-w-[68ch]; }
+  .prose-legal strong { @apply text-ink font-semibold; }
+  .prose-legal a {
+    @apply text-clay-600 font-medium underline underline-offset-2 decoration-clay-300
+           transition-colors hover:text-clay-700 hover:decoration-clay-500;
+  }
+  .prose-legal ul, .prose-legal ol { @apply pl-0 max-w-[68ch] grid gap-2.5; }
+  .prose-legal ul { @apply list-none; }
+  .prose-legal ul > li { @apply relative pl-6; }
+  .prose-legal ul > li::before {
+    content: "";
+    @apply absolute left-1 top-[.7em] w-1.5 h-1.5 rounded-full bg-clay-300;
+  }
+  .prose-legal ol { @apply list-decimal pl-6 marker:text-clay-500 marker:font-semibold; }
+  .prose-legal blockquote {
+    @apply border-l-[3px] border-clay-400 bg-clay-50 rounded-r-md2 py-5 px-6
+           font-serif text-[1.05rem] text-clay-800 not-italic;
+  }
+  .prose-legal img { @apply rounded-lg2 shadow-e1; }
+  .prose-legal code {
+    @apply bg-clay-50 border border-clay-100 rounded px-1.5 py-0.5 text-[.9em] text-clay-700;
+  }
+  .prose-legal hr { @apply border-clay-100 my-10; }
+
   /* Barra fija movil. Solo aparece cuando el hero ya ha salido de pantalla,
      asi no tapa los CTA del propio hero. */
   .sticky-cta {

@@ -738,18 +738,18 @@
     
     <!-- Breadcrumb Navigation - Solo para páginas internas -->
     {% if page.url != "/" %}
-    <nav class="bg-light py-3 border-b border-gray-200" aria-label="Breadcrumb">
+    <nav class="bg-clay-50 border-t border-clay-100" aria-label="Ruta de navegación">
         <div class="container">
-            <ol class="flex items-center space-x-2 text-sm">
+            <ol class="flex items-center gap-2 text-[14.5px] list-none m-0 p-0">
                 <li>
-                    <a href="/" class="text-primary hover:text-primary-darker transition-colors">
-                        <i class="ri-home-4-line"></i>
+                    <a href="/" class="inline-flex items-center min-h-[44px] text-clay-600 no-underline transition-colors hover:text-clay-700">
+                        <i class="ri-home-4-line" aria-hidden="true"></i>
                         <span class="sr-only">Inicio</span>
                     </a>
                 </li>
-                <li class="flex items-center space-x-2">
-                    <i class="ri-arrow-right-s-line text-gray-400"></i>
-                    <span class="text-text font-medium">{{ title }}</span>
+                <li class="flex items-center gap-2">
+                    <i class="ri-arrow-right-s-line text-clay-300" aria-hidden="true"></i>
+                    <span class="text-ink-soft font-medium">{{ title }}</span>
                 </li>
             </ol>
         </div>

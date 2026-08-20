@@ -1,0 +1,37 @@
+---
+layout: base.njk
+---
+{#
+  Layout compartido de las paginas legales.
+
+  Las tres (aviso legal, privacidad, cookies) repetian el mismo envoltorio
+  copiado a mano: un h1 centrado, un .prose dentro de una tarjeta blanca con
+  shadow-md y radios que no seguian ninguna escala. Ahora el envoltorio esta
+  aqui y cada pagina solo aporta su contenido.
+
+  El tratamiento tipografico es el de "Leer": una columna, medida corta y
+  jerarquia clara. No es una landing, la persona viene a entender algo.
+#}
+
+{#- El py de la capa base solo aplica a <section>, no a <article>: sin esto el
+    titulo arranca pegado a la cabecera. -#}
+<article class="bg-canvas py-16 lg:py-20">
+    <div class="container max-w-[760px]">
+        <header class="mb-10 pb-8 border-b border-clay-100">
+            <span class="eyebrow">Información legal</span>
+            <h1 class="h2-display text-ink">{{ title }}</h1>
+            {% if description %}
+            <p class="lead mt-4">{{ description }}</p>
+            {% endif %}
+        </header>
+
+        <div class="prose prose-legal max-w-none">
+            {{ content | safe }}
+        </div>
+
+        <p class="mt-12 pt-6 border-t border-clay-100 text-sm text-ink-mute">
+            ¿Dudas sobre algo de esta página?
+            <a href="mailto:info@hogarterapeutico.com" class="text-clay-600 font-semibold underline underline-offset-2 hover:text-clay-700">Escríbeme</a>.
+        </p>
+    </div>
+</article>

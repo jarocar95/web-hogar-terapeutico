@@ -2,33 +2,63 @@
 layout: base.njk
 ---
 
-<article class="py-16 md:py-20">
-    <header class="container max-w-4xl mx-auto text-center  mb-12">
-        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">{{ title }}</h1>
-        <p class="text-text-muted">
-            Escrito por <a href="/#about" class="text-primary font-semibold hover:underline">Angie Sánchez</a> 
-            <span class="mx-2">•</span> 
-            Publicado el {{ date | readableDate }}
-        </p>
-	{% if featured_image %}
-            {% image featured_image, title, "(min-width: 768px) 700px, 100vw" %}
+{#
+  Articulo del blog. Modo "Leer": una columna, medida corta, jerarquia clara.
+  La persona viene a entender algo, no a decidir; la llamada a reservar va al
+  final, cuando ya ha terminado, y no interrumpiendo la lectura.
+#}
+
+{#- Igual que en legal.njk: el py de la capa base es para <section>. -#}
+<article class="py-16 lg:py-20">
+    <header class="container max-w-[760px] mb-10">
+        <a href="/blog" class="inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-clay-600 no-underline mb-6 min-h-[44px] hover:text-clay-700">
+            <i class="ri-arrow-left-line" aria-hidden="true"></i> Todos los artículos
+        </a>
+        <h1 class="font-serif font-semibold text-[clamp(2rem,4vw,2.9rem)] leading-[1.12] tracking-[-.02em] text-ink mb-5">{{ title }}</h1>
+        {% if description %}
+        <p class="lead">{{ description }}</p>
         {% endif %}
+        <p class="mt-6 pt-5 border-t border-clay-100 text-[14.5px] text-ink-mute">
+            Por <a href="/#about" class="text-clay-600 font-semibold no-underline hover:underline underline-offset-2">Angie Sánchez</a>
+            <span class="mx-1.5" aria-hidden="true">·</span>
+            <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+        </p>
     </header>
 
-    <div class="container max-w-3xl mx-auto prose lg:prose-lg prose-h2:font-serif prose-h2:text-primary prose-a:text-primary hover:prose-a:underline prose-strong:text-text">
+    {% if featured_image %}
+    {#- Misma proporcion 16/10 que las portadas del indice, para que la imagen
+        no cambie de forma entre la tarjeta y el articulo. -#}
+    <div class="container max-w-[900px] mb-12">
+        <div class="aspect-[16/10] rounded-lg2 overflow-hidden bg-clay-100 shadow-e1">
+            {% image featured_image, "", "(min-width: 900px) 900px, 100vw", "eager", "w-full h-full object-cover" %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="container max-w-[720px] prose prose-legal max-w-none">
         {{ content | safe }}
     </div>
 </article>
 
-<section class="container max-w-3xl mx-auto mt-12 pt-8 border-t border-light">
-    <div class="flex items-center gap-6 bg-light p-6 rounded-xl">
-        {% image "./src/images/foto-perfil.jpg", "Angie Sánchez", "96px", "lazy", "h-24 w-24 rounded-full object-cover" %}
-        <div>
-            <h4 class="font-bold text-lg text-primary">Escrito por Angie Sánchez</h4>
-            <p class="text-sm text-text-muted mt-1">
-                Psicóloga General Sanitaria (M-42569), fundadora de Hogar Terapéutico. Mi misión es ofrecerte un espacio seguro y herramientas eficaces para que puedas sanar, crecer y recuperar tu bienestar emocional.
-            </p>
-            <a href="/#contact" class="text-primary font-semibold text-sm hover:underline mt-2 inline-block">Contactar →</a>
+<div class="container max-w-[720px] mt-14">
+    <div class="flex flex-col sm:flex-row items-start gap-6 bg-clay-50 border border-clay-100 p-7 rounded-lg2">
+        <div class="w-20 h-20 rounded-full overflow-hidden flex-none">
+            {% image "./src/images/foto-perfil.jpg", "Angie Sánchez", "80px", "lazy", "w-full h-full object-cover" %}
         </div>
+        <div>
+            <h2 class="font-serif text-lg font-semibold text-ink">Angie Sánchez</h2>
+            <p class="text-[13px] font-semibold text-clay-600 tracking-[.06em] uppercase mt-0.5">Psicóloga General Sanitaria · M-42569</p>
+            <p class="text-[15px] text-ink-soft mt-3">
+                Fundadora de Hogar Terapéutico. Terapia online con enfoque integrador y especialización en trauma y EMDR.
+            </p>
+        </div>
+    </div>
+</div>
+
+<section class="bg-clay-800 text-white !py-16 lg:!py-20 mt-16">
+    <div class="container max-w-[760px] text-center">
+        <h2 class="font-serif font-semibold text-[clamp(1.5rem,2.6vw,2rem)] text-white mb-3">¿Te has visto reflejado/a en algo de esto?</h2>
+        <p class="text-white/[.82] mb-8">Podemos hablarlo en una primera sesión de 50 minutos por 35€, sin compromiso de continuidad.</p>
+        <a href="/#booking-calendar" class="btn btn-light btn-lg">Reservar primera sesión · 35€</a>
     </div>
 </section>

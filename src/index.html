@@ -9,14 +9,23 @@ heroPreload: "./src/images/hero-ventana.jpg"
      Una sola promesa y una sola oferta. Antes habia dos botones y ninguno
      reservaba nada: el precio, que es el dato que mas desactiva el riesgo,
      quedaba por debajo del pliegue y no lo veia quien rebotaba. -->
-<section id="hero" aria-labelledby="hero-title" class="relative overflow-hidden bg-clay-800">
+<!-- El hero cabe en una pantalla: entra completo de un vistazo y el scroll
+     empieza ya en la siguiente seccion. 100svh es la altura de viewport
+     PEQUENIA, la que queda con la barra del navegador movil desplegada; con
+     100vh el contenido se cortaba por abajo justo en el caso que importa.
+     Se restan los 5rem de la cabecera fija. -->
+<section id="hero" aria-labelledby="hero-title"
+         class="relative overflow-hidden bg-clay-800 flex items-center
+                min-h-[calc(100vh-5rem)] min-h-[calc(100svh-5rem)]">
     <div class="hero-background-image">
         {% image "./src/images/hero-ventana.jpg", "", "100vw", "eager" %}
     </div>
     <div class="hero-scrim"></div>
 
-    <div class="container relative z-10">
-        <div class="max-w-[700px] py-[104px] lg:py-[150px]">
+    <div class="container relative z-10 w-full">
+        <!-- Padding vertical minimo: solo actua de respiracion cuando la
+             pantalla es tan baja que el contenido ya no cabe centrado. -->
+        <div class="max-w-[700px] py-12">
             <span class="eyebrow !text-clay-200 before:!bg-clay-300">Psicología online · M-42569</span>
             <!-- Las dos mitades son bloques, no un <br> condicional: con el br
                  oculto en movil las dos frases se fundian en una sola linea
@@ -166,9 +175,6 @@ heroPreload: "./src/images/hero-ventana.jpg"
                 <div><h3 class="font-serif text-xl text-white mb-1.5">Avanzamos a tu ritmo</h3><p class="text-white/[.74] text-[15.5px]">Sesiones normalmente semanales al principio. Revisamos el progreso de forma periódica y ajustamos lo que haga falta.</p></div>
             </div>
         </div>
-        <div class="mt-10">
-            <a href="#booking-calendar" class="btn btn-light btn-lg">Empezar por la primera sesión</a>
-        </div>
     </div>
 </section>
 
@@ -229,13 +235,12 @@ heroPreload: "./src/images/hero-ventana.jpg"
             <span class="block font-serif text-[74px] leading-[.6] text-clay-400 mb-3.5" aria-hidden="true">“</span>
             El primer paso no te lleva a donde quieres ir, pero te saca de donde estás.
         </blockquote>
-        <!-- Aqui habia un "SOBRE EMPEZAR" en versalitas que parecia un enlace y
-             no llevaba a ningun sitio: era una etiqueta de categoria heredada
-             del mockup que no clasificaba nada. En una pantalla completa justo
-             antes de precios, el sitio se aprovecha mejor con la accion real. -->
-        <div class="mt-9">
-            <a href="#booking-calendar" class="btn btn-light btn-lg">Dar el primer paso · 35€</a>
-        </div>
+        <!-- Sin CTA. Aqui hubo primero un "SOBRE EMPEZAR" en versalitas que
+             parecia un enlace sin serlo, y luego un boton de reserva. Con uno
+             en la banda de oferta, otro en "¿te reconoces?", dos en precios,
+             el de la cabecera y el de la barra fija, este solo aniadia
+             repeticion. La cita funciona mejor como respiro entre dos
+             secciones densas que como un sexto sitio donde se pide lo mismo. -->
     </div>
 </section>
 
