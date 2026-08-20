@@ -327,12 +327,16 @@
         }
 
         @media (min-width: 768px) {
+          /* Mínimo del lado derecho a 0,46 y no 0,08: con 0,08 la foto quedaba
+             ahí desnuda y, al venir de un fotograma de vídeo en interior, es
+             donde se notaba blanda. Móvil ya iba denso y era el que mejor se
+             veía. Debe coincidir con la regla de input.css. */
           .hero-scrim {
             background: linear-gradient(100deg,
-              rgba(30,20,18,.86) 0%,
-              rgba(38,26,24,.68) 30%,
-              rgba(60,38,35,.34) 58%,
-              rgba(76,47,45,.08) 100%);
+              rgba(30,20,18,.90) 0%,
+              rgba(38,26,24,.78) 32%,
+              rgba(52,34,31,.60) 62%,
+              rgba(64,41,38,.46) 100%);
           }
         }
 

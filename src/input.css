@@ -299,15 +299,23 @@
   /* El velo del hero. Es un degradado, no un color plano: opaco donde vive el
      texto y casi transparente donde esta la luz de la foto. Un lavado uniforme
      apagaba justo lo unico que hacia interesante la imagen. */
+  /* El velo del hero. Es un degradado, no un color plano: denso donde vive el
+     texto y más ligero donde está la luz de la foto.
+     El mínimo del lado derecho sube de 0,08 a 0,46. Con 0,08 la fotografía
+     quedaba ahí prácticamente desnuda, y como la imagen sale de un fotograma
+     de vídeo en interior con poca luz, es justo donde se notaba blanda. Con
+     el velo por encima la foto pasa a leerse como atmósfera y no como una
+     fotografía que uno se pone a inspeccionar. En móvil ya funcionaba así
+     (de 0,72 a 0,88) y era la versión que mejor se veía. */
   .hero-scrim {
     position: absolute;
     inset: 0;
     z-index: 0;
     background: linear-gradient(100deg,
-      rgba(30,20,18,.86) 0%,
-      rgba(38,26,24,.68) 30%,
-      rgba(60,38,35,.34) 58%,
-      rgba(76,47,45,.08) 100%);
+      rgba(30,20,18,.90) 0%,
+      rgba(38,26,24,.78) 32%,
+      rgba(52,34,31,.60) 62%,
+      rgba(64,41,38,.46) 100%);
   }
 
   @media (max-width: 767px) {
