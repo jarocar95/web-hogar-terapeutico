@@ -35,8 +35,16 @@ layout: base.njk
     </div>
     {% endif %}
 
-    <div class="container max-w-[720px] prose prose-legal max-w-none">
-        {{ content | safe }}
+    {#- El contenedor que centra y el que da el estilo de lectura van en
+        elementos distintos. Estaban en el mismo, y max-w-none pisaba a
+        max-w-[720px]: el .container se quedaba sin ancho maximo, asi que su
+        mx-auto no tenia nada que centrar y el texto se pegaba a la izquierda.
+        El texto sigue alineado a la izquierda; lo que se centra es la
+        columna. -#}
+    <div class="container max-w-[720px]">
+        <div class="prose-legal">
+            {{ content | safe }}
+        </div>
     </div>
 </article>
 

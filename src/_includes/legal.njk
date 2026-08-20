@@ -25,7 +25,9 @@ layout: base.njk
             {% endif %}
         </header>
 
-        <div class="prose prose-legal max-w-none">
+        {#- Sin la clase prose del plugin: .prose-legal ya define todo, y prose
+            traia su propio max-width que habia que anular con max-w-none. -#}
+        <div class="prose-legal">
             {{ content | safe }}
         </div>
 

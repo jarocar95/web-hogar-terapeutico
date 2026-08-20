@@ -786,9 +786,16 @@
                 </div>
                 <div>
                     <h4 class="font-sans text-[12.5px] tracking-[.13em] uppercase text-white/50 mb-3.5 font-bold">Contacto</h4>
+                    {#- WhatsApp primero y en blanco: es el canal preferente.
+                        El correo va debajo y en el gris del resto del pie. -#}
                     <ul class="list-none m-0 p-0 grid gap-1">
+                        <li>
+                            <a href="https://wa.me/34621348616" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 min-h-[44px] no-underline text-white font-semibold transition-opacity hover:opacity-80">
+                                <i class="ri-whatsapp-line text-lg text-[#25D366]" aria-hidden="true"></i>+34 621 348 616
+                            </a>
+                            <span class="block text-[13px] text-white/50 -mt-1.5">WhatsApp · lo más rápido</span>
+                        </li>
                         <li><a href="mailto:info@hogarterapeutico.com" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">info@hogarterapeutico.com</a></li>
-                        <li><a href="https://wa.me/34621348616" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 min-h-[44px] no-underline transition-colors hover:text-white"><i class="ri-whatsapp-line text-lg" aria-hidden="true"></i>+34 621 348 616</a></li>
                         <li><a href="https://www.instagram.com/hogarterapeutico" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 min-h-[44px] no-underline transition-colors hover:text-white"><i class="ri-instagram-line text-lg" aria-hidden="true"></i>Instagram</a></li>
                     </ul>
                 </div>
