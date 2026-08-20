@@ -392,19 +392,31 @@ heroPreload: "./src/images/hero-ventana.jpg"
     <div class="container">
         <div class="sec-head-center max-w-[640px] mx-auto text-center mb-[52px]">
             <span class="eyebrow">Reserva</span>
-            <h2 id="calendar-title" class="h2-display">Da el primer paso hacia tu bienestar</h2>
-            <p class="lead mt-4 mx-auto">Agenda tu primera sesión por 35€. Elige el día y la hora que mejor te venga.</p>
+            <!-- "Da el primer paso hacia tu bienestar" es la frase que podria
+                 estar en la web de cualquier terapeuta, nutricionista o coach.
+                 "Elige cuando nos conocemos" describe lo que esta seccion hace
+                 de verdad y suena a persona, no a folleto.
+                 Y el subtitulo ya no promete "la hora que mejor te venga":
+                 los huecos publicados son de maniana entre semana, asi que esa
+                 frase preparaba una decepcion a dos lineas de distancia. -->
+            <h2 id="calendar-title" class="h2-display">Elige cuándo nos conocemos</h2>
+            <p class="lead mt-4 mx-auto">Tu primera sesión son 50 minutos por 35€. Estos son los huecos que tengo abiertos ahora mismo.</p>
         </div>
 
         <div class="border border-clay-100 rounded-xl2 bg-canvas p-8 lg:p-11 shadow-e1 max-w-5xl mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 <div class="flex gap-3.5 items-start">
                     <b class="flex-none w-7 h-7 rounded-full bg-clay-500 text-white text-[13px] font-bold grid place-items-center font-sans" aria-hidden="true">1</b>
-                    <p class="text-[14.5px] font-semibold text-ink">Elige el día<small class="block font-normal text-ink-mute text-[13.5px]">Los días con hueco se resaltan</small></p>
+                    <!-- Antes decia "Los dias con hueco se resaltan", lo mismo
+                         que el panel de al lado a 20 px de distancia. Y el
+                         paso 2 prometia "la que mejor te convenga", la misma
+                         promesa que el subtitulo ya no hace porque los huecos
+                         son de maniana entre semana. -->
+                    <p class="text-[14.5px] font-semibold text-ink">Elige el día<small class="block font-normal text-ink-mute text-[13.5px]">Entre los que tengo abiertos</small></p>
                 </div>
                 <div class="flex gap-3.5 items-start">
                     <b class="flex-none w-7 h-7 rounded-full bg-clay-500 text-white text-[13px] font-bold grid place-items-center font-sans" aria-hidden="true">2</b>
-                    <p class="text-[14.5px] font-semibold text-ink">Elige la hora<small class="block font-normal text-ink-mute text-[13.5px]">La que mejor te convenga</small></p>
+                    <p class="text-[14.5px] font-semibold text-ink">Elige la hora<small class="block font-normal text-ink-mute text-[13.5px]">Sesiones de 50 minutos</small></p>
                 </div>
                 <div class="flex gap-3.5 items-start">
                     <b class="flex-none w-7 h-7 rounded-full bg-clay-500 text-white text-[13px] font-bold grid place-items-center font-sans" aria-hidden="true">3</b>
@@ -454,8 +466,12 @@ heroPreload: "./src/images/hero-ventana.jpg"
     <div class="container grid grid-cols-1 lg:grid-cols-[1.1fr_.9fr] gap-11 lg:gap-14 items-start">
         <div>
             <span class="eyebrow !text-clay-200 before:!bg-clay-300">Contacto</span>
-            <h2 id="contact-title" class="h2-display text-white">¿Prefieres escribirme primero?</h2>
-            <p class="lead text-white/[.82] mt-4">Escríbeme por WhatsApp y te respondo personalmente. Sin plantillas y sin compromiso.</p>
+            <!-- "¿Prefieres escribirme primero?" se escribio cuando el
+                 formulario mandaba en esta seccion. Ahora que WhatsApp va
+                 delante, "hablamos" describe mejor lo que pasa de verdad: una
+                 conversacion, no un formulario que se envia al vacio. -->
+            <h2 id="contact-title" class="h2-display text-white">¿Hablamos antes de reservar?</h2>
+            <p class="lead text-white/[.82] mt-4">Si tienes dudas, escríbeme y te respondo yo. No hay plantillas, ni recepción, ni compromiso de reservar después.</p>
 
             <!-- WhatsApp es el canal preferido, y el peso visual lo dice: es el
                  unico bloque solido de esta columna. Antes los tres canales

@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: "Cómo Saber si Necesitas Ir al Psicólogo"
+title: "Cómo saber si necesitas ir al psicólogo"
 description: "¿Dudas si lo que sientes es suficiente para ir al psicólogo? Descubre las señales reales que indican que la terapia puede ayudarte, sin esperar a tocar fondo."
 date: 2026-08-19
 featured_image: "./src/images/blog/necesito-psicologo.jpg"

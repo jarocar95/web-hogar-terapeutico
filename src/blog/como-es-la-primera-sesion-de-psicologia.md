@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: "Cómo es la Primera Sesión de Psicología: Qué Esperar"
+title: "Cómo es la primera sesión de psicología: qué esperar"
 description: "¿Nervioso/a por tu primera sesión de psicología? Te cuento paso a paso qué ocurre, qué no tienes que hacer y qué esperar después. Sin sorpresas, con calma."
 date: 2026-09-09
 featured_image: "./src/images/fondo-prueba.jpg" # ¡PENDIENTE! Sustituir por una imagen real antes de publicar.
