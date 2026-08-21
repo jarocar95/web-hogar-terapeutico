@@ -281,7 +281,18 @@ heroPreload: "./src/images/hero-sala.jpg"
             <h2 id="pricing-title" class="h2-display">Transparencia desde el principio</h2>
             <p class="lead mt-4 mx-auto">Sin cuotas, sin permanencia y sin letra pequeña. Pagas solo las sesiones que haces.</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[900px] mx-auto items-stretch">
+        <!-- Una sola tarjeta, no dos.
+             Había dos de peso casi idéntico (las diferenciaba un borde de
+             1,5 px y una píldora) con dos botones al mismo destino. Quien
+             llega por primera vez no sabe que en esta taxonomía es "primera
+             sesión": veía dos opciones y se paraba a elegir. Y si pulsaba la
+             de 50€ aterrizaba en un calendario encabezado "Tu primera sesión
+             son 50 minutos por 35€".
+             Hoy solo se puede comprar una cosa, así que solo se ofrece una
+             cosa. El precio de seguimiento sigue estando —es la pregunta
+             siguiente de cualquiera que se lo esté pensando— pero como
+             información dentro de la tarjeta, no como una segunda oferta. -->
+        <div class="max-w-[520px] mx-auto">
             <div class="plan plan-featured">
                 <span class="plan-tag">Empieza aquí</span>
                 <h3 class="font-serif text-xl font-semibold">Primera sesión</h3>
@@ -292,18 +303,11 @@ heroPreload: "./src/images/hero-sala.jpg"
                     <li class="flex gap-3 items-start text-[15.5px] text-ink-soft"><i class="ri-check-line text-sage-500 mt-1 flex-none" aria-hidden="true"></i>Espacio para tus dudas, sin compromiso</li>
                     <li class="flex gap-3 items-start text-[15.5px] text-ink-soft"><i class="ri-check-line text-sage-500 mt-1 flex-none" aria-hidden="true"></i>Propuesta de plan terapéutico personalizado</li>
                 </ul>
-                <div class="mt-auto"><a href="#booking-calendar" class="btn btn-primary btn-block btn-lg">Reservar primera sesión</a></div>
-            </div>
-            <div class="plan">
-                <h3 class="font-serif text-xl font-semibold">Sesión individual</h3>
-                <div class="plan-amt flex items-baseline gap-2 mt-3.5 mb-1"><b>50€</b><span class="text-[14.5px] text-ink-mute">por sesión</span></div>
-                <p class="text-[15px] text-ink-soft pb-[22px] border-b border-clay-100">50 minutos · videollamada</p>
-                <ul class="list-none my-[22px] grid gap-3 p-0">
-                    <li class="flex gap-3 items-start text-[15.5px] text-ink-soft"><i class="ri-check-line text-sage-500 mt-1 flex-none" aria-hidden="true"></i>Continuación del proceso terapéutico</li>
-                    <li class="flex gap-3 items-start text-[15.5px] text-ink-soft"><i class="ri-check-line text-sage-500 mt-1 flex-none" aria-hidden="true"></i>Trabajo en profundidad sobre tus objetivos</li>
-                    <li class="flex gap-3 items-start text-[15.5px] text-ink-soft"><i class="ri-check-line text-sage-500 mt-1 flex-none" aria-hidden="true"></i>Material de apoyo entre sesiones</li>
-                </ul>
-                <div class="mt-auto"><a href="#booking-calendar" class="btn btn-ghost btn-block btn-lg">Reservar sesión</a></div>
+                <p class="pt-[18px] mb-[22px] border-t border-clay-100 text-[14.5px] text-ink-soft">
+                    <span class="text-ink font-semibold">Después, 50€ por sesión.</span>
+                    Sin cuotas ni permanencia: pagas solo las que haces.
+                </p>
+                <div class="mt-auto"><a href="#booking-calendar" class="btn btn-primary btn-block btn-lg">Reservar primera sesión · 35€</a></div>
             </div>
         </div>
         <!-- "Escríbeme" era texto plano: invitaba a una acción justo donde
@@ -433,6 +437,16 @@ heroPreload: "./src/images/hero-sala.jpg"
                  frase preparaba una decepcion a dos lineas de distancia. -->
             <h2 id="calendar-title" class="h2-display">Elige cuándo nos conocemos</h2>
             <p class="lead mt-4 mx-auto">Tu primera sesión son 50 minutos por 35€. Estos son los huecos que tengo abiertos ahora mismo.</p>
+            <!-- El calendario siempre ha servido para todo el mundo: mismos
+                 huecos, mismo mecanismo, y el mensaje que envía dice "reservar
+                 una cita" sin distinguir tipo de sesión. Pero TODO el texto de
+                 alrededor decía "primera sesión", así que un paciente que
+                 repite leía que ese sitio no era para él. El seguimiento suele
+                 agendarse al final de cada sesión, así que esto va discreto: es
+                 una puerta abierta, no un camino principal. -->
+            <p class="mt-3 text-[14.5px] text-ink-mute">
+                ¿Ya eres paciente? Reserva desde este mismo calendario — 50€ la sesión.
+            </p>
         </div>
 
         <!-- Relleno escalonado. En móvil se apilaban tres niveles (container
