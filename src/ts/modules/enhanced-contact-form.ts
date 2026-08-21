@@ -7,8 +7,6 @@ export class EnhancedContactForm {
     private submitButton: HTMLButtonElement | null;
     private submitText: HTMLElement | null;
     private submitSpinner: HTMLElement | null;
-    private progressBar: HTMLElement | null;
-    private progressText: HTMLElement | null;
     private fields: { [key: string]: HTMLInputElement | HTMLTextAreaElement | null } = {
         name: null,
         email: null,
@@ -24,8 +22,6 @@ export class EnhancedContactForm {
         this.submitText = document.getElementById('submit-text');
         this.submitSpinner = document.getElementById('submit-spinner');
 
-        this.progressBar = document.getElementById('form-progress-bar');
-        this.progressText = document.getElementById('form-progress-text');
 
         this.fields.name = document.getElementById('name') as HTMLInputElement;
         this.fields.email = document.getElementById('email') as HTMLInputElement;
@@ -41,7 +37,6 @@ export class EnhancedContactForm {
 
     init() {
         this.setupRealTimeValidation();
-        this.setupProgressBar();
         this.setupCharacterCounter();
         this.setupEnhancedSubmission();
         this.setupFieldAnimations();
@@ -88,7 +83,6 @@ export class EnhancedContactForm {
                 // Real-time validation on input
                 field.addEventListener('input', () => {
                     this.validateField(fieldName, validators[fieldName]);
-                    this.updateProgress();
                 });
 
                 field.addEventListener('blur', () => {
@@ -153,48 +147,6 @@ export class EnhancedContactForm {
     /**
      * Setup progress bar for form completion
      */
-    setupProgressBar() {
-        if (!this.progressBar || !this.progressText) return;
-
-        const updateProgress = () => {
-            const totalFields = Object.keys(this.fields).length;
-            let completedFields = 0;
-
-            Object.values(this.fields).forEach(field => {
-                if (field) {
-                    if (field.type === 'checkbox' && 'checked' in field) {
-                        const checkboxField = field as HTMLInputElement;
-                        if (checkboxField.checked) completedFields++;
-                    } else {
-                        if (field.value.trim()) completedFields++;
-                    }
-                }
-            });
-
-            const progress = Math.round((completedFields / totalFields) * 100);
-            if (this.progressBar) this.progressBar.style.width = `${progress}%`;
-            if (this.progressText) this.progressText.textContent = `${progress}%`;
-
-            // Change color based on progress
-            if (this.progressBar) {
-                if (progress === 100) {
-                    this.progressBar.classList.remove('bg-primary');
-                    this.progressBar.classList.add('bg-green-500');
-                } else {
-                    this.progressBar.classList.add('bg-primary');
-                    this.progressBar.classList.remove('bg-green-500');
-                }
-            }
-        };
-
-        // Listen to all field changes
-        Object.values(this.fields).forEach(field => {
-            if (field) {
-                field.addEventListener('input', updateProgress);
-                field.addEventListener('change', updateProgress);
-            }
-        });
-    }
 
     /**
      * Setup character counter for message field
@@ -289,7 +241,6 @@ export class EnhancedContactForm {
                 if (response.ok) {
                     this.showSuccessMessage();
                     this.form!.reset();
-                    this.updateProgress();
                     if (this.charCount) {
                         this.charCount.textContent = '0';
                     }
@@ -365,7 +316,7 @@ export class EnhancedContactForm {
 
         if (this.formStatus) {
             this.formStatus.innerHTML = `
-                <div class="p-4 rounded-lg border ${statusClass} flex items-center">
+                <div class="p-4 rounded-md2 border ${statusClass} flex items-center">
                     ${icon}
                     <span>${message}</span>
                 </div>
@@ -386,7 +337,7 @@ export class EnhancedContactForm {
     showSuccessMessage() {
         if (this.formStatus) {
             this.formStatus.innerHTML = `
-                <div class="p-6 rounded-lg bg-green-100 border border-green-400 text-green-700">
+                <div class="p-6 rounded-md2 bg-green-100 border border-green-400 text-green-700">
                     <div class="flex items-center mb-3">
                         <i class="ri-checkbox-circle-line text-2xl mr-3"></i>
                         <div class="text-left">
@@ -397,15 +348,15 @@ export class EnhancedContactForm {
                     <div class="mt-4 pt-4 border-t border-green-300">
                         <p class="text-sm mb-2">¿Qué te gustaría hacer ahora?</p>
                         <div class="flex gap-2 flex-wrap">
-                            <a href="#booking-calendar" class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm">
+                            <a href="#booking-calendar" class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-sm2 hover:bg-green-700 transition-colors text-sm">
                                 <i class="ri-calendar-line mr-1"></i>
                                 Agendar sesión
                             </a>
-                            <a href="#areas-of-intervention" class="inline-flex items-center px-4 py-2 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors text-sm">
+                            <a href="#areas-of-intervention" class="inline-flex items-center px-4 py-2 border border-green-600 text-green-600 rounded-sm2 hover:bg-green-50 transition-colors text-sm">
                                 <i class="ri-psychotherapy-line mr-1"></i>
                                 Ver terapia
                             </a>
-                            <button onclick="this.closest('#form-status').innerHTML = ''" class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-50 transition-colors text-sm">
+                            <button onclick="this.closest('#form-status').innerHTML = ''" class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-600 rounded-sm2 hover:bg-gray-50 transition-colors text-sm">
                                 <i class="ri-close-line mr-1"></i>
                                 Cerrar
                             </button>
@@ -415,29 +366,11 @@ export class EnhancedContactForm {
             `;
         }
     }
-
     /**
-     * Update progress bar
+     * Aqui vivian setupProgressBar() y updateProgress(): dos implementaciones
+     * duplicadas de la misma barra de progreso, unas 55 lineas en total.
+     * Ninguna podia ejecutarse: ambas empiezan comprobando #form-progress-bar
+     * y #form-progress-text, que no existen en el HTML y no han existido nunca.
+     * Salian por la primera linea en cada llamada y viajaban en el bundle.
      */
-    updateProgress() {
-        if (!this.progressBar || !this.progressText) return;
-
-        const totalFields = Object.keys(this.fields).length;
-        let completedFields = 0;
-
-        Object.values(this.fields).forEach(field => {
-            if (field) {
-                if (field.type === 'checkbox' && 'checked' in field) {
-                    const checkboxField = field as HTMLInputElement;
-                    if (checkboxField.checked) completedFields++;
-                } else {
-                    if (field.value.trim()) completedFields++;
-                }
-            }
-        });
-
-        const progress = Math.round((completedFields / totalFields) * 100);
-        this.progressBar.style.width = `${progress}%`;
-        this.progressText.textContent = `${progress}%`;
-    }
 }

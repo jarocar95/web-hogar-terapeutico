@@ -139,30 +139,39 @@
   .h2-display { @apply font-serif font-semibold text-[clamp(2rem,3.6vw,2.9rem)] leading-[1.12] tracking-[-.015em]; }
   .lead { @apply text-[clamp(1.05rem,1.5vw,1.2rem)] text-ink-soft leading-[1.65] max-w-[62ch]; }
 
-  .card {
-    @apply bg-white rounded-lg shadow-md;
-  }
-
-  /* Tarjeta del sistema nuevo. .card se queda como esta porque la usan el
-     blog y las paginas legales. */
+  /* Aqui vivia .card, la tarjeta del disenio anterior (rounded-lg + shadow-md).
+     Se conservo durante el redisenio "porque la usan el blog y las paginas
+     legales", pero esas plantillas se rehicieron despues y ya no la usan:
+     cero apariciones en todo el HTML generado. Ademas era el unico radio de
+     8 px del proyecto. La tarjeta viva es .card2. */
   .card2 {
-    @apply bg-white border border-clay-100 rounded-lg2 p-[30px] shadow-e1
+    @apply bg-white border border-clay-100 rounded-lg2 p-4 sm:p-[30px] shadow-e1
            transition-[transform,box-shadow,border-color] duration-200;
   }
   .card2:hover { @apply -translate-y-1 shadow-e2 border-clay-200; }
-  .card2-ico { @apply w-[46px] h-[46px] rounded-[14px] bg-clay-50 grid place-items-center mb-[18px]; }
+  /* rounded-md2 (16px) y no 14px: 14 no estaba en la escala del sistema. */
+  .card2-ico { @apply w-10 h-10 sm:w-[46px] sm:h-[46px] rounded-md2 bg-clay-50 grid place-items-center mb-3 sm:mb-[18px]; }
   .card2-ico .icon { @apply w-[22px] h-[22px] bg-clay-500; }
   .card2-sage .card2-ico { @apply bg-sage-50; }
   .card2-sage .card2-ico .icon { @apply bg-sage-500; }
 
-  /* Chips de reconocimiento ("¿te reconoces en algo de esto?") */
+  /* Chips de reconocimiento ("¿te reconoces en algo de esto?").
+     Ahora son enlaces. Eran <div> que se elevaban al pasar el ratón sin ser
+     pulsables: prometían una acción que no existía, en la sección donde una
+     persona acaba de reconocerse en una frase y no tenía dónde seguir. Cada
+     uno lleva a su área; el último, a las preguntas frecuentes. */
   .chip {
     @apply bg-white border border-clay-100 rounded-md2 px-[22px] py-[18px]
-           flex gap-3.5 items-start shadow-e1 transition-[transform,border-color] duration-200;
+           flex gap-3.5 items-start shadow-e1 no-underline
+           transition-[transform,border-color] duration-200;
   }
   .chip:hover { @apply -translate-y-0.5 border-clay-200; }
   .chip > .dot { @apply w-2 h-2 rounded-full bg-clay-300 flex-none mt-[9px]; }
-  .chip > span { @apply text-base text-ink-soft leading-[1.55]; }
+  .chip > span { @apply text-base text-ink-soft leading-[1.55] flex-1; }
+  .chip-arrow {
+    @apply text-clay-300 flex-none mt-[3px] transition-[transform,color] duration-200;
+  }
+  .chip:hover .chip-arrow { @apply text-clay-500 translate-x-0.5; }
 
   /* Pasos del proceso, sobre fondo oscuro */
   .step { @apply flex gap-[22px] py-[26px] border-t border-white/[.14]; }
@@ -228,7 +237,7 @@
   .fld label { @apply block text-[13.5px] font-semibold text-ink mb-[7px]; }
   .fld input, .fld textarea {
     @apply w-full font-sans text-base text-ink px-[15px] py-[13px] min-h-[44px]
-           border border-clay-200 rounded-xl bg-canvas transition-[border-color,box-shadow] duration-200;
+           border border-clay-200 rounded-sm2 bg-canvas transition-[border-color,box-shadow] duration-200;
   }
   /* Foco visible de verdad. La regla anterior anulaba el outline global y
      dejaba como única señal un halo de rgba(156,102,102,.16), que sobre blanco

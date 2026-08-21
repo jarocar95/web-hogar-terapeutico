@@ -124,14 +124,14 @@ async function loadNonCriticalModules(): Promise<void> {
 
                 // Show error state with fallback
                 calendarContainer.innerHTML = `
-                    <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+                    <div class="bg-red-50 border border-red-200 rounded-md2 p-6 text-center">
                         <i class="ri-error-warning-line text-4xl text-red-500 mb-2"></i>
                         <h3 class="text-lg font-semibold text-red-800 mb-2">Calendario no disponible</h3>
                         <p class="text-red-600 mb-4">No pudimos cargar el calendario de reservas en este momento.</p>
                         <a href="https://wa.me/34621348616?text=Hola%20Angie,%20me%20gustaría%20agendar%20una%20cita."
                            target="_blank"
                            rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 bg-secondary text-white px-6 py-2 rounded-lg hover:bg-secondary-darker transition-colors">
+                           class="inline-flex items-center gap-2 bg-secondary text-white px-6 py-2 rounded-sm2 hover:bg-secondary-darker transition-colors">
                             <i class="ri-whatsapp-line"></i>
                             Agendar por WhatsApp
                         </a>

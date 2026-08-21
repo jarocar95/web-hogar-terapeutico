@@ -72,7 +72,7 @@ function displayAvailableTimes(schedule: Schedule, availableTimesContainer: HTML
         // aria-label explicito: "10:00" a secas no dice a un lector de pantalla
         // ni el dia ni que el enlace abre WhatsApp fuera del sitio.
         const etiqueta = `Reservar el ${fechaFormateada} a las ${hora} — se abre WhatsApp`;
-        html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" aria-label="${etiqueta}" class="flex items-center justify-center min-h-[44px] rounded-xl bg-sage-50 border border-sage-200 text-sage-700 font-semibold text-[14.5px] no-underline transition-colors hover:bg-sage-200">${hora}</a>`;
+        html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" aria-label="${etiqueta}" class="flex items-center justify-center min-h-[44px] rounded-sm2 bg-sage-50 border border-sage-200 text-sage-700 font-semibold text-[14.5px] no-underline transition-colors hover:bg-sage-200">${hora}</a>`;
     });
 
     html += '</div>';
@@ -125,7 +125,7 @@ export function initBookingCalendar(): void {
 
             if (horarios.length === 0) {
                 calendarContainer.innerHTML = `
-                    <div class="bg-light border border-accent/40 rounded-xl p-6 text-center">
+                    <div class="bg-light border border-accent/40 rounded-sm2 p-6 text-center">
                         <h3 class="font-semibold text-primary mb-2">Agenda en actualización</h3>
                         <p class="text-text/80 mb-4">Ahora mismo no hay huecos publicados. Escríbeme y buscamos juntos el que mejor te venga.</p>
                         <a href="https://wa.me/34621348616?text=Hola%20Angie%2C%20me%20gustar%C3%ADa%20reservar%20una%20primera%20sesi%C3%B3n."
@@ -294,7 +294,7 @@ export function initBookingCalendar(): void {
                             hint.id = 'calendar-hint';
                             hint.setAttribute('type', 'button');
                             hint.className = 'w-full flex items-center justify-center gap-1.5 min-h-[44px] '
-                                + 'rounded-xl bg-clay-50 border border-clay-100 text-clay-600 '
+                                + 'rounded-sm2 bg-clay-50 border border-clay-100 text-clay-600 '
                                 + 'text-[14px] font-semibold transition-colors hover:bg-clay-100';
                             hint.addEventListener('click', () => {
                                 (calendarContainer.querySelector('.button-next-month') as HTMLElement | null)?.click();

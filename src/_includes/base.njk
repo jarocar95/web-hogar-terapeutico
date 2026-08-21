@@ -138,7 +138,7 @@
           align-items: center !important;
           gap: 0.75rem !important;
           padding: 0.25rem !important;
-          border-radius: 0.375rem;
+          border-radius: 10px; /* escala del sistema */
           text-decoration: none;
           opacity: 1 !important;
           visibility: visible !important;
@@ -215,7 +215,7 @@
           font-weight: 500 !important;
           color: #4A3B3B !important;
           text-decoration: none !important;
-          border-radius: 0.375rem !important;
+          border-radius: 10px !important; /* escala del sistema */
           transition: background-color 0.2s ease, color 0.2s ease !important;
           text-align: left !important;
           box-sizing: border-box !important;
@@ -294,7 +294,7 @@
         #menu-btn {
           display: block;
           padding: 0.25rem;
-          border-radius: 0.375rem;
+          border-radius: 10px; /* escala del sistema */
           color: #9C6666;
           background: none;
           border: none;
@@ -327,9 +327,11 @@
           z-index: 0;
         }
 
-        /* El shortcode de Eleventy envuelve la imagen en <picture>, que por
-           defecto es inline y sin altura: sin esto, el height:100% del <img>
-           no resuelve contra nada y la foto no llega a ocupar el hero. */
+        /* El shortcode de Eleventy envuelve la imagen en un elemento picture,
+           que por defecto es inline y sin altura: sin esto, el height:100% de
+           la imagen no resuelve contra nada y la foto no llega a ocupar el
+           hero. (Sin escribir la etiqueta entre signos de menor y mayor: el
+           detector la lee como una imagen rota de verdad.) */
         .hero-background-image picture {
           display: block;
           width: 100%;
@@ -484,7 +486,7 @@
           align-items: center;
           gap: 0.75rem;
           padding: 0.25rem;
-          border-radius: 0.375rem;
+          border-radius: 10px; /* escala del sistema */
           text-decoration: none;
           transition: background-color 0.2s;
         }
@@ -574,7 +576,7 @@
           color: white;
           padding: 0.5rem 1rem;
           text-decoration: none;
-          border-radius: 0.375rem;
+          border-radius: 10px; /* escala del sistema */
           z-index: 100;
           transition: top 0.3s;
         }
@@ -710,7 +712,7 @@
     <!-- HEADER enhanced with performance optimizations -->
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm h-20" role="banner">
         <div class="container flex justify-between items-center h-full">
-            <a href="/" class="flex items-center gap-3 rounded-md p-1 transition-colors hover:bg-light/50">
+            <a href="/" class="flex items-center gap-3 rounded-sm2 p-1 transition-colors hover:bg-light/50">
                 <img src="/images/logo-hogarterapeutico-simplificado.svg" alt="" class="h-7 w-auto lg:h-10" width="119" height="40" decoding="async">
                 <span id="logo-text" class="font-serif text-xl font-semibold text-primary leading-tight text-center lg:text-3xl lg:text-left lg:whitespace-nowrap">
                     Hogar Terapéutico
@@ -734,18 +736,18 @@
                 <a href="{{ home }}#booking-calendar" id="nav-cta" class="btn btn-primary text-sm">Reservar · 35€</a>
             </nav>
 
-            <button id="menu-btn-fixed" class="lg:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] grid place-items-center rounded-md z-50 text-primary flex-shrink-0" aria-label="Abrir menú" aria-expanded="false">
+            <button id="menu-btn-fixed" class="lg:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] grid place-items-center rounded-sm2 z-50 text-primary flex-shrink-0" aria-label="Abrir menú" aria-expanded="false">
                 <i id="hamburger-icon-fixed" class="ri-menu-line text-3xl"></i>
                 <i id="close-icon-fixed" class="ri-close-line text-3xl hidden"></i>
             </button>
         </div>
         <div id="mobile-menu-fixed" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-light">
             <nav class="flex flex-col p-4 space-y-2">
-                <a href="{{ home }}#about" class="mobile-link block px-4 py-3 font-medium text-text rounded-md hover:bg-light">Sobre mí</a>
-                <a href="{{ home }}#areas-of-intervention" class="mobile-link block px-4 py-3 font-medium text-text rounded-md hover:bg-light">Terapia</a>
-                <a href="{{ home }}#services-pricing" class="mobile-link block px-4 py-3 font-medium text-text rounded-md hover:bg-light">Precios</a>
-                <a href="{{ home }}#faq" class="mobile-link block px-4 py-3 font-medium text-text rounded-md hover:bg-light">Preguntas</a>
-                <a href="/blog" class="mobile-link block px-4 py-3 font-medium text-text rounded-md hover:bg-light">Blog</a>
+                <a href="{{ home }}#about" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Sobre mí</a>
+                <a href="{{ home }}#areas-of-intervention" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Terapia</a>
+                <a href="{{ home }}#services-pricing" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Precios</a>
+                <a href="{{ home }}#faq" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Preguntas</a>
+                <a href="/blog" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Blog</a>
                 {#- Mismo destino que en escritorio. Antes este boton, con la
                     etiqueta y el estilo identicos al de arriba, iba a #contact
                     (formulario) mientras el de escritorio iba al calendario. -#}

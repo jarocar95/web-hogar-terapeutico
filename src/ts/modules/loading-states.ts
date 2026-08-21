@@ -25,7 +25,7 @@ export class LoadingStates {
         this.loadingOverlay = document.createElement('div');
         this.loadingOverlay.className = 'fixed inset-0 bg-black/20 backdrop-blur-sm z-50 flex items-center justify-center hidden';
         this.loadingOverlay.innerHTML = `
-            <div class="bg-white rounded-lg p-6 shadow-xl flex flex-col items-center">
+            <div class="bg-white rounded-md2 p-6 shadow-xl flex flex-col items-center">
                 <div class="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin mb-4"></div>
                 <p class="text-text font-medium">Cargando...</p>
             </div>
@@ -293,7 +293,7 @@ export class LoadingStates {
         return `
             <div class="calendar-skeleton">
                 <div class="animate-pulse">
-                    <div class="bg-gray-200 h-12 rounded-lg mb-4"></div>
+                    <div class="bg-gray-200 h-12 rounded-sm2 mb-4"></div>
                     <div class="grid grid-cols-7 gap-2 mb-4">
                         ${Array.from({ length: 7 }, () => '<div class="bg-gray-200 h-8 rounded"></div>').join('')}
                     </div>

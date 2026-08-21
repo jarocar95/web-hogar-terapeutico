@@ -112,12 +112,12 @@ heroPreload: "./src/images/hero-sala.jpg"
             <p class="lead mt-4">No hace falta que sepas ponerle nombre. Si alguna de estas frases te resulta familiar, la terapia puede ayudarte.</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="chip"><span class="dot" aria-hidden="true"></span><span>Vivo en alerta constante y me cuesta desconectar, aunque todo «vaya bien».</span></div>
-            <div class="chip"><span class="dot" aria-hidden="true"></span><span>Hay algo del pasado que sigue apareciendo y condicionando mi presente.</span></div>
-            <div class="chip"><span class="dot" aria-hidden="true"></span><span>Me exijo mucho y casi nunca siento que sea suficiente.</span></div>
-            <div class="chip"><span class="dot" aria-hidden="true"></span><span>Las emociones me desbordan o, al contrario, siento un vacío difícil de explicar.</span></div>
-            <div class="chip"><span class="dot" aria-hidden="true"></span><span>Repito los mismos patrones en mis relaciones y no sé cómo salir de ahí.</span></div>
-            <div class="chip"><span class="dot" aria-hidden="true"></span><span>Llevo tiempo pensando en pedir ayuda, pero nunca es el momento.</span></div>
+            <a href="#area-ansiedad" class="chip"><span class="dot" aria-hidden="true"></span><span>Vivo en alerta constante y me cuesta desconectar, aunque todo «vaya bien».</span><i class="ri-arrow-right-line chip-arrow" aria-hidden="true"></i></a>
+            <a href="#area-trauma" class="chip"><span class="dot" aria-hidden="true"></span><span>Hay algo del pasado que sigue apareciendo y condicionando mi presente.</span><i class="ri-arrow-right-line chip-arrow" aria-hidden="true"></i></a>
+            <a href="#area-autoestima" class="chip"><span class="dot" aria-hidden="true"></span><span>Me exijo mucho y casi nunca siento que sea suficiente.</span><i class="ri-arrow-right-line chip-arrow" aria-hidden="true"></i></a>
+            <a href="#area-emocional" class="chip"><span class="dot" aria-hidden="true"></span><span>Las emociones me desbordan o, al contrario, siento un vacío difícil de explicar.</span><i class="ri-arrow-right-line chip-arrow" aria-hidden="true"></i></a>
+            <a href="#area-relaciones" class="chip"><span class="dot" aria-hidden="true"></span><span>Repito los mismos patrones en mis relaciones y no sé cómo salir de ahí.</span><i class="ri-arrow-right-line chip-arrow" aria-hidden="true"></i></a>
+            <a href="#faq" class="chip"><span class="dot" aria-hidden="true"></span><span>Llevo tiempo pensando en pedir ayuda, pero nunca es el momento.</span><i class="ri-arrow-right-line chip-arrow" aria-hidden="true"></i></a>
         </div>
         <div class="mt-9">
             <a href="#booking-calendar" class="lnk">Hablemos en una primera sesión <i class="ri-arrow-right-line icon" aria-hidden="true"></i></a>
@@ -212,33 +212,37 @@ heroPreload: "./src/images/hero-sala.jpg"
             <h2 id="areas-title" class="h2-display">¿En qué puedo ayudarte?</h2>
             <p class="lead mt-4 mx-auto">Estas son las áreas que trabajo con más frecuencia, siempre con un enfoque integrador y adaptado a ti.</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
-            <article class="card2">
+        <!-- Dos columnas ya en móvil. A una sola, las seis tarjetas ocupaban
+             2.067 px: 2,6 pantallas, más alto que la sección de Angie, y era
+             además el patrón más intercambiable de la página. No se quita
+             ninguna área (las seis son reales), se compactan. -->
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-[18px]">
+            <article id="area-trauma" class="card2">
                 <div class="card2-ico"><i class="ri-psychotherapy-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Trauma, apego y EMDR</h3>
                 <p class="text-[15.5px] text-ink-soft">Sanar heridas del pasado en un entorno de total seguridad, con una técnica avalada científicamente.</p>
             </article>
-            <article class="card2 card2-sage">
+            <article id="area-ansiedad" class="card2 card2-sage">
                 <div class="card2-ico"><i class="ri-mental-health-line text-sage-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Ansiedad y estrés</h3>
                 <p class="text-[15.5px] text-ink-soft">Entender qué sostiene la ansiedad, reducir el estrés y recuperar la sensación de calma.</p>
             </article>
-            <article class="card2">
+            <article id="area-autoestima" class="card2">
                 <div class="card2-ico"><i class="ri-heart-pulse-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Autoestima y confianza</h3>
                 <p class="text-[15.5px] text-ink-soft">Fortalecer la relación contigo mismo/a, ganar seguridad y dejar de vivir desde la autoexigencia.</p>
             </article>
-            <article class="card2 card2-sage">
+            <article id="area-emocional" class="card2 card2-sage">
                 <div class="card2-ico"><i class="ri-emotion-line text-sage-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Gestión emocional</h3>
                 <p class="text-[15.5px] text-ink-soft">Herramientas para entender y regular la tristeza, la ira, la culpa o el vacío emocional.</p>
             </article>
-            <article class="card2">
+            <article id="area-relaciones" class="card2">
                 <div class="card2-ico"><i class="ri-group-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Relaciones personales</h3>
                 <p class="text-[15.5px] text-ink-soft">Mejorar la comunicación y construir vínculos más sanos con tu pareja, tu familia o tus amigos.</p>
             </article>
-            <article class="card2 card2-sage">
+            <article id="area-duelo" class="card2 card2-sage">
                 <div class="card2-ico"><i class="ri-leaf-line text-sage-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Duelo y cambios vitales</h3>
                 <p class="text-[15.5px] text-ink-soft">Acompañamiento en pérdidas, rupturas y etapas de transición que cuesta atravesar en soledad.</p>
@@ -411,6 +415,21 @@ heroPreload: "./src/images/hero-sala.jpg"
             <details>
                 <summary>¿Y si después de la primera sesión no quiero continuar?<span class="plus" aria-hidden="true"></span></summary>
                 <div class="ans">No pasa absolutamente nada. La primera sesión existe justamente para eso: para que compruebes si te sientes cómodo/a conmigo. No hay permanencia ni compromiso de ningún tipo.</div>
+            </details>
+            <!-- La página no decía en ningún sitio cómo ni cuándo se paga.
+                 Para quien tiene ansiedad por el dinero, un coste que no se
+                 puede prever es peor que uno alto. -->
+            <details>
+                <summary>¿Cómo y cuándo se paga?<span class="plus" aria-hidden="true"></span></summary>
+                <div class="ans">Te envío un enlace de pago seguro por WhatsApp antes de la sesión. Se paga con tarjeta, desde el móvil, y no hace falta crear ninguna cuenta. No hay cuotas ni permanencia: abonas solo las sesiones que haces.</div>
+            </details>
+            <!-- Anular era el otro hueco de informacion junto al pago: la
+                 pagina no decia ni por donde se avisa ni que pasa despues.
+                 Esta respuesta dice el canal y que se reprograma; deliberadamente
+                 NO fija plazo minimo ni penalizacion, porque eso lo decide Angie. -->
+            <details>
+                <summary>¿Y si tengo que anular o cambiar la cita?<span class="plus" aria-hidden="true"></span></summary>
+                <div class="ans">Avísame por WhatsApp en cuanto lo sepas y buscamos otro hueco. Cuanto antes lo sepa, más fácil es que esa hora la aproveche otra persona, así que no esperes a estar seguro/a para escribirme.</div>
             </details>
             <details>
                 <summary>¿Y si ningún horario me encaja?<span class="plus" aria-hidden="true"></span></summary>
@@ -601,7 +620,7 @@ heroPreload: "./src/images/hero-sala.jpg"
                     <p class="field-error hidden text-sm text-red-700 mt-1"></p>
                 </div>
                 <label class="flex gap-2.5 items-start text-[13.5px] text-ink-soft mb-[22px]">
-                    <input type="checkbox" id="privacy" name="privacy" class="mt-0.5 w-[22px] h-[22px] flex-none accent-clay-500" required aria-required="true">
+                    <input type="checkbox" id="privacy" name="privacy" class="mt-0.5 w-6 h-6 flex-none accent-clay-500" required aria-required="true">
                     <span>Acepto la <a href="/politica-privacidad" class="text-clay-600 underline underline-offset-2">política de privacidad</a> y el tratamiento de mis datos para responder a mi consulta.</span>
                 </label>
                 <div class="fld"><p class="field-error hidden text-sm text-red-700 mb-3"></p></div>
