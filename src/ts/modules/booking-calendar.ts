@@ -332,33 +332,41 @@ export function initBookingCalendar(): void {
                     // propio observador vigila (clases, atributos, textos de
                     // los días), así que sin esto cada pasada se dispara a sí
                     // misma y el navegador se queda colgado.
-                    let refrescando = false;
+                    // Refresco agrupado por fotograma, no descartado.
+                    //
+                    // La versión anterior usaba una guarda que DESCARTABA los
+                    // refrescos que llegaban mientras había uno en curso, y eso
+                    // rompía el botón de "N huecos más en...": su click provoca
+                    // el cambio de mes de forma síncrona, así que el refresco
+                    // del mes nuevo caía dentro de la guarda y se perdía. El
+                    // resultado era un mes sin días seleccionables y un botón
+                    // que no se actualizaba, mientras navegar con las flechas
+                    // funcionaba bien.
+                    //
+                    // Aquí no se pierde ninguno: se agrupan en el siguiente
+                    // fotograma. Y no hay bucle porque todas las operaciones
+                    // son idempotentes: la segunda pasada no muta nada, así que
+                    // el observador deja de dispararse solo.
+                    let pendiente = false;
                     const refrescar = (): void => {
-                        if (refrescando) return;
-                        refrescando = true;
-                        try {
+                        if (pendiente) return;
+                        pendiente = true;
+                        requestAnimationFrame(() => {
+                            pendiente = false;
                             highlightAvailableDates();
                             labelNavigationButtons();
                             shortenWeekdays();
                             makeDaysFocusable();
                             renderHintOtrosMeses();
                             sincronizarPanel();
-                        } finally {
-                            // Se libera en la siguiente vuelta del bucle de
-                            // eventos, cuando el observador ya ha entregado las
-                            // mutaciones que acabamos de provocar.
-                            setTimeout(() => { refrescando = false; }, 0);
-                        }
+                        });
                     };
 
                     const observer = new MutationObserver(refrescar);
                     observer.observe(calendarContainer, { childList: true, subtree: true });
 
                     picker.on('show', refrescar);
-
-                    picker.on('monthchange', () => {
-                        setTimeout(refrescar, 100);
-                    });
+                    picker.on('monthchange', refrescar);
 
                     picker.on('selected', (date: any) => {
                         const selectedDate = date.format('YYYY-MM-DD');

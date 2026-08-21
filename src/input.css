@@ -163,7 +163,7 @@
   }
   .plan-featured { @apply border-[1.5px] border-clay-400 shadow-e2; }
   .plan-tag {
-    @apply absolute -top-[13px] left-[30px] bg-clay-500 text-white text-[11.5px] font-bold
+    @apply absolute -top-[13px] left-[30px] bg-clay-500 text-white text-[12px] font-bold
            tracking-[.1em] uppercase px-3.5 py-1.5 rounded-full;
   }
   .plan-amt b { @apply font-serif text-[48px] font-semibold tracking-[-.03em] text-clay-700; }
@@ -191,12 +191,21 @@
     content: "";
     @apply absolute bg-sage-700 rounded-sm;
   }
+  /* El "más" se convierte en "menos" girando el trazo vertical hasta tumbarlo
+     sobre el horizontal, y desvaneciéndolo a la vez. Antes el rotate iba en el
+     contenedor: giraba los dos trazos a la vez y el estado abierto acababa
+     dibujando una barra "|". Al quitarlo el signo quedó correcto pero sin
+     ninguna transición, que es el estado que se veía ahora. */
   .acc .plus::before { @apply w-[11px] h-[1.6px]; }
-  .acc .plus::after  { @apply w-[1.6px] h-[11px] transition-opacity duration-200; }
-  /* Sin rotate-90: giraba el trazo horizontal hasta dejarlo vertical, así que
-     el estado abierto dibujaba una barra "|" en vez de un menos. */
-  .acc details[open] .plus { @apply bg-sage-200; }
-  .acc details[open] .plus::after { @apply opacity-0; }
+  .acc .plus::after {
+    @apply w-[1.6px] h-[11px];
+    transition: transform .28s cubic-bezier(.2,.7,.3,1), opacity .2s ease-out;
+  }
+  .acc details[open] .plus { @apply bg-sage-200 border-sage-200; }
+  .acc details[open] .plus::after {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
   .acc .ans { @apply pl-1 pr-[46px] pb-6 text-ink-soft text-base max-w-[70ch]; }
 
   /* Campos de formulario */
@@ -484,10 +493,15 @@
   place-items: center;
 }
 
-/* Dia sin hueco: atenuado a proposito, pero legible. Estaba en #D1C7C7
-   (2,0:1 sobre el fondo), que ya no es "atenuado" sino ilegible. */
+/* Dia sin hueco: atenuado a proposito, pero legible.
+   Pasa de #B4A5A2 (2,37:1) a #8A7A76 (4,1:1 medido sobre blanco). Un control
+   inactivo esta exento del minimo de contraste, y por eso no se busca el 4,5:
+   oscurecerlos mas empezaria a confundirlos con los dias disponibles, que es
+   la distincion que el calendario tiene que dejar clara de un vistazo. Pero a
+   2,37 los numeros no se leian y la reticula entera era una mancha gris:
+   siguen sirviendo para orientarse en el mes aunque ese dia no se reserve. */
 #calendar-container .litepicker .container__days .day-item.is-locked {
-  color: #B4A5A2 !important;
+  color: #8A7A76 !important;
   background-color: transparent !important;
   text-decoration: none;
 }
