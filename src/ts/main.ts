@@ -173,35 +173,13 @@ function loadScript(src: string): Promise<void> {
     });
 }
 
-// Performance monitoring - safely check for support
-if ('performance' in window && 'PerformanceObserver' in window) {
-    try {
-        // @ts-ignore - PerformanceObserver types
-        const perfObserver = new PerformanceObserver((list: PerformanceObserverEntryList) => {
-            for (const entry of list.getEntries()) {
-                const perfEntry = entry as PerformanceEntry;
-                try {
-                    if (perfEntry.entryType === 'largest-contentful-paint') {
-                        console.log('LCP:', perfEntry.startTime);
-                    }
-                    if (perfEntry.entryType === 'first-input' && 'processingStart' in perfEntry) {
-                        // @ts-ignore - safe to access processingStart here
-                        console.log('FID:', perfEntry.processingStart - perfEntry.startTime);
-                    }
-                } catch (e) {
-                    // Ignore deprecated API warnings
-                }
-            }
-        });
-
-        try {
-            perfObserver.observe({ entryTypes: ['largest-contentful-paint', 'first-input'] });
-        } catch (e) {
-            // Fallback for browsers that don't support these entry types
-            console.log('Performance monitoring partially supported');
-        }
-    } catch (e) {
-        // PerformanceObserver not fully supported
-        console.log('Performance monitoring not available');
-    }
-}
+// Aquí había un segundo observador de LCP y FID, duplicando el que ya vive en
+// performance-optimizer.monitorWebVitals(). Se ha eliminado por tres motivos:
+//
+// 1. Usaba la forma antigua `observe({ entryTypes: [...] })`, que es la que
+//    provocaba el aviso "Deprecated API for given entry type" en cada carga.
+//    El que se queda usa `{ type, buffered: true }`, uno por métrica.
+// 2. Escribía los valores directamente con console.log, sin pasar por el
+//    Logger, así que ni respetaba el entorno ni llegaba a analítica.
+// 3. Medía lo mismo dos veces y peor: no congelaba el LCP en la primera
+//    interacción, así que informaba de valores que ya no eran el LCP real.

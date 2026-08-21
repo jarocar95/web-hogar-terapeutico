@@ -46,6 +46,22 @@
   details > summary { list-style: none; cursor: pointer; }
   details > summary::-webkit-details-marker { display: none; }
 
+  /* Superficies que pinta el navegador y no el diseño.
+     Seleccionar texto, el cursor de escritura o la casilla de privacidad
+     mostraban el azul del sistema en medio de una paleta terracota. Son
+     detalles diminutos, pero es exactamente donde se nota si una página está
+     construida o solo ensamblada. */
+  ::selection { background: #E7C7C1; color: #2B211F; }
+  input, textarea { caret-color: #9C6666; }
+  input[type="checkbox"] { accent-color: #9C6666; }
+
+  /* Cifras de ancho fijo donde el número cambia en vivo: sin esto el contador
+     del formulario y los días del calendario bailan al reescribirse. */
+  #char-count,
+  #calendar-container .litepicker .container__days .day-item {
+    font-variant-numeric: tabular-nums;
+  }
+
   /* Respeto por la preferencia del sistema. Habia un TODO en el codigo y cero
      implementaciones: en una web que promete calma, el minimo es no mover
      nada cuando alguien ha pedido que no se mueva nada. */
@@ -601,34 +617,11 @@
 }
 
 @layer utilities {
-  /* @keyframes fadeIn removed for better mobile performance */
-  /* .animate-fade-in-up removed for better mobile performance */
-
-  .hover-lift {
-    /* Transitions removed for better mobile performance */
-  }
-
-  .hover-lift:hover {
-    /* Transform removed for better mobile performance */
-  }
-
-  .section-title {
-    @apply text-4xl md:text-5xl font-serif font-bold mb-8 text-center;
-  }
-
-  .form-input {
-    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors duration-200;
-  }
-
-  .form-label {
-    @apply block text-sm font-medium text-gray-700 mb-2;
-  }
-
-  .clean-card {
-    @apply bg-white rounded-lg border border-gray-100 p-6 hover:shadow-lg;
-  }
-
-  .clean-card:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
+  /* Aqui vivian .hover-lift, .clean-card, .form-input, .form-label y
+     .section-title: cinco utilidades que no usaba ni un solo archivo del
+     proyecto, dos de ellas con el cuerpo vacio y solo un comentario dentro.
+     Eran restos del disenio anterior. Se quedaban en output.css en cada build
+     y, peor, invitaban a usarlas: cualquiera que las encontrase habria metido
+     en la pagina una tarjeta y un campo de formulario que no siguen el sistema
+     actual. Los equivalentes vivos son .card2, .plan, .fld y .h2-display. */
 }

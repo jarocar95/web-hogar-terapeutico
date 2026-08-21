@@ -23,39 +23,27 @@ export class PerformanceOptimizer {
     }
 
     /**
-     * Setup resource hints for better performance
+     * Pistas de recursos: ya no se inyectan.
+     *
+     * Este metodo aniadia cinco dns-prefetch y tres preconnect, y tenia dos
+     * problemas graves:
+     *
+     * 1. Dos de ellos apuntaban a fonts.googleapis.com y fonts.gstatic.com,
+     *    que este sitio NO usa: las fuentes son autoalojadas desde 2025
+     *    precisamente para no contactar con Google. Se estaban abriendo
+     *    conexiones a dominios que nunca se piden.
+     * 2. Llegaban tarde por definicion. main.js es un modulo diferido, asi que
+     *    esto corre despues de parsear el HTML. Un preconnect solo ayuda si
+     *    esta en el head ANTES de que se pida el recurso; inyectarlo luego es
+     *    coste sin beneficio.
+     *
+     * Ademas contradecia lo que el propio <head> documenta: "sin preconnect a
+     * terceros, durante la carga inicial ya no se contacta con ninguno".
+     *
+     * Si algun dia hace falta una pista de recurso, va en base.njk.
      */
     setupResourceHints() {
-        // DNS prefetch for external domains
-        const domains = [
-            'https://cdn.jsdelivr.net',
-            'https://fonts.googleapis.com',
-            'https://fonts.gstatic.com',
-            'https://www.googletagmanager.com',
-            'https://formspree.io'
-        ];
-
-        domains.forEach(domain => {
-            const link = document.createElement('link');
-            link.rel = 'dns-prefetch';
-            link.href = domain;
-            document.head.appendChild(link);
-        });
-
-        // Preconnect for critical third-party resources
-        const criticalDomains = [
-            'https://cdn.jsdelivr.net',
-            'https://fonts.googleapis.com',
-            'https://fonts.gstatic.com'
-        ];
-
-        criticalDomains.forEach(domain => {
-            const link = document.createElement('link');
-            link.rel = 'preconnect';
-            link.href = domain;
-            link.crossOrigin = 'anonymous';
-            document.head.appendChild(link);
-        });
+        // Intencionadamente vacio. Las pistas de recursos viven en el <head>.
     }
 
     /**
@@ -342,7 +330,9 @@ export class PerformanceOptimizer {
             const resources = performance.getEntriesByType('resource');
             resources.forEach(resource => {
                 if (resource.duration > 1000) { // Resources taking more than 1 second
-                    console.warn(`Slow resource: ${resource.name} took ${resource.duration}ms`);
+                    if (localStorage.getItem('ht:debug') === '1') {
+                        console.warn(`Slow resource: ${resource.name} took ${resource.duration}ms`);
+                    }
                 }
             });
         });
@@ -389,7 +379,9 @@ export class PerformanceOptimizer {
         });
 
         if (totalSize > budget.totalKb * 1024) {
-            console.warn(`Performance budget exceeded: Total size ${Math.round(totalSize / 1024)}KB > ${budget.totalKb}KB`);
+            if (localStorage.getItem('ht:debug') === '1') {
+                console.warn(`Performance budget exceeded: Total size ${Math.round(totalSize / 1024)}KB > ${budget.totalKb}KB`);
+            }
         }
     }
 
@@ -457,11 +449,15 @@ export class PerformanceOptimizer {
     }
 
     /**
-     * Load analytics scripts
+     * Vestigio. No carga nada: solo escribia por consola.
+     *
+     * Quien carga analitica de verdad es cookie-banner.ts, y solo cuando hay
+     * consentimiento. Mantener aqui un segundo punto que dice "aqui se
+     * cargaria la analitica" invita a que alguien lo implemente algun dia y
+     * se salte el consentimiento sin darse cuenta.
      */
     loadAnalytics() {
-        // This would load analytics scripts when the browser is idle
-        console.log('Analytics would be loaded here');
+        // Intencionadamente vacio. Ver cookie-banner.ts.
     }
 
     /**
@@ -469,7 +465,11 @@ export class PerformanceOptimizer {
      */
     initializeNonCriticalFeatures() {
         // Initialize features that aren't critical for initial page load
-        console.log('Non-critical features initialized');
+        // Sin traza en produccion: era la unica linea de este archivo que
+        // no pasaba por la puerta de depuracion de recordMetric().
+        if (localStorage.getItem('ht:debug') === '1') {
+            console.log('Non-critical features initialized');
+        }
     }
 
     /**

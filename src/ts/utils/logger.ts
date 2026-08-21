@@ -6,7 +6,18 @@ export class Logger {
   private isProduction: boolean;
 
   private constructor() {
-    this.isProduction = false; // Default to development for browser environment
+    // Estaba fijado a false con el comentario "default to development", así
+    // que en producción SIEMPRE tomaba la rama de consola: cada visitante
+    // recibía un volcado con el título de la página, la URL, su user-agent y
+    // tres métricas de rendimiento. Once mensajes por carga.
+    //
+    // La detección va por hostname porque el sitio es estático y no hay
+    // proceso de build que inyecte un NODE_ENV al cliente. localhost y los
+    // deploy previews de Netlify siguen mostrando la consola, que es donde
+    // esa información sirve de algo.
+    const host = window.location.hostname;
+    this.isProduction =
+      host === 'hogarterapeutico.com' || host === 'www.hogarterapeutico.com';
   }
 
   static getInstance(): Logger {
@@ -177,19 +188,15 @@ export function setupPerformanceMonitoring(): void {
           logger.performance('first_paint', navigation.responseEnd - navigation.fetchStart);
         }
 
-        // Monitor largest contentful paint
-        const lcpEntries = performance.getEntriesByType('largest-contentful-paint');
-        if (lcpEntries.length > 0) {
-          const lcp = lcpEntries[lcpEntries.length - 1];
-          logger.performance('lcp', lcp.startTime);
-        }
-
-        // Monitor first input delay
-        const fidEntries = performance.getEntriesByType('first-input');
-        if (fidEntries.length > 0) {
-          const fid = fidEntries[0] as PerformanceEventTiming;
-          logger.performance('fid', fid.processingStart - fid.startTime);
-        }
+        // LCP y FID se median aqui con getEntriesByType, y de ahi salia el
+        // aviso "Deprecated API for given entry type" en cada carga: esos dos
+        // tipos solo se exponen a traves de PerformanceObserver, no del
+        // registro de entradas.
+        //
+        // Ademas era la tercera vez que se median las mismas dos metricas en
+        // el proyecto. La buena vive en performance-optimizer.monitorWebVitals(),
+        // que usa la API de observador y congela el LCP en la primera
+        // interaccion. Las de aqui informaban de valores que ya no eran el LCP.
       }, 0);
     });
   }
