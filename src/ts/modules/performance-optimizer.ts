@@ -251,51 +251,86 @@ export class PerformanceOptimizer {
     /**
      * Monitor Core Web Vitals
      */
+    /**
+     * Core Web Vitals.
+     *
+     * La version anterior publicaba numeros que no significaban nada, y lo
+     * hacia por consola en cada carga. Tres errores distintos:
+     *
+     * 1. CLS. El acumulador `clsValue` se declaraba DENTRO del callback, asi
+     *    que empezaba en cero en cada lote de mutaciones: nunca acumulaba. Y no
+     *    filtraba `hadRecentInput`, cuando la definicion de la metrica excluye
+     *    los desplazamientos que provoca el propio usuario. Abrir una pregunta
+     *    del acordeon contaba como mala puntuacion. De ahi los 0,93 medidos.
+     * 2. LCP. Seguia registrando despues de la primera interaccion, asi que
+     *    cualquier imagen que entrase en pantalla al hacer scroll pasaba a ser
+     *    "LCP". Por eso aparecian valores de mas de 100.000 ms. La metrica
+     *    termina en la primera interaccion, por definicion.
+     * 3. Se imprimia por consola en produccion, en cada carga.
+     */
     monitorWebVitals() {
-        if ('PerformanceObserver' in window) {
-            // Largest Contentful Paint
-            try {
-                const lcpObserver = new PerformanceObserver((entryList) => {
-                    const entries = entryList.getEntries();
-                    const lastEntry = entries[entries.length - 1];
-                    this.recordMetric('LCP', lastEntry.startTime);
-                });
-                lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-            } catch (e) {
-                // LCP not supported
-            }
+        if (!('PerformanceObserver' in window)) return;
 
-            // First Input Delay
-            try {
-                const fidObserver = new PerformanceObserver((entryList) => {
-                    const entries = entryList.getEntries();
-                    entries.forEach(entry => {
-                        if ('processingStart' in entry) {
-                            const fid = (entry as any).processingStart - entry.startTime;
-                            this.recordMetric('FID', fid);
-                        }
-                    });
-                });
-                fidObserver.observe({ entryTypes: ['first-input'] });
-            } catch (e) {
-                // FID not supported
-            }
+        // ---- LCP: se congela en la primera interaccion --------------------
+        try {
+            let lcp = 0;
+            const lcpObserver = new PerformanceObserver((entryList) => {
+                const entries = entryList.getEntries();
+                lcp = entries[entries.length - 1].startTime;
+            });
+            lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true } as any);
 
-            // Cumulative Layout Shift
-            try {
-                const clsObserver = new PerformanceObserver((entryList) => {
-                    let clsValue = 0;
-                    entryList.getEntries().forEach(entry => {
-                        if (entry && 'value' in entry) {
-                            clsValue += (entry as any).value;
-                        }
-                    });
-                    this.recordMetric('CLS', clsValue);
+            const finalizarLCP = (): void => {
+                lcpObserver.disconnect();
+                if (lcp > 0) this.recordMetric('LCP', lcp);
+            };
+            ['keydown', 'click', 'pointerdown'].forEach((ev) =>
+                addEventListener(ev, finalizarLCP, { once: true, capture: true })
+            );
+            // Si nadie interactua, se cierra cuando la pestania pasa a segundo
+            // plano: es el momento en que la metrica deja de poder cambiar.
+            addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'hidden') finalizarLCP();
+            }, { once: true });
+        } catch (e) {
+            // LCP no soportado
+        }
+
+        // ---- FID ----------------------------------------------------------
+        try {
+            const fidObserver = new PerformanceObserver((entryList) => {
+                entryList.getEntries().forEach((entry) => {
+                    if ('processingStart' in entry) {
+                        this.recordMetric('FID', (entry as any).processingStart - entry.startTime);
+                        fidObserver.disconnect();
+                    }
                 });
-                clsObserver.observe({ entryTypes: ['layout-shift'] });
-            } catch (e) {
-                // CLS not supported
-            }
+            });
+            fidObserver.observe({ type: 'first-input', buffered: true } as any);
+        } catch (e) {
+            // FID no soportado
+        }
+
+        // ---- CLS: acumulado de verdad y sin los saltos del usuario --------
+        try {
+            let cls = 0;
+            const clsObserver = new PerformanceObserver((entryList) => {
+                entryList.getEntries().forEach((entry) => {
+                    const e = entry as any;
+                    if (!e.hadRecentInput) cls += e.value;
+                });
+            });
+            clsObserver.observe({ type: 'layout-shift', buffered: true } as any);
+
+            addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'hidden') {
+                    clsObserver.takeRecords();
+                    clsObserver.disconnect();
+                    this.recordMetric('CLS', cls);
+                }
+            }, { once: true });
+        } catch (e) {
+            // CLS no soportado
         }
     }
 
@@ -361,39 +396,39 @@ export class PerformanceOptimizer {
     /**
      * Setup critical resource loading
      */
+    /**
+     * Intencionadamente vacia.
+     *
+     * Esto inyectaba <link rel="preload"> para /dist/output.css y /js/main.js,
+     * y hacia justo lo contrario de lo que pretendia:
+     *
+     * - Corria DESDE main.js, o sea despues de que ambos recursos ya hubieran
+     *   cargado. Precargar algo que ya esta cargado no adelanta nada.
+     * - Y lo pedia SIN la cadena de version (?v=hash) que llevan las etiquetas
+     *   reales, asi que para el navegador eran URL distintas: las descargaba
+     *   otra vez, enteras, y no las usaba jamas.
+     *
+     * Medido: cuatro peticiones donde debia haber dos. Unos 114 KB tirados en
+     * cada carga (94 de CSS y 20 de JS), ademas del aviso de Chrome sobre
+     * recursos precargados que no se usan.
+     *
+     * Las precargas de verdad estan en el <head> de base.njk, que es donde
+     * sirven de algo.
+     */
     setupCriticalResourceLoading() {
-        // Identify and prioritize critical resources
-        const criticalResources = [
-            '/dist/output.css',
-            '/js/main.js'
-        ];
-
-        criticalResources.forEach(resource => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.href = resource;
-            link.as = resource.endsWith('.css') ? 'style' : 'script';
-            document.head.appendChild(link);
-        });
+        // Ver el comentario de arriba antes de reintroducir nada aqui.
     }
 
     /**
-     * Setup preloading of likely resources
+     * Intencionadamente vacia.
+     *
+     * Enganchaba un mouseenter a cada enlace de navegacion para prefetch de
+     * '/blog', '/sobre-mi' y '/contacto'. Las dos ultimas no existen: esta web
+     * es de scroll unico y usa anclas (#about, #contact). Solo quedaba /blog,
+     * que ya se prefetchea solo en navegadores modernos.
      */
     setupPreloading() {
-        // Preload pages that user is likely to visit
-        const likelyPages = ['/blog', '/sobre-mi', '/contacto'];
-
-        // Use Intersection Observer to detect when user might navigate
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                const href = link.getAttribute('href');
-                if (href && likelyPages.includes(href)) {
-                    this.preloadPage(href);
-                }
-            });
-        });
+        // Ver el comentario de arriba.
     }
 
     /**
@@ -442,13 +477,29 @@ export class PerformanceOptimizer {
      */
     recordMetric(name: string, value: number) {
         this.metrics.set(name, value);
-        console.log(`${name}: ${value.toFixed(2)}`);
 
-        // Send to analytics service if available
-        if ('gtag' in window) {
+        // Sin console.log en produccion. Esto escupia una linea por metrica en
+        // cada carga para cualquiera que abriese las herramientas de
+        // desarrollo. Para depurar, `localStorage.setItem('ht:debug','1')`.
+        if (localStorage.getItem('ht:debug') === '1') {
+            console.log(`${name}: ${value.toFixed(2)}`);
+        }
+
+        // Solo se envia si hay consentimiento analitico. `gtag` existe siempre
+        // (es la cola que deja el head), asi que comprobar su presencia no
+        // decia nada: estos eventos se encolaban igual y se disparaban en
+        // cuanto alguien aceptaba las cookies, aunque se hubiesen recogido
+        // antes de aceptar. La clave la escribe cookie-banner.ts.
+        let consentido = false;
+        try {
+            consentido = localStorage.getItem('cookieConsent') === 'granted';
+        } catch {
+            // localStorage bloqueado: sin consentimiento comprobable, no se envia.
+        }
+        if (consentido && 'gtag' in window) {
             (window as any).gtag('event', 'performance_metric', {
                 metric_name: name,
-                metric_value: value
+                metric_value: value,
             });
         }
     }
