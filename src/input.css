@@ -193,7 +193,9 @@
   }
   .acc .plus::before { @apply w-[11px] h-[1.6px]; }
   .acc .plus::after  { @apply w-[1.6px] h-[11px] transition-opacity duration-200; }
-  .acc details[open] .plus { @apply bg-sage-200 rotate-90; }
+  /* Sin rotate-90: giraba el trazo horizontal hasta dejarlo vertical, así que
+     el estado abierto dibujaba una barra "|" en vez de un menos. */
+  .acc details[open] .plus { @apply bg-sage-200; }
   .acc details[open] .plus::after { @apply opacity-0; }
   .acc .ans { @apply pl-1 pr-[46px] pb-6 text-ink-soft text-base max-w-[70ch]; }
 
@@ -203,7 +205,17 @@
     @apply w-full font-sans text-base text-ink px-[15px] py-[13px] min-h-[44px]
            border border-clay-200 rounded-xl bg-canvas transition-[border-color,box-shadow] duration-200;
   }
-  .fld input:focus, .fld textarea:focus {
+  /* Foco visible de verdad. La regla anterior anulaba el outline global y
+     dejaba como única señal un halo de rgba(156,102,102,.16), que sobre blanco
+     da ~1,1:1: por debajo del 3:1 que exige WCAG 2.4.11 y prácticamente
+     invisible. Encima la casilla de privacidad del mismo formulario sí tenía
+     anillo, así que había dos lenguajes de foco distintos en el mismo sitio.
+     :focus-visible y no :focus: aparece con teclado, no al hacer clic. */
+  .fld input:focus-visible, .fld textarea:focus-visible {
+    @apply outline-none border-clay-500 bg-white;
+    box-shadow: 0 0 0 2px #FDFAF6, 0 0 0 4px #85554F;
+  }
+  .fld input:focus:not(:focus-visible), .fld textarea:focus:not(:focus-visible) {
     @apply outline-none border-clay-400 bg-white;
     box-shadow: 0 0 0 3px rgba(156,102,102,.16);
   }
@@ -262,6 +274,13 @@
   }
   .sticky-cta.is-visible { @apply opacity-100 translate-y-0 pointer-events-auto; }
   .sticky-cta .btn { @apply flex-1 px-4 py-3 text-[14.5px]; }
+
+  /* Hueco al final del documento para que la barra fija no se coma la última
+     línea. Medido antes: el copyright llegaba a 737 px y la barra empezaba en
+     716, así que del "© 2026 Hogar Terapéutico" solo se veía el símbolo. */
+  @media (max-width: 1023px) {
+    body:has(.sticky-cta) { padding-bottom: 5.5rem; }
+  }
 
   .highlight {
     @apply bg-gradient-to-t from-accent/30 from-40% to-transparent to-60% font-semibold pl-1;
@@ -416,6 +435,15 @@
    Se pasa a grid de 7 columnas iguales, que ademas alinea la fila de
    iniciales con la de numeros (con flex median 296 y 266 px, o sea que no
    estaban alineadas) y permite celdas cuadradas de verdad. */
+/* Foco de teclado en los días. Los días reservables pasan a ser alcanzables
+   con el tabulador (ver booking-calendar.ts), así que necesitan un anillo
+   propio: el outline global se pierde contra el relleno de la celda. */
+#calendar-container .litepicker .container__days .day-item:focus-visible {
+  outline: 2px solid #6B4340 !important;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
 #calendar-container .litepicker .container__days,
 #calendar-container .litepicker .container__months .month-item-weekdays-row {
   display: grid !important;
@@ -474,9 +502,18 @@
   font-weight: 700 !important;
 }
 
-#calendar-container .litepicker .container__days .day-item.is-available:hover {
-  background-color: #E7C7C1 !important;
-  color: #4C2F2D !important;
+/* El hover va dentro de @media (hover: hover) y excluye el día ya elegido.
+   Antes esta regla tenía especificidad (1,5,0) y ganaba a la del día
+   seleccionado (1,4,0): al tocar una fecha en el móvil la celda se quedaba
+   con el rosa de hover en vez del terracota de seleccionada, porque los
+   navegadores móviles mantienen el estado hover después del toque. Es decir,
+   tocabas el día y no cambiaba nada. En la interacción que decide la reserva. */
+@media (hover: hover) and (pointer: fine) {
+  #calendar-container .litepicker .container__days
+    .day-item.is-available:not(.is-start-date):not(.is-end-date):not(.is-selected):hover {
+    background-color: #E7C7C1 !important;
+    color: #4C2F2D !important;
+  }
 }
 
 /* Dia seleccionado. Va DESPUES de is-available para ganarle, e incluye
@@ -527,6 +564,26 @@
 
 #calendar-container {
   position: relative;
+}
+
+/* Móvil: el calendario se sale del relleno de su tarjeta para ganar ancho.
+   Va aquí, DESPUÉS de las reglas base, porque comparten especificidad y en CSS
+   gana la última; puesto antes, el gap de 5 px lo pisaba sin avisar.
+   width:auto es imprescindible: el contenedor lleva la clase w-full, y con un
+   ancho explícito los márgenes negativos solo desplazan el elemento en vez de
+   ensancharlo. Con esos 24 px recuperados las celdas pasan de 37 a ~43 px.
+   Siete columnas en 390 px no dan para más sin dejar la tarjeta sin márgenes;
+   el mínimo AA de WCAG 2.5.8 son 24x24, así que 43 va sobrado. */
+@media (max-width: 639px) {
+  #calendar-container {
+    width: auto !important;
+    margin-inline: -0.75rem;
+  }
+
+  #calendar-container .litepicker .container__days,
+  #calendar-container .litepicker .container__months .month-item-weekdays-row {
+    gap: 3px;
+  }
 }
 
 @layer utilities {

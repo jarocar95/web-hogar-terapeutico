@@ -197,7 +197,13 @@
           margin: 0 !important;
         }
 
-        #mobile-menu-fixed .mobile-link {
+        /* :not(.btn) para no pisar el CTA de reserva.
+           Este bloque llegó lleno de !important y se los aplicaba también al
+           botón de reservar del menú, que lleva las clases btn btn-primary
+           btn-block text-center: el resultado era un rectángulo alineado a la
+           izquierda con radio de 6 px, cuando todos los demás CTA de la web
+           son píldoras centradas. */
+        #mobile-menu-fixed .mobile-link:not(.btn) {
           display: block !important;
           width: 100% !important;
           padding: 0.75rem 1rem !important;
@@ -212,9 +218,27 @@
           left: 0 !important;
         }
 
-        #mobile-menu-fixed .mobile-link:hover {
+        #mobile-menu-fixed .mobile-link:not(.btn):hover {
           background-color: #f9f9f9 !important;
           color: #9C6666 !important;
+        }
+
+        /* El CTA del menú, mientras no llega output.css, con la misma forma que
+           el resto de botones principales. */
+        #mobile-menu-fixed .mobile-link.btn {
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 44px;
+          margin-top: 0.5rem;
+          padding: 0.875rem 1.5rem;
+          background-color: #9C6666;
+          color: #fff;
+          font-weight: 600;
+          border-radius: 9999px;
+          text-align: center;
+          text-decoration: none;
         }
 
         #mobile-menu-fixed .mobile-link.cta-button {
@@ -334,7 +358,7 @@
         /* Las anclas de seccion aterrizan por debajo de la cabecera fija.
            Sin esto, el scroll nativo (segundo clic, enlace pegado, vuelta
            atras) deja el titulo tapado por los 5rem de cabecera. */
-        section[id], div[id="booking-calendar"] {
+        section[id] {
           scroll-margin-top: 6rem;
         }
 
@@ -407,7 +431,6 @@
           --accent: #E6A6A1;
           --footer-bg: #4A3B3B;
           --footer-text: #FFFFFF;
-          --footer-text-secondary-text: '#FEFBF8';
         }
 
         body {

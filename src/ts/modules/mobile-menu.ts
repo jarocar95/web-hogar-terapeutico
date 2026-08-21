@@ -60,10 +60,16 @@ export function initMobileMenu(): void {
 
         if (mobileMenu.classList.contains('hidden')) {
             document.removeEventListener('keydown', handleKeyDown);
+            // Se devuelve el scroll al cerrar.
+            document.body.style.overflow = '';
             menuBtn.focus();
         } else {
             setFocusableElements();
             document.addEventListener('keydown', handleKeyDown);
+            // Con el menú abierto la página seguía desplazándose por detrás:
+            // el contenido se movía bajo un panel que lo tapaba a medias, y al
+            // cerrar aparecías en un sitio distinto del que dejaste.
+            document.body.style.overflow = 'hidden';
         }
     };
 

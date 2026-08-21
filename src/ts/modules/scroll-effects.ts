@@ -43,14 +43,29 @@ export function initScrollEffects(): void {
         return;
     }
 
+    // La barra se oculta tambien dentro de reserva y contacto.
+    //
+    // Antes solo miraba el hero, asi que permanecia visible el resto de la
+    // pagina y tapaba justo lo que una persona indecisa necesita leer: la
+    // cuarta hora disponible y el aviso de "la cita queda confirmada cuando te
+    // respondo". Al final del documento cubria entera la linea de copyright.
+    // Y ofrecer "Reservar" cuando ya estas DENTRO de la seccion de reserva no
+    // aporta nada: es ruido, y un destino equivocado si alguien lo pulsa.
+    const zonas = [hero, document.getElementById('booking-calendar'), document.getElementById('contact')]
+        .filter((el): el is HTMLElement => el !== null);
+
+    const visibles = new Set<Element>();
+
     const observer = new IntersectionObserver(
         (entries) => {
             for (const entry of entries) {
-                stickyCta.classList.toggle('is-visible', !entry.isIntersecting);
+                if (entry.isIntersecting) visibles.add(entry.target);
+                else visibles.delete(entry.target);
             }
+            stickyCta.classList.toggle('is-visible', visibles.size === 0);
         },
         { rootMargin: '-80px 0px 0px 0px', threshold: 0 }
     );
 
-    observer.observe(hero);
+    zonas.forEach((z) => observer.observe(z));
 }

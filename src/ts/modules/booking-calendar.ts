@@ -59,6 +59,9 @@ function displayAvailableTimes(schedule: Schedule, availableTimesContainer: HTML
     if (subtitle) {
         const n = horas.length;
         subtitle.textContent = `${n} ${n === 1 ? 'hueco' : 'huecos'} · ${fechaFormateada}`;
+        // Marca de estado que lee sincronizarPanel() para saber si el panel
+        // está mostrando un día concreto o el mensaje de "elige un día".
+        subtitle.dataset.estado = 'lleno';
     }
 
     let html = '<div class="grid grid-cols-3 gap-2">';
@@ -186,6 +189,36 @@ export function initBookingCalendar(): void {
                         });
                     };
 
+                    // Litepicker pone tabindex="-1" en TODOS los días, así que
+                    // el tabulador saltaba del selector de mes directamente a
+                    // las horas: quien navega con teclado o lector de pantalla
+                    // solo podía reservar la fecha autoseleccionada, y si había
+                    // pasado de mes, una que ni siquiera estaba a la vista.
+                    // Los días con hueco pasan a ser botones de verdad.
+                    const makeDaysFocusable = (): void => {
+                        calendarContainer
+                            .querySelectorAll<HTMLElement>('.day-item.is-available')
+                            .forEach((el) => {
+                                if (el.dataset.htAccesible === '1') return;
+                                el.dataset.htAccesible = '1';
+                                el.setAttribute('tabindex', '0');
+                                el.setAttribute('role', 'button');
+                                const ts = Number(el.getAttribute('data-time'));
+                                if (ts) {
+                                    const f = new Date(ts).toLocaleDateString('es-ES', {
+                                        weekday: 'long', day: 'numeric', month: 'long',
+                                    });
+                                    el.setAttribute('aria-label', `${f}, con horarios disponibles`);
+                                }
+                                el.addEventListener('keydown', (ev: KeyboardEvent) => {
+                                    if (ev.key === 'Enter' || ev.key === ' ') {
+                                        ev.preventDefault();
+                                        el.click();
+                                    }
+                                });
+                            });
+                    };
+
                     // El texto de la seccion dice "los dias con hueco aparecen
                     // resaltados" y no habia NI UN elemento con is-available:
                     // en inlineMode el evento 'show' se dispara antes de que
@@ -219,21 +252,112 @@ export function initBookingCalendar(): void {
                             });
                     };
 
-                    const observer = new MutationObserver(() => {
-                        highlightAvailableDates();
-                        labelNavigationButtons();
-                        shortenWeekdays();
-                    });
+                    // Aviso de disponibilidad escondida. El calendario abre en
+                    // la primera fecha libre, que puede caer en un mes con un
+                    // único hueco mientras el siguiente tiene veintiuno: la
+                    // pantalla se llena de días grises y se lee como "no tiene
+                    // sitio para mí" o "esto está roto". Ninguna es cierta, y
+                    // ninguna se recupera una vez cerrada la pestaña.
+                    const renderHintOtrosMeses = (): void => {
+                        const visible = calendarContainer.querySelector('.month-item-name');
+                        if (!visible) return;
+                        const enPantalla = calendarContainer.querySelectorAll('.day-item.is-available').length;
+
+                        let hint = document.getElementById('calendar-hint');
+                        const porMes = new Map<string, number>();
+                        availableDates.forEach((d) => porMes.set(d.slice(0, 7), (porMes.get(d.slice(0, 7)) || 0) + 1));
+
+                        // El primer mes futuro con más huecos que el visible.
+                        const mesVisibleISO = (() => {
+                            const primero = calendarContainer.querySelector('.day-item[data-time]');
+                            if (!primero) return null;
+                            const d = new Date(Number(primero.getAttribute('data-time')));
+                            return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+                        })();
+
+                        const candidato = [...porMes.entries()]
+                            .filter(([mes, n]) => mesVisibleISO !== null && mes > mesVisibleISO && n > enPantalla)
+                            .sort((a, b) => a[0].localeCompare(b[0]))[0];
+
+                        const slot = document.getElementById('calendar-hint-slot');
+                        if (!slot) return;
+
+                        if (!candidato) { hint?.remove(); return; }
+
+                        const [mesISO, n] = candidato;
+                        const nombreMes = new Date(`${mesISO}-01T00:00:00`)
+                            .toLocaleDateString('es-ES', { month: 'long' });
+                        const texto = `${n} huecos más en ${nombreMes} →`;
+
+                        if (!hint) {
+                            hint = document.createElement('button');
+                            hint.id = 'calendar-hint';
+                            hint.setAttribute('type', 'button');
+                            hint.className = 'w-full flex items-center justify-center gap-1.5 min-h-[44px] '
+                                + 'rounded-xl bg-clay-50 border border-clay-100 text-clay-600 '
+                                + 'text-[14px] font-semibold transition-colors hover:bg-clay-100';
+                            hint.addEventListener('click', () => {
+                                (calendarContainer.querySelector('.button-next-month') as HTMLElement | null)?.click();
+                            });
+                            // Va en el hueco de fuera, no dentro del contenedor
+                            // observado: escribir dentro dispararía el
+                            // MutationObserver que llama a esta misma función.
+                            slot.appendChild(hint);
+                        }
+                        if (hint.textContent !== texto) hint.textContent = texto;
+                    };
+
+                    // Desincronía mes/panel. Al pasar de mes, el panel seguía
+                    // anunciando "4 huecos · lunes, 31 de agosto" mientras la
+                    // rejilla mostraba septiembre: una fecha sin ninguna celda
+                    // visible que le correspondiese. Se comprueba aquí, en el
+                    // refresco, y no en el evento monthchange, porque ese no
+                    // llega de forma fiable al pulsar las flechas.
+                    const sincronizarPanel = (): void => {
+                        const elegido = calendarContainer.querySelector('.day-item.is-start-date, .day-item.is-selected');
+                        if (elegido) return; // el día elegido sigue a la vista
+
+                        const sub = document.getElementById('available-times-subtitle');
+                        const panel = document.getElementById('available-times');
+                        if (!sub || !panel) return;
+                        if (sub.dataset.estado === 'vacio') return;
+
+                        sub.dataset.estado = 'vacio';
+                        sub.textContent = 'Elige un día para ver sus horarios';
+                        panel.innerHTML = '<p class="text-ink-mute text-[14.5px] py-10 text-center">'
+                            + 'Selecciona un día resaltado de este mes.</p>';
+                    };
+
+                    // Guarda de reentrada. refrescar() escribe en el DOM que el
+                    // propio observador vigila (clases, atributos, textos de
+                    // los días), así que sin esto cada pasada se dispara a sí
+                    // misma y el navegador se queda colgado.
+                    let refrescando = false;
+                    const refrescar = (): void => {
+                        if (refrescando) return;
+                        refrescando = true;
+                        try {
+                            highlightAvailableDates();
+                            labelNavigationButtons();
+                            shortenWeekdays();
+                            makeDaysFocusable();
+                            renderHintOtrosMeses();
+                            sincronizarPanel();
+                        } finally {
+                            // Se libera en la siguiente vuelta del bucle de
+                            // eventos, cuando el observador ya ha entregado las
+                            // mutaciones que acabamos de provocar.
+                            setTimeout(() => { refrescando = false; }, 0);
+                        }
+                    };
+
+                    const observer = new MutationObserver(refrescar);
                     observer.observe(calendarContainer, { childList: true, subtree: true });
 
-                    picker.on('show', () => {
-                        highlightAvailableDates();
-                        labelNavigationButtons();
-                    });
+                    picker.on('show', refrescar);
 
                     picker.on('monthchange', () => {
-                        setTimeout(highlightAvailableDates, 100);
-                        labelNavigationButtons();
+                        setTimeout(refrescar, 100);
                     });
 
                     picker.on('selected', (date: any) => {
@@ -242,6 +366,17 @@ export function initBookingCalendar(): void {
 
                         if (scheduleForDate && scheduleForDate.horas.length > 0) {
                             displayAvailableTimes(scheduleForDate, availableTimesContainer);
+                            // En móvil el panel de horas queda unos 800 px por
+                            // debajo del calendario: elegías un día y el
+                            // resultado aparecía fuera de pantalla, así que la
+                            // sensación era que no había pasado nada.
+                            if (window.innerWidth < 1024) {
+                                availableTimesContainer.scrollIntoView({
+                                    block: 'center',
+                                    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                                        ? 'auto' : 'smooth',
+                                });
+                            }
                         } else {
                             availableTimesContainer.innerHTML = '<p class="text-text/70 p-4">No hay horarios disponibles para este día.</p>';
                         }
@@ -260,6 +395,34 @@ export function initBookingCalendar(): void {
         })
         .catch((error) => {
             console.error('Error al cargar horarios.json:', error);
-            availableTimesContainer.innerHTML = '<p class="text-red-600 font-semibold p-4">Lo siento, ha ocurrido un problema al cargar la disponibilidad. Por favor, inténtalo de nuevo más tarde.</p>';
+            Logger.getInstance().error('Calendar fetch failed', {
+                error: error instanceof Error ? error.message : String(error),
+            });
+
+            // Antes esto era un callejón sin salida ("inténtalo más tarde") en
+            // el punto exacto de conversión, mientras el estado de agenda vacía
+            // —el mismo tipo de fallo— sí ofrecía WhatsApp. Ahora hay reintento
+            // y salida humana: si la agenda no carga, la reserva no debería
+            // depender de que cargue.
+            const msg = 'Hola Angie, quería reservar desde la web pero el calendario no carga. '
+                + '¿Me dices qué huecos tienes?';
+            calendarContainer.innerHTML = `
+                <div class="bg-clay-50 border border-clay-100 rounded-lg2 p-6 text-center" role="alert">
+                    <h4 class="font-serif text-base font-semibold text-ink mb-2">No hemos podido cargar la agenda</h4>
+                    <p class="text-[14.5px] text-ink-soft mb-5">Puede ser un problema de conexión. Puedes reintentarlo o escribirme directamente y lo vemos.</p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <button type="button" id="calendar-retry" class="btn btn-primary">Reintentar</button>
+                        <a href="https://wa.me/34621348616?text=${encodeURIComponent(msg)}"
+                           target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Escribir por WhatsApp</a>
+                    </div>
+                </div>`;
+            availableTimesContainer.innerHTML = '';
+            const sub = document.getElementById('available-times-subtitle');
+            if (sub) sub.textContent = 'No disponible ahora mismo';
+
+            document.getElementById('calendar-retry')?.addEventListener('click', () => {
+                calendarContainer.innerHTML = '';
+                initBookingCalendar();
+            });
         });
 }
