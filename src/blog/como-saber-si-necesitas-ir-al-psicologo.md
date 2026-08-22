@@ -5,8 +5,20 @@ description: "¿Dudas si lo que sientes es suficiente para ir al psicólogo? Des
 date: 2026-08-19
 featured_image: "./src/images/blog/necesito-psicologo.jpg"
 image_alt: "Una mujer joven, sentada junto a la ventana de una cafetería con la barbilla apoyada en la mano, mira hacia fuera pensativa."
+updated: 2026-08-22
 tags:
   - post
+faq:
+  - pregunta: "¿Cómo sé si lo mío da para ir al psicólogo?"
+    respuesta: "La pregunta útil no es cuánto duele, sino cuánto interfiere. Si lo que sientes te está afectando al sueño, al trabajo, a tus relaciones o a las ganas de hacer cosas, ya interfiere. No hace falta un umbral de gravedad ni compararse con nadie."
+  - pregunta: "¿Y si voy y resulta que no era nada?"
+    respuesta: "Entonces habrás salido de dudas, que no es poco. Una primera sesión también puede terminar en «lo que te pasa es esperable en tu situación y no necesitas un proceso de terapia». Eso no es haber perdido el tiempo ni el dinero: es información que llevabas meses queriendo tener."
+  - pregunta: "¿Tengo que saber qué me pasa antes de pedir cita?"
+    respuesta: "No. Ponerle nombre a lo que ocurre es parte del trabajo, no un requisito para empezarlo. Llegar con un «no sé explicarlo» es un punto de partida completamente normal."
+  - pregunta: "¿Ir al psicólogo es para siempre?"
+    respuesta: "No. La terapia tiene un principio y un final, y el objetivo explícito es que dejes de necesitarla. Se abona sesión a sesión, sin permanencia, y puedes parar cuando quieras."
+  - pregunta: "¿Y si me da vergüenza contar ciertas cosas?"
+    respuesta: "Es lo esperable, y no tienes que contarlo todo el primer día. El ritmo lo marcas tú. La confianza se construye comprobando que te escuchan sin juzgarte, y eso lleva unas cuantas sesiones, no cinco minutos."
 ---
 
 ¿Te ha pasado alguna vez pensar "no es para tanto, otras personas lo tienen peor" justo cuando más necesitabas hablar con alguien? Es una de las frases que más escucho en consulta, y casi siempre viene acompañada de meses —a veces años— aguantando algo en silencio, esperando a que se pase solo.
@@ -18,6 +30,8 @@ En **[Hogar Terapéutico](/)** creo firmemente en algo: no hace falta tocar fond
 Solemos pensar que la terapia es para "casos graves": una crisis, un diagnóstico, un trauma evidente. Pero la realidad es que la mayoría de personas que empiezan terapia no llegan por una emergencia, sino porque **algo en su día a día ha dejado de fluir**: se sienten agotadas sin saber muy bien por qué, discuten más de la cuenta con quienes quieren, o han perdido la ilusión por cosas que antes disfrutaban sin más explicación que "será una racha".
 
 Comparar tu malestar con el de otra persona no te hace sentir mejor, solo te hace esperar más tiempo del que necesitas para pedir ayuda. El dolor no se mide en una escala objetiva donde solo cuenta lo "suficientemente grave"; se mide en cómo te está afectando a ti, en tu vida, hoy.
+
+Y si te sirve el dato: la [Organización Mundial de la Salud](https://www.who.int/es/news-room/fact-sheets/detail/anxiety-disorders) calcula que, de todas las personas que necesitarían tratamiento para un trastorno de ansiedad, solo una de cada cuatro lo recibe. Esperar no es tu rareza personal. Es, con diferencia, lo más común.
 
 ## Otras formas en que nos convencemos de esperar
 
@@ -51,11 +65,33 @@ No existe una lista cerrada ni un cuestionario que te diga "sí o no" con certez
 * Recurres a hábitos como la comida, el móvil, las compras o el alcohol para "desconectar" más de lo que te gustaría admitir.
 * Sientes que estás "funcionando en piloto automático" en vez de viviendo realmente tus días.
 
-> ***¿Te ha resonado alguna de estas señales?*** *No necesitas esperar a estar peor para dar el paso. Una* ***[primera sesión](/#contact)*** *es simplemente un espacio para poner en palabras lo que sientes y ver, juntas, por dónde empezar.*
+> ***¿Te ha resonado alguna de estas señales?*** *No necesitas esperar a estar peor para dar el paso. Una* ***[primera sesión](/#booking-calendar)*** *es simplemente un espacio para poner en palabras lo que sientes y ver por dónde empezar.*
 
 ## ¿Y si no sé exactamente qué me pasa?
 
-Esto es algo que quiero que te quites de la cabeza: **no necesitas llegar con un diagnóstico ni una explicación clara** de lo que te ocurre. Identificar qué está pasando y por qué es, precisamente, parte del trabajo que hacemos juntas en terapia. Llegar con dudas, con un "no sé muy bien cómo explicarlo" o incluso con la sensación de "seguramente no sea nada importante", es completamente válido y mucho más habitual de lo que piensas.
+Esto es algo que quiero que te quites de la cabeza: **no necesitas llegar con un diagnóstico ni una explicación clara** de lo que te ocurre. Identificar qué está pasando y por qué es, precisamente, parte del trabajo que hacemos en terapia. Llegar con dudas, con un "no sé muy bien cómo explicarlo" o incluso con la sensación de "seguramente no sea nada importante", es completamente válido y mucho más habitual de lo que piensas.
+
+## Cuándo NO hace falta terapia
+
+Me parece justo decir también lo contrario, porque un artículo escrito por alguien que vive de dar terapia y que concluye que todo el mundo necesita terapia merece poca confianza.
+
+No todo malestar es un problema clínico. Estar triste después de una ruptura, agotado tras meses de cuidar a alguien enfermo, o desbordado durante una mudanza y un cambio de trabajo a la vez **no es un síntoma: es una respuesta proporcionada a una situación difícil**. El sufrimiento forma parte de la vida y no toda emoción incómoda necesita intervención profesional.
+
+La diferencia no está en cuánto duele, sino en tres cosas:
+
+* **Cuánto dura.** Un duelo que va cediendo con los meses sigue un curso esperable; uno que sigue igual de crudo dos años después, no.
+* **Cuánto interfiere.** Si has dejado de dormir, de rendir o de ver gente, ya no es solo un mal momento.
+* **Si va a mejor o a peor.** Esta es la más útil de las tres, y la que más se ignora.
+
+A veces lo que hace falta es descanso, tiempo, o cambiar algo de tu vida que ya sabes cuál es. Un buen profesional te lo dirá.
+
+## ¿Y si voy y resulta que no era nada?
+
+Es un miedo que casi nadie dice en voz alta: la idea de ocupar el sitio de alguien que lo necesita más, o de que te digan que estás exagerando.
+
+Primero, no te van a decir eso. Y segundo, si la conclusión de una primera sesión fuera *"lo que te pasa es esperable en tu situación y no creo que necesites un proceso de terapia"*, eso no sería haber perdido el tiempo ni el dinero. Sería salir con una respuesta a algo que llevabas meses dándole vueltas.
+
+Nadie sale peor de haber preguntado.
 
 ## Qué puedes ganar al dar este paso
 

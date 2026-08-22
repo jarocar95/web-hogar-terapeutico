@@ -26,6 +26,13 @@ layout: base.njk
             Por <a href="/#about" class="text-clay-600 font-semibold no-underline hover:underline underline-offset-2">Angie Sánchez</a>
             <span class="mx-1.5" aria-hidden="true">·</span>
             <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+            {%- if updated %}
+            {#- Señal de frescura: un artículo de salud revisado hace un mes vale
+                más que uno idéntico de hace un año, y el lector lo agradece
+                tanto como el buscador. Alimenta dateModified en schemas.njk. -#}
+            <span class="mx-1.5" aria-hidden="true">·</span>
+            <span>Actualizado el <time datetime="{{ updated | isoDate }}">{{ updated | readableDate }}</time></span>
+            {%- endif %}
         </p>
     </header>
 
