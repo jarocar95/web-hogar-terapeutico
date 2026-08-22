@@ -52,6 +52,26 @@ layout: base.njk
     </div>
 </article>
 
+{% if faq %}
+{#- Preguntas frecuentes del articulo. Mismo acordeon que la home, para que
+    quien ya lo ha usado alli no tenga que aprender otro patron. Ademas
+    alimenta el FAQPage de schemas.njk: el texto vive en el front matter, asi
+    que lo visible y lo marcado no pueden separarse. -#}
+<section aria-labelledby="faq-articulo" class="!py-0 mt-16">
+    <div class="container max-w-[720px]">
+        <h2 id="faq-articulo" class="font-serif font-semibold text-[clamp(1.5rem,2.6vw,1.9rem)] text-ink mb-6 tracking-[-.015em]">Preguntas frecuentes</h2>
+        <div class="acc">
+            {% for f in faq %}
+            <details{% if loop.first %} open{% endif %}>
+                <summary>{{ f.pregunta }}<span class="plus" aria-hidden="true"></span></summary>
+                <div class="ans">{{ f.respuesta }}</div>
+            </details>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <div class="container max-w-[720px] mt-14">
     <div class="flex flex-col sm:flex-row items-start gap-6 bg-clay-50 border border-clay-100 p-7 rounded-lg2">
         <div class="w-20 h-20 rounded-full overflow-hidden flex-none">

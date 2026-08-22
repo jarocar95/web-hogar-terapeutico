@@ -13,17 +13,17 @@ Sentir nerviosismo antes de una presentación importante, preocupación por un s
 
 En **[Hogar Terapéutico](/)**, entiendo que dar nombre a lo que sientes es el primer paso para poder gestionarlo. No estás solo/a en esto, y mi objetivo con esta guía es darte claridad y mostrarte que hay un camino hacia la calma.
 
-## Más Allá del Estrés: Entendiendo Qué Es Realmente la Ansiedad
+## Más allá del estrés: entendiendo qué es realmente la ansiedad
 
 A menudo confundimos la ansiedad con el estrés, pero no son lo mismo. El **estrés** es la respuesta de nuestro cuerpo a un desafío o demanda externa y concreta (una fecha de entrega, un problema laboral). Generalmente, desaparece cuando el desencadenante se resuelve.
 
 La **ansiedad**, en cambio, es una respuesta emocional más interna y persistente. Es la anticipación de una amenaza futura, que puede ser real o imaginaria. Se caracteriza por una sensación de preocupación y miedo que perdura en el tiempo, incluso cuando no hay un peligro inminente. La ansiedad es, en esencia, un mecanismo de supervivencia que se ha vuelto hipersensible; una alarma que se queda encendida, agotando tus recursos físicos y mentales.
 
-## Síntomas Comunes: ¿Cómo se Manifiesta la Ansiedad en tu Cuerpo y Mente?
+## Síntomas comunes: ¿cómo se manifiesta la ansiedad en tu cuerpo y mente?
 
 La ansiedad no es solo "estar nervioso". Es una experiencia compleja que afecta a todo tu ser. Reconocer sus señales es fundamental para poder abordarla.
 
-### Síntomas Físicos
+### Síntomas físicos
 
 Tu cuerpo es el primero en reaccionar. Puedes sentir:
 
@@ -37,7 +37,7 @@ Tu cuerpo es el primero en reaccionar. Puedes sentir:
 * **Dolores de cabeza** frecuentes.
 * Fatiga constante y problemas para dormir.
 
-### Síntomas Cognitivos y Emocionales
+### Síntomas cognitivos y emocionales
 
 Tu mente también se ve atrapada en el ciclo de la ansiedad:
 
@@ -48,7 +48,7 @@ Tu mente también se ve atrapada en el ciclo de la ansiedad:
 * Miedo intenso a **perder el control** o a "volverse loco".
 * Sensación de **irrealidad** o de estar desconectado de ti mismo (despersonalización/desrealización).
 
-### Síntomas Conductuales
+### Síntomas conductuales
 
 La ansiedad modifica tu comportamiento para intentar (sin éxito) controlar el malestar:
 
@@ -60,7 +60,7 @@ La ansiedad modifica tu comportamiento para intentar (sin éxito) controlar el m
 
 > ***¿Te identificas con varios de estos síntomas?*** *No tienes que gestionarlo en soledad. Una* ***[primera sesión](/#contact)*** *puede darte la claridad que necesitas para empezar a sentirte mejor.*
 
-## ¿Cuándo la Ansiedad Deja de Ser Normal y se Convierte en un Problema?
+## ¿Cuándo la ansiedad deja de ser normal y se convierte en un problema?
 
 La clave para distinguir una ansiedad adaptativa de un trastorno de ansiedad reside en tres factores:
 
@@ -70,18 +70,18 @@ La clave para distinguir una ansiedad adaptativa de un trastorno de ansiedad res
 
 Si la ansiedad te está limitando, es el momento de buscar ayuda.
 
-## Primeros Pasos Prácticos que Puedes Dar Hoy Mismo
+## Primeros pasos prácticos que puedes dar hoy mismo
 
 Mientras consideras buscar apoyo profesional, aquí tienes dos técnicas sencillas que pueden ofrecerte un alivio momentáneo:
 
-1.  **Respiración Diafragmática (4-7-8):**
+1.  **Respiración diafragmática (4-7-8):**
     * Siéntate o acuéstate en una posición cómoda.
     * Inhala lentamente por la nariz durante **4 segundos**, sintiendo cómo tu abdomen se expande.
     * Mantén la respiración durante **7 segundos**.
     * Exhala lentamente por la boca durante **8 segundos**, vaciando por completo tus pulmones.
     * Repítelo 3 o 4 veces. Esta técnica activa el sistema nervioso parasimpático, que induce a la relajación.
 
-2.  **Anclaje al Presente (Técnica 5-4-3-2-1):**
+2.  **Anclaje al presente (técnica 5-4-3-2-1):**
     * Cuando te sientas abrumado/a, detente y nombra (mentalmente o en voz baja):
         * **5** cosas que puedas ver.
         * **4** cosas que puedas sentir (la silla bajo tu cuerpo, la tela de tu ropa).
@@ -90,7 +90,7 @@ Mientras consideras buscar apoyo profesional, aquí tienes dos técnicas sencill
         * **1** cosa que puedas saborear.
     * Este ejercicio obliga a tu mente a salir del bucle de preocupación y a conectar con el presente.
 
-## Cómo la Terapia Te Ayuda a Recuperar el Control (El Siguiente Paso)
+## Cómo la terapia te ayuda a recuperar el control (el siguiente paso)
 
 Estas técnicas son como tiritas: útiles, pero no curan la herida. La terapia es el proceso que te permite entender el origen de tu ansiedad y sanar desde la raíz.
 

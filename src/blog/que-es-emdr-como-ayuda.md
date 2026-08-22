@@ -19,7 +19,7 @@ EMDR son las siglas en inglés de **Desensibilización y Reprocesamiento por Mov
 
 A diferencia de otras terapias que se apoyan casi exclusivamente en hablar, el EMDR utiliza la **estimulación bilateral** (normalmente, movimientos oculares guiados de lado a lado) mientras trabajamos con un recuerdo concreto. Esto no es casualidad: está basado en cómo tu cerebro procesa de forma natural las experiencias mientras duermes, durante la fase REM.
 
-## ¿Cómo Funciona? La Ciencia Detrás de la Terapia
+## ¿Cómo funciona? La ciencia detrás de la terapia
 
 Cuando vives una experiencia normal, tu cerebro la procesa y la "archiva" como un recuerdo del pasado: puedes pensar en ella sin que te desborde. Pero cuando la experiencia es demasiado intensa o dolorosa, ese proceso natural de archivo se bloquea. El recuerdo se queda "atascado" en tu sistema nervioso con toda su carga original: las imágenes, las sensaciones físicas, las emociones y las creencias negativas que se formaron en ese momento ("no valgo nada", "no estoy a salvo", "es culpa mía").
 
@@ -27,11 +27,11 @@ Por eso, aunque hayan pasado años, algo tan simple como un olor, un tono de voz
 
 La estimulación bilateral del EMDR ayuda a tu cerebro a **retomar ese proceso de archivo que se quedó a medias**. Poco a poco, el recuerdo se va integrando: sigue existiendo, sigues sabiendo que ocurrió, pero deja de tener ese "gancho" emocional que te secuestra el presente.
 
-## ¿Para Qué Tipo de Experiencias Funciona el EMDR?
+## ¿Para qué tipo de experiencias funciona el EMDR?
 
 Cuando hablamos de trauma, solemos pensar solo en grandes catástrofes. Pero en terapia distinguimos entre dos tipos de heridas, y el EMDR funciona para ambas.
 
-### Traumas con "T" Mayúscula
+### Traumas con "T" mayúscula
 
 Son los eventos que identificamos claramente como traumáticos:
 
@@ -41,7 +41,7 @@ Son los eventos que identificamos claramente como traumáticos:
 * Catástrofes naturales o violencia.
 * Diagnósticos médicos graves.
 
-### Traumas con "t" Minúscula
+### Traumas con "t" minúscula
 
 Son experiencias que, de forma aislada, pueden parecer "menores", pero que **acumuladas a lo largo del tiempo** dejan una huella profunda:
 
@@ -53,7 +53,7 @@ Son experiencias que, de forma aislada, pueden parecer "menores", pero que **acu
 
 > ***¿Reconoces alguna de estas experiencias en tu historia?*** *No hace falta que "sea grave" para merecer ser trabajado. Si sientes que algo del pasado sigue condicionando tu presente, una* ***[primera sesión](/#contact)*** *puede ayudarte a entender por dónde empezar.*
 
-## Qué Esperar en una Sesión de EMDR
+## Qué esperar en una sesión de EMDR
 
 Es normal sentir cierta aprensión ante algo que suena tan distinto a "simplemente hablar". Por eso, aquí tienes una idea de cómo se estructura el proceso, para que llegues con más tranquilidad:
 
@@ -65,11 +65,11 @@ Es normal sentir cierta aprensión ante algo que suena tan distinto a "simplemen
 
 Tú tienes el control en todo momento. Nunca se trata de revivir el trauma sin apoyo, sino de procesarlo con las herramientas y la contención adecuadas.
 
-## EMDR y Terapia Integradora: Por Qué lo Combino con Otras Herramientas
+## EMDR y terapia integradora: por qué lo combino con otras herramientas
 
 El EMDR es extraordinariamente eficaz para trabajar recuerdos específicos, pero las personas somos más que una suma de eventos aislados. Por eso mi enfoque es **integrador**: combino el EMDR con otras herramientas psicoterapéuticas según lo que tú necesites en cada momento, para que también podamos trabajar patrones de pensamiento, gestión emocional del día a día o la relación contigo mismo/a.
 
-## Da el Primer Paso Hacia Sanar de Verdad
+## Da el primer paso hacia sanar de verdad
 
 Cargar con heridas del pasado no es una cuestión de "fuerza de voluntad" ni de "pasar página" sin más. A veces, tu sistema nervioso necesita ayuda profesional para terminar un proceso que se quedó a medias. Si dudas de si lo que te pasa justifica pedir esa ayuda, lo desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 

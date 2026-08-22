@@ -327,6 +327,24 @@
 }
 </script>
 
+{% if faq %}
+<!-- FAQPage del articulo. Se genera desde el mismo front matter que pinta el
+     acordeon visible, para que no puedan divergir como paso en la home. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{% for f in faq %}{% if not loop.first %},{% endif %}
+    {
+      "@type": "Question",
+      "name": {{ f.pregunta | dump | safe }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ f.respuesta | dump | safe }} }
+    }{% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
 <!-- Migas de pan: Inicio > Blog > articulo. Las visuales estan en post.njk. -->
 <script type="application/ld+json">
 {
