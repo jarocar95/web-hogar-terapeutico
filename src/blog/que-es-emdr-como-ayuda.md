@@ -4,6 +4,7 @@ title: "Qué es el EMDR y cómo puede ayudarte a superar un trauma"
 description: "Descubre qué es la terapia EMDR, cómo funciona y por qué es una de las técnicas más eficaces para sanar heridas del pasado. Guía por la psicóloga Angie Sánchez."
 date: 2026-08-12
 featured_image: "./src/images/blog/emdr.jpeg"
+image_alt: "Vista desde el asiento de la paciente, que sostiene en la mano los dos pulsadores de estimulación bilateral que se usan en una sesión de EMDR."
 tags:
   - post
 ---
@@ -22,7 +23,7 @@ A diferencia de otras terapias que se apoyan casi exclusivamente en hablar, el E
 
 Cuando vives una experiencia normal, tu cerebro la procesa y la "archiva" como un recuerdo del pasado: puedes pensar en ella sin que te desborde. Pero cuando la experiencia es demasiado intensa o dolorosa, ese proceso natural de archivo se bloquea. El recuerdo se queda "atascado" en tu sistema nervioso con toda su carga original: las imágenes, las sensaciones físicas, las emociones y las creencias negativas que se formaron en ese momento ("no valgo nada", "no estoy a salvo", "es culpa mía").
 
-Por eso, aunque hayan pasado años, algo tan simple como un olor, un tono de voz o una situación parecida puede "activar" ese recuerdo mal archivado y hacerte sentir como si estuvieras reviviéndolo.
+Por eso, aunque hayan pasado años, algo tan simple como un olor, un tono de voz o una situación parecida puede "activar" ese recuerdo mal archivado y hacerte sentir como si estuvieras reviviéndolo. Esa activación sostenida del sistema nervioso es también la que está detrás de muchos [síntomas de ansiedad](/blog/que-es-ansiedad-sintomas-guia/): el cuerpo sigue respondiendo a un peligro que ya pasó.
 
 La estimulación bilateral del EMDR ayuda a tu cerebro a **retomar ese proceso de archivo que se quedó a medias**. Poco a poco, el recuerdo se va integrando: sigue existiendo, sigues sabiendo que ocurrió, pero deja de tener ese "gancho" emocional que te secuestra el presente.
 
@@ -70,7 +71,7 @@ El EMDR es extraordinariamente eficaz para trabajar recuerdos específicos, pero
 
 ## Da el Primer Paso Hacia Sanar de Verdad
 
-Cargar con heridas del pasado no es una cuestión de "fuerza de voluntad" ni de "pasar página" sin más. A veces, tu sistema nervioso necesita ayuda profesional para terminar un proceso que se quedó a medias.
+Cargar con heridas del pasado no es una cuestión de "fuerza de voluntad" ni de "pasar página" sin más. A veces, tu sistema nervioso necesita ayuda profesional para terminar un proceso que se quedó a medias. Si dudas de si lo que te pasa justifica pedir esa ayuda, lo desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 
 Como psicóloga especialista en EMDR, mi trabajo es acompañarte en ese proceso de:
 

@@ -4,6 +4,7 @@ title: "¿Qué es la ansiedad? Síntomas y claves para saber si necesitas ayuda"
 description: "Aprende a identificar qué es la ansiedad, sus síntomas más comunes y cuándo es el momento de buscar ayuda profesional. Guía clara por la psicóloga Angie Sánchez."
 date: 2026-07-29
 featured_image: "./src/images/blog/ansiedad-imagen-portada.webp"
+image_alt: "Un hombre se cubre la cara con las manos en mitad de una calle concurrida, con la multitud desenfocada por el movimiento a su alrededor."
 tags:
   - post
 ---
@@ -96,7 +97,9 @@ Estas técnicas son como tiritas: útiles, pero no curan la herida. La terapia e
 Como psicóloga, mi trabajo es ofrecerte un espacio seguro y sin juicios donde podamos:
 * **Identificar los patrones de pensamiento** que alimentan tu ansiedad.
 * **Desarrollar herramientas personalizadas** para que aprendas a regular tus emociones.
-* **Procesar experiencias pasadas** que puedan estar contribuyendo a tu malestar actual, utilizando técnicas avanzadas como la terapia **EMDR**.
+* **Procesar experiencias pasadas** que puedan estar contribuyendo a tu malestar actual, utilizando técnicas avanzadas como la [terapia **EMDR**](/blog/que-es-emdr-como-ayuda/).
 * **Construir una autoestima sólida** para que te sientas capaz de enfrentar los desafíos de la vida con confianza.
+
+Y si ya sabes calmar la crisis y lo que quieres es que las tormentas sean menos frecuentes, el siguiente paso son los [tres pilares para construir una vida con menos ansiedad](/blog/3-pilares-para-construir-una-vida-con-menos-ansiedad/).
 
 Dar el primer paso es la decisión más valiente. Si estás lista/o para trabajar en tu ansiedad y construir una vida con mayor calma y libertad, **[reserva tu primera sesión por 35€](/#services-pricing)**. Empecemos a caminar juntos.

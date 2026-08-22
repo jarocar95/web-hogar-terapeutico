@@ -4,6 +4,7 @@ title: "Cómo saber si necesitas ir al psicólogo"
 description: "¿Dudas si lo que sientes es suficiente para ir al psicólogo? Descubre las señales reales que indican que la terapia puede ayudarte, sin esperar a tocar fondo."
 date: 2026-08-19
 featured_image: "./src/images/blog/necesito-psicologo.jpg"
+image_alt: "Una mujer joven, sentada junto a la ventana de una cafetería con la barbilla apoyada en la mano, mira hacia fuera pensativa."
 tags:
   - post
 ---
@@ -32,7 +33,7 @@ No existe una lista cerrada ni un cuestionario que te diga "sí o no" con certez
 
 ### Señales Emocionales
 
-* Sientes ansiedad, tristeza o irritabilidad de forma frecuente, sin una causa que lo justifique del todo.
+* Sientes [ansiedad](/blog/que-es-ansiedad-sintomas-guia/), tristeza o irritabilidad de forma frecuente, sin una causa que lo justifique del todo.
 * Te cuesta identificar qué sientes exactamente; solo sabes que "algo no va bien".
 * Has perdido interés en cosas que antes te ilusionaban.
 * Te sientes desbordado/a por emociones que antes gestionabas mejor, o notas que reaccionas de forma más intensa de lo habitual.
@@ -62,7 +63,7 @@ Empezar terapia no es admitir que "algo va mal contigo". Es una decisión activa
 
 * **Entender de dónde vienen** esas emociones o patrones que hoy te desbordan, en lugar de solo gestionarlos por inercia.
 * **Aprender herramientas concretas** para afrontar el día a día con más calma y menos reactividad.
-* **Sanar heridas** que llevan tiempo condicionando tus decisiones sin que lo notes conscientemente.
+* **[Sanar heridas](/blog/que-es-emdr-como-ayuda/)** que llevan tiempo condicionando tus decisiones sin que lo notes conscientemente.
 * **Recuperar la energía** que hoy gastas en sostener lo que sientes en silencio, y usarla en vivir.
 
 ## No Tienes que Esperar a Estar Peor

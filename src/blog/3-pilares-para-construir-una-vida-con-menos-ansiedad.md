@@ -6,9 +6,10 @@ tags:
   - post
 layout: "post.njk"
 featured_image: "./src/images/blog/imagen-deporte.jpeg" # ¡Recuerda cambiar esta imagen!
+image_alt: "Dos personas estiran las piernas al aire libre frente al mar, al amanecer."
 ---
 
-En nuestro [artículo anterior sobre la ansiedad](./que-es-ansiedad-sintomas-guia/), exploramos qué es y te dimos un kit de primeros auxilios con técnicas para calmarla en los momentos de crisis. Esas herramientas son tu ancla, tu salvavidas en medio de la tormenta.
+En nuestro [artículo anterior sobre la ansiedad](/blog/que-es-ansiedad-sintomas-guia/), exploramos qué es y te dimos un kit de primeros auxilios con técnicas para calmarla en los momentos de crisis. Esas herramientas son tu ancla, tu salvavidas en medio de la tormenta.
 
 Pero, ¿y si pudieras hacer que esas tormentas fueran menos frecuentes y menos intensas?
 
@@ -46,6 +47,6 @@ A menudo, subestimamos cómo nuestro entorno físico y digital moldea nuestro es
 
 Modificar estos tres pilares —**Cuerpo, Mente y Entorno**— es un acto de profundo autocuidado. Las técnicas del artículo anterior son tu respuesta a corto plazo; estos pilares son tu estrategia a largo plazo.
 
-Construir estos hábitos lleva tiempo y, a veces, es difícil saber por dónde empezar o cómo identificar los patrones más arraigados. Si sientes que necesitas una guía personalizada en este proceso, la terapia te ofrece exactamente eso: un espacio seguro para entender tus disparadores y un plan a medida para construir una calma duradera.
+Construir estos hábitos lleva tiempo y, a veces, es difícil saber por dónde empezar o cómo identificar los patrones más arraigados. Cuando esos patrones vienen de experiencias que quedaron sin procesar, el camino suele ser otro: ahí es donde entra la [terapia EMDR](/blog/que-es-emdr-como-ayuda/). Si sientes que necesitas una guía personalizada en este proceso, la terapia te ofrece exactamente eso: un espacio seguro para entender tus disparadores y un plan a medida para construir una calma duradera.
 
 > ***Da el siguiente paso. Empieza a construir tu bienestar desde los cimientos.*** **[Reserva tu primera sesión por 35€](/#services-pricing)**.

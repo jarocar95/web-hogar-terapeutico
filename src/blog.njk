@@ -11,6 +11,11 @@ pagination:
 
 <section aria-labelledby="blog-title" class="bg-clay-50 border-b border-clay-100 !py-16 lg:!py-20">
     <div class="container max-w-[760px]">
+        <nav class="migas" aria-label="Miga de pan">
+            <a href="/">Inicio</a>
+            <span class="sep" aria-hidden="true">/</span>
+            <span aria-current="page">Blog</span>
+        </nav>
         <span class="eyebrow">Blog</span>
         <h1 id="blog-title" class="h2-display text-ink">Recursos para entender lo que te pasa</h1>
         <p class="lead mt-4">
@@ -30,7 +35,7 @@ pagination:
         <article class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 lg:mb-20">
             <a href="{{ featuredPost.url }}" class="block rounded-lg2 overflow-hidden shadow-e1 aspect-[16/10] bg-clay-100" tabindex="-1" aria-hidden="true">
                 {% if featuredPost.data.featured_image %}
-                    {% image featuredPost.data.featured_image, "", "(min-width: 1024px) 50vw, 100vw", "eager", "w-full h-full object-cover" %}
+                    {% image featuredPost.data.featured_image, featuredPost.data.image_alt or "", "(min-width: 1024px) 50vw, 100vw", "eager", "w-full h-full object-cover" %}
                 {% endif %}
             </a>
             <div>
@@ -61,7 +66,7 @@ pagination:
                         misma fila salian descuadradas. -#}
                     <div class="aspect-[16/10] bg-clay-100 overflow-hidden flex-none">
                         {% if post.data.featured_image %}
-                            {% image post.data.featured_image, "", "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" %}
+                            {% image post.data.featured_image, post.data.image_alt or "", "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" %}
                         {% endif %}
                     </div>
                     <div class="p-6 flex flex-col flex-grow">

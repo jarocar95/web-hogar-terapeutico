@@ -11,9 +11,13 @@ layout: base.njk
 {#- Igual que en legal.njk: el py de la capa base es para <section>. -#}
 <article class="py-16 lg:py-20">
     <header class="container max-w-[760px] mb-10">
-        <a href="/blog" class="inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-clay-600 no-underline mb-6 min-h-[44px] hover:text-clay-700">
-            <i class="ri-arrow-left-line" aria-hidden="true"></i> Todos los artículos
-        </a>
+        <nav class="migas" aria-label="Miga de pan">
+            <a href="/">Inicio</a>
+            <span class="sep" aria-hidden="true">/</span>
+            <a href="/blog/">Blog</a>
+            <span class="sep" aria-hidden="true">/</span>
+            <span aria-current="page">{{ title }}</span>
+        </nav>
         <h1 class="font-serif font-semibold text-[clamp(2rem,4vw,2.9rem)] leading-[1.12] tracking-[-.02em] text-ink mb-5">{{ title }}</h1>
         {% if description %}
         <p class="lead">{{ description }}</p>
@@ -30,7 +34,7 @@ layout: base.njk
         no cambie de forma entre la tarjeta y el articulo. -#}
     <div class="container max-w-[900px] mb-12">
         <div class="aspect-[16/10] rounded-lg2 overflow-hidden bg-clay-100 shadow-e1">
-            {% image featured_image, "", "(min-width: 900px) 900px, 100vw", "eager", "w-full h-full object-cover" %}
+            {% image featured_image, image_alt or "", "(min-width: 900px) 900px, 100vw", "eager", "w-full h-full object-cover" %}
         </div>
     </div>
     {% endif %}

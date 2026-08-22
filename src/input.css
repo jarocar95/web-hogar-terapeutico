@@ -160,6 +160,20 @@
      pulsables: prometían una acción que no existía, en la sección donde una
      persona acaba de reconocerse en una frase y no tenía dónde seguir. Cada
      uno lleva a su área; el último, a las preguntas frecuentes. */
+  /* Migas de pan. No existian: el articulo solo tenia un "Todos los articulos",
+     que dice de donde volver, no donde estas. El separador es decorativo y se
+     oculta a los lectores de pantalla; la pagina actual va en un <span> con
+     aria-current, nunca en un enlace a si misma. */
+  .migas {
+    @apply flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[13.5px] text-ink-mute mb-6;
+  }
+  .migas a {
+    @apply text-clay-600 font-semibold no-underline inline-flex items-center min-h-[44px] transition-colors;
+  }
+  .migas a:hover { @apply text-clay-700 underline underline-offset-2; }
+  .migas .sep { @apply text-clay-300 select-none; }
+  .migas [aria-current="page"] { @apply text-ink-soft truncate max-w-[min(24ch,60vw)] sm:max-w-[52ch]; }
+
   .chip {
     @apply bg-white border border-clay-100 rounded-md2 px-[22px] py-[18px]
            flex gap-3.5 items-start shadow-e1 no-underline
