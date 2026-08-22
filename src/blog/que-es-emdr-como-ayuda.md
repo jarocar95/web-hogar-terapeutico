@@ -3,7 +3,7 @@ layout: post.njk
 title: "Qué es el EMDR y cómo puede ayudarte a superar un trauma"
 description: "Descubre qué es la terapia EMDR, cómo funciona y por qué es una de las técnicas más eficaces para sanar heridas del pasado. Guía por la psicóloga Angie Sánchez."
 date: 2026-08-12
-featured_image: "./src/images/blog/emdr.jpeg"
+featured_image: "./src/images/blog/terapia-emdr-estimulacion-bilateral.jpeg"
 image_alt: "Vista desde el asiento de la paciente, que sostiene en la mano los dos pulsadores de estimulación bilateral que se usan en una sesión de EMDR."
 updated: 2026-08-22
 tags:

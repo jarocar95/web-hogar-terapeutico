@@ -5,7 +5,7 @@ date: 2026-08-05
 tags: 
   - post
 layout: "post.njk"
-featured_image: "./src/images/blog/imagen-deporte.jpeg"
+featured_image: "./src/images/blog/habitos-para-reducir-la-ansiedad.jpeg"
 image_alt: "Dos personas estiran las piernas al aire libre frente al mar, al amanecer."
 updated: 2026-08-22
 faq:

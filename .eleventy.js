@@ -3,6 +3,7 @@ const Image = require("@11ty/eleventy-img");
 const htmlmin = require("html-minifier-terser");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const { execSync } = require('child_process');
+const path = require('path');
 
 // Escala de anchos para las imagenes responsive.
 //
@@ -15,6 +16,32 @@ const { execSync } = require('child_process');
 // Ahora la escala es explicita y con saltos razonables. eleventy-img nunca
 // amplia, asi que para originales pequenos simplemente genera menos variantes.
 const ESCALA_ANCHOS = [40, 320, 480, 640, 900, 1280, 1600, 2000];
+
+// Nombre de archivo a partir del original, no un hash.
+//
+// eleventy-img nombra por defecto con un hash del contenido: tTFxn7XHkc-40.jpeg.
+// Funciona, pero tira a la basura la unica señal que Google Imagenes puede leer
+// del archivo en si. Con esto, la portada de EMDR se sirve como
+// emdr-900.jpeg y la de terapia online como terapia-online-videollamada-900.jpeg.
+//
+// Se usa el nombre base del original, que ya es descriptivo y unico en
+// src/images (comprobado: no hay basenames repetidos). Si algun dia se
+// duplicara uno, dos imagenes distintas escribirian sobre el mismo archivo,
+// asi que conviene mantener esa unicidad al añadir imagenes nuevas.
+//
+// IMPORTANTE: las tres llamadas a Image() de este fichero deben compartir esta
+// funcion. El <link rel="preload"> del hero calcula la URL repitiendo la misma
+// llamada; si los nombres divergieran, precargaria un archivo inexistente.
+const nombreDescriptivo = (id, src, width, format) => {
+    const base = path
+	.basename(src, path.extname(src))
+	.toLowerCase()
+	.normalize("NFD")
+	.replace(/[\u0300-\u036f]/g, "")
+	.replace(/[^a-z0-9]+/g, "-")
+	.replace(/^-+|-+$/g, "");
+    return `${base}-${width}.${format}`;
+};
 
 // Función asíncrona para el shortcode de imágenes
 async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy", imgClass = "") {
@@ -33,6 +60,7 @@ async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy", imgCl
 	sharpWebpOptions: { quality: 74 },
 	sharpJpegOptions: { quality: 78, mozjpeg: true },
 	// La carpeta de salida debe coincidir con la de tu configuración
+	filenameFormat: nombreDescriptivo,
 	outputDir: "./public/img/",
 	// La URL base para el atributo src
 	urlPath: "/img/",
@@ -76,6 +104,7 @@ async function imagePreloadShortcode(src, sizes = "100vw") {
 	// buena parte de sus pixeles estan interpolados, no capturados.
 	sharpWebpOptions: { quality: 74 },
 	sharpJpegOptions: { quality: 78, mozjpeg: true },
+	filenameFormat: nombreDescriptivo,
 	outputDir: "./public/img/",
 	urlPath: "/img/",
     });
@@ -100,6 +129,7 @@ async function imageUrlFilter(src) {
 	// buena parte de sus pixeles estan interpolados, no capturados.
 	sharpWebpOptions: { quality: 74 },
 	sharpJpegOptions: { quality: 78, mozjpeg: true },
+	filenameFormat: nombreDescriptivo,
 	outputDir: "./public/img/",
 	urlPath: "/img/",
     });

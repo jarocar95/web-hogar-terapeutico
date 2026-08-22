@@ -3,7 +3,7 @@ layout: post.njk
 title: "Cómo saber si necesitas ir al psicólogo"
 description: "¿Dudas si lo que sientes es suficiente para ir al psicólogo? Descubre las señales reales que indican que la terapia puede ayudarte, sin esperar a tocar fondo."
 date: 2026-08-19
-featured_image: "./src/images/blog/necesito-psicologo.jpg"
+featured_image: "./src/images/blog/cuando-ir-al-psicologo.jpg"
 image_alt: "Una mujer joven, sentada junto a la ventana de una cafetería con la barbilla apoyada en la mano, mira hacia fuera pensativa."
 updated: 2026-08-22
 tags:
