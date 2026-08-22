@@ -115,7 +115,7 @@ El EMDR es extraordinariamente eficaz para trabajar recuerdos específicos, pero
 
 Cargar con heridas del pasado no es una cuestión de "fuerza de voluntad" ni de "pasar página" sin más. A veces, tu sistema nervioso necesita ayuda profesional para terminar un proceso que se quedó a medias. Si dudas de si lo que te pasa justifica pedir esa ayuda, lo desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 
-Como psicóloga especialista en EMDR, mi trabajo es acompañarte en ese proceso de:
+Estoy formada en terapia EMDR (Nivel I) por la [Asociación EMDR España](https://www.emdr-es.org), que es la entidad que acredita esta formación en el país, y trabajo con ella dentro de un enfoque integrador. Mi trabajo es acompañarte en el proceso de:
 
 * **Identificar qué recuerdos o patrones** siguen influyendo en tu presente sin que lo notes.
 * **Procesar esas experiencias** de forma segura y a tu ritmo.
