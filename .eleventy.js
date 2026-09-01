@@ -163,6 +163,10 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addAsyncShortcode("imagePreload", imagePreloadShortcode);
     // También copiaremos los archivos de la raíz como robots.txt
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
+    // Clave de IndexNow. Se sirve en la raiz del dominio y su contenido es
+    // exactamente su propio nombre de archivo: asi comprueba Bing que quien
+    // avisa controla el sitio. No es un secreto, tiene que ser publica.
+    eleventyConfig.addPassthroughCopy("./src/3a3caf3c00576235c10565848bf97206.txt");
     // MINIMALISTA: Incluyendo imagen optimizada
     eleventyConfig.addPassthroughCopy({
         "./src/images/imagen-background.webp": "/images/imagen-background.webp",
@@ -221,6 +225,46 @@ module.exports = function(eleventyConfig) {
     // Cache-busting shortcode for JS
     eleventyConfig.addShortcode("jsVersion", function() {
         return `?v=${version}`;
+    });
+
+    // ---------------------------------------------------------------------
+    // IndexNow: avisar a Bing en cuanto se publica algo.
+    //
+    // Lo soportan Bing, Yandex y Naver; Google no. Normalmente eso lo dejaria
+    // en anecdotico, pero ChatGPT Search se apoya en el indice de Bing, asi que
+    // para la busqueda generativa es al reves: es la unica palanca que acelera
+    // ese lado sin tocar el de Google.
+    //
+    // Solo en despliegues de produccion de Netlify. En local y en las
+    // previsualizaciones no se avisa, para no anunciar URLs que no existen.
+    // Un fallo aqui no puede tumbar el build: avisar es opcional, publicar no.
+    // ---------------------------------------------------------------------
+    eleventyConfig.on("eleventy.after", async ({ results }) => {
+        if (process.env.CONTEXT !== "production") return;
+
+        const HOST = "hogarterapeutico.com";
+        const CLAVE = "3a3caf3c00576235c10565848bf97206";
+        const urls = results
+            .filter((r) => r.outputPath && r.outputPath.endsWith(".html"))
+            .map((r) => "https://" + HOST + r.url);
+
+        if (urls.length === 0) return;
+
+        try {
+            const respuesta = await fetch("https://api.indexnow.org/IndexNow", {
+                method: "POST",
+                headers: { "Content-Type": "application/json; charset=utf-8" },
+                body: JSON.stringify({
+                    host: HOST,
+                    key: CLAVE,
+                    keyLocation: "https://" + HOST + "/" + CLAVE + ".txt",
+                    urlList: urls,
+                }),
+            });
+            console.log("[indexnow] " + urls.length + " URLs enviadas, HTTP " + respuesta.status);
+        } catch (error) {
+            console.log("[indexnow] aviso omitido: " + error.message);
+        }
     });
 
     return {
