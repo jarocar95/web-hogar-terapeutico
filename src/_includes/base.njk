@@ -313,6 +313,20 @@
           position: relative;
           overflow: hidden;
           background-color: #4C2F2D;
+          /* La altura y el centrado TIENEN que estar aqui, no solo en las
+             clases de Tailwind.
+             output.css se carga de forma asincrona, asi que hay un instante en
+             el que la pagina se pinta solo con este bloque. Sin min-height, el
+             hero valia lo que midiera su texto —154 px en escritorio— y al
+             llegar output.css crecia de golpe hasta 860 px, empujando toda la
+             pagina hacia abajo. Eso era un CLS de 0,955 y se llevaba por
+             delante la puntuacion de rendimiento en escritorio.
+             En movil se notaba menos solo porque el texto ocupa mas y el salto
+             era proporcionalmente menor. */
+          display: flex;
+          align-items: center;
+          min-height: calc(100vh - 5rem);
+          min-height: calc(100svh - 5rem);
         }
 
         #hero .container {
