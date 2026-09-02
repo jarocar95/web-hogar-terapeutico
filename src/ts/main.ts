@@ -5,6 +5,7 @@
 
 // Core functionality - loaded immediately
 import { initMobileMenu } from './modules/mobile-menu.js';
+import { initEmbudo } from './modules/embudo.js';
 import { initScrollEffects } from './modules/scroll-effects.js';
 import { setupGlobalErrorHandling, setupPerformanceMonitoring, Logger } from './utils/logger.js';
 import type { PerformanceEntry } from './types';
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', (): void => {
     // Initialize core functionality
     initMobileMenu();
     initScrollEffects();
+    initEmbudo();
 
     // Initialize enhanced UI features
     const enhancedUI = new EnhancedUI();

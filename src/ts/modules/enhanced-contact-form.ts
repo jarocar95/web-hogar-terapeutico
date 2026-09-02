@@ -1,6 +1,8 @@
 /**
  * Enhanced contact form with real-time validation and improved UX
  */
+import { registrarFormularioEnviado } from './embudo.js';
+
 export class EnhancedContactForm {
     private form: HTMLFormElement | null;
     private formStatus: HTMLElement | null;
@@ -239,6 +241,7 @@ export class EnhancedContactForm {
                 });
 
                 if (response.ok) {
+                    registrarFormularioEnviado();
                     this.showSuccessMessage();
                     this.form!.reset();
                     if (this.charCount) {

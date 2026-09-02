@@ -4,6 +4,7 @@
  */
 import type { Schedule } from '../types';
 import { Logger } from '../utils/logger.js';
+import { registrarDiaElegido } from './embudo.js';
 
 // Devuelve la fecha de hoy como "YYYY-MM-DD" en hora local.
 // Importante: no usar toISOString(), que convierte a UTC y en Madrid
@@ -374,6 +375,7 @@ export function initBookingCalendar(): void {
 
                         if (scheduleForDate && scheduleForDate.horas.length > 0) {
                             displayAvailableTimes(scheduleForDate, availableTimesContainer);
+                            registrarDiaElegido(selectedDate, scheduleForDate.horas.length);
                             // En móvil el panel de horas queda unos 800 px por
                             // debajo del calendario: elegías un día y el
                             // resultado aparecía fuera de pantalla, así que la

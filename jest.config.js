@@ -11,6 +11,12 @@ module.exports = {
     '^.+\\.ts$': 'ts-jest',
   },
   moduleNameMapper: {
+    // El codigo fuente importa con extension .js —'./embudo.js'— porque asi lo
+    // exige la salida ESM del compilador. Jest resuelve sobre los .ts, asi que
+    // sin este mapeo cualquier modulo con imports relativos deja de cargarse y
+    // su suite entera falla con "Cannot find module". Paso de 29 tests a 15 al
+    // aniadir el primero.
+    '^(\\.{1,2}/.*)\\.js$': '$1',
     '^@/(.*)$': '<rootDir>/src/ts/$1',
     '@/types/(.*)$': '<rootDir>/src/ts/types/$1',
   },
