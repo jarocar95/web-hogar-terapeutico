@@ -4,7 +4,12 @@
   publish = "public"
 
 [context.production.environment]
-  NODE_VERSION = "18" # Especifica una versión de Node.js recomendada
+  # Node 22. Estaba en 18, que llego a su fin de soporte en abril de 2025 y
+  # ademas se quedo por debajo de lo que piden las dependencias: sharp 0.35
+  # exige >=20.9 y el build fallaba entero aqui mientras pasaba en local, donde
+  # se usa Node 22. Fijarlo a 22 hace que el entorno de compilacion y el de
+  # desarrollo sean el mismo, que es lo que evita esta clase de sorpresa.
+  NODE_VERSION = "22"
 
 # ---------------------------------------------------------------------------
 # Cabeceras de seguridad, para todo el sitio.
