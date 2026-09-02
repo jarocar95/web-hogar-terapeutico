@@ -162,6 +162,15 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addAsyncFilter("imageUrl", imageUrlFilter);
     eleventyConfig.addAsyncShortcode("imagePreload", imagePreloadShortcode);
     // También copiaremos los archivos de la raíz como robots.txt
+    // Litepicker, autoalojado. Antes se pedia a cdn.jsdelivr.net en tiempo de
+    // ejecucion, en plena ruta de reserva: si ese CDN fallaba o estaba
+    // bloqueado, no habia calendario, y el calendario es el embudo entero.
+    // Se copia desde node_modules para que la version la fije package.json y
+    // actualizarla sea deliberado, no un "latest" silencioso.
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/litepicker/dist/litepicker.js": "vendor/litepicker.js",
+        "node_modules/litepicker/dist/css/litepicker.css": "vendor/litepicker.css",
+    });
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
     // Clave de IndexNow. Se sirve en la raiz del dominio y su contenido es
     // exactamente su propio nombre de archivo: asi comprueba Bing que quien

@@ -13,9 +13,10 @@
     {%- endif %}
 
     <!-- Preconnect to external domains for performance -->
-    <!-- Sin preconnect a terceros: durante la carga inicial ya no se contacta
-         con ninguno. jsdelivr solo se usa si el visitante llega al calendario
-         (Litepicker), y googletagmanager solo si acepta las cookies. -->
+    <!-- Sin preconnect a terceros: ya no se contacta con ninguno en toda la
+         navegacion normal. Litepicker se sirve desde /vendor, del propio
+         dominio, y googletagmanager solo si el visitante acepta las cookies.
+         Formspree solo al enviar el formulario. -->
     <!-- Solo se preconecta a lo que se usa durante la carga. Lighthouse avisa
          a partir de 4 preconnect: cada uno reserva una conexion que en movil
          compite por ancho de banda con el LCP. formspree solo se contacta al
@@ -652,8 +653,20 @@
     <link rel="preload" href="/fonts/frank-ruhl-libre-var.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Full CSS loaded async with FOUC prevention -->
-    <link rel="preload" href="/dist/output.css{% cssVersion %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/dist/output.css{% cssVersion %}"></noscript>
+    <!-- Hoja de estilos BLOQUEANTE, a proposito.
+         Antes se cargaba en asincrono con el truco de preload+onload. Eso deja
+         un instante en el que la pagina se pinta solo con el CSS critico, y al
+         llegar output.css el contenido del hero cambia de tamanio y, como esta
+         centrado verticalmente, se desplaza: 219 px en escritorio y 130 en
+         movil. Era un CLS de 0,147 y 0,512 en produccion, con el umbral en 0,1.
+         Medido con la hoja retrasada 600 ms, comparando las dos variantes:
+           asincrono   CLS 0,104 / 0,200   FCP 1,9s  LCP 3,2s  rendimiento 92
+           bloqueante  CLS 0,000 / 0,000   FCP 1,9s  LCP 3,0s  rendimiento 93
+         Es mejor en todos los ejes: son 15,9 KB comprimidos, y ademas evita el
+         segundo calculo de estilos que la carga asincrona obligaba a hacer.
+         La optimizacion costaba una metrica de Core Web Vitals y no compraba
+         nada. -->
+    <link rel="stylesheet" href="/dist/output.css{% cssVersion %}">
 
     <!-- FOUC prevention script -->
     <script>

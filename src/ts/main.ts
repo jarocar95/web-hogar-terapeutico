@@ -102,13 +102,17 @@ async function loadNonCriticalModules(): Promise<void> {
             };
 
             try {
-                // La hoja de Litepicker viaja con su JS: antes se pedia desde
-                // el <head> de todas las paginas. Y con la version fijada, que
-                // apuntaba a "litepicker" a secas (o sea, a la ultima) mientras
-                // el JS iba clavado en 2.0.12.
-                loadStyle('https://cdn.jsdelivr.net/npm/litepicker@2.0.12/dist/css/litepicker.css');
-                await loadScript('https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js');
-                await loadScript('https://cdn.jsdelivr.net/npm/litepicker@2.0.12/dist/litepicker.js');
+                // Litepicker se sirve desde el propio dominio, no desde un CDN.
+                // La hoja viaja con su JS y solo se pide cuando hace falta el
+                // calendario, no en el <head> de todas las paginas.
+                //
+                // Aqui ademas se cargaba moment.js (57 KB, descontinuada desde
+                // 2020 y con una vulnerabilidad alta). No hacia ninguna falta:
+                // Litepicker 2.x no tiene dependencias, no menciona moment en
+                // todo su dist, y el date.format() que usa el calendario es de
+                // su propia API. Era peso muerto en la ruta critica.
+                loadStyle('/vendor/litepicker.css');
+                await loadScript('/vendor/litepicker.js');
 
                 const { initBookingCalendar } = await import('./modules/booking-calendar.js');
 

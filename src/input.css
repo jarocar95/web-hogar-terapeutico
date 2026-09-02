@@ -533,14 +533,20 @@
 }
 
 /* Dia sin hueco: atenuado a proposito, pero legible.
-   Pasa de #B4A5A2 (2,37:1) a #8A7A76 (4,1:1 medido sobre blanco). Un control
-   inactivo esta exento del minimo de contraste, y por eso no se busca el 4,5:
-   oscurecerlos mas empezaria a confundirlos con los dias disponibles, que es
-   la distincion que el calendario tiene que dejar clara de un vistazo. Pero a
-   2,37 los numeros no se leian y la reticula entera era una mancha gris:
-   siguen sirviendo para orientarse en el mes aunque ese dia no se reserve. */
+
+   #B4A5A2 (2,37:1) -> #8A7A76 (4,10:1) -> #7A6A66 (5,15:1 sobre blanco).
+
+   El paso intermedio se dio por bueno "a ojo" y no llegaba: el minimo AA para
+   texto pequenio es 4,5 y 4,10 no lo alcanza. Lo cazo axe-core, no la vista.
+   De ahi el valor actual, calculado y no estimado.
+
+   Se podria argumentar que un dia bloqueado es un control inactivo y esta
+   exento del minimo, pero no merece la pena apoyarse en esa excepcion: a 5,15
+   los numeros se leen sin problema y siguen distinguiendose a simple vista de
+   los dias disponibles, que es la unica distincion que el calendario tiene que
+   dejar clara de un vistazo. */
 #calendar-container .litepicker .container__days .day-item.is-locked {
-  color: #8A7A76 !important;
+  color: #7A6A66 !important;
   background-color: transparent !important;
   text-decoration: none;
 }
