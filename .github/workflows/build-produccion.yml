@@ -1,0 +1,105 @@
+# Reproduce el build de Netlify antes de que lo haga Netlify.
+#
+# Por que existe: el 3 de septiembre de 2026 hubo dos horas creyendo que algo
+# estaba en produccion cuando el build habia fallado. El sitio nunca se cayo
+# —Netlify no publica un build fallido, se queda la version anterior— pero
+# nada de lo nuevo llego. El build fallaba en Netlify y pasaba en CI,
+# porque CI construia en Node 20 y 22 mientras netlify.toml pinchaba Node 18.
+# Verde en GitHub, rojo en produccion, y ningun aviso: el plan gratuito de
+# Netlify no manda correos de despliegue fallido (esta detras de Pro).
+#
+# La proteccion no es "probar en varias versiones de Node" —eso ya se hacia y
+# no sirvio—, sino construir en EXACTAMENTE la version que declara
+# netlify.toml. Si alguien la cambia, este job cambia con ella. Y como GitHub
+# avisa por correo de los workflows que fallan, el aviso sale gratis.
+name: Build de produccion
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  paridad-con-netlify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el codigo
+        uses: actions/checkout@v4
+
+      # Se lee de netlify.toml en vez de escribirla aqui: dos sitios con la
+      # misma version es justo como se produjo el fallo.
+      - name: Leer NODE_VERSION de netlify.toml
+        id: node
+        run: |
+          VERSION=$(grep -E '^\s*NODE_VERSION\s*=' netlify.toml | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
+          if [ -z "$VERSION" ]; then
+            echo "::error file=netlify.toml::No se encontro NODE_VERSION en netlify.toml"
+            exit 1
+          fi
+          echo "Netlify construye con Node $VERSION"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Preparar Node ${{ steps.node.outputs.version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ steps.node.outputs.version }}
+          cache: 'npm'
+
+      # npm ci y no npm install: es lo que ejecuta Netlify, y es donde salto el
+      # fallo de sharp (motores incompatibles).
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Construir el sitio
+        run: npm run build
+
+      # Un build que "pasa" pero deja public/ vacio tambien es un despliegue
+      # roto, y sin esto no se distingue de uno bueno.
+      - name: Comprobar que el build ha producido algo
+        run: |
+          for archivo in public/index.html public/sitemap.xml public/robots.txt; do
+            if [ ! -s "$archivo" ]; then
+              echo "::error::Falta o esta vacio $archivo despues del build"
+              exit 1
+            fi
+          done
+          echo "public/ tiene $(find public -type f | wc -l | tr -d ' ') archivos"
+
+      # La CSP lleva los hashes de los scripts inline. Si alguno se queda sin
+      # hash, el navegador lo bloquea sin romper nada visible: se pierde el
+      # anti-parpadeo o la analitica y nadie se entera. Aqui si se entera.
+      - name: Comprobar que la CSP cubre todos los scripts inline
+        run: |
+          python3 - <<'PY'
+          import re, glob, hashlib, base64, sys
+
+          politica = open('public/_headers', encoding='utf-8').read()
+          declarados = set(re.findall(r"'sha256-[^']+'", politica))
+
+          faltan = []
+          for f in glob.glob('public/**/*.html', recursive=True):
+              html = open(f, encoding='utf-8').read()
+              for m in re.finditer(r'<script([^>]*)>([\s\S]*?)</script>', html):
+                  atributos, cuerpo = m.group(1), m.group(2)
+                  if re.search(r'\ssrc\s*=', atributos):
+                      continue
+                  if re.search(r'type\s*=\s*["\'][^"\']*(json|template)', atributos, re.I):
+                      continue
+                  h = "'sha256-" + base64.b64encode(
+                      hashlib.sha256(cuerpo.encode()).digest()).decode() + "'"
+                  if h not in declarados:
+                      faltan.append((f, h, cuerpo.strip()[:60]))
+
+          for directiva in ("script-src", "form-action", "frame-ancestors", "base-uri", "object-src"):
+              if directiva not in politica:
+                  print(f"::error::La CSP no incluye {directiva}")
+                  sys.exit(1)
+
+          if faltan:
+              for f, h, muestra in faltan:
+                  print(f"::error file={f}::Script inline sin hash en la CSP: {muestra!r}")
+              sys.exit(1)
+
+          print(f"CSP correcta: {len(declarados)} hashes cubren todos los scripts inline")
+          PY

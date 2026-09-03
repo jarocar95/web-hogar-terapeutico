@@ -1,5 +1,8 @@
-# Este archivo esta vacio a proposito.
+# GENERADO POR EL BUILD. No editar a mano: se reescribe en cada
+# compilacion desde .eleventy.js (busca "Content-Security-Policy").
 #
-# Las cabeceras del sitio se definen en netlify.toml, en la raiz del repo.
-# Antes estaban duplicadas aqui y alli, con el riesgo de que una copia se
-# actualizase y la otra no. netlify.toml es la fuente unica.
+# Solo la CSP vive aqui, porque lleva los hashes de los scripts
+# inline y hay que calcularlos del HTML ya construido. Las demas
+# cabeceras del sitio siguen en netlify.toml, que es su unica fuente.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-kd5FwIm/ygJAbIP37nafX8qVUCQbAgjyRyHpGl2EJgk=' 'sha256-1Igw1QvwN4mxcub8XUgPJXZpz71MUbYI8SKN1OQRi54='; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://formspree.io; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests

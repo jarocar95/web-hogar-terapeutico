@@ -246,6 +246,93 @@ module.exports = function(eleventyConfig) {
     // previsualizaciones no se avisa, para no anunciar URLs que no existen.
     // Un fallo aqui no puede tumbar el build: avisar es opcional, publicar no.
     // ---------------------------------------------------------------------
+    // -----------------------------------------------------------------------
+    // Content-Security-Policy, generada a partir del HTML que se acaba de
+    // construir.
+    //
+    // Hasta ahora no habia CSP, y el motivo escrito en netlify.toml era que la
+    // web cargaba scripts y estilos de media internet (jsdelivr, fonts de
+    // Google, Remixicon) y una politica que lo permitiera todo no protegia de
+    // nada. Eso ya no es cierto: fuentes e iconos estan autoalojados, Litepicker
+    // tambien, y moment desaparecio. Solo quedan dos origenes externos de
+    // verdad, googletagmanager y formspree, asi que la politica puede ser
+    // estrecha y por fin merece la pena.
+    //
+    // Se genera aqui y no a mano en netlify.toml por una razon concreta: la
+    // politica lleva los hashes de los dos scripts inline (el anti-FOUC y el
+    // arranque de gtag). Escritos a mano, el dia que alguien toque una linea de
+    // esos scripts el navegador los bloquea en silencio y la web pierde el
+    // anti-parpadeo y la analitica sin que falle nada visiblemente. Calculados
+    // del HTML ya construido, no pueden desincronizarse.
+    //
+    // Comprobado en Chrome antes de escribir esto: la CSP se aplica de verdad
+    // (un script inline sin hash NO se ejecuta) y los bloques
+    // application/ld+json NO se bloquean, asi que el schema no necesita hash.
+    // Por eso solo se hashean los scripts ejecutables.
+    //
+    // Los estilos van con 'unsafe-inline' a proposito: el CSS critico va inline
+    // y cambia en cada build, y ademas quedan dos atributos style=. Un estilo
+    // inyectado es un problema mucho menor que un script inyectado, y esta es
+    // la parte que se puede endurecer mas adelante sin prisa.
+    eleventyConfig.on("eleventy.after", async ({ results }) => {
+        const crypto = require("crypto");
+        const fs = require("fs");
+
+        // Solo los <script> inline SIN src y que el navegador ejecuta.
+        const hashes = new Set();
+        for (const r of results) {
+            if (!r.outputPath || !r.outputPath.endsWith(".html")) continue;
+            const html = r.content || "";
+            for (const m of html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)) {
+                const atributos = m[1];
+                if (/\ssrc\s*=/.test(atributos)) continue;
+                if (/type\s*=\s*["'][^"']*(json|template)[^"']*["']/i.test(atributos)) continue;
+                const digest = crypto.createHash("sha256").update(m[2], "utf8").digest("base64");
+                hashes.add("'sha256-" + digest + "'");
+            }
+        }
+
+        const politica = [
+            "default-src 'self'",
+            "script-src 'self' https://www.googletagmanager.com " + [...hashes].join(" "),
+            // gtag manda las medidas a varios dominios de Google segun region.
+            "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://formspree.io",
+            "img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com",
+            "style-src 'self' 'unsafe-inline'",
+            "font-src 'self'",
+            // El formulario sale por fetch, pero el action del <form> sigue ahi
+            // como respaldo si el JS no carga: hacen falta las dos directivas.
+            "form-action 'self' https://formspree.io",
+            "base-uri 'self'",
+            "object-src 'none'",
+            "frame-src 'none'",
+            // Equivale a X-Frame-Options: SAMEORIGIN, que se queda por los
+            // navegadores viejos que no leen frame-ancestors.
+            "frame-ancestors 'self'",
+            "upgrade-insecure-requests",
+        ].join("; ");
+
+        // Este fichero estaba vacio a proposito, con una nota que decia que las
+        // cabeceras viven en netlify.toml y que tenerlas en dos sitios acaba con
+        // una copia desactualizada. Sigue siendo verdad, y por eso aqui va UNA
+        // sola cabecera y con motivo: la CSP es la unica que depende del HTML
+        // construido, y netlify.toml es un fichero estatico que no puede
+        // calcular hashes. El resto sigue en netlify.toml, que no se toca.
+        // Netlify fusiona ambos; como ninguna cabecera se repite, no compiten.
+        const aviso = [
+            "# GENERADO POR EL BUILD. No editar a mano: se reescribe en cada",
+            "# compilacion desde .eleventy.js (busca \"Content-Security-Policy\").",
+            "#",
+            "# Solo la CSP vive aqui, porque lleva los hashes de los scripts",
+            "# inline y hay que calcularlos del HTML ya construido. Las demas",
+            "# cabeceras del sitio siguen en netlify.toml, que es su unica fuente.",
+            "",
+        ].join("\n");
+        const destino = path.join(__dirname, "public", "_headers");
+        fs.writeFileSync(destino, aviso + "/*\n  Content-Security-Policy: " + politica + "\n");
+        console.log("[csp] _headers escrito con " + hashes.size + " hashes de script inline");
+    });
+
     eleventyConfig.on("eleventy.after", async ({ results }) => {
         if (process.env.CONTEXT !== "production") return;
 

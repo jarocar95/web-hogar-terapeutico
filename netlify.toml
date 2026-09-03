@@ -14,11 +14,22 @@
 # ---------------------------------------------------------------------------
 # Cabeceras de seguridad, para todo el sitio.
 #
-# Nota: no se anade Content-Security-Policy todavia. La web carga scripts y
-# estilos de googletagmanager, fonts.googleapis, fonts.gstatic y jsdelivr
-# (Remixicon, Litepicker, moment), y envia el formulario a formspree. Una CSP
-# escrita ahora tendria que permitir todo eso y apenas aportaria. Toca ponerla
-# cuando se autoalojen fuentes e iconos y se reduzcan los origenes externos.
+# Nota sobre la Content-Security-Policy: NO esta aqui, y es a proposito.
+#
+# Durante mucho tiempo no hubo CSP porque la web cargaba scripts y estilos de
+# medio internet —fonts de Google, jsdelivr para Remixicon, Litepicker y
+# moment— y una politica que permitiera todo eso no protegia de nada. Eso ya no
+# es asi: fuentes, iconos y Litepicker estan autoalojados y moment desaparecio.
+# Solo quedan dos origenes externos, googletagmanager y formspree.
+#
+# La CSP se genera en cada build y se escribe en public/_headers, que Netlify
+# fusiona con este fichero. Vive alli y no aqui porque incluye los hashes
+# SHA-256 de los dos scripts inline, y eso hay que calcularlo del HTML ya
+# construido; un TOML estatico no puede. El codigo esta en .eleventy.js.
+#
+# Las cabeceras de abajo se quedan aqui, que sigue siendo su fuente unica.
+# X-Frame-Options se mantiene pese a que la CSP trae frame-ancestors: los
+# navegadores antiguos no leen frame-ancestors y si leen X-Frame-Options.
 # ---------------------------------------------------------------------------
 [[headers]]
   for = "/*"
