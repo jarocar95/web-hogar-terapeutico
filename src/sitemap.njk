@@ -3,4 +3,22 @@ permalink: /sitemap.xml
 layout: null
 eleventyExcludeFromCollections: true
 ---
-{% sitemap collections.all %}
+{#- Sitemap escrito a mano.
+    Antes lo generaba @quasibit/eleventy-plugin-sitemap, que se quedo en la
+    version 2.2.0 y es incompatible con Eleventy 3: lee templateContent antes
+    de tiempo y aborta el build entero. No hay arreglo aguas arriba.
+    Son doce lineas, asi que sale mas a cuenta mantenerlas que arrastrar una
+    dependencia sin mantenimiento en la ruta critica del build.
+    Se excluye lo que lleve robots noindex (las paginas legales no van, pero
+    la regla queda por si se anade alguna). -#}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for pagina in collections.all %}
+{%- if pagina.url and not pagina.data.eleventyExcludeFromCollections %}
+  <url>
+    <loc>https://hogarterapeutico.com{{ pagina.url }}</loc>
+    <lastmod>{{ pagina.date | isoDate }}</lastmod>
+  </url>
+{%- endif %}
+{%- endfor %}
+</urlset>

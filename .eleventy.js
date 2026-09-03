@@ -1,7 +1,11 @@
 const { DateTime } = require("luxon");
-const Image = require("@11ty/eleventy-img");
+// eleventy-img 7 pasa a ESM y reorganiza lo que exporta: el export nombrado
+// "Image" ahora es una CLASE (hay que instanciarla), y la funcion de toda la
+// vida se queda en el export por defecto. De ahi el desestructurado raro.
+// Se sube a la 7 porque la 6 arrastraba una vulnerabilidad alta en image-size
+// —bucle infinito al parsear ICNS— que no tenia otro arreglo.
+const { default: Image, generateHTML } = require("@11ty/eleventy-img");
 const htmlmin = require("html-minifier-terser");
-const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const { execSync } = require('child_process');
 const path = require('path');
 
@@ -79,7 +83,7 @@ async function imageShortcode(src, alt, sizes = "100vw", loading = "lazy", imgCl
     };
 
     // Genera el HTML completo del elemento <picture>
-    return Image.generateHTML(metadata, imageAttributes);
+    return generateHTML(metadata, imageAttributes);
 }
 
 // Genera el <link rel="preload"> de una imagen que luego pintara el shortcode
@@ -139,12 +143,6 @@ async function imageUrlFilter(src) {
 }
 
 module.exports = function(eleventyConfig) {
-
-    eleventyConfig.addPlugin(sitemap, {
-        sitemap: {
-            hostname: "https://hogarterapeutico.com",
-        },
-    });
 
     eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
         if (outputPath && outputPath.endsWith(".html")) {
