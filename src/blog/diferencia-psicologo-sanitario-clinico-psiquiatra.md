@@ -22,9 +22,9 @@ faq:
 
 Buscas ayuda psicológica y te encuentras con cuatro palabras que parecen sinónimos y no lo son: psicólogo, psicólogo general sanitario, psicólogo clínico y psiquiatra. Añade «psicoterapeuta», «terapeuta» y «coach», y la confusión está servida.
 
-Es una de esas preguntas que da un poco de apuro hacer en voz alta, así que te la respondo entera y con las fuentes a la vista.
+Es una de esas preguntas que da un poco de apuro hacer en voz alta. Aquí está contestada entera, con las fuentes a la vista.
 
-Y adelanto la conclusión, porque es lo que casi nadie dice: **la diferencia no es que uno sea más serio que otro**. Son formaciones distintas con competencias distintas, y para la mayoría de motivos de consulta hay más de una respuesta válida.
+Y adelanto la conclusión: **la diferencia no es que uno sea más serio que otro**. Son formaciones distintas con competencias distintas, y para la mayoría de motivos de consulta hay más de una respuesta válida.
 
 ## Psicólogo general sanitario
 
@@ -58,7 +58,7 @@ Muchos procesos funcionan mejor con las dos cosas a la vez: la medicación baja 
 
 ## ¿Y «psicoterapeuta», «terapeuta» o «coach»?
 
-Aquí está la parte que más conviene saber, y la que casi nunca se explica.
+Aquí está la parte que más conviene saber.
 
 **«Psicólogo» es un título regulado**: exige una formación concreta, verificable, y colegiación para ejercer en el ámbito sanitario. Palabras como **«terapeuta», «coach», «consultor» o «experto en bienestar» no tienen detrás un título oficial equivalente.** Cualquiera puede usarlas.
 
@@ -76,7 +76,7 @@ Si alguien se pone a la defensiva ante esa pregunta, eso ya es una respuesta.
 
 ## ¿Y por la seguridad social?
 
-Es la pregunta que va antes que todas las demás y que casi ningún artículo escrito por una consulta privada responde, por motivos evidentes. Así que la respondo.
+Es la pregunta que va antes que todas las demás, y una consulta privada tiene un motivo evidente para pasarla por alto. La respondo igual.
 
 **Sí, hay psicología en la sanidad pública, y es gratuita.** La puerta de entrada es tu médico de familia: él valora y deriva a salud mental. Ahí te atenderá, según el caso y la comunidad, un psicólogo clínico o un psiquiatra.
 

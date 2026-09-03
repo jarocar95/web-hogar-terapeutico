@@ -28,7 +28,7 @@ La respuesta corta es que sí, y no es una impresión mía.
 
 El estudio más amplio publicado hasta la fecha sobre este asunto revisó 47 investigaciones que comparaban directamente la psicoterapia por videollamada con la presencial, sumando 3.564 participantes. Su conclusión fue que la diferencia entre ambos formatos era **insignificante**, y que la mejoría era especialmente marcada en ansiedad, depresión y estrés postraumático. Lo firman investigadores de las universidades de Texas, Deakin, Melbourne y Stanford, y puedes consultarlo en [Clinical Psychology & Psychotherapy](https://pubmed.ncbi.nlm.nih.gov/33826190/).
 
-Ahora la parte que casi nadie cuenta, y que me parece más honesta contarte.
+Hay un matiz que conviene contar, aunque no juegue del todo a favor del online.
 
 La duda de fondo no suele ser sobre los síntomas, sino sobre el vínculo: *¿se puede crear confianza real con alguien a través de una pantalla?* Ahí la evidencia ha ido cambiando. Una [revisión de 2018](https://pubmed.ncbi.nlm.nih.gov/30014606/) encontró el vínculo terapéutico algo por debajo del presencial —sin que la diferencia llegara a ser estadísticamente significativa, pero lo suficiente para no poder descartarlo—. Un [metaanálisis posterior](https://pubmed.ncbi.nlm.nih.gov/36974478/), con dieciocho estudios y más datos, **no encontró ninguna diferencia**, ni cuando la valoraban los pacientes ni cuando la valoraban los terapeutas.
 

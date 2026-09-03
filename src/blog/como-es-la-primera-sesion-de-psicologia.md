@@ -56,7 +56,7 @@ Este punto me parece importante remarcarlo: **tú decides el ritmo en todo momen
 
 ## ¿Y si me quedo en blanco?
 
-Es uno de los miedos más repetidos y casi nunca se menciona: llegar, sentarte, y descubrir que no sabes qué decir.
+Es uno de los miedos más repetidos: llegar, sentarte, y descubrir que no sabes qué decir.
 
 Pasa constantemente, y no es un problema. Entre otras cosas porque **la sesión la conduzco yo**: si te bloqueas, no vamos a quedarnos en un silencio incómodo esperando a que se te ocurra algo. Te hago preguntas concretas y tiramos del hilo desde ahí.
 
@@ -72,7 +72,7 @@ Quedarse en blanco casi nunca significa que no tengas nada que contar. Suele sig
 
 ## ¿Y si siento que no encajamos?
 
-Es una pregunta honesta que pocas veces se aborda, así que la respondo directamente: **está bien que no encaje con todo el mundo, y eso no dice nada malo ni de ti ni de la profesional**.
+Es una pregunta honesta y merece una respuesta directa: **está bien que no encaje con todo el mundo, y eso no dice nada malo ni de ti ni de la profesional**.
 
 El vínculo terapéutico es una parte fundamental del proceso, y es mejor reconocer pronto que no se está construyendo que forzarlo durante meses. Si al terminar la primera sesión sientes que no es lo que buscabas, puedes decírmelo con tranquilidad, o simplemente no continuar. Preferiría mil veces eso a que sigas por compromiso.
 
