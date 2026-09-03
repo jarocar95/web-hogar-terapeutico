@@ -9,9 +9,9 @@ tags:
   - post
 faq:
   - pregunta: "¿Qué es un psicólogo general sanitario?"
-    respuesta: "Es una profesión sanitaria titulada y regulada, creada por la disposición adicional séptima de la Ley 33/2011. Requiere el grado en Psicología más el Máster en Psicología General Sanitaria. La ley le atribuye las evaluaciones e intervenciones psicológicas sobre los aspectos del comportamiento que influyen en la salud, siempre que no requieran atención especializada de otro profesional sanitario."
+    respuesta: "Es una profesión sanitaria titulada y regulada, creada por la disposición adicional séptima de la Ley 33/2011. Requiere el grado en Psicología —o la antigua licenciatura— más el Máster en Psicología General Sanitaria. La ley le atribuye las evaluaciones e intervenciones psicológicas sobre los aspectos del comportamiento que influyen en la salud, siempre que no requieran atención especializada de otro profesional sanitario."
   - pregunta: "¿Cuál es la diferencia entre psicólogo general sanitario y psicólogo clínico?"
-    respuesta: "El psicólogo clínico tiene además el título de especialista, que se obtiene por el sistema PIR: una plaza de residencia de cuatro años a la que se accede por examen nacional. Ese título, regulado por el Real Decreto 2490/1998, es el que da acceso a las plazas de psicología clínica del sistema público de salud. Ambos son psicólogos sanitarios y ambos hacen terapia."
+    respuesta: "El psicólogo clínico tiene además el título de especialista, que se obtiene por el sistema PIR: una plaza de residencia de cuatro años a la que se accede por examen nacional. Ese título lo creó el Real Decreto 2490/1998, hoy derogado; la especialidad la regula actualmente el Real Decreto 183/2008. Es el que da acceso a las plazas de psicología clínica del sistema público de salud. Ambos son psicólogos sanitarios y ambos hacen terapia."
   - pregunta: "¿Un psicólogo puede recetar medicación?"
     respuesta: "No. En España la prescripción farmacológica corresponde a profesionales médicos. Si en algún momento tiene sentido valorar medicación, lo que hace un psicólogo es derivarte o coordinarse con tu médico de familia o con un psiquiatra."
   - pregunta: "¿Cualquiera puede llamarse terapeuta o coach?"
@@ -20,7 +20,7 @@ faq:
     respuesta: "Pídele el número de colegiada y contrástalo en el Colegio Oficial de la Psicología de su comunidad, que mantiene un registro público. Es una pregunta completamente normal y cualquier profesional te la responderá sin problema. El mío es el M-42569, del Colegio Oficial de la Psicología de Madrid."
 ---
 
-Buscas ayuda psicológica y te encuentras con cuatro palabras que parecen sinónimos y no lo son: psicólogo, psicólogo general sanitario, psicólogo clínico y psiquiatra. Añade «psicoterapeuta», «terapeuta» y «coach», y la confusión está servida.
+Buscas ayuda psicológica y te encuentras con cuatro palabras que parecen sinónimos y no lo son: psicólogo, psicólogo general sanitario, psicólogo clínico y psiquiatra. Añade "psicoterapeuta", "terapeuta" y "coach", y la confusión está servida.
 
 Es una de esas preguntas que da un poco de apuro hacer en voz alta. Aquí está contestada entera, con las fuentes a la vista.
 
@@ -28,9 +28,9 @@ Y adelanto la conclusión: **la diferencia no es que uno sea más serio que otro
 
 ## Psicólogo general sanitario
 
-Es la vía por la que ejerce la mayoría de quienes hacen terapia privada en España, y la mía.
+Es la vía habitual de quienes hacen terapia privada en España, y la mía.
 
-Es una **profesión sanitaria titulada y regulada**, creada por la [disposición adicional séptima de la Ley 33/2011, General de Salud Pública](https://www.boe.es/buscar/act.php?id=BOE-A-2011-15623). Exige dos cosas: el grado en Psicología y, además, el **Máster en Psicología General Sanitaria**.
+Es una **profesión sanitaria titulada y regulada**, creada por la [disposición adicional séptima de la Ley 33/2011, General de Salud Pública](https://www.boe.es/buscar/act.php?id=BOE-A-2011-15623). Exige dos cosas: el grado en Psicología (o la antigua licenciatura, para quien estudiara antes) y, además, el **Máster en Psicología General Sanitaria**.
 
 La ley define su campo con una frase que merece la pena leer entera, porque es exacta:
 
@@ -42,11 +42,11 @@ Traducido: puede evaluarte y hacer terapia contigo, y tiene el deber de derivart
 
 Tiene el grado, y **además el título de especialista**. Se obtiene por el sistema **PIR** —Psicólogo Interno Residente—: un examen nacional muy competido y cuatro años de residencia en el sistema de salud, igual que el MIR de los médicos.
 
-El título lo crea el [Real Decreto 2490/1998](https://www.boe.es/buscar/doc.php?id=BOE-A-1998-27709), y es el que da acceso a las plazas de psicología clínica de la sanidad pública.
+El título lo creó el [Real Decreto 2490/1998](https://www.boe.es/buscar/act.php?id=BOE-A-1998-27709), hoy derogado; la norma que ahora clasifica la Psicología Clínica como especialidad sanitaria y regula el acceso por residencia es el [Real Decreto 183/2008](https://www.boe.es/buscar/act.php?id=BOE-A-2008-3176). Ese título es el que da acceso a las plazas de psicología clínica de la sanidad pública.
 
 En la práctica: es la vía habitual para trabajar en la red pública y para los cuadros más graves o complejos. También ejercen en privada.
 
-**Los dos son psicólogos sanitarios y los dos hacen terapia.** La diferencia está en la vía formativa y en el nivel de complejidad para el que se han formado, no en si «pueden» o no atenderte.
+**Los dos son psicólogos sanitarios y los dos hacen terapia.** La diferencia está en la vía formativa y en el nivel de complejidad para el que se han formado, no en si "pueden" o no atenderte.
 
 ## Psiquiatra
 
@@ -56,11 +56,11 @@ Su diferencia práctica más importante, y la que de verdad te interesa: **es el
 
 Muchos procesos funcionan mejor con las dos cosas a la vez: la medicación baja el volumen del síntoma, y la terapia trabaja lo que hay debajo. No compiten.
 
-## ¿Y «psicoterapeuta», «terapeuta» o «coach»?
+## ¿Y "psicoterapeuta", "terapeuta" o "coach"?
 
 Aquí está la parte que más conviene saber.
 
-**«Psicólogo» es un título regulado**: exige una formación concreta, verificable, y colegiación para ejercer en el ámbito sanitario. Palabras como **«terapeuta», «coach», «consultor» o «experto en bienestar» no tienen detrás un título oficial equivalente.** Cualquiera puede usarlas.
+**"Psicólogo" es un título regulado**: exige una formación concreta, verificable, y colegiación para ejercer en el ámbito sanitario. Palabras como **"terapeuta", "coach", "consultor" o "experto en bienestar" no tienen detrás un título oficial equivalente.** Cualquiera puede usarlas.
 
 Que quede claro lo que no estoy diciendo: no estoy diciendo que quien se llame coach no valga, ni que no pueda ayudarte. Hay profesionales excelentes trabajando con esas etiquetas. Lo que digo es que **la palabra no te da la información**, y que si estás buscando atención sanitaria para algo que te está afectando a la salud, sí quieres saber qué hay detrás.
 
@@ -94,7 +94,7 @@ Sin conocerte no puedo decírtelo, pero sí puedo darte el criterio que usaría 
 * **Si lo que te pasa te está afectando al día a día** —al sueño, al trabajo, a tus relaciones— y quieres entenderlo y trabajarlo, un psicólogo sanitario, sea general o clínico, es el punto de entrada natural.
 * **Si hay síntomas físicos importantes, riesgo, o llevas mucho tiempo sin poder sostener tu vida cotidiana**, conviene que haya un médico valorándolo. Empieza por tu médico de familia, que es la puerta al resto del sistema.
 * **Si ya tomas medicación** pautada por un psiquiatra, la terapia no la sustituye: la complementa.
-* **Si dudas de si lo tuyo «da para» terapia**, esa duda concreta la desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
+* **Si dudas de si lo tuyo "da para" terapia**, esa duda concreta la desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 
 Y una cosa más, porque conviene decirla: el título te dice la formación, no el encaje. Dos profesionales con el mismo título trabajan de formas muy distintas, y el vínculo que construyas pesa tanto como las siglas. Por eso existe una primera sesión.
 

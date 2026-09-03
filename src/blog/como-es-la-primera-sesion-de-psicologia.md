@@ -13,11 +13,11 @@ faq:
   - pregunta: "¿Y si me quedo en blanco y no sé qué decir?"
     respuesta: "Pasa muchísimo y no es un problema. La sesión la guío yo: si te bloqueas, te hago preguntas concretas y tiramos del hilo desde ahí. Quedarse en blanco no significa que no tengas nada que contar, normalmente significa que hay demasiado y no sabes por dónde empezar."
   - pregunta: "¿Todo lo que cuente es confidencial?"
-    respuesta: "Sí, con las excepciones que marca la ley y el Código Deontológico: situaciones de riesgo grave para tu vida o la de otra persona, y casos de maltrato o abuso a menores o a personas con discapacidad. Fuera de eso, lo que hablamos no sale de la sesión. Te lo explico al principio, antes de que me cuentes nada."
+    respuesta: "Sí. El secreto profesional lo recoge el artículo 40 del Código Deontológico, y solo tu consentimiento expreso libera de él. Las excepciones las marca la ley, no la deontología: el deber de comunicar indicios de violencia sobre un menor, que la Ley Orgánica 8/2021 hace especialmente exigible al personal sanitario; el deber de denunciar los delitos conocidos por razón de la profesión; y el riesgo grave e inminente para tu vida o la de otra persona. Fuera de eso, lo que hablamos no sale de la sesión. Te lo explico al principio, antes de que me cuentes nada."
   - pregunta: "¿Me comprometo a algo si reservo la primera sesión?"
     respuesta: "No. La primera sesión existe precisamente para que compruebes si mi forma de trabajar encaja contigo. No hay permanencia ni compromiso de continuidad, y si decides no seguir no tienes que dar explicaciones."
   - pregunta: "¿Cuánto dura y qué pasa si la conexión falla?"
-    respuesta: "Cincuenta minutos. Si se corta la conexión, volvemos a entrar; y si el problema persiste, seguimos por teléfono o reprogramamos sin coste. Un fallo técnico no te va a costar la sesión."
+    respuesta: "50 minutos. Si se corta la conexión, volvemos a entrar; y si el problema persiste, seguimos por teléfono o reprogramamos sin coste. Un fallo técnico no te va a costar la sesión."
 ---
 
 Es de las preguntas que más me hacen antes de reservar: *"¿qué va a pasar en la primera sesión?"*. Es normal sentir nervios ante algo desconocido, sobre todo cuando se trata de hablar de ti con alguien a quien todavía no conoces. Así que vamos a quitarle el misterio del todo.
@@ -36,7 +36,13 @@ En lo práctico, si la sesión es online, solo necesitas un sitio donde puedas h
 
 Empezamos con algo sencillo: nos presentamos, y te explico cómo trabajo, qué puedes esperar del proceso y cómo funciona la confidencialidad **en la práctica**.
 
-Sobre esto último quiero ser precisa, porque se cuenta mal a menudo. Lo que hablamos en sesión está protegido por el secreto profesional, y no sale de ahí. Existen excepciones concretas, y son las que marcan la ley y el [Código Deontológico del Consejo General de la Psicología](https://www.cop.es/pdf/CodigoDeontologicodelPsicologo-vigente.pdf): situaciones de riesgo grave para tu vida o la de otra persona, y casos de maltrato o abuso a menores o a personas con discapacidad.
+Sobre esto último quiero ser precisa, porque se cuenta mal a menudo. Lo que hablamos en sesión está protegido por el secreto profesional: el [Código Deontológico del Consejo General de la Psicología](https://www.cop.es/pdf/CodigoDeontologicodelPsicologo-vigente.pdf) lo recoge en su artículo 40, y solo tu consentimiento expreso me libera de él.
+
+Las excepciones no las pone la deontología, las pone la ley, y son tres:
+
+* **Indicios de violencia sobre un menor.** Hay que comunicarlos, y la [Ley Orgánica 8/2021](https://www.boe.es/buscar/act.php?id=BOE-A-2021-9347) lo hace especialmente exigible al personal sanitario.
+* **Delitos de los que se tiene noticia por razón de la profesión.** Lo fija el [artículo 262 de la Ley de Enjuiciamiento Criminal](https://www.boe.es/buscar/act.php?id=BOE-A-1882-6036).
+* **Riesgo grave e inminente para tu vida o la de otra persona.** Ahí protegerte pesa más que callar.
 
 No te lo cuento para inquietarte, sino al revés: saber exactamente dónde están los límites es lo que permite confiar de verdad en el resto. Un "sin excepciones" sonaría mejor y sería mentira.
 
