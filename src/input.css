@@ -137,6 +137,21 @@
   .sec-head-center .eyebrow::before { @apply hidden; }
 
   .h2-display { @apply font-serif font-semibold text-[clamp(2rem,3.6vw,2.9rem)] leading-[1.12] tracking-[-.015em]; }
+
+  /* Seccion partida: el titular ancla la columna izquierda y el contenido va
+     en la derecha, mas ancha (0,8fr / 1,2fr, como en la propuesta).
+
+     Sustituye a las cabeceras centradas. En pantalla grande gana dos cosas: el
+     titular deja de competir por el centro con lo que viene justo debajo, y el
+     texto deja de estirarse a lo ancho del contenedor. La proporcion desigual
+     es la que hace que se lea como una composicion y no como dos mitades.
+
+     Por debajo de lg se apila en una columna, que es como se ve en movil: ahi
+     dos columnas dejarian medidas de linea inservibles. */
+  .sec-split {
+    @apply grid grid-cols-1 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)]
+           gap-9 lg:gap-16 items-start;
+  }
   .lead { @apply text-[clamp(1.05rem,1.5vw,1.2rem)] text-ink-soft leading-[1.65] max-w-[62ch]; }
 
   /* Aqui vivia .card, la tarjeta del disenio anterior (rounded-lg + shadow-md).
