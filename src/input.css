@@ -208,7 +208,15 @@
   }
   .chip:last-child { @apply border-b border-clay-200; }
   .chip:hover { @apply bg-clay-50; }
-  .chip > .dot { @apply w-2 h-2 rounded-full bg-clay-300 flex-none mt-[10px]; }
+  /* Numero en lugar de punto. Al pasar de tarjeta a fila, el punto ya no
+     anclaba nada: la fila necesita algo en el margen izquierdo que marque
+     donde empieza. Va en clay-400 (3,13:1) y no en clay-500: son ordinales
+     decorativos, van con aria-hidden y no aportan informacion que no este ya
+     en el texto de la fila, asi que pesa mas que queden discretos. */
+  .chip > .chip-n {
+    @apply flex-none w-[26px] font-serif text-[14px] tracking-[.06em]
+           text-clay-400 mt-[5px];
+  }
   .chip > span { @apply text-base text-ink-soft leading-[1.55] flex-1; }
   .chip-arrow {
     @apply text-clay-400 flex-none mt-[3px] ml-auto transition-[transform,color] duration-200;
@@ -216,11 +224,21 @@
   .chip:hover .chip-arrow { @apply text-clay-500 translate-x-0.5; }
 
   /* Pasos del proceso, sobre fondo oscuro */
-  .step { @apply flex gap-[22px] py-[26px] border-t border-white/[.14]; }
-  .step:last-child { @apply border-b border-white/[.14]; }
+  /* Los cuatro pasos, en columnas separadas por filete vertical.
+     Antes eran cuatro filas apiladas, y eso los leia como una lista de cosas
+     sueltas. La seccion promete un recorrido —"del primer mensaje a tu plan"—
+     y en columnas se ve entero de un vistazo. Aqui la numeracion si codifica
+     algo real, que es el orden, asi que el numero manda en cada columna en
+     vez de ir metido en una bolita.
+     En movil vuelve a apilarse: cuatro columnas a 375 px no son columnas. */
+  .pasos { @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-white/[.14]; }
+  .step {
+    @apply py-8 border-b border-white/[.14]
+           md:px-7 md:first:pl-0 lg:last:pr-0
+           lg:border-b-0 lg:border-l lg:border-white/[.14] lg:first:border-l-0;
+  }
   .step-n {
-    @apply flex-none w-11 h-11 rounded-full border border-white/30 grid place-items-center
-           font-serif text-[17px] text-sage-200;
+    @apply block font-serif text-[34px] leading-none text-sage-300 mb-[18px];
   }
 
   /* Planes de precio */
