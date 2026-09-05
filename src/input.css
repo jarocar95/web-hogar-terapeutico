@@ -191,8 +191,12 @@
   /* rounded-md2 (16px) y no 14px: 14 no estaba en la escala del sistema. */
   .card2-ico { @apply w-10 h-10 sm:w-[46px] sm:h-[46px] rounded-md2 bg-clay-50 grid place-items-center mb-3 sm:mb-[18px]; }
   .card2-ico .icon { @apply w-[22px] h-[22px] bg-clay-500; }
-  .card2-sage .card2-ico { @apply bg-sage-50; }
-  .card2-sage .card2-ico .icon { @apply bg-sage-500; }
+  /* Aqui vivia .card2-sage, que ponia el icono en verde en tres de las seis
+     areas. Alternaba por posicion, no por significado: "Trauma" en clay,
+     "Ansiedad" en verde, "Autoestima" en clay... Era el unico sitio de la web
+     donde el verde no queria decir nada, y por eso el acento se leia disperso.
+     En el resto significa siempre lo mismo —acreditado, incluido, verificado—
+     y asi funciona solo. */
 
   /* Chips de reconocimiento ("¿te reconoces en algo de esto?").
      Ahora son enlaces. Eran <div> que se elevaban al pasar el ratón sin ser
