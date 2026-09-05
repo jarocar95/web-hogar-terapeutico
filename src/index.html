@@ -113,7 +113,7 @@ heroPreload: "./src/images/hero-sala.jpg"
 </section>
 
 <!-- ========================= SOBRE MÍ ========================= -->
-<section id="about" aria-labelledby="about-title" class="bg-white">
+<section id="about" aria-labelledby="about-title">
     <div class="container grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-11 lg:gap-[72px] items-center">
         <div class="relative max-w-[340px] mx-auto lg:mx-0">
             <div class="overflow-hidden shadow-e2" style="border-radius: 200px 200px 24px 24px;">
@@ -311,7 +311,7 @@ heroPreload: "./src/images/hero-sala.jpg"
      Las tarjetas ya no son enlaces a Doctoralia. Eran el unico elemento
      clicable en el pico de confianza y mandaban a un directorio lleno de
      psicologos alternativos, en pestania nueva, justo antes del calendario. -->
-<section id="testimonials" aria-labelledby="testimonials-title" class="bg-clay-50 !py-16 lg:!py-20">
+<section id="testimonials" aria-labelledby="testimonials-title" class="!py-16 lg:!py-20">
     <div class="container">
         <div class="flex flex-wrap items-end justify-between gap-6 mb-11">
             <div>
@@ -372,7 +372,7 @@ heroPreload: "./src/images/hero-sala.jpg"
 </section>
 
 <!-- ========================= FAQ ========================= -->
-<section id="faq" aria-labelledby="faq-title" class="bg-clay-50">
+<section id="faq" aria-labelledby="faq-title">
     <div class="container">
         <div class="sec-split">
             <div>
@@ -429,7 +429,7 @@ heroPreload: "./src/images/hero-sala.jpg"
      Misma logica de calendario de siempre: mismos IDs (#calendar-container,
      #available-times), mismo horarios.json, mismo flujo a WhatsApp. Cambia la
      presentacion y se aniade la salida para quien no puede en ese horario. -->
-<section id="booking-calendar" aria-labelledby="calendar-title" class="bg-white">
+<section id="booking-calendar" aria-labelledby="calendar-title" class="bg-clay-50">
     <div class="container">
         <div class="sec-head-row mb-[52px]">
             <div>
@@ -462,10 +462,11 @@ heroPreload: "./src/images/hero-sala.jpg"
              px-4 + esta caja + la tarjeta interior), y entre los tres dejaban
              al calendario menos de 250 px: siete columnas ahí salen a 30 px,
              por debajo de cualquier zona táctil razonable. -->
-        <div class="border border-clay-100 rounded-xl2 bg-canvas p-4 sm:p-8 lg:p-11 shadow-e1 max-w-5xl mx-auto">
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div class="bg-white border border-clay-100 rounded-lg2 p-4 sm:p-6">
+        <!-- Un solo recuadro partido por un filete, no dos cajas metidas en una
+             tercera. La caja exterior era un marco alrededor de dos marcos. -->
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2
+                    bg-white border border-clay-100 rounded-lg2 overflow-hidden shadow-e1">
+                <div class="p-5 sm:p-7">
                     <h3 class="font-serif text-base font-semibold mb-1">Selecciona una fecha</h3>
                     <p class="text-ink-mute text-[13.5px]">Los días con hueco aparecen resaltados</p>
                     <div id="calendar-container" class="mt-4 w-full"></div>
@@ -474,7 +475,7 @@ heroPreload: "./src/images/hero-sala.jpg"
                          dispararía en bucle. Lo rellena booking-calendar.ts. -->
                     <div id="calendar-hint-slot" class="mt-3"></div>
                 </div>
-                <div class="bg-white border border-clay-100 rounded-lg2 p-6">
+                <div class="p-5 sm:p-7 border-t border-clay-100 lg:border-t-0 lg:border-l lg:border-clay-100">
                     <!-- La zona horaria importa: la web dice "terapia online en
                          toda España" y Canarias va una hora por detrás. -->
                     <h3 class="font-serif text-base font-semibold mb-1">Horas disponibles <span class="font-sans text-[13px] font-normal text-ink-mute">(hora peninsular)</span></h3>
@@ -499,21 +500,20 @@ heroPreload: "./src/images/hero-sala.jpg"
                 ¿Ningún horario te encaja?
                 <a href="https://wa.me/34621348616?text=Hola%20Angie%2C%20me%20gustar%C3%ADa%20reservar%20pero%20ning%C3%BAn%20horario%20del%20calendario%20me%20encaja.%20%C2%BFPodr%C3%ADamos%20buscar%20otro%3F" target="_blank" rel="noopener noreferrer" class="text-clay-600 font-semibold underline underline-offset-2 hover:text-clay-700">Escríbeme y buscamos uno</a>.
             </p>
-        </div>
     </div>
 </section>
 
 <!-- ========================= CONTACTO ========================= -->
-<section id="contact" aria-labelledby="contact-title" class="bg-clay-800 text-white">
+<section id="contact" aria-labelledby="contact-title">
     <div class="container grid grid-cols-1 lg:grid-cols-[1.1fr_.9fr] gap-11 lg:gap-14 items-start">
         <div>
-            <span class="eyebrow eyebrow-on-dark">Contacto</span>
+            <span class="eyebrow">Contacto</span>
             <!-- "¿Prefieres escribirme primero?" se escribio cuando el
                  formulario mandaba en esta seccion. Ahora que WhatsApp va
                  delante, "hablamos" describe mejor lo que pasa de verdad: una
                  conversacion, no un formulario que se envia al vacio. -->
-            <h2 id="contact-title" class="h2-display text-white">¿Hablamos antes de reservar?</h2>
-            <p class="lead text-white/[.82] mt-4">Si tienes dudas, escríbeme y te respondo yo. No hay plantillas, ni recepción, ni compromiso de reservar después.</p>
+            <h2 id="contact-title" class="h2-display">¿Hablamos antes de reservar?</h2>
+            <p class="lead mt-4">Si tienes dudas, escríbeme y te respondo yo. No hay plantillas, ni recepción, ni compromiso de reservar después.</p>
 
             <!-- WhatsApp es el canal preferido, y el peso visual lo dice: es el
                  unico bloque solido de esta columna. Antes los tres canales
@@ -539,15 +539,15 @@ heroPreload: "./src/images/hero-sala.jpg"
             <!-- El correo sigue estando: es una alternativa real para quien no
                  usa WhatsApp o prefiere dejarlo por escrito. Solo deja de
                  competir de tu a tu con el canal preferente. -->
-            <div class="mt-6 pt-6 border-t border-white/20 grid gap-3 text-[15px]">
-                <p class="text-white/[.82]">
-                    <span class="text-white/60">¿Prefieres el correo?</span>
-                    <a href="mailto:info@hogarterapeutico.com" class="text-white font-semibold underline underline-offset-4 decoration-white/40 hover:decoration-white">info@hogarterapeutico.com</a>
+            <div class="mt-6 pt-6 border-t border-clay-100 grid gap-3 text-[15px]">
+                <p class="text-ink-soft">
+                    <span class="text-ink-mute">¿Prefieres el correo?</span>
+                    <a href="mailto:info@hogarterapeutico.com" class="text-clay-600 font-semibold underline underline-offset-4 decoration-clay-300 hover:text-clay-700 hover:decoration-clay-500">info@hogarterapeutico.com</a>
                 </p>
                 <!-- "Horario de atencion", no "Horario" a secas: es la ventana en
                      la que respondo, no la de sesiones disponibles. Sin ese
                      matiz, 9:00-20:00 se leia como horas reservables. -->
-                <p class="text-white/[.70] text-sm">
+                <p class="text-ink-mute text-sm">
                     <i class="ri-time-line align-[-2px] mr-1" aria-hidden="true"></i>
                     Horario de atención: lunes a viernes, de 9:00 a 20:00
                 </p>

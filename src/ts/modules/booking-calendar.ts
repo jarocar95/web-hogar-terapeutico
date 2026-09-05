@@ -73,7 +73,7 @@ function displayAvailableTimes(schedule: Schedule, availableTimesContainer: HTML
         // aria-label explicito: "10:00" a secas no dice a un lector de pantalla
         // ni el dia ni que el enlace abre WhatsApp fuera del sitio.
         const etiqueta = `Reservar el ${fechaFormateada} a las ${hora} — se abre WhatsApp`;
-        html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" aria-label="${etiqueta}" class="flex items-center justify-center min-h-[44px] rounded-sm2 bg-sage-50 border border-sage-200 text-sage-700 font-semibold text-[14.5px] no-underline transition-colors hover:bg-sage-200">${hora}</a>`;
+        html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" aria-label="${etiqueta}" class="flex items-center justify-center min-h-[44px] rounded-sm2 bg-clay-50 border border-clay-200 text-clay-700 font-semibold text-[14.5px] no-underline transition-colors hover:bg-clay-200">${hora}</a>`;
     });
 
     html += '</div>';
