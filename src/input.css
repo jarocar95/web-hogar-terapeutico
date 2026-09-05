@@ -132,8 +132,11 @@
     content: "";
     @apply w-[26px] h-[1.5px] bg-clay-300;
   }
-  .eyebrow-on-dark { @apply text-sage-200; }
-  .eyebrow-on-dark::before { @apply bg-sage-500; }
+  /* Un solo antetitulo para las tres secciones oscuras. Antes esta clase iba
+     en verde y el hero y contacto la sobreescribian en linea con !important
+     para ponerla en clay: ahora la regla es la misma para los tres. */
+  .eyebrow-on-dark { @apply text-clay-200; }
+  .eyebrow-on-dark::before { @apply bg-clay-300; }
   .sec-head-center .eyebrow::before { @apply hidden; }
 
   .h2-display { @apply font-serif font-semibold text-[clamp(2rem,3.6vw,2.9rem)] leading-[1.12] tracking-[-.015em]; }
@@ -259,7 +262,7 @@
            lg:border-b-0 lg:border-l lg:border-white/[.14] lg:first:border-l-0;
   }
   .step-n {
-    @apply block font-serif text-[34px] leading-none text-sage-300 mb-[18px];
+    @apply block font-serif text-[34px] leading-none text-clay-300 mb-[18px];
   }
 
   /* Planes de precio */
@@ -295,20 +298,20 @@
   .tst:hover { @apply -translate-y-[3px] shadow-e2; }
 
   /* Acordeon de preguntas */
-  .acc > details { @apply border-b border-sage-200; }
-  .acc > details:first-child { @apply border-t border-sage-200; }
+  .acc > details { @apply border-b border-clay-200; }
+  .acc > details:first-child { @apply border-t border-clay-200; }
   .acc summary {
     @apply py-[22px] px-1 min-h-[44px] flex gap-5 items-center justify-between
            font-serif text-[19px] font-semibold text-ink tracking-[-.01em];
   }
   .acc summary:hover { @apply text-clay-600; }
   .acc .plus {
-    @apply flex-none w-[26px] h-[26px] rounded-full border border-sage-300 grid place-items-center
+    @apply flex-none w-[26px] h-[26px] rounded-full border border-clay-300 grid place-items-center
            relative transition-[transform,background-color] duration-200;
   }
   .acc .plus::before, .acc .plus::after {
     content: "";
-    @apply absolute bg-sage-700 rounded-sm;
+    @apply absolute bg-clay-600 rounded-sm;
   }
   /* El "más" se convierte en "menos" girando el trazo vertical hasta tumbarlo
      sobre el horizontal, y desvaneciéndolo a la vez. Antes el rotate iba en el
@@ -320,7 +323,7 @@
     @apply w-[1.6px] h-[11px];
     transition: transform .28s cubic-bezier(.2,.7,.3,1), opacity .2s ease-out;
   }
-  .acc details[open] .plus { @apply bg-sage-200 border-sage-200; }
+  .acc details[open] .plus { @apply bg-clay-200 border-clay-200; }
   .acc details[open] .plus::after {
     transform: rotate(90deg);
     opacity: 0;
