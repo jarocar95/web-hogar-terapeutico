@@ -93,14 +93,14 @@ export class EnhancedContactForm {
 
                 // Show validation on focus
                 field.addEventListener('focus', () => {
-                    const formGroup = field.closest('.form-group');
+                    const formGroup = field.closest('.fld');
                     if (formGroup) {
                         formGroup.classList.add('focused');
                     }
                 });
 
                 field.addEventListener('blur', () => {
-                    const formGroup = field.closest('.form-group');
+                    const formGroup = field.closest('.fld');
                     if (formGroup) {
                         formGroup.classList.remove('focused');
                     }
@@ -116,11 +116,21 @@ export class EnhancedContactForm {
         const field = this.fields[fieldName];
         if (!field) return false;
 
-        const formGroup = field.closest('.form-group');
-        if (!formGroup) return false;
-
-        const errorElement = formGroup.querySelector('.field-error');
-        if (!errorElement) return false;
+        // El envoltorio se llama .fld. Antes se buscaba .form-group, que era el
+        // nombre de una version anterior del marcado: al renombrarlo, esto
+        // dejaba de encontrarlo.
+        //
+        // Y lo grave no era el nombre, era que la funcion devolvia false —o
+        // sea, "campo invalido"— en cuanto no encontraba el envoltorio o el
+        // hueco del mensaje de error. Con eso, los cuatro campos salian
+        // invalidos SIEMPRE y el formulario contestaba "corrige los errores"
+        // por muy bien rellenado que estuviera: no se podia enviar. Un cambio
+        // de clase en el HTML desactivaba el formulario entero en silencio.
+        //
+        // Ahora la validacion no depende del andamiaje: si falta, se valida
+        // igual y solo se pierde el mensaje visual.
+        const grupo = field.closest('.fld');
+        const errorElement = grupo ? grupo.querySelector('.field-error') : null;
 
         let value: string | boolean = field.value;
         if (field.type === 'checkbox' && 'checked' in field) {
@@ -132,18 +142,20 @@ export class EnhancedContactForm {
         if (error) {
             field.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/20');
             field.classList.remove('border-green-500', 'focus:border-green-500', 'focus:ring-green-500/20');
-            errorElement.textContent = error;
-            errorElement.classList.remove('hidden');
-            formGroup.classList.add('has-error');
+            if (errorElement) {
+                errorElement.textContent = error;
+                errorElement.classList.remove('hidden');
+            }
+            grupo?.classList.add('has-error');
             return false;
-        } else {
-            field.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/20');
-            field.classList.add('border-green-500', 'focus:border-green-500', 'focus:ring-green-500/20');
-            errorElement.classList.add('hidden');
-            formGroup.classList.remove('has-error');
-            formGroup.classList.add('is-valid');
-            return true;
         }
+
+        field.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/20');
+        field.classList.add('border-green-500', 'focus:border-green-500', 'focus:ring-green-500/20');
+        errorElement?.classList.add('hidden');
+        grupo?.classList.remove('has-error');
+        grupo?.classList.add('is-valid');
+        return true;
     }
 
     /**

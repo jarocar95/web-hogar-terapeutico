@@ -70,7 +70,14 @@ test.describe('Mobile Menu', () => {
     await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
   });
 
-  test('should maintain focus management within menu', async ({ page }) => {
+  test('should maintain focus management within menu', async ({ page, browserName }) => {
+    // Safari no lleva el foco a los enlaces con Tab: por defecto solo recorre
+    // controles de formulario, salvo que el usuario active "Pulsar Tab para
+    // resaltar cada elemento". Es comportamiento de la plataforma, no del
+    // sitio, y no hay forma de recorrer el menu con teclado ahi. El resto de
+    // navegadores si cubren esta prueba.
+    test.skip(browserName === 'webkit', 'Safari no tabula a los enlaces por defecto');
+
     const menuButton = page.locator('#menu-btn-fixed');
     const mobileMenu = page.locator('#mobile-menu-fixed');
 

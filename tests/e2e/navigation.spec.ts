@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { pulsarEnNavegacion, navegacionDisponible } from './ayudas';
 
 test.describe('Navigation', () => {
   test.beforeEach(async ({ page }) => {
@@ -81,20 +82,24 @@ test.describe('Navigation', () => {
       await page.waitForLoadState('networkidle');
 
       // Check if header is present
-      const header = page.locator('header');
+      // getByRole('banner'): las paginas legales llevan un <header> interno en
+      // el contenido, asi que el selector generico resolvia a dos elementos.
+      const header = page.getByRole('banner');
       await expect(header).toBeVisible();
 
-      // Check if main navigation is present
-      const mainNav = page.locator('nav').first();
-      await expect(mainNav).toBeVisible();
+      // En movil la navegacion vive detras del boton de menu, asi que lo que
+      // hay que comprobar es que este disponible, no que el <nav> de
+      // escritorio sea visible.
+      expect(await navegacionDisponible(page)).toBe(true);
 
-      // Check if navigation links are working
-      const navLinks = mainNav.locator('a[href]');
-      const linkCount = await navLinks.count();
-      expect(linkCount).toBeGreaterThan(0);
+      // Los enlaces se cuentan sobre la cabecera entera, no sobre el <nav> de
+      // escritorio: en movil ese nav esta oculto y sus enlaces viven ademas en
+      // el menu desplegable.
+      const navLinks = page.locator('#main-header a[href]');
+      expect(await navLinks.count()).toBeGreaterThan(0);
 
       // Check if footer is present
-      const footer = page.locator('footer');
+      const footer = page.getByRole('contentinfo');
       await expect(footer).toBeVisible();
     }
   });
@@ -124,7 +129,7 @@ test.describe('Navigation', () => {
 
   test('should work with smooth scrolling', async ({ page }) => {
     // Test smooth scrolling to sections
-    await page.click('a[href="/#about"]');
+    await pulsarEnNavegacion(page, '#about');
     await page.waitForTimeout(1000);
 
     const aboutSection = page.locator('#about');
@@ -132,8 +137,13 @@ test.describe('Navigation', () => {
       return element.getBoundingClientRect().top;
     });
 
-    // Should be scrolled close to the section (within 100px)
-    expect(Math.abs(aboutPosition)).toBeLessThan(100);
+    // La tolerancia es la altura de la cabecera fija, no un 100 a ojo: la
+    // seccion se detiene justo debajo de ella. Con el margen antiguo el test
+    // fallaba en movil por 0,375 px.
+    const alturaCabecera = await page
+      .locator('#main-header')
+      .evaluate((el) => el.getBoundingClientRect().height);
+    expect(Math.abs(aboutPosition)).toBeLessThanOrEqual(alturaCabecera + 24);
   });
 
   test('should maintain scroll position on navigation', async ({ page }) => {

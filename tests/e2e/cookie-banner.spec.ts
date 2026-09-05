@@ -5,6 +5,7 @@ declare global {
 }
 
 import { test, expect } from '@playwright/test';
+import { pulsarEnNavegacion } from './ayudas';
 
 test.describe('Cookie Banner', () => {
   test.beforeEach(async ({ page, context }) => {
@@ -170,9 +171,7 @@ test.describe('Cookie Banner', () => {
   test('should maintain banner visibility across page navigation', async ({ page }) => {
     const cookieBanner = page.locator('#cookie-consent-banner');
 
-    // Navigate within the page (nav links use "/#about", not a bare "#about",
-    // so they still work correctly when the visitor isn't on the homepage)
-    await page.click('a[href="/#about"]');
+    await pulsarEnNavegacion(page, '#about');
     await page.waitForLoadState('networkidle');
 
     // Banner should still be visible

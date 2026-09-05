@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { pulsarEnNavegacion } from './ayudas';
 
 test.describe('Scroll Effects', () => {
   test.beforeEach(async ({ page }) => {
@@ -6,102 +7,58 @@ test.describe('Scroll Effects', () => {
     await page.waitForLoadState('networkidle');
   });
 
-  test('should shrink header on scroll', async ({ page }) => {
+  // La cabecera ya no encoge al hacer scroll. Encogia de 5rem a 4rem y movia
+  // con ella el padding del body, o sea que desplazaba el documento entero
+  // 16 px a mitad de scroll: se midio CLS 0,40. Ahora mantiene la altura y solo
+  // gana una sombra, que es lo que se comprueba aqui.
+  test('gana sombra al hacer scroll, sin cambiar de altura', async ({ page }) => {
     const header = page.locator('#main-header');
-    const body = page.locator('body');
 
-    // Initial state
     await expect(header).toHaveClass(/h-20/);
-    await expect(body).toHaveClass(/pt-20/);
-    await expect(header).not.toHaveClass(/h-16/);
-    await expect(body).not.toHaveClass(/pt-16/);
+    await expect(header).not.toHaveClass(/shadow-e1/);
 
-    // Scroll down
-    await page.evaluate(() => {
-      window.scrollTo(0, 100);
-    });
+    await page.evaluate(() => window.scrollTo(0, 100));
+    await expect(header).toHaveClass(/shadow-e1/);
 
-    await page.waitForTimeout(300); // Wait for debounce
-
-    // Scrolled state
-    await expect(header).toHaveClass(/h-16/);
-    await expect(body).toHaveClass(/pt-16/);
-    await expect(header).not.toHaveClass(/h-20/);
-    await expect(body).not.toHaveClass(/pt-20/);
-
-    // Add shadow when scrolled
-    await expect(header).toHaveClass(/shadow-lg/);
-
-    // Scroll back to top
-    await page.evaluate(() => {
-      window.scrollTo(0, 0);
-    });
-
-    await page.waitForTimeout(300);
-
-    // Should return to initial state
+    // La altura no se toca: es justo lo que provocaba el salto de layout.
     await expect(header).toHaveClass(/h-20/);
-    await expect(body).toHaveClass(/pt-20/);
-    await expect(header).not.toHaveClass(/h-16/);
-    await expect(body).not.toHaveClass(/pt-16/);
-    await expect(header).not.toHaveClass(/shadow-lg/);
+
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await expect(header).not.toHaveClass(/shadow-e1/);
   });
 
-  test('should show mobile CTA bar on scroll down', async ({ page }) => {
-    // Set mobile viewport
+  // La barra fija no depende de la direccion del scroll, sino de si estan a la
+  // vista el hero, el calendario o el contacto: ofrecer "Reservar" cuando ya
+  // estas dentro de la seccion de reserva es ruido.
+  test('la barra fija aparece fuera del hero y se esconde dentro de reserva', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
+    const barra = page.locator('#mobile-cta-bar');
 
-    const mobileCtaBar = page.locator('#mobile-cta-bar');
+    // En el hero no se ve.
+    await expect(barra).not.toHaveClass(/is-visible/);
 
-    // Initially hidden
-    await expect(mobileCtaBar).toHaveClass(/(^|\s)hidden(\s|$)/);
-    await expect(mobileCtaBar).toHaveClass(/opacity-0/);
+    // En una zona intermedia si.
+    await page.locator('#services-pricing').scrollIntoViewIfNeeded();
+    await expect(barra).toHaveClass(/is-visible/);
 
-    // Scroll down past threshold (150px)
-    await page.evaluate(() => {
-      window.scrollTo(0, 200);
-    });
-
-    await page.waitForTimeout(500); // Wait for debounce
-
-    // Should become visible
-    await expect(mobileCtaBar).not.toHaveClass(/(^|\s)hidden(\s|$)/);
-    await expect(mobileCtaBar).not.toHaveClass(/opacity-0/);
-
-    // Scroll back up near top
-    await page.evaluate(() => {
-      window.scrollTo(0, 30);
-    });
-
-    await page.waitForTimeout(500);
-
-    // Should hide again
-    await expect(mobileCtaBar).toHaveClass(/opacity-0/);
-
-    // Wait for transition
-    await page.waitForTimeout(500);
-
-    await expect(mobileCtaBar).toHaveClass(/(^|\s)hidden(\s|$)/);
+    // Dentro del calendario vuelve a esconderse.
+    await page.locator('#booking-calendar').scrollIntoViewIfNeeded();
+    await expect(barra).not.toHaveClass(/is-visible/);
   });
 
-  test('should handle scroll events with debounce', async ({ page }) => {
+  test('aguanta muchos eventos de scroll seguidos', async ({ page }) => {
     const header = page.locator('#main-header');
 
-    // Initial state
-    await expect(header).toHaveClass(/h-20/);
-
-    // Rapid scroll events
     await page.evaluate(() => {
       window.scrollTo(0, 50);
       window.scrollTo(0, 100);
       window.scrollTo(0, 150);
       window.scrollTo(0, 200);
     });
+    await expect(header).toHaveClass(/shadow-e1/);
 
-    await page.waitForTimeout(200); // Wait for debounce
-
-    // Should only apply final state
-    await expect(header).toHaveClass(/h-16/);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await expect(header).not.toHaveClass(/shadow-e1/);
   });
 
   test('should maintain scroll position on window resize', async ({ page }) => {
@@ -172,9 +129,7 @@ test.describe('Scroll Effects', () => {
 
     expect(hasSmoothScroll).toBe(true);
 
-    // Test smooth scrolling to section (nav links use "/#about", not a bare
-    // "#about", so they still work correctly from any page, not just "/")
-    await page.click('a[href="/#about"]');
+    await pulsarEnNavegacion(page, '#about');
     await page.waitForTimeout(1500);
 
     const aboutSection = page.locator('#about');
@@ -182,32 +137,24 @@ test.describe('Scroll Effects', () => {
       return element.getBoundingClientRect().top;
     });
 
-    // Should be close to the section
-    expect(Math.abs(aboutPosition)).toBeLessThan(100);
+    // La tolerancia es la altura de la cabecera fija, no un 100 a ojo: la
+    // seccion se detiene justo debajo de ella. Con el margen antiguo el test
+    // fallaba en movil por 0,375 px.
+    const alturaCabecera = await page
+      .locator('#main-header')
+      .evaluate((el) => el.getBoundingClientRect().height);
+    expect(Math.abs(aboutPosition)).toBeLessThanOrEqual(alturaCabecera + 24);
   });
 
-  test('should handle scroll effects during page transitions', async ({ page }) => {
-    // Scroll down
-    await page.evaluate(() => {
-      window.scrollTo(0, 200);
-    });
-
-    await page.waitForTimeout(300);
-
+  test('el estado de la cabecera se reinicia al cambiar de pagina', async ({ page }) => {
     const header = page.locator('#main-header');
-    await expect(header).toHaveClass(/h-16/);
 
-    // Navigate to another page
-    await page.goto('/aviso-legal/');
+    await page.evaluate(() => window.scrollTo(0, 300));
+    await expect(header).toHaveClass(/shadow-e1/);
+
+    await page.goto('/blog/');
     await page.waitForLoadState('networkidle');
-
-    // Scroll position should be reset
-    const scrollPosition = await page.evaluate(() => window.scrollY);
-    expect(scrollPosition).toBe(0);
-
-    // Header should be in initial state
-    const blogHeader = page.locator('#main-header');
-    await expect(blogHeader).toHaveClass(/h-20/);
+    await expect(page.locator('#main-header')).not.toHaveClass(/shadow-e1/);
   });
 
   test('should be performant with many scroll events', async ({ page }) => {

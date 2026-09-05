@@ -15,9 +15,13 @@ test.describe('Accessibility', () => {
     await expect(page.locator('body')).toBeVisible();
 
     // Check for semantic elements
-    await expect(page.locator('header')).toBeVisible();
+    await expect(page.getByRole('banner')).toBeVisible();
     await expect(page.locator('main')).toBeVisible();
-    await expect(page.locator('footer')).toBeVisible();
+    // getByRole('contentinfo') y no locator('footer'): las tarjetas de opinion
+    // usan <footer> para la firma, asi que el selector generico resolvia a
+    // cuatro elementos y fallaba por modo estricto. El rol solo lo tiene el
+    // pie de la pagina.
+    await expect(page.getByRole('contentinfo')).toBeVisible();
 
     // Check for navigation
     const navElements = page.locator('nav');
@@ -90,9 +94,12 @@ test.describe('Accessibility', () => {
       const alt = await image.getAttribute('alt');
       const role = await image.getAttribute('role');
 
-      // Images should have alt text unless they're decorative
+      // alt="" ES la forma correcta de marcar una imagen decorativa, igual de
+      // valida que role="presentation": lo que no vale es que falte el
+      // atributo. La foto del hero lo lleva vacio a proposito para que el
+      // lector de pantalla no la anuncie antes del titular.
       if (role !== 'presentation' && role !== 'none') {
-        expect(alt).toBeTruthy();
+        expect(alt, `la imagen ${i} no tiene atributo alt`).not.toBeNull();
       }
     }
   });
@@ -127,8 +134,12 @@ test.describe('Accessibility', () => {
 
   test('should have proper focus management', async ({ page }) => {
     // Test focus styles
+    // :visible por el mismo motivo que en el test de color: los cinco primeros
+    // por orden del DOM incluyen enlaces de la navegacion de escritorio, que en
+    // movil van ocultos. focus() sobre un elemento con display:none no cambia
+    // document.activeElement, asi que el test fallaba por el selector.
     const focusableElements = page.locator(
-      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])'
+      'a[href]:visible, button:not([disabled]):visible, input:not([disabled]):visible, select:not([disabled]):visible, textarea:not([disabled]):visible'
     );
 
     const elementCount = await focusableElements.count();
@@ -203,7 +214,9 @@ test.describe('Accessibility', () => {
 
   test('should have proper color contrast', async ({ page }) => {
     // This is a basic contrast test - in production, you'd use axe-core or similar
-    const textElements = page.locator('p, span, h1, h2, h3, h4, h5, h6, a, button');
+    // :visible: si no, los cinco primeros por orden del DOM incluyen enlaces de
+    // la navegacion de escritorio, que en movil estan ocultos a proposito.
+    const textElements = page.locator('p:visible, span:visible, h1:visible, h2:visible, h3:visible, a:visible, button:visible');
     const elementCount = await textElements.count();
 
     expect(elementCount).toBeGreaterThan(0);

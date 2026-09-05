@@ -470,6 +470,16 @@ heroPreload: "./src/images/hero-sala.jpg"
                     <h3 class="font-serif text-base font-semibold mb-1">Selecciona una fecha</h3>
                     <p class="text-ink-mute text-[13.5px]">Los días con hueco aparecen resaltados</p>
                     <div id="calendar-container" class="mt-4 w-full"></div>
+                    <!-- El calendario lo pinta JavaScript entero, asi que sin
+                         el aqui solo quedaba una caja vacia y ninguna forma de
+                         reservar. Esto deja siempre una salida. -->
+                    <noscript>
+                        <p class="mt-4 text-[14.5px] text-ink-soft">
+                            El calendario necesita JavaScript.
+                            <a href="https://wa.me/34621348616?text=Hola%20Angie%2C%20me%20gustar%C3%ADa%20reservar%20una%20primera%20sesi%C3%B3n." target="_blank" rel="noopener noreferrer" class="text-clay-600 font-semibold underline underline-offset-2 hover:text-clay-700">Escríbeme por WhatsApp</a>
+                            y buscamos hueco.
+                        </p>
+                    </noscript>
                     <!-- Fuera de #calendar-container a propósito: ese nodo lo
                          vigila un MutationObserver, y escribir aquí dentro lo
                          dispararía en bucle. Lo rellena booking-calendar.ts. -->

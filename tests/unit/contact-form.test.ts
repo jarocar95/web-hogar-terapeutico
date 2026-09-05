@@ -11,22 +11,22 @@ import { EnhancedContactForm } from '../../src/ts/modules/enhanced-contact-form'
 const montarFormulario = (): void => {
   document.body.innerHTML = `
     <form id="contactForm" action="https://formspree.io/f/test" method="post">
-      <div class="form-group">
+      <div class="fld">
         <label for="name">Nombre</label>
         <input type="text" id="name" name="name" required>
         <p class="field-error hidden"></p>
       </div>
-      <div class="form-group">
+      <div class="fld">
         <label for="email">Correo</label>
         <input type="email" id="email" name="email" required>
         <p class="field-error hidden"></p>
       </div>
-      <div class="form-group">
+      <div class="fld">
         <label for="message">Mensaje</label>
         <textarea id="message" name="message" required></textarea>
         <p class="field-error hidden"></p>
       </div>
-      <div class="form-group">
+      <div class="fld">
         <input type="checkbox" id="privacy" name="privacy" required>
         <p class="field-error hidden"></p>
       </div>
@@ -49,6 +49,12 @@ const enviar = (): void => {
     .dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
 };
 
+// El envoltorio de cada campo se llama .fld, igual que en src/index.html.
+// Este fixture usaba .form-group, que era el nombre de una version anterior del
+// marcado. Como el modulo tambien buscaba .form-group, las pruebas pasaban en
+// verde mientras en produccion no encontraba nada y daba TODOS los campos por
+// invalidos: el formulario no se podia enviar. Un fixture que no coincide con
+// el HTML real no prueba nada, solo da confianza falsa.
 describe('EnhancedContactForm', () => {
   beforeEach(() => {
     (fetch as jest.Mock).mockClear();
@@ -83,7 +89,7 @@ describe('EnhancedContactForm', () => {
       enviar();
 
       expect(fetch).not.toHaveBeenCalled();
-      const error = el.closest('.form-group')!.querySelector('.field-error')!;
+      const error = el.closest('.fld')!.querySelector('.field-error')!;
       expect(error.textContent).toContain(mensajeEsperado);
       expect(error.classList.contains('hidden')).toBe(false);
     });
@@ -96,7 +102,7 @@ describe('EnhancedContactForm', () => {
 
       expect(fetch).not.toHaveBeenCalled();
       const error = document.getElementById('privacy')!
-        .closest('.form-group')!.querySelector('.field-error')!;
+        .closest('.fld')!.querySelector('.field-error')!;
       expect(error.textContent).toContain('política de privacidad');
     });
 
