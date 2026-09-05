@@ -180,12 +180,12 @@ heroPreload: "./src/images/hero-sala.jpg"
      "Confirma por WhatsApp" dentro del calendario. -->
 <section aria-labelledby="proceso-title" class="bg-sage-800 text-white">
     <div class="container">
-        <div class="sec-split mb-[52px]">
+        <div class="sec-head-row mb-[52px]">
             <div>
                 <span class="eyebrow eyebrow-on-dark">Cómo trabajo</span>
                 <h2 id="proceso-title" class="h2-display text-white">Del primer mensaje a tu plan de terapia</h2>
             </div>
-            <p class="lead text-white/[.78] lg:pt-2">Sin sorpresas ni compromisos de permanencia. Esto es exactamente lo que pasa cuando decides empezar.</p>
+            <p class="lead text-white/[.78]">Sin sorpresas ni compromisos de permanencia. Esto es exactamente lo que pasa cuando decides empezar.</p>
         </div>
         <div class="pasos">
             <div class="step">
@@ -211,12 +211,12 @@ heroPreload: "./src/images/hero-sala.jpg"
 <!-- ========================= ÁREAS ========================= -->
 <section id="areas-of-intervention" aria-labelledby="areas-title">
     <div class="container">
-        <div class="sec-split mb-[52px]">
+        <div class="sec-head-row mb-[52px]">
             <div>
                 <span class="eyebrow">Especialización</span>
                 <h2 id="areas-title" class="h2-display">¿En qué puedo ayudarte?</h2>
             </div>
-            <p class="lead lg:pt-2">Estas son las áreas que trabajo con más frecuencia, siempre con un enfoque integrador y adaptado a ti.</p>
+            <p class="lead">Estas son las áreas que trabajo con más frecuencia, siempre con un enfoque integrador y adaptado a ti.</p>
         </div>
         <!-- Dos columnas ya en móvil. A una sola, las seis tarjetas ocupaban
              2.067 px: 2,6 pantallas, más alto que la sección de Angie, y era
@@ -313,15 +313,22 @@ heroPreload: "./src/images/hero-sala.jpg"
         <div>
             <div class="plan plan-featured">
                 <span class="plan-tag">Empieza aquí</span>
-                <h3 class="font-serif text-xl font-semibold">Primera sesión</h3>
-                <div class="plan-amt flex items-baseline gap-2 mt-3.5 mb-1"><b>35€</b><span class="text-[14.5px] text-ink-mute">una sola vez</span></div>
-                <p class="text-[15px] text-ink-soft pb-[22px] border-b border-clay-100">50 minutos · videollamada</p>
+                <div class="flex items-start justify-between gap-5 pb-[22px] border-b border-clay-100">
+                    <div>
+                        <h3 class="font-serif text-xl font-semibold">Primera sesión</h3>
+                        <p class="text-[15px] text-ink-soft mt-2">50 minutos · videollamada</p>
+                    </div>
+                    <div class="plan-amt flex-none text-right">
+                        <b>35€</b>
+                        <span class="block text-[13.5px] text-ink-mute mt-1">una sola vez</span>
+                    </div>
+                </div>
                 <ul class="list-none my-[22px] grid gap-3 p-0">
                     <li class="flex gap-3 items-start text-[15.5px] text-ink-soft"><i class="ri-check-line text-sage-500 mt-1 flex-none" aria-hidden="true"></i>Evaluación inicial de tu situación</li>
                     <li class="flex gap-3 items-start text-[15.5px] text-ink-soft"><i class="ri-check-line text-sage-500 mt-1 flex-none" aria-hidden="true"></i>Espacio para tus dudas, sin compromiso</li>
                     <li class="flex gap-3 items-start text-[15.5px] text-ink-soft"><i class="ri-check-line text-sage-500 mt-1 flex-none" aria-hidden="true"></i>Propuesta de plan terapéutico personalizado</li>
                 </ul>
-                <p class="pt-[18px] mb-[22px] border-t border-clay-100 text-[14.5px] text-ink-soft">
+                <p class="plan-nota">
                     <span class="text-ink font-semibold">Después, 50€ por sesión.</span>
                     Sin cuotas ni permanencia: pagas solo las que haces.
                 </p>
@@ -456,7 +463,7 @@ heroPreload: "./src/images/hero-sala.jpg"
      presentacion y se aniade la salida para quien no puede en ese horario. -->
 <section id="booking-calendar" aria-labelledby="calendar-title" class="bg-white">
     <div class="container">
-        <div class="sec-split mb-[52px]">
+        <div class="sec-head-row mb-[52px]">
             <div>
             <span class="eyebrow">Reserva</span>
             <!-- "Da el primer paso hacia tu bienestar" es la frase que podria
@@ -468,7 +475,7 @@ heroPreload: "./src/images/hero-sala.jpg"
                  frase preparaba una decepcion a dos lineas de distancia. -->
             <h2 id="calendar-title" class="h2-display">Elige cuándo nos conocemos</h2>
             </div>
-            <div class="lg:pt-2">
+            <div>
             <p class="lead">Tu primera sesión son 50 minutos por 35€. Estos son los huecos que tengo abiertos ahora mismo.</p>
             <!-- El calendario siempre ha servido para todo el mundo: mismos
                  huecos, mismo mecanismo, y el mensaje que envía dice "reservar
@@ -488,29 +495,6 @@ heroPreload: "./src/images/hero-sala.jpg"
              al calendario menos de 250 px: siete columnas ahí salen a 30 px,
              por debajo de cualquier zona táctil razonable. -->
         <div class="border border-clay-100 rounded-xl2 bg-canvas p-4 sm:p-8 lg:p-11 shadow-e1 max-w-5xl mx-auto">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                <div class="flex gap-3.5 items-start">
-                    <b class="flex-none w-7 h-7 rounded-full bg-clay-500 text-white text-[13px] font-bold grid place-items-center font-sans" aria-hidden="true">1</b>
-                    <!-- Antes decia "Los dias con hueco se resaltan", lo mismo
-                         que el panel de al lado a 20 px de distancia. Y el
-                         paso 2 prometia "la que mejor te convenga", la misma
-                         promesa que el subtitulo ya no hace porque los huecos
-                         son de maniana entre semana. -->
-                    <p class="text-[14.5px] font-semibold text-ink">Elige el día<small class="block font-normal text-ink-mute text-[13.5px]">Entre los que tengo abiertos</small></p>
-                </div>
-                <div class="flex gap-3.5 items-start">
-                    <b class="flex-none w-7 h-7 rounded-full bg-clay-500 text-white text-[13px] font-bold grid place-items-center font-sans" aria-hidden="true">2</b>
-                    <p class="text-[14.5px] font-semibold text-ink">Elige la hora<small class="block font-normal text-ink-mute text-[13.5px]">Sesiones de 50 minutos</small></p>
-                </div>
-                <div class="flex gap-3.5 items-start">
-                    <b class="flex-none w-7 h-7 rounded-full bg-clay-500 text-white text-[13px] font-bold grid place-items-center font-sans" aria-hidden="true">3</b>
-                    <p class="text-[14.5px] font-semibold text-ink">Confirmamos<small class="block font-normal text-ink-mute text-[13.5px]">Te escribo por WhatsApp</small></p>
-                </div>
-                <div class="flex gap-3.5 items-start">
-                    <b class="flex-none w-7 h-7 rounded-full bg-clay-500 text-white text-[13px] font-bold grid place-items-center font-sans" aria-hidden="true">4</b>
-                    <p class="text-[14.5px] font-semibold text-ink">Tu sesión<small class="block font-normal text-ink-mute text-[13.5px]">Videollamada segura</small></p>
-                </div>
-            </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="bg-white border border-clay-100 rounded-lg2 p-4 sm:p-6">

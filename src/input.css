@@ -152,6 +152,22 @@
     @apply grid grid-cols-1 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)]
            gap-9 lg:gap-16 items-start;
   }
+
+  /* Variante para las secciones cuya columna derecha es solo un parrafo de
+     apoyo y el contenido de verdad va debajo a todo lo ancho.
+
+     Aqui no vale la reticula de .sec-split: con una columna fija de 0,8fr, un
+     titular como "Del primer mensaje a tu plan de terapia" se parte en dos
+     lineas aunque quepa de sobra en una. En fila, el titular ocupa lo que
+     necesita y el texto de apoyo se queda en una columna estrecha al final,
+     que es lo que hace la maqueta. */
+  .sec-head-row {
+    @apply flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-14;
+  }
+  /* 30ch y no 34: con 34 al titular mas largo ("Del primer mensaje a tu plan
+     de terapia") le faltaban 10 px para caber en una linea, medido en
+     pantalla. Estrechar el parrafo se los da con margen. */
+  .sec-head-row > :last-child { @apply lg:flex-none lg:max-w-[30ch] lg:pt-2; }
   .lead { @apply text-[clamp(1.05rem,1.5vw,1.2rem)] text-ink-soft leading-[1.65] max-w-[62ch]; }
 
   /* Aqui vivia .card, la tarjeta del disenio anterior (rounded-lg + shadow-md).
@@ -251,7 +267,17 @@
     @apply absolute -top-[13px] left-[30px] bg-clay-500 text-white text-[12px] font-bold
            tracking-[.1em] uppercase px-3.5 py-1.5 rounded-full;
   }
-  .plan-amt b { @apply font-serif text-[48px] font-semibold tracking-[-.03em] text-clay-700; }
+  /* leading-none: sin esto el <b> hereda el interlineado del cuerpo (1,625) y
+     un numero de 48 px ocupa 78 px de alto, lo que abria un hueco muerto entre
+     el precio y el "una sola vez" de debajo. */
+  .plan-amt b { @apply block font-serif text-[48px] leading-none font-semibold tracking-[-.03em] text-clay-700; }
+  /* El precio de seguimiento en banda, no en texto corrido. Es el dato que
+     mas se pregunta despues del de la primera sesion y estaba al mismo peso
+     que el resto de la letra pequenia. */
+  .plan-nota {
+    @apply bg-clay-50 rounded-sm2 px-[18px] py-4 mb-[22px]
+           text-[14.5px] leading-[1.55] text-ink-soft;
+  }
 
   /* Testimonios */
   .tst {
@@ -367,7 +393,8 @@
     backdrop-filter: blur(14px);
   }
   .sticky-cta.is-visible { @apply opacity-100 translate-y-0 pointer-events-auto; }
-  .sticky-cta .btn { @apply flex-1 px-4 py-3 text-[14.5px]; }
+  .sticky-cta .btn { @apply flex-none px-5 py-3 text-[14.5px]; }
+  .sticky-cta { @apply items-center pl-4; }
 
   /* Hueco al final del documento para que la barra fija no se coma la última
      línea. Medido antes: el copyright llegaba a 737 px y la barra empezaba en
