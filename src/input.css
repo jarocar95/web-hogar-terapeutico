@@ -162,12 +162,17 @@
      necesita y el texto de apoyo se queda en una columna estrecha al final,
      que es lo que hace la maqueta. */
   .sec-head-row {
-    @apply flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-14;
+    @apply flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-14;
   }
-  /* 30ch y no 34: con 34 al titular mas largo ("Del primer mensaje a tu plan
-     de terapia") le faltaban 10 px para caber en una linea, medido en
-     pantalla. Estrechar el parrafo se los da con margen. */
-  .sec-head-row > :last-child { @apply lg:flex-none lg:max-w-[30ch] lg:pt-2; }
+  /* El parrafo arranca justo despues del titular (por eso no hay
+     justify-between: eso lo empujaba contra el borde derecho) y crece hasta
+     llenar lo que queda, con un tope de 42ch para no pasarse de medida de
+     linea. Antes estaba fijado a 30ch y pegado a la derecha, y en la seccion
+     de reserva eso lo partia en siete lineas. */
+  /* El tope va en rem y no en ch: ch se calcula sobre el tamanio de fuente del
+     propio elemento, asi que en una seccion el limite salia 494 px y en otra
+     411 px con la misma regla. En rem es el mismo ancho en las tres. */
+  .sec-head-row > :last-child { @apply lg:flex-1 lg:max-w-[30rem] lg:pt-2; }
   .lead { @apply text-[clamp(1.05rem,1.5vw,1.2rem)] text-ink-soft leading-[1.65] max-w-[62ch]; }
 
   /* Aqui vivia .card, la tarjeta del disenio anterior (rounded-lg + shadow-md).
@@ -263,9 +268,12 @@
            flex flex-col shadow-e1 relative;
   }
   .plan-featured { @apply border-[1.5px] border-clay-400 shadow-e2; }
+  /* Etiqueta dentro de la tarjeta y no colgando del borde. Como pildora
+     absoluta se comia el borde superior y competia con el precio; como
+     antetitulo hace el mismo trabajo sin ruido, que es lo que hace la maqueta. */
   .plan-tag {
-    @apply absolute -top-[13px] left-[30px] bg-clay-500 text-white text-[12px] font-bold
-           tracking-[.1em] uppercase px-3.5 py-1.5 rounded-full;
+    @apply block font-sans text-[12px] font-bold tracking-[.14em] uppercase
+           text-clay-600 mb-2;
   }
   /* leading-none: sin esto el <b> hereda el interlineado del cuerpo (1,625) y
      un numero de 48 px ocupa 78 px de alto, lo que abria un hueco muerto entre
