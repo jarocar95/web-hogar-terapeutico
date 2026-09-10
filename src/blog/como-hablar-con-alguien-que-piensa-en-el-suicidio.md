@@ -26,6 +26,18 @@ Voy a empezar por ahí, porque es lo que desbloquea todo lo demás.
 
 > **Si estás en una situación urgente ahora mismo**, llama al **[024](tel:024)**, la línea de atención a la conducta suicida: gratuita, confidencial y disponible las 24 horas. Si hay riesgo inminente —la persona ya se está haciendo daño o tiene los medios delante—, llama al **[112](tel:112)**.
 
+## Y si quien lo está pensando eres tú
+
+Puede que hayas entrado aquí buscando para otra persona y en realidad estés buscando para ti. Si es así, esto es lo que me importa que leas antes de seguir.
+
+**No hace falta que sea una emergencia para llamar al [024](tel:024).** Está para quien tiene esos pensamientos, no solo para quien ya tiene un plan. Es gratuita, confidencial y funciona a cualquier hora, también un domingo por la noche.
+
+**Y casi nadie en esta situación lo tiene decidido del todo.** No es una frase de consuelo: la [OPS/OMS](https://www.paho.org/es/campanas/mitos-acerca-suicidio) lo recoge como uno de los mitos que hay que desmontar —quienes están así **suelen ser ambivalentes** respecto a la vida y la muerte—. Esa parte de ti que ha llegado hasta este párrafo cuenta tanto como la otra.
+
+Lo único que te pido es lo tercero: **díselo a una persona**. Una sola. No hace falta que sea la indicada ni que sepa qué contestar. Decirlo en voz alta delante de alguien le quita a esto una parte del peso que no se nota hasta que se hace.
+
+El resto del artículo está escrito para quien acompaña. Si quieres, pásaselo a esa persona: le va a servir para saber qué hacer contigo.
+
 ## Preguntar no le da la idea
 
 Es el mito que más silencio provoca, y es falso.
