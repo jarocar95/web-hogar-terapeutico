@@ -32,13 +32,18 @@ pagination:
         {#- Destacado. La portada usa la misma proporcion 16/10 que las
             tarjetas de abajo, para que ninguna imagen se vea con una forma
             distinta segun donde aparezca. -#}
-        <article class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 lg:mb-20">
+        {#- Sin portada no se pinta el hueco: el bloque de color vacio de 16/10
+            no se lee como una decision, se lee como una imagen que no ha
+            cargado. Un articulo puede no llevar foto a proposito —en temas
+            donde una imagen de archivo sobra o estorba— y entonces el texto
+            ocupa el ancho completo. -#}
+        <article class="grid grid-cols-1 {% if featuredPost.data.featured_image %}lg:grid-cols-2{% endif %} gap-8 lg:gap-12 items-center mb-16 lg:mb-20">
+            {% if featuredPost.data.featured_image %}
             <a href="{{ featuredPost.url }}" class="block rounded-lg2 overflow-hidden shadow-e1 aspect-[16/10] bg-clay-100" tabindex="-1" aria-hidden="true">
-                {% if featuredPost.data.featured_image %}
-                    {% image featuredPost.data.featured_image, featuredPost.data.image_alt or "", "(min-width: 1024px) 50vw, 100vw", "eager", "w-full h-full object-cover" %}
-                {% endif %}
+                {% image featuredPost.data.featured_image, featuredPost.data.image_alt or "", "(min-width: 1024px) 50vw, 100vw", "eager", "w-full h-full object-cover" %}
             </a>
-            <div>
+            {% endif %}
+            <div class="{% if not featuredPost.data.featured_image %}max-w-[62ch]{% endif %}">
                 <span class="eyebrow">Último artículo</span>
                 <h2 class="font-serif font-semibold text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.18] tracking-[-.015em] mb-4">
                     <a href="{{ featuredPost.url }}" class="text-ink transition-colors hover:text-clay-600">{{ featuredPost.data.title }}</a>
@@ -64,11 +69,11 @@ pagination:
                         rejilla todas se ven exactamente igual. Antes cada
                         portada imponia su propia altura y las tarjetas de una
                         misma fila salian descuadradas. -#}
+                    {% if post.data.featured_image %}
                     <div class="aspect-[16/10] bg-clay-100 overflow-hidden flex-none">
-                        {% if post.data.featured_image %}
-                            {% image post.data.featured_image, post.data.image_alt or "", "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" %}
-                        {% endif %}
+                        {% image post.data.featured_image, post.data.image_alt or "", "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" %}
                     </div>
+                    {% endif %}
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-serif text-[19px] font-semibold leading-snug mb-2.5 text-ink transition-colors group-hover:text-clay-600">
                             {{ post.data.title }}
