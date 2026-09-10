@@ -5,3 +5,9 @@
 # sitemap. La carpeta se copia entera por passthrough, asi que el README llega
 # igual a /fonts/README.md, que es donde tiene sentido.
 src/fonts/README.md
+
+# Mismo caso, otra vez: src/images/blog/CREDITOS.md anota el origen y la
+# licencia de las portadas del blog. Es una nota interna, pero Eleventy la
+# compilaba y la publicaba en /images/blog/CREDITOS/, que acababa en el
+# sitemap y se le ofrecia a Google como si fuera contenido.
+src/images/blog/CREDITOS.md
