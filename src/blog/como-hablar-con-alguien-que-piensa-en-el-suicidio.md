@@ -3,6 +3,8 @@ layout: post.njk
 title: "Cómo hablar con alguien que puede estar pensando en el suicidio"
 description: "Si te preocupa alguien y no sabes qué decir: por qué preguntar no le da la idea, qué decir y qué no, y qué hacer después. Con el 024, que también es para ti."
 date: 2026-09-10
+featured_image: "./src/images/blog/hablar-con-alguien-suicidio.jpg"
+image_alt: "Tres tazas de café servidas sobre una mesa de madera junto a una ventana, con la luz entrando suave."
 tags:
   - post
 faq:
