@@ -1,0 +1,5 @@
+# Entorno y binarios derivados: se reconstruyen con ./generar.sh
+venv/
+salida/
+fuentes/
+__pycache__/
