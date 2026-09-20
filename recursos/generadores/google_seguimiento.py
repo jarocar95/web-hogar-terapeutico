@@ -13,6 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 AQUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DESTINO = os.path.join(AQUI, 'google', 'seguimiento.gs')
 
+from ascii_seguro import a_ascii
 from contenido.seguimiento import (PHQ9, GAD7, FRECUENCIA, FUNCIONAMIENTO,
                                    DIFICULTAD, ENCABEZADO, CORTES_PHQ, CORTES_GAD)
 
@@ -37,6 +38,8 @@ var PHQ9       = %(phq9)s;
 var GAD7       = %(gad7)s;
 var FUNCION    = %(funcion)s;
 var ENCABEZADO = %(encabezado)s;
+var CORTES_PHQ = %(cortes_phq)s;
+var CORTES_GAD = %(cortes_gad)s;
 
 var TITULO = 'Cuestionario de seguimiento';
 var AYUDA  = 'Tus respuestas las ve únicamente tu psicóloga. No hay respuestas '
@@ -154,7 +157,7 @@ function crearTodo() {
 /** Enlace con el campo Código ya escrito. Se sustituye el testigo por el real. */
 function urlPrerrellenado(form, itemCodigo) {
   var r = form.createResponse();
-  r.withItemResponse(itemCodigo.asTextItem().createResponse('CODIGO_AQUI'));
+  r.withItemResponse(itemCodigo.createResponse('CODIGO_AQUI'));
   return r.toPrefilledUrl();
 }
 
@@ -263,8 +266,11 @@ texto = PLANTILLA % {
     'gad7': js(GAD7),
     'funcion': js(FUNCIONAMIENTO),
     'encabezado': js(ENCABEZADO),
+    'cortes_phq': js([list(c) for c in CORTES_PHQ]),
+    'cortes_gad': js([list(c) for c in CORTES_GAD]),
     'editar': js('PEGAR_AQUI_LA_URL_DE_EDICION'),
 }
+texto = a_ascii(texto)
 os.makedirs(os.path.dirname(DESTINO), exist_ok=True)
-open(DESTINO, 'w', encoding='utf-8').write(texto)
+open(DESTINO, 'w', encoding='ascii').write(texto)
 print(f'  {os.path.relpath(DESTINO, AQUI)} · {len(texto)} bytes')

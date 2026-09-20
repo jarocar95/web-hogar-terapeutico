@@ -16,6 +16,14 @@ ficheros: no crea formularios ni escribe fórmulas, así que no servía.
 puntos de corte, ni avisos clínicos. Todo eso vive en la hoja de Angie, a la que
 el paciente no tiene acceso por diseño, no por acuerdo.
 
+## Ya desplegado
+
+El proyecto **Cuestionario de seguimiento - Hogar Terapeutico** vive en la cuenta
+de Angie (info@hogarterapeutico.com). El formulario y su hoja se crearon el 20 de
+septiembre de 2026.
+
+Si hay que rehacerlo o crear otro instrumento, el procedimiento es el de abajo.
+
 ## Desplegar
 
 1. Entrar en [script.google.com](https://script.google.com) **con la cuenta de
@@ -60,6 +68,18 @@ RGPD**. Hace falta:
 - Añadir a Google como encargado del tratamiento en el registro de actividades.
 - Actualizar la política de privacidad de la web, que hoy dice que no se pide
   ningún dato de salud.
+
+## El .gs sale en ASCII puro, y es a propósito
+
+El portapapeles de macOS etiqueta lo que copia como Mac Roman. Al pegar en el
+editor de Apps Script, cada vocal acentuada llegaba partida en dos símbolos y los
+enunciados quedaban inservibles: «decaído» aparecía como «deca√≠do» en el
+formulario que iba a ver el paciente.
+
+Por eso `ascii_seguro.py` escapa los acentos a `\uXXXX` dentro de las cadenas y
+translitera los comentarios. El fichero es ASCII, da igual por dónde viaje, y
+JavaScript resuelve los escapes al ejecutar. **No "arreglar" esos escapes
+poniendo los acentos de vuelta.**
 
 ## No editar el .gs a mano
 
