@@ -42,6 +42,37 @@ var TITULO = 'Cuestionario de seguimiento';
 var AYUDA  = 'Tus respuestas las ve únicamente tu psicóloga. No hay respuestas '
            + 'correctas ni incorrectas.';
 
+// Cláusula del artículo 13 del RGPD. Va antes de la primera pregunta porque la
+// información hay que darla EN EL MOMENTO de recoger el dato, no después.
+// Las respuestas son datos de salud: categoría especial del artículo 9.
+var AVISO_RGPD = [
+  'Protección de datos',
+  '',
+  'Responsable: Angie Sánchez Gallego, psicóloga general sanitaria, colegiada '
+  + 'M-42569. Contacto: info@hogarterapeutico.com',
+  '',
+  'Para qué: seguir la evolución de tu tratamiento. Tus respuestas son datos '
+  + 'de salud y solo las consulta tu psicóloga.',
+  '',
+  'Por qué podemos tratarlos: porque tú lo consientes al responder, y porque '
+  + 'son necesarios para tu asistencia sanitaria (artículo 9.2 del RGPD).',
+  '',
+  'No se te pide el nombre: el cuestionario se identifica con un código que solo '
+  + 'tu psicóloga sabe a quién corresponde.',
+  '',
+  'Quién más interviene: las respuestas se guardan en Google Workspace, que '
+  + 'actúa como encargado del tratamiento.',
+  '',
+  'Cuánto se conservan: mientras dure el tratamiento y después el plazo que exige '
+  + 'la normativa sanitaria sobre historia clínica.',
+  '',
+  'Tus derechos: puedes acceder, rectificar, suprimir, oponerte o retirar el '
+  + 'consentimiento escribiendo a info@hogarterapeutico.com. Responder es '
+  + 'voluntario y no responder no afecta a tu atención.',
+  '',
+  'Más información: hogarterapeutico.com/politica-privacidad'
+].join('\\n');
+
 function crearTodo() {
   var form = FormApp.create(TITULO);
   form.setDescription(ENCABEZADO + '\\n\\n' + AYUDA);
@@ -52,6 +83,10 @@ function crearTodo() {
 
   // El código va prerrellenado en el enlace; se deja editable porque Forms no
   // permite bloquearlo, pero el paciente no tiene que tocarlo.
+  form.addSectionHeaderItem()
+      .setTitle('Antes de empezar')
+      .setHelpText(AVISO_RGPD);
+
   var codigo = form.addTextItem()
       .setTitle('Código')
       .setHelpText('Ya viene puesto. Déjalo como está.')
