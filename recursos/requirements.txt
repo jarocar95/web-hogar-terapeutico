@@ -3,3 +3,4 @@ svglib
 fonttools
 brotli
 pypdf
+openpyxl
