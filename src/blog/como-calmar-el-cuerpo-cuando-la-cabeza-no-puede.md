@@ -90,7 +90,7 @@ Y lo segundo: **quédate con dos o tres, no con todas**. La constancia importa m
   <form data-guia-form
         data-guia="sistema-nervioso"
         data-token="hogarterapeutico-guia-2026"
-        data-endpoint="PENDIENTE_URL_DEL_SCRIPT"
+        data-endpoint="https://script.google.com/macros/s/AKfycbwrDMZfp_OtSnLpdyzUNJzZLSaXIvJKKdLoAb8fMMVt5q7R3MR3WvL9v0Gxsjzoidq6Xw/exec"
         class="space-y-4">
     <div class="fld">
       <label for="guia-email">Tu correo</label>
