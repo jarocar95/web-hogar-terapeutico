@@ -34,7 +34,7 @@ Psicóloga General Sanitaria · Col. M-42569
 hogarterapeutico.com
 
 ---
-Recibes este correo porque lo pediste en hogarterapeutico.com. Tu dirección se ha usado solo para este envío: no estás en ninguna lista y no recibirás nada más. Si quieres que la borremos, responde a este correo y se hace."""
+Recibes este correo porque lo pediste en hogarterapeutico.com el __FECHA__. Tu dirección se ha usado solo para este envío: no estás en ninguna lista y no recibirás nada más. Si quieres que la borremos, responde a este correo y se hace."""
 
 PLANTILLA = '''/**
  * Envio de la guia del sistema nervioso · Hogar Terapeutico
@@ -88,7 +88,7 @@ function doPost(e) {
     MailApp.sendEmail({
       to: correo,
       subject: ASUNTO,
-      body: CUERPO,
+      body: cuerpoDeHoy(),
       name: REMITENTE,
       replyTo: 'info@hogarterapeutico.com'
     });
@@ -102,6 +102,22 @@ function doPost(e) {
 
 function doGet() {
   return responde(false, 'Este endpoint solo acepta envios del formulario.');
+}
+
+/**
+ * Gmail agrupa por asunto y esconde el texto repetido de un hilo detras de un
+ * "...". Si alguien pide la guia dos veces, el segundo correo le llega en
+ * blanco. La fecha rompe esa coincidencia, y de paso le dice al que la recibe
+ * cuando la pidio.
+ */
+function cuerpoDeHoy() {
+  var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
+               'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  // Con la hora, no solo la fecha: lo normal es que quien la repida lo haga el
+  // mismo dia, y entonces dos cuerpos con la misma fecha volverian a ser iguales.
+  var p = Utilities.formatDate(new Date(), 'Europe/Madrid', "d|M|yyyy|HH:mm").split('|');
+  var fecha = p[0] + ' de ' + MESES[Number(p[1]) - 1] + ' de ' + p[2] + ' a las ' + p[3];
+  return CUERPO.replace('__FECHA__', fecha);
 }
 
 function responde(ok, mensaje) {
@@ -150,7 +166,7 @@ function preparar() {
 
 /** Comprobacion sin pasar por la web. envioDePrueba('tu@correo.com') */
 function envioDePrueba(correo) {
-  MailApp.sendEmail({ to: correo, subject: ASUNTO, body: CUERPO,
+  MailApp.sendEmail({ to: correo, subject: ASUNTO, body: cuerpoDeHoy(),
                       name: REMITENTE, replyTo: 'info@hogarterapeutico.com' });
   Logger.log('Enviado a ' + correo + '. Comprueba desde que direccion llega.');
   Logger.log('Cuota de envio restante hoy: ' + MailApp.getRemainingDailyQuota());

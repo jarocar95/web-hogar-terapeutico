@@ -18,7 +18,7 @@
 
 var ENLACE = "https://hogarterapeutico.com/guias/tecnicas-para-calmar-el-sistema-nervioso.pdf";
 var ASUNTO = "Tu gu\u00eda para calmar el sistema nervioso";
-var CUERPO = "Hola:\n\nAqu\u00ed tienes la gu\u00eda que pediste, con las diecisiete t\u00e9cnicas:\n\nhttps://hogarterapeutico.com/guias/tecnicas-para-calmar-el-sistema-nervioso.pdf\n\nUn consejo antes de empezar: no las practiques todas. Qu\u00e9date con dos o tres que encajen contigo y convi\u00e9rtelas en costumbre. La constancia importa mucho m\u00e1s que la variedad.\n\nY pract\u00edcalas cuando est\u00e9s tranquilo, no solo cuando las necesites. As\u00ed tu cuerpo ya sabr\u00e1 el camino cuando haga falta.\n\nSi algo de lo que hay ah\u00ed te remueve, o te surge cualquier duda, puedes responder a este correo.\n\nUn saludo,\n\nAngie S\u00e1nchez Gallego\nPsic\u00f3loga General Sanitaria \u00b7 Col. M-42569\nhogarterapeutico.com\n\n---\nRecibes este correo porque lo pediste en hogarterapeutico.com. Tu direcci\u00f3n se ha usado solo para este env\u00edo: no est\u00e1s en ninguna lista y no recibir\u00e1s nada m\u00e1s. Si quieres que la borremos, responde a este correo y se hace.";
+var CUERPO = "Hola:\n\nAqu\u00ed tienes la gu\u00eda que pediste, con las diecisiete t\u00e9cnicas:\n\nhttps://hogarterapeutico.com/guias/tecnicas-para-calmar-el-sistema-nervioso.pdf\n\nUn consejo antes de empezar: no las practiques todas. Qu\u00e9date con dos o tres que encajen contigo y convi\u00e9rtelas en costumbre. La constancia importa mucho m\u00e1s que la variedad.\n\nY pract\u00edcalas cuando est\u00e9s tranquilo, no solo cuando las necesites. As\u00ed tu cuerpo ya sabr\u00e1 el camino cuando haga falta.\n\nSi algo de lo que hay ah\u00ed te remueve, o te surge cualquier duda, puedes responder a este correo.\n\nUn saludo,\n\nAngie S\u00e1nchez Gallego\nPsic\u00f3loga General Sanitaria \u00b7 Col. M-42569\nhogarterapeutico.com\n\n---\nRecibes este correo porque lo pediste en hogarterapeutico.com el __FECHA__. Tu direcci\u00f3n se ha usado solo para este env\u00edo: no est\u00e1s en ninguna lista y no recibir\u00e1s nada m\u00e1s. Si quieres que la borremos, responde a este correo y se hace.";
 var REMITENTE = 'Angie S\u00e1nchez \u00b7 Hogar Terap\u00e9utico';
 
 // No es seguridad de verdad: el token viaja en el HTML de la pagina. Sirve para
@@ -50,7 +50,7 @@ function doPost(e) {
     MailApp.sendEmail({
       to: correo,
       subject: ASUNTO,
-      body: CUERPO,
+      body: cuerpoDeHoy(),
       name: REMITENTE,
       replyTo: 'info@hogarterapeutico.com'
     });
@@ -64,6 +64,22 @@ function doPost(e) {
 
 function doGet() {
   return responde(false, 'Este endpoint solo acepta envios del formulario.');
+}
+
+/**
+ * Gmail agrupa por asunto y esconde el texto repetido de un hilo detras de un
+ * "...". Si alguien pide la guia dos veces, el segundo correo le llega en
+ * blanco. La fecha rompe esa coincidencia, y de paso le dice al que la recibe
+ * cuando la pidio.
+ */
+function cuerpoDeHoy() {
+  var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
+               'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  // Con la hora, no solo la fecha: lo normal es que quien la repida lo haga el
+  // mismo dia, y entonces dos cuerpos con la misma fecha volverian a ser iguales.
+  var p = Utilities.formatDate(new Date(), 'Europe/Madrid', "d|M|yyyy|HH:mm").split('|');
+  var fecha = p[0] + ' de ' + MESES[Number(p[1]) - 1] + ' de ' + p[2] + ' a las ' + p[3];
+  return CUERPO.replace('__FECHA__', fecha);
 }
 
 function responde(ok, mensaje) {
@@ -112,7 +128,7 @@ function preparar() {
 
 /** Comprobacion sin pasar por la web. envioDePrueba('tu@correo.com') */
 function envioDePrueba(correo) {
-  MailApp.sendEmail({ to: correo, subject: ASUNTO, body: CUERPO,
+  MailApp.sendEmail({ to: correo, subject: ASUNTO, body: cuerpoDeHoy(),
                       name: REMITENTE, replyTo: 'info@hogarterapeutico.com' });
   Logger.log('Enviado a ' + correo + '. Comprueba desde que direccion llega.');
   Logger.log('Cuota de envio restante hoy: ' + MailApp.getRemainingDailyQuota());
