@@ -12,21 +12,20 @@ AQUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DESTINO = os.path.join(AQUI, 'google', 'guia.gs')
 from ascii_seguro import a_ascii
 
+# Un parrafo por linea, sin cortes a mano. El cliente de correo envuelve segun el
+# ancho que tenga; si venimos ya cortados a 80, en el movil cada linea se parte
+# otra vez y el texto queda desmigado.
 CUERPO = """Hola:
 
 Aquí tienes la guía que pediste, con las diecisiete técnicas:
 
 %(enlace)s
 
-Un consejo antes de empezar: no las practiques todas. Quédate con dos o tres que
-encajen contigo y conviértelas en costumbre. La constancia importa mucho más que
-la variedad.
+Un consejo antes de empezar: no las practiques todas. Quédate con dos o tres que encajen contigo y conviértelas en costumbre. La constancia importa mucho más que la variedad.
 
-Y practícalas cuando estés tranquilo, no solo cuando las necesites. Así tu cuerpo
-ya sabrá el camino cuando haga falta.
+Y practícalas cuando estés tranquilo, no solo cuando las necesites. Así tu cuerpo ya sabrá el camino cuando haga falta.
 
-Si algo de lo que hay ahí te remueve, o te surge cualquier duda, puedes responder
-a este correo.
+Si algo de lo que hay ahí te remueve, o te surge cualquier duda, puedes responder a este correo.
 
 Un saludo,
 
@@ -35,9 +34,7 @@ Psicóloga General Sanitaria · Col. M-42569
 hogarterapeutico.com
 
 ---
-Recibes este correo porque lo pediste en hogarterapeutico.com. Tu dirección se ha
-usado solo para este envío: no estás en ninguna lista y no recibirás nada más.
-Si quieres que la borremos, responde a este correo y se hace."""
+Recibes este correo porque lo pediste en hogarterapeutico.com. Tu dirección se ha usado solo para este envío: no estás en ninguna lista y no recibirás nada más. Si quieres que la borremos, responde a este correo y se hace."""
 
 PLANTILLA = '''/**
  * Envio de la guia del sistema nervioso · Hogar Terapeutico
