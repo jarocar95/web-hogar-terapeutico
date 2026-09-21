@@ -1,4 +1,8 @@
 User-agent: *
 Disallow:
 
+# Las guias se piden desde su articulo, que es donde tienen contexto.
+# Indexar el PDF suelto lo dejaria sin ese contexto.
+Disallow: /guias/
+
 Sitemap: https://hogarterapeutico.com/sitemap.xml

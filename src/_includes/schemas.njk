@@ -297,7 +297,9 @@
   "@type": "BlogPosting",
   "headline": "{{ title }}",
   "description": "{{ description }}",
+{%- if featured_image %}
   "image": "https://hogarterapeutico.com{{ featured_image | imageUrl }}",
+{%- endif %}
   "author": {
     "@type": "Person",
     "@id": "https://hogarterapeutico.com/#angie",

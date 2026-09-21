@@ -22,3 +22,15 @@ dramaticas, nada de la estetica de "sesion de terapia" con cuaderno y sofa. La
 guia de escritura segura desaconseja la imagen dramatizada, y ademas choca con
 la paleta calida del sitio. Mejor una escena cotidiana y calida, con o sin
 personas.
+
+## calmar-sistema-nervioso.jpg
+
+- **Artículo:** Cómo calmar la ansiedad cuando decirte «cálmate» no sirve de nada
+- **Autor:** Anton Sobotyak (@a_sobotyak)
+- **Origen:** Unsplash · https://unsplash.com/photos/the-sun-is-shining-through-the-curtains-on-a-bed-VPFi-s-xyXU
+- **Licencia:** Unsplash License (gratuita, uso comercial permitido, sin atribución obligatoria).
+  Comprobado que NO es Unsplash+: la primera candidata que encontré sí lo era y esa es de pago.
+- **Modificaciones:** recortada de 2400x3200 a 2400x1500 para dejarla apaisada como el resto
+  de portadas, centrada en la ventana y la luz.
+- **Anotado:** 21 de septiembre de 2026
+

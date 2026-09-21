@@ -170,6 +170,10 @@ module.exports = function(eleventyConfig) {
         "node_modules/litepicker/dist/css/litepicker.css": "vendor/litepicker.css",
     });
     eleventyConfig.addPassthroughCopy("./src/robots.txt");
+    // Las guias descargables. No son plantillas, asi que no entran en
+    // collections.all y el sitemap no las recoge; robots.txt las excluye ademas
+    // para que no compitan en buscador con el articulo que las presenta.
+    eleventyConfig.addPassthroughCopy("./src/guias");
     // Clave de IndexNow. Se sirve en la raiz del dominio y su contenido es
     // exactamente su propio nombre de archivo: asi comprueba Bing que quien
     // avisa controla el sitio. No es un secreto, tiene que ser publica.
