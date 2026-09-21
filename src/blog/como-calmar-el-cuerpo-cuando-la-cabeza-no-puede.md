@@ -87,11 +87,11 @@ Y lo segundo: **quédate con dos o tres, no con todas**. La constancia importa m
   <p class="text-ink-soft mb-1">Estas cuatro son las que más me piden. Hay trece más: respiración de coherencia cardíaca, masaje del punto vagal, gárgaras, relajación muscular progresiva, exposición controlada al frío…</p>
   <p class="text-ink-soft mb-5">Te la mando al correo. Es un PDF, son seis páginas y no hay que registrarse en nada.</p>
 
-  <form action="https://formspree.io/f/meoznqqk" method="POST" class="space-y-4">
-    <input type="hidden" name="_subject" value="Solicitud de la guía del sistema nervioso">
-    <input type="hidden" name="peticion" value="guia-sistema-nervioso">
-    <input type="hidden" name="_autoresponse" value="Aquí tienes la guía que pediste: https://hogarterapeutico.com/guias/tecnicas-para-calmar-el-sistema-nervioso.pdf&#10;&#10;Son diecisiete técnicas. No las practiques todas: quédate con dos o tres y conviértelas en costumbre.&#10;&#10;Si algo de lo que hay ahí te remueve o te surge alguna duda, puedes responder a este correo.&#10;&#10;Angie Sánchez Gallego&#10;Psicóloga General Sanitaria · Col. M-42569&#10;hogarterapeutico.com">
-
+  <form data-guia-form
+        data-guia="sistema-nervioso"
+        data-token="hogarterapeutico-guia-2026"
+        data-endpoint="PENDIENTE_URL_DEL_SCRIPT"
+        class="space-y-4">
     <div class="fld">
       <label for="guia-email">Tu correo</label>
       <input type="email" id="guia-email" name="email" placeholder="tu.email@ejemplo.com" required aria-required="true">
@@ -103,7 +103,12 @@ Y lo segundo: **quédate con dos o tres, no con todas**. La constancia importa m
     </label>
 
     <button type="submit" class="btn btn-primary btn-block">Enviádmela</button>
+    <p data-guia-aviso hidden role="status" aria-live="polite"></p>
   </form>
+
+  <noscript>
+    <p class="text-[14px] text-clay-700 mt-3">Este envío necesita JavaScript. Si lo tienes desactivado, escribe a <strong>info@hogarterapeutico.com</strong> pidiendo la guía y te la mando igual.</p>
+  </noscript>
 </aside>
 
 ## Cuándo esto no basta

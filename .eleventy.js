@@ -300,7 +300,7 @@ module.exports = function(eleventyConfig) {
             "default-src 'self'",
             "script-src 'self' https://www.googletagmanager.com " + [...hashes].join(" "),
             // gtag manda las medidas a varios dominios de Google segun region.
-            "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://formspree.io",
+            "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://formspree.io https://script.google.com https://script.googleusercontent.com",
             "img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com",
             "style-src 'self' 'unsafe-inline'",
             "font-src 'self'",

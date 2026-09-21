@@ -72,6 +72,12 @@ async function loadNonCriticalModules(): Promise<void> {
             new EnhancedContactForm();
         }
 
+        // Peticion de guia: solo en los articulos que la ofrecen
+        if (document.querySelector('[data-guia-form]')) {
+            const { initGuiaForm } = await import('./modules/guia-form.js');
+            initGuiaForm();
+        }
+
         // Load booking calendar only if calendar container exists
         const calendarContainer = document.getElementById('calendar-container');
         if (calendarContainer) {
