@@ -51,6 +51,7 @@ function doPost(e) {
       to: correo,
       subject: ASUNTO,
       body: cuerpoDeHoy(),
+      htmlBody: htmlDeHoy(),
       name: REMITENTE,
       replyTo: 'info@hogarterapeutico.com'
     });
@@ -80,6 +81,54 @@ function cuerpoDeHoy() {
   var p = Utilities.formatDate(new Date(), 'Europe/Madrid', "d|M|yyyy|HH:mm").split('|');
   var fecha = p[0] + ' de ' + MESES[Number(p[1]) - 1] + ' de ' + p[2] + ' a las ' + p[3];
   return CUERPO.replace('__FECHA__', fecha);
+}
+
+/**
+ * El mismo texto en HTML. Gmail parte el cuerpo de texto plano a 78 columnas
+ * al enviarlo, asi que por ancha que sea la ventana el correo se lee en una
+ * columna estrecha y desigual. En HTML los parrafos los reflua el cliente.
+ * Se deriva de CUERPO para que las dos versiones no puedan separarse.
+ */
+function htmlDeHoy() {
+  var partes = cuerpoDeHoy().split('\n---\n');
+  var html = parrafos(partes[0], '');
+  if (partes.length > 1) {
+    html += '<hr style="border:0;border-top:1px solid #dddddd;margin:28px 0 18px">'
+          + parrafos(partes[1], 'color:#767676;font-size:12px;');
+  }
+  return '<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;'
+       + 'line-height:1.55;color:#222222">' + html + '</div>';
+}
+
+/** Un <p> por bloque separado por linea en blanco; los saltos sueltos, <br>. */
+function parrafos(texto, estilo) {
+  var bloques = texto.split('\n\n');
+  var salida = [];
+  for (var i = 0; i < bloques.length; i++) {
+    var b = bloques[i].replace(/^\n+|\n+$/g, '');
+    if (!b) continue;
+    salida.push('<p style="margin:0 0 16px;' + estilo + '">'
+                + enlaza(escapa(b)).replace(/\n/g, '<br>') + '</p>');
+  }
+  return salida.join('');
+}
+
+function escapa(t) {
+  return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/**
+ * Primero las URL completas y luego el dominio suelto. El orden importa: el
+ * segundo patron exige espacio o principio de linea delante, para no morder
+ * el dominio que acaba de quedar dentro de un href.
+ */
+function enlaza(t) {
+  return t
+      .replace(/https:\/\/[^\s<]+/g, function (u) {
+        return '<a href="' + u + '">' + u + '</a>';
+      })
+      .replace(/(^|[\s(])hogarterapeutico\.com/g,
+               '$1<a href="https://hogarterapeutico.com">hogarterapeutico.com</a>');
 }
 
 function responde(ok, mensaje) {
@@ -128,7 +177,8 @@ function preparar() {
 
 /** Comprobacion sin pasar por la web. envioDePrueba('tu@correo.com') */
 function envioDePrueba(correo) {
-  MailApp.sendEmail({ to: correo, subject: ASUNTO, body: cuerpoDeHoy(),
+  MailApp.sendEmail({ to: correo, subject: ASUNTO,
+                      body: cuerpoDeHoy(), htmlBody: htmlDeHoy(),
                       name: REMITENTE, replyTo: 'info@hogarterapeutico.com' });
   Logger.log('Enviado a ' + correo + '. Comprueba desde que direccion llega.');
   Logger.log('Cuota de envio restante hoy: ' + MailApp.getRemainingDailyQuota());
