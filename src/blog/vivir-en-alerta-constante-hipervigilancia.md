@@ -3,6 +3,8 @@ layout: post.njk
 title: "Vivir en alerta constante: qué es la hipervigilancia y cómo bajarla"
 description: "Qué es la hipervigilancia, por qué el cuerpo sigue en guardia cuando ya no hay peligro y qué ayuda de verdad a bajarla. Con las señales de cuándo pedir ayuda."
 date: 2026-09-30
+featured_image: "./src/images/blog/vivir-en-alerta-constante.jpg"
+image_alt: "Una esquina de dormitorio al atardecer: el borde de una cama deshecha, una mesilla baja y una monstera, con la luz entrando muy rasante y alargando las sombras."
 tags:
   - post
 faq:
