@@ -73,7 +73,7 @@ heroPreload: "./src/images/hero-sala.jpg"
             <span class="inline-flex gap-0.5 text-gold" aria-hidden="true">
                 <i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i>
             </span>
-            5,0 · 23 opiniones en Doctoralia
+            {{ doctoralia.valoracion }} · {{ doctoralia.opiniones }} opiniones en Doctoralia
         </span>
         <span class="flex items-center gap-2.5 text-[14.5px] text-ink-soft font-medium">
             <i class="ri-sparkling-line text-clay-500 text-xl" aria-hidden="true"></i>
@@ -320,8 +320,8 @@ heroPreload: "./src/images/hero-sala.jpg"
             </div>
             <div class="flex items-center gap-3.5 bg-white border border-clay-100 rounded-md2 px-5 py-3.5 shadow-e1">
                 <div>
-                    <b class="font-serif text-[30px] leading-none text-ink">5,0</b>
-                    <small class="block text-[13px] text-ink-mute mt-1">23 opiniones</small>
+                    <b class="font-serif text-[30px] leading-none text-ink">{{ doctoralia.valoracion }}</b>
+                    <small class="block text-[13px] text-ink-mute mt-1">{{ doctoralia.opiniones }} opiniones</small>
                 </div>
                 <div class="border-l border-clay-100 pl-3.5">
                     <span class="inline-flex gap-0.5 text-gold" aria-hidden="true">
@@ -365,7 +365,7 @@ heroPreload: "./src/images/hero-sala.jpg"
         </div>
         <div class="mt-8">
             <a href="https://www.doctoralia.es/angie-sanchez-gallego/psicologo/madrid#profile-reviews" target="_blank" rel="noopener noreferrer" class="lnk">
-                Ver las 23 opiniones en Doctoralia <i class="ri-external-link-line icon" aria-hidden="true"></i>
+                Ver las {{ doctoralia.opiniones }} opiniones en Doctoralia <i class="ri-external-link-line icon" aria-hidden="true"></i>
             </a>
         </div>
     </div>
