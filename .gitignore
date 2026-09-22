@@ -19,3 +19,9 @@ public/prose.css
 
 # Lo genera scripts/build-icons.mjs en cada build, desde el paquete remixicon.
 /src/icons.css
+
+# De .claude solo se versiona la config del servidor de desarrollo, que sirve
+# para todo el que clone el repo. settings.local.json son permisos y rutas de
+# cada maquina, y skills/ son skills instaladas, no codigo del proyecto.
+/.claude/*
+!/.claude/launch.json
