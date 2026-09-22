@@ -105,14 +105,15 @@ test.describe('Navigation', () => {
   });
 
   test('should handle browser navigation buttons', async ({ page }) => {
-    // Real footer links don't have a trailing slash in their href (Eleventy
-    // still resolves them to the trailing-slash URL on navigation).
-    await page.click('a[href="/aviso-legal"]');
+    // Los enlaces internos llevan la barra final en el href. Antes no la
+    // llevaban y cada uno gastaba un 301 hasta la URL buena, que es la que
+    // comprueban las aserciones de abajo.
+    await page.click('a[href="/aviso-legal/"]');
     await page.waitForLoadState('networkidle');
     expect(page.url()).toContain('/aviso-legal/');
 
     // Navigate to privacy policy
-    await page.click('a[href="/politica-privacidad"]');
+    await page.click('a[href="/politica-privacidad/"]');
     await page.waitForLoadState('networkidle');
     expect(page.url()).toContain('/politica-privacidad/');
 

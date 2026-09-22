@@ -426,6 +426,78 @@ heroPreload: "./src/images/hero-sala.jpg"
     </div>
 </section>
 
+<!-- ========================= LEER ANTES DE DECIDIR =========================
+     La portada es la pagina con mas autoridad del sitio —es de donde salen
+     todos los clics de Google— y hasta ahora no enlazaba a ningun articulo:
+     el unico camino hacia el blog era el enlace "Blog" de la navegacion. Eso
+     dejaba a los articulos dependiendo de una sola puerta.
+
+     Va despues de la FAQ a proposito. Quien ha llegado hasta aqui ya se lo
+     esta pensando; si la FAQ no le resuelve, sus dos opciones eran reservar
+     o irse. Esta seccion es una tercera que no es irse. Y queda ANTES del
+     calendario, asi que no desvia a quien ya iba a reservar.
+
+     Los tres se eligen a mano, no por fecha. Un bucle por fecha pondria hoy
+     el articulo sobre hablar con alguien que piensa en el suicidio, que es
+     de los mejores del blog y no habla a quien esta decidiendo empezar
+     terapia: habla a quien se preocupa por otra persona.
+
+     Cada entrada es "slug|pregunta" para que el par no se separe al editar.
+     El titulo, la descripcion y la foto salen de collections.post, asi que
+     si se corrigen en el articulo, aqui cambian solos. La pregunta vive aqui
+     porque es una decision de la portada, no del articulo. -->
+<section id="antes-de-decidir" aria-labelledby="leer-title">
+    <div class="container">
+        <span class="eyebrow">Antes de decidir</span>
+        <h2 id="leer-title" class="h2-display">¿Prefieres leer un poco antes?</h2>
+        <p class="lead mt-4 mb-[42px] max-w-[58ch]">Tres dudas que aparecen siempre antes de una primera sesión, respondidas sin prisa.</p>
+
+        {% assign destacados = "cuanto-cuesta-la-terapia-psicologica-online|¿Cuánto cuesta?,como-es-la-primera-sesion-de-psicologia|¿Y qué pasa el primer día?,diferencia-psicologo-sanitario-clinico-psiquiatra|¿A quién necesito?" | split: "," %}
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
+            {%- for entrada in destacados -%}
+            {%- assign partes = entrada | split: "|" -%}
+            {%- assign slug = partes[0] -%}
+            {%- assign pregunta = partes[1] -%}
+            {%- for post in collections.post -%}
+            {%- if post.fileSlug == slug -%}
+            {%- comment -%} La tarjeta entera es el enlace, igual que en el
+                indice del blog: dos enlaces al mismo sitio obligan a tabular
+                dos veces para nada. {%- endcomment -%}
+            <article class="card2 !p-0 overflow-hidden flex flex-col">
+                <a href="{{ post.url }}" class="flex flex-col h-full no-underline group">
+                    {%- if post.data.featured_image -%}
+                    <div class="aspect-[16/10] bg-clay-100 overflow-hidden flex-none">
+                        {% image post.data.featured_image, post.data.image_alt, "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" %}
+                    </div>
+                    {%- endif -%}
+                    <div class="p-6 flex flex-col flex-grow">
+                        {%- comment -%} La pregunta va en sage y el titulo
+                            en tinta: sin ella son tres titulos de articulo;
+                            con ella son tres dudas, que es lo que trae a
+                            alguien aqui. {%- endcomment -%}
+                        <span class="block text-[11px] font-bold tracking-[.1em] uppercase text-sage-700 mb-2.5">{{ pregunta }}</span>
+                        <h3 class="font-serif text-[19px] font-semibold leading-snug mb-2.5 text-ink transition-colors group-hover:text-clay-600">
+                            {{ post.data.title }}
+                        </h3>
+                        <p class="text-[15px] text-ink-soft flex-grow">{{ post.data.description | truncatewords: 20 }}</p>
+                        <span class="mt-5 inline-flex items-center gap-1.5 text-[15px] font-semibold text-clay-600">
+                            Leer más <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </a>
+            </article>
+            {%- endif -%}
+            {%- endfor -%}
+            {%- endfor -%}
+        </div>
+
+        <a href="/blog/" class="lnk mt-8">
+            Ver todos los artículos <i class="ri-arrow-right-line icon" aria-hidden="true"></i>
+        </a>
+    </div>
+</section>
+
 <!-- ========================= RESERVA =========================
      Misma logica de calendario de siempre: mismos IDs (#calendar-container,
      #available-times), mismo horarios.json, mismo flujo a WhatsApp. Cambia la
