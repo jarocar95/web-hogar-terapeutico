@@ -47,6 +47,7 @@ jobs:
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(bot): Actualizar horarios de Doctoralia"
-          # El archivo específico que debe vigilar
-          file_pattern: public/api/horarios.json
+          commit_message: "chore(bot): Actualizar horarios y opiniones de Doctoralia"
+          # Los dos archivos que escribe el scraper. Las opiniones van a
+          # src/_data porque las lee Eleventy en el build, no el navegador.
+          file_pattern: public/api/horarios.json src/_data/opiniones.json

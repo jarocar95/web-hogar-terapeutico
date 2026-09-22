@@ -331,37 +331,32 @@ heroPreload: "./src/images/hero-sala.jpg"
                 </div>
             </div>
         </div>
+        {%- comment -%} Seis, no tres, y salen de src/_data/opiniones.json, que
+            escribe el scraper cada 6 horas. Antes estaban escritas a mano y el
+            resultado era que la web ensenaba como ultima una del 16 de julio
+            teniendo dos de septiembre sin publicar.
+
+            Nada de carrusel: el valor de veinticinco opiniones esta en que se
+            vean varias de golpe, y esta seccion es justo el pico de confianza
+            antes del calendario. Lo mismo por lo que las tarjetas dejaron de
+            enlazar a Doctoralia. {%- endcomment -%}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
+            {%- for o in opiniones.opiniones limit: 6 %}
             <article class="tst">
                 <span class="inline-flex gap-0.5 text-gold mb-3.5" aria-hidden="true">
                     <i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i>
                 </span>
-                <p class="text-base leading-[1.65] text-ink flex-1">«Me gustó la forma de escucha, buena atención para aconsejar.»</p>
+                {%- comment -%} texto_publicado solo existe cuando hay una correccion
+                    editorial declarada en scraper.py; si no, se cita literal. {%- endcomment -%}
+                <p class="text-base leading-[1.65] text-ink flex-1">«{{ o.texto_publicado | default: o.texto }}»</p>
                 <footer class="mt-5 pt-4 border-t border-clay-100 flex items-center justify-between gap-3">
-                    <cite class="not-italic font-semibold text-[14.5px] text-ink">Alejandro<time datetime="2026-07-16" class="block text-[13px] text-ink-mute font-normal">16 de julio de 2026</time></cite>
+                    <cite class="not-italic font-semibold text-[14.5px] text-ink">{{ o.autor }}<time datetime="{{ o.fecha }}" class="block text-[13px] text-ink-mute font-normal">{{ o.fecha_texto }}</time></cite>
+                    {%- if o.verificada %}
                     <span class="text-xs text-sage-700 font-semibold flex items-center gap-1.5"><i class="ri-verified-badge-line" aria-hidden="true"></i>Verificada</span>
+                    {%- endif %}
                 </footer>
             </article>
-            <article class="tst">
-                <span class="inline-flex gap-0.5 text-gold mb-3.5" aria-hidden="true">
-                    <i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i>
-                </span>
-                <p class="text-base leading-[1.65] text-ink flex-1">«Psicóloga superprofesional, humana, cercana, explica todo claro, escucha atentamente y tiene claras las directrices del tratamiento. Encantado de recibir su ayuda.»</p>
-                <footer class="mt-5 pt-4 border-t border-clay-100 flex items-center justify-between gap-3">
-                    <cite class="not-italic font-semibold text-[14.5px] text-ink">José Luis C.<time datetime="2026-07-03" class="block text-[13px] text-ink-mute font-normal">3 de julio de 2026</time></cite>
-                    <span class="text-xs text-sage-700 font-semibold flex items-center gap-1.5"><i class="ri-verified-badge-line" aria-hidden="true"></i>Verificada</span>
-                </footer>
-            </article>
-            <article class="tst">
-                <span class="inline-flex gap-0.5 text-gold mb-3.5" aria-hidden="true">
-                    <i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i>
-                </span>
-                <p class="text-base leading-[1.65] text-ink flex-1">«Angie estuvo atenta en todo momento, generó un espacio tranquilo y seguro, y explicó todo de forma muy fácil.»</p>
-                <footer class="mt-5 pt-4 border-t border-clay-100 flex items-center justify-between gap-3">
-                    <cite class="not-italic font-semibold text-[14.5px] text-ink">B. L.<time datetime="2026-05-15" class="block text-[13px] text-ink-mute font-normal">15 de mayo de 2026</time></cite>
-                    <span class="text-xs text-sage-700 font-semibold flex items-center gap-1.5"><i class="ri-verified-badge-line" aria-hidden="true"></i>Verificada</span>
-                </footer>
-            </article>
+            {%- endfor %}
         </div>
         <div class="mt-8">
             <a href="https://www.doctoralia.es/angie-sanchez-gallego/psicologo/madrid#profile-reviews" target="_blank" rel="noopener noreferrer" class="lnk">
