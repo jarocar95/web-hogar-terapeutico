@@ -1,7 +1,7 @@
 ---
 layout: post.njk
 title: "Cómo calmar la ansiedad cuando decirte «cálmate» no sirve de nada"
-description: "Por qué la ansiedad no se apaga razonando, qué es el nervio vago y cuatro técnicas que actúan sobre el cuerpo y funcionan en minutos. Con la precaución que casi nadie menciona."
+description: "Por qué la ansiedad no se apaga razonando, qué es el nervio vago y cuatro técnicas que calman el cuerpo en minutos. Con una precaución que casi nadie cuenta."
 date: 2026-09-23
 featured_image: "./src/images/blog/calmar-sistema-nervioso.jpg"
 image_alt: "Luz de primera hora entrando por una ventana con visillos e iluminando una cama en penumbra."

@@ -1,7 +1,7 @@
 ---
 layout: post.njk
 title: "Terapia online vs. presencial: diferencias y cómo elegir"
-description: "¿Terapia online o presencial? Qué dice la evidencia sobre su eficacia, cuándo conviene cada una y cómo funciona una sesión online. Por la psicóloga Angie Sánchez."
+description: "¿Terapia online o presencial? Qué dice la evidencia sobre su eficacia, cuándo conviene cada una y cómo es una sesión online. Por Angie Sánchez, psicóloga."
 date: 2026-08-26
 featured_image: "./src/images/blog/terapia-online-videollamada.jpg"
 image_alt: "Una mujer con auriculares, recostada en el sofá de su casa, escucha con la mirada baja durante una videollamada."

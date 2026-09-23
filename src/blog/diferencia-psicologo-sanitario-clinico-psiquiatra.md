@@ -1,7 +1,7 @@
 ---
 layout: post.njk
 title: "Psicólogo general sanitario, psicólogo clínico y psiquiatra: en qué se diferencian"
-description: "Qué significa cada título, qué dice la ley española de cada uno, quién puede recetar y cómo comprobar que quien te atiende está colegiado. Con las fuentes del BOE."
+description: "Qué significa cada título, qué dice la ley española, quién puede recetar y cómo comprobar que quien te atiende está colegiado. Con las fuentes del BOE."
 date: 2026-09-16
 featured_image: "./src/images/blog/titulos-psicologia-espana.jpg"
 image_alt: "Unas gafas de pasta apoyadas sobre una pila de libros y un cuaderno de tapa de cuero, en el alféizar de una ventana."
