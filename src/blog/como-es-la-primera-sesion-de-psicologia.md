@@ -98,4 +98,4 @@ Ya sabes qué esperar, paso a paso. Lo único que queda es decidir si es el mome
 
 Y si todavía dudas de si lo que te pasa «da para» ir a terapia, esa duda concreta la desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 
-Si ya lo tienes claro, **[reserva tu primera sesión por 35€](/#services-pricing)** y damos juntos el primer paso.
+Si ya lo tienes claro, **[reserva tu primera sesión por 35€](/#booking-calendar)** y damos juntos el primer paso.

@@ -91,4 +91,4 @@ Y si lo que te frena no es el formato sino la duda de fondo —si lo que te pasa
 
 ## Empecemos, estés donde estés
 
-La terapia online en Hogar Terapéutico está pensada para que la distancia, el tiempo o la rutina no sean el motivo por el que no empiezas. Si quieres probarlo sin gran compromiso, **[reserva tu primera sesión por 35€](/#services-pricing)** y hablamos con calma de por dónde empezar.
+La terapia online en Hogar Terapéutico está pensada para que la distancia, el tiempo o la rutina no sean el motivo por el que no empiezas. Si quieres probarlo sin gran compromiso, **[reserva tu primera sesión por 35€](/#booking-calendar)** y hablamos con calma de por dónde empezar.

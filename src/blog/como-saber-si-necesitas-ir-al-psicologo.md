@@ -104,4 +104,4 @@ Empezar terapia no es admitir que «algo va mal contigo». Es una decisión acti
 
 ## No tienes que esperar a estar peor
 
-Pedir ayuda no es el último recurso, es una forma de cuidado tan válida como cualquier otra. Si algo de lo que has leído te ha resonado, **[reserva tu primera sesión por 35€](/#services-pricing)** y démosle a lo que sientes el espacio que merece.
+Pedir ayuda no es el último recurso, es una forma de cuidado tan válida como cualquier otra. Si algo de lo que has leído te ha resonado, **[reserva tu primera sesión por 35€](/#booking-calendar)** y démosle a lo que sientes el espacio que merece.

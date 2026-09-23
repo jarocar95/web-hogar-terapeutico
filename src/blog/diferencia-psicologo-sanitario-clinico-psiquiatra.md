@@ -102,4 +102,4 @@ Y una cosa más, porque conviene decirla: el título te dice la formación, no e
 
 Soy **Psicóloga General Sanitaria, colegiada M-42569**, con formación en psicoterapia integradora y [Formación Básica en EMDR (Nivel I)](/blog/que-es-emdr-como-ayuda/) por el Instituto Español de EMDR. Trabajo online, con adultos, y no receto medicación: cuando tiene sentido valorarla, te lo digo y nos coordinamos con quien corresponda.
 
-Si quieres ver si encajamos, **[reserva tu primera sesión por 35€](/#services-pricing)**. Y si antes prefieres saber [cuánto cuesta el proceso entero](/blog/cuanto-cuesta-la-terapia-psicologica-online/), también lo tengo escrito.
+Si quieres ver si encajamos, **[reserva tu primera sesión por 35€](/#booking-calendar)**. Y si antes prefieres saber [cuánto cuesta el proceso entero](/blog/cuanto-cuesta-la-terapia-psicologica-online/), también lo tengo escrito.

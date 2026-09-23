@@ -54,6 +54,10 @@ Es la más rápida que conozco, y la más rara de explicar hasta que la haces.
 
 Esa segunda inhalación reabre los sacos pulmonares que se han ido cerrando, y la exhalación larga descarga CO2 de golpe. Es lo que hace el cuerpo solo cuando alguien lleva un rato llorando y empieza a calmarse.
 
+Y es de las pocas de esta lista con un ensayo detrás. Un [estudio aleatorizado publicado en *Cell Reports Medicine* en 2023](https://pubmed.ncbi.nlm.nih.gov/36630953/) comparó cinco minutos diarios de tres respiraciones distintas con cinco minutos de meditación, durante un mes. La que más mejoró el ánimo y más bajó la frecuencia respiratoria fue justamente esta, la que alarga la exhalación.
+
+Con su matiz, que conviene decirlo: un mes de seguimiento, a distancia, midiendo ánimo y activación en personas sanas. Es una buena razón para probarlo. No es un tratamiento para un trastorno de ansiedad.
+
 ### 3. Tararear
 
 Suena menor y no lo es. Las vibraciones al tararear estimulan mecánicamente el nervio vago a su paso por la garganta, y además alargan la exhalación de forma natural.

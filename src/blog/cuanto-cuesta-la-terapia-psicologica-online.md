@@ -94,4 +94,4 @@ Y si lo que te frena no es el precio sino la duda de si «lo tuyo es suficiente�
 
 ## Empieza con un primer paso accesible
 
-Precisamente para que el precio no sea la barrera que te impida conocernos y comprobar si encajamos, la primera sesión tiene un coste reducido frente a las siguientes. **[Reserva tu primera sesión por 35€](/#services-pricing)** y compruébalo sin un gran compromiso inicial.
+Precisamente para que el precio no sea la barrera que te impida conocernos y comprobar si encajamos, la primera sesión tiene un coste reducido frente a las siguientes. **[Reserva tu primera sesión por 35€](/#booking-calendar)** y compruébalo sin un gran compromiso inicial.

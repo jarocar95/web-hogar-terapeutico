@@ -122,4 +122,4 @@ Tengo la Formación Básica en EMDR (Nivel I) del [Instituto Español de EMDR](h
 * **Liberarte del peso emocional** de esos recuerdos, sin necesidad de repasarlos una y otra vez hablando.
 * **Construir una relación contigo mismo/a** basada en la confianza, no en las heridas del pasado.
 
-Si sientes que ha llegado el momento de sanar desde la raíz, **[reserva tu primera sesión por 35€](/#services-pricing)**. Estoy aquí para acompañarte en cada paso del camino.
+Si sientes que ha llegado el momento de sanar desde la raíz, **[reserva tu primera sesión por 35€](/#booking-calendar)**. Estoy aquí para acompañarte en cada paso del camino.

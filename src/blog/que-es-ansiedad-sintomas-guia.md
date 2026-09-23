@@ -155,4 +155,4 @@ Como psicóloga, mi trabajo es ofrecerte un espacio seguro y sin juicios donde p
 
 Y si ya sabes calmar la crisis y lo que quieres es que las tormentas sean menos frecuentes, el siguiente paso son los [tres pilares para construir una vida con menos ansiedad](/blog/3-pilares-para-construir-una-vida-con-menos-ansiedad/).
 
-Dar el primer paso es la decisión más valiente. Si estás lista/o para trabajar en tu ansiedad y construir una vida con mayor calma y libertad, **[reserva tu primera sesión por 35€](/#services-pricing)**. Empecemos a caminar juntos.
+Dar el primer paso es la decisión más valiente. Si estás lista/o para trabajar en tu ansiedad y construir una vida con mayor calma y libertad, **[reserva tu primera sesión por 35€](/#booking-calendar)**. Empecemos a caminar juntos.
