@@ -20,11 +20,11 @@ faq:
     respuesta: "50 minutos. Si se corta la conexión, volvemos a entrar; y si el problema persiste, seguimos por teléfono o reprogramamos sin coste. Un fallo técnico no te va a costar la sesión."
 ---
 
-Es de las preguntas que más me hacen antes de reservar: *"¿qué va a pasar en la primera sesión?"*. Es normal sentir nervios ante algo desconocido, sobre todo cuando se trata de hablar de ti con alguien a quien todavía no conoces. Así que vamos a quitarle el misterio del todo.
+Es de las preguntas que más me hacen antes de reservar: *«¿qué va a pasar en la primera sesión?»*. Es normal sentir nervios ante algo desconocido, sobre todo cuando se trata de hablar de ti con alguien a quien todavía no conoces. Así que vamos a quitarle el misterio del todo.
 
 ## Antes de la sesión: qué preparar
 
-La respuesta corta es: **nada en concreto**. No necesitas preparar un guion, ni tener claro por dónde empezar, ni siquiera saber "qué te pasa" exactamente antes de llegar. Lo único que hace falta es que vengas tal y como estás, con lo que sea que traigas ese día.
+La respuesta corta es: **nada en concreto**. No necesitas preparar un guion, ni tener claro por dónde empezar, ni siquiera saber «qué te pasa» exactamente antes de llegar. Lo único que hace falta es que vengas tal y como estás, con lo que sea que traigas ese día.
 
 Si te ayuda a sentirte más tranquilo/a, puedes pensar brevemente en qué es lo que te ha llevado a buscar ayuda ahora. Pero no es un requisito para empezar.
 
@@ -44,7 +44,7 @@ Las excepciones no las pone la deontología, las pone la ley, y son tres:
 * **Delitos de los que se tiene noticia por razón de la profesión.** Lo fija el [artículo 262 de la Ley de Enjuiciamiento Criminal](https://www.boe.es/buscar/act.php?id=BOE-A-1882-6036).
 * **Riesgo grave e inminente para tu vida o la de otra persona.** Ahí protegerte pesa más que callar.
 
-No te lo cuento para inquietarte, sino al revés: saber exactamente dónde están los límites es lo que permite confiar de verdad en el resto. Un "sin excepciones" sonaría mejor y sería mentira.
+No te lo cuento para inquietarte, sino al revés: saber exactamente dónde están los límites es lo que permite confiar de verdad en el resto. Un «sin excepciones» sonaría mejor y sería mentira.
 
 ### Explorar qué te trae a terapia
 
@@ -71,7 +71,7 @@ Quedarse en blanco casi nunca significa que no tengas nada que contar. Suele sig
 ## Qué NO es la primera sesión
 
 * **No es un diagnóstico instantáneo.** Entender bien lo que te ocurre y por qué lleva su proceso; no sucede en cincuenta minutos, y eso es normal.
-* **No tienes que "venirte abajo" ni llorar** para que la sesión "cuente". Cada persona vive su primera sesión de forma distinta —hay quien llega con alivio, quien llega con cautela— y todas son igual de válidas.
+* **No tienes que «venirte abajo» ni llorar** para que la sesión «cuente». Cada persona vive su primera sesión de forma distinta —hay quien llega con alivio, quien llega con cautela— y todas son igual de válidas.
 * **No implica ningún compromiso de continuar.** Es, sobre todo, un espacio para ver con calma si mi forma de trabajar encaja con lo que necesitas.
 
 > ***¿Sigues con dudas sobre cómo será tu primera sesión?*** *Escríbeme antes de reservar si lo necesitas:* ***[te respondo por WhatsApp](https://wa.me/34621348616?text=Hola%20Angie%2C%20tengo%20una%20duda%20sobre%20la%20primera%20sesi%C3%B3n.)***. *Resolver esas dudas previas también forma parte de acompañarte.*
@@ -96,6 +96,6 @@ Las sesiones de seguimiento solemos dejarlas cerradas al terminar cada una, aunq
 
 Ya sabes qué esperar, paso a paso. Lo único que queda es decidir si es el momento.
 
-Y si todavía dudas de si lo que te pasa "da para" ir a terapia, esa duda concreta la desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
+Y si todavía dudas de si lo que te pasa «da para» ir a terapia, esa duda concreta la desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 
 Si ya lo tienes claro, **[reserva tu primera sesión por 35€](/#services-pricing)** y damos juntos el primer paso.

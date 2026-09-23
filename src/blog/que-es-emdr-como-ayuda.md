@@ -21,7 +21,7 @@ faq:
     respuesta: "Sí, y conviene saberlo antes. Es frecuente terminar con sensación de cansancio, y que en los días siguientes aparezcan recuerdos o sueños relacionados. Es señal de que el procesamiento continúa, no de que algo vaya mal. Por eso cada sesión se cierra asegurando que te vas en calma, y por eso te doy recursos para usar entre sesiones."
 ---
 
-¿Hay algo del pasado que, aunque sabes racionalmente que ya terminó, sigue afectándote como si estuviera ocurriendo ahora mismo? Un recuerdo que te acelera el corazón, una situación que te paraliza sin motivo aparente, una reacción que te parece "desproporcionada" pero que no puedes controlar. Si te sientes identificado/a, es posible que una parte de esa experiencia siga "sin procesar" en tu sistema nervioso.
+¿Hay algo del pasado que, aunque sabes racionalmente que ya terminó, sigue afectándote como si estuviera ocurriendo ahora mismo? Un recuerdo que te acelera el corazón, una situación que te paraliza sin motivo aparente, una reacción que te parece «desproporcionada» pero que no puedes controlar. Si te sientes identificado/a, es posible que una parte de esa experiencia siga «sin procesar» en tu sistema nervioso.
 
 En **[Hogar Terapéutico](/)**, el EMDR es una de las herramientas que más utilizo precisamente para esto: para ayudarte a que esos recuerdos dejen de tener el mismo peso emocional sobre tu presente.
 
@@ -33,17 +33,17 @@ A diferencia de otras terapias que se apoyan casi exclusivamente en hablar, el E
 
 ## ¿Cómo funciona? La ciencia detrás de la terapia
 
-Cuando vives una experiencia normal, tu cerebro la procesa y la "archiva" como un recuerdo del pasado: puedes pensar en ella sin que te desborde. Pero cuando la experiencia es demasiado intensa o dolorosa, ese proceso natural de archivo se bloquea. El recuerdo se queda "atascado" en tu sistema nervioso con toda su carga original: las imágenes, las sensaciones físicas, las emociones y las creencias negativas que se formaron en ese momento ("no valgo nada", "no estoy a salvo", "es culpa mía").
+Cuando vives una experiencia normal, tu cerebro la procesa y la «archiva» como un recuerdo del pasado: puedes pensar en ella sin que te desborde. Pero cuando la experiencia es demasiado intensa o dolorosa, ese proceso natural de archivo se bloquea. El recuerdo se queda «atascado» en tu sistema nervioso con toda su carga original: las imágenes, las sensaciones físicas, las emociones y las creencias negativas que se formaron en ese momento («no valgo nada», «no estoy a salvo», «es culpa mía»).
 
-Por eso, aunque hayan pasado años, algo tan simple como un olor, un tono de voz o una situación parecida puede "activar" ese recuerdo mal archivado y hacerte sentir como si estuvieras reviviéndolo. Esa activación sostenida del sistema nervioso es también la que está detrás de muchos [síntomas de ansiedad](/blog/que-es-ansiedad-sintomas-guia/): el cuerpo sigue respondiendo a un peligro que ya pasó.
+Por eso, aunque hayan pasado años, algo tan simple como un olor, un tono de voz o una situación parecida puede «activar» ese recuerdo mal archivado y hacerte sentir como si estuvieras reviviéndolo. Esa activación sostenida del sistema nervioso es también la que está detrás de muchos [síntomas de ansiedad](/blog/que-es-ansiedad-sintomas-guia/): el cuerpo sigue respondiendo a un peligro que ya pasó.
 
-La estimulación bilateral del EMDR ayuda a tu cerebro a **retomar ese proceso de archivo que se quedó a medias**. Poco a poco, el recuerdo se va integrando: sigue existiendo, sigues sabiendo que ocurrió, pero deja de tener ese "gancho" emocional que te secuestra el presente.
+La estimulación bilateral del EMDR ayuda a tu cerebro a **retomar ese proceso de archivo que se quedó a medias**. Poco a poco, el recuerdo se va integrando: sigue existiendo, sigues sabiendo que ocurrió, pero deja de tener ese «gancho» emocional que te secuestra el presente.
 
 ## ¿Para qué tipo de experiencias funciona el EMDR?
 
 Cuando hablamos de trauma, solemos pensar solo en grandes catástrofes. Pero en terapia distinguimos entre dos tipos de heridas, y el EMDR funciona para ambas.
 
-### Traumas con "T" mayúscula
+### Traumas con «T» mayúscula
 
 Son los eventos que identificamos claramente como traumáticos:
 
@@ -53,9 +53,9 @@ Son los eventos que identificamos claramente como traumáticos:
 * Catástrofes naturales o violencia.
 * Diagnósticos médicos graves.
 
-### Traumas con "t" minúscula
+### Traumas con «t» minúscula
 
-Son experiencias que, de forma aislada, pueden parecer "menores", pero que **acumuladas a lo largo del tiempo** dejan una huella profunda:
+Son experiencias que, de forma aislada, pueden parecer «menores», pero que **acumuladas a lo largo del tiempo** dejan una huella profunda:
 
 * Humillaciones repetidas en la infancia o adolescencia.
 * Rechazo o falta de validación emocional por parte de figuras importantes.
@@ -63,16 +63,16 @@ Son experiencias que, de forma aislada, pueden parecer "menores", pero que **acu
 * Relaciones donde te sentiste constantemente juzgado/a o poco querido/a.
 * Heridas de apego que hoy se traducen en miedo al abandono o baja autoestima.
 
-> ***¿Reconoces alguna de estas experiencias en tu historia?*** *No hace falta que "sea grave" para merecer ser trabajado. Si sientes que algo del pasado sigue condicionando tu presente, una* ***[primera sesión](/#booking-calendar)*** *puede ayudarte a entender por dónde empezar.*
+> ***¿Reconoces alguna de estas experiencias en tu historia?*** *No hace falta que «sea grave» para merecer ser trabajado. Si sientes que algo del pasado sigue condicionando tu presente, una* ***[primera sesión](/#booking-calendar)*** *puede ayudarte a entender por dónde empezar.*
 
 ## Qué esperar en una sesión de EMDR
 
-Es normal sentir cierta aprensión ante algo que suena tan distinto a "simplemente hablar". Por eso, aquí tienes una idea de cómo se estructura el proceso, para que llegues con más tranquilidad. El protocolo estándar de EMDR tiene ocho fases; lo que sigue es un resumen de lo que vas a notar tú:
+Es normal sentir cierta aprensión ante algo que suena tan distinto a «simplemente hablar». Por eso, aquí tienes una idea de cómo se estructura el proceso, para que llegues con más tranquilidad. El protocolo estándar de EMDR tiene ocho fases; lo que sigue es un resumen de lo que vas a notar tú:
 
 1. **Fase de preparación:** Antes de tocar ningún recuerdo doloroso, dedicamos el tiempo necesario a construir un vínculo de confianza y a dotarte de recursos de estabilización y calma que puedas usar dentro y fuera de sesión.
 2. **Identificación del recuerdo diana:** Identificamos juntos el recuerdo específico sobre el que vamos a trabajar, así como las creencias negativas asociadas a él.
 3. **Reprocesamiento:** Mientras mantienes el recuerdo en mente, realizamos la estimulación bilateral en tandas cortas, haciendo pausas para que me cuentes qué va apareciendo: imágenes, sensaciones, pensamientos nuevos.
-4. **Instalación e integración:** Poco a poco, sustituimos la creencia negativa original por una más adaptativa y realista ("aquello ocurrió, pero ya pasó y ahora estoy a salvo").
+4. **Instalación e integración:** Poco a poco, sustituimos la creencia negativa original por una más adaptativa y realista («aquello ocurrió, pero ya pasó y ahora estoy a salvo»).
 5. **Cierre:** Cada sesión termina asegurándonos de que te vas en un estado de calma, tengamos o no el proceso completamente terminado.
 
 Tú tienes el control en todo momento. Nunca se trata de revivir el trauma sin apoyo, sino de procesarlo con las herramientas y la contención adecuadas.
@@ -83,7 +83,7 @@ Es la pregunta que más me hacen, y la respuesta es no.
 
 En una sesión de EMDR estás **despierto/a, consciente y con el control**. Recuerdas todo lo que ocurre, puedes hablar en cualquier momento y puedes parar cuando quieras. No hay sugestión, no hay un estado alterado de conciencia y no hay nadie diciéndote qué debes sentir o creer.
 
-La confusión viene de que el EMDR trabaja con algo distinto a la conversación, y todo lo que no es "hablar" tiende a meterse en el mismo cajón. Pero el mecanismo es otro: mantener un recuerdo en mente mientras una parte de tu atención está ocupada en otra cosa, que es precisamente lo que permite acercarse a él sin que te desborde.
+La confusión viene de que el EMDR trabaja con algo distinto a la conversación, y todo lo que no es «hablar» tiende a meterse en el mismo cajón. Pero el mecanismo es otro: mantener un recuerdo en mente mientras una parte de tu atención está ocupada en otra cosa, que es precisamente lo que permite acercarse a él sin que te desborde.
 
 Hay además una diferencia que suele aliviar mucho: **no tienes que contarlo todo**. El EMDR no exige narrar la experiencia una y otra vez en voz alta. Necesito saber lo suficiente para trabajar, no cada detalle. Buena parte del reprocesamiento ocurre en silencio, con las pausas justas para que me digas qué va apareciendo.
 
@@ -113,7 +113,7 @@ El EMDR es extraordinariamente eficaz para trabajar recuerdos específicos, pero
 
 ## Da el primer paso hacia sanar de verdad
 
-Cargar con heridas del pasado no es una cuestión de "fuerza de voluntad" ni de "pasar página" sin más. A veces, tu sistema nervioso necesita ayuda profesional para terminar un proceso que se quedó a medias. Si dudas de si lo que te pasa justifica pedir esa ayuda, lo desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
+Cargar con heridas del pasado no es una cuestión de «fuerza de voluntad» ni de «pasar página» sin más. A veces, tu sistema nervioso necesita ayuda profesional para terminar un proceso que se quedó a medias. Si dudas de si lo que te pasa justifica pedir esa ayuda, lo desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 
 Tengo la Formación Básica en EMDR (Nivel I) del [Instituto Español de EMDR](https://www.iemdr.es), cuyos certificados siguen los estándares de EMDR Europe, y la aplico dentro de un enfoque integrador. Mi trabajo es acompañarte en el proceso de:
 

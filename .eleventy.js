@@ -278,6 +278,43 @@ module.exports = function(eleventyConfig) {
     // y cambia en cada build, y ademas quedan dos atributos style=. Un estilo
     // inyectado es un problema mucho menor que un script inyectado, y esta es
     // la parte que se puede endurecer mas adelante sin prisa.
+    // -----------------------------------------------------------------
+    // Aviso de enlaces internos que apuntan a nada.
+    //
+    // Pasa sobre todo con los articulos programados: escribes el enlace
+    // hacia uno que aun no se publica y durante una semana dos paginas bien
+    // indexadas apuntan a un 404. Aviso y no error a proposito: romper el
+    // build en Netlify por esto seria peor que el problema.
+    // -----------------------------------------------------------------
+    eleventyConfig.on("eleventy.after", async ({ results }) => {
+        const fs = require("fs");
+        const path = require("path");
+
+        const existe = (url) => {
+            const base = path.join("public", url);
+            return fs.existsSync(base) ||
+                   fs.existsSync(path.join(base, "index.html")) ||
+                   fs.existsSync(base.replace(/\/$/, "") + "/index.html");
+        };
+
+        const rotos = [];
+        for (const r of results) {
+            if (!r.outputPath || !r.outputPath.endsWith(".html")) continue;
+            const enlaces = String(r.content).match(/href="(\/blog\/[^"#?]*)"/g) || [];
+            for (const e of enlaces) {
+                const url = e.slice(6, -1);
+                if (!existe(url)) {
+                    rotos.push(r.outputPath.replace("public/", "") + "  ->  " + url);
+                }
+            }
+        }
+        if (rotos.length) {
+            console.warn("[enlaces] " + rotos.length + " enlace(s) interno(s) a paginas que no existen:");
+            for (const x of [...new Set(rotos)]) console.warn("          " + x);
+            console.warn("          Suele ser un enlace a un articulo con fecha futura.");
+        }
+    });
+
     eleventyConfig.on("eleventy.after", async ({ results }) => {
         const crypto = require("crypto");
         const fs = require("fs");

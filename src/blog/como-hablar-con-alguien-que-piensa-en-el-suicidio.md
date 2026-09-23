@@ -126,4 +126,4 @@ Cuéntaselo a alguien. Llama al 024 si lo necesitas. Y si esto se alarga y notas
 
 Esta web no es un servicio de urgencias y yo no atiendo crisis. Si lo que estás viviendo es una situación aguda, los tres recursos de arriba son el camino, y son mejores que cualquier cosa que puedas leer aquí.
 
-Y si lo que te pasa es que llevas mucho tiempo sosteniendo a alguien y ya no puedes con ello, eso sí es algo que se trabaja en terapia, con calma y sin prisa. Pero hoy no toca eso: hoy toca que hagas la pregunta.
+Y si lo que te pasa es que llevas mucho tiempo sosteniendo a alguien y ya no puedes con ello, eso sí es [algo que se trabaja en terapia](/blog/como-saber-si-necesitas-ir-al-psicologo/), con calma y sin prisa. Pero hoy no toca eso: hoy toca que hagas la pregunta.

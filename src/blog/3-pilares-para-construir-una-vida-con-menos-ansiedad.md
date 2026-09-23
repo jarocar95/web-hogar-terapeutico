@@ -45,7 +45,7 @@ La ansiedad a menudo se alimenta de patrones de pensamiento que funcionan en pil
 
 * **Conviértete en detective de tu ansiedad:** Los patrones no se pueden cambiar si no se conocen. **Ejercicio práctico:** Durante una semana, lleva un pequeño cuaderno o usa una nota en tu móvil. Cuando sientas un pico de ansiedad, apunta brevemente: ¿Qué estaba haciendo? ¿Qué estaba pensando? ¿Dónde estaba? El objetivo no es juzgarte, sino recoger datos. Te sorprenderá descubrir los disparadores que se repiten.
 
-* **Crea un "espacio para preocuparte":** La mente ansiosa tiende a rumiar los problemas durante todo el día. Una técnica contraintuitiva pero eficaz es "citarte" con tus preocupaciones. Designa 15 minutos al día (¡y solo 15!) para sentarte y preocuparte activamente. Cuando una preocupación aparezca fuera de ese horario, dile amablemente: "Te veo, pero ahora no es nuestro momento. Nos vemos a las 7 de la tarde". Esto te ayuda a contener la preocupación en lugar de que ella te controle a ti.
+* **Crea un «espacio para preocuparte»:** La mente ansiosa tiende a rumiar los problemas durante todo el día. Una técnica contraintuitiva pero eficaz es «citarte» con tus preocupaciones. Designa 15 minutos al día (¡y solo 15!) para sentarte y preocuparte activamente. Cuando una preocupación aparezca fuera de ese horario, dile amablemente: «Te veo, pero ahora no es nuestro momento. Nos vemos a las 7 de la tarde». Esto te ayuda a contener la preocupación en lugar de que ella te controle a ti.
 
 ## Pilar 3: diseña un entorno que te sostenga
 
@@ -57,7 +57,7 @@ A menudo, subestimamos cómo nuestro entorno físico y digital moldea nuestro es
 
 ## Si esta lista ya te está agobiando, empieza por aquí
 
-Hay una ironía en los artículos como este, y prefiero nombrarla: acabas de leer siete hábitos que "deberías" incorporar. Para una mente que ya funciona en modo exigencia, eso no es una ayuda, es una lista de siete formas nuevas de sentir que no llegas.
+Hay una ironía en los artículos como este, y prefiero nombrarla: acabas de leer siete hábitos que «deberías» incorporar. Para una mente que ya funciona en modo exigencia, eso no es una ayuda, es una lista de siete formas nuevas de sentir que no llegas.
 
 Así que, si te ha pasado eso al leer, quédate solo con esto:
 

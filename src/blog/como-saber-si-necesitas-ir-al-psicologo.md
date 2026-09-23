@@ -21,34 +21,34 @@ faq:
     respuesta: "Es lo esperable, y no tienes que contarlo todo el primer día. El ritmo lo marcas tú. La confianza se construye comprobando que te escuchan sin juzgarte, y eso lleva unas cuantas sesiones, no cinco minutos."
 ---
 
-¿Te ha pasado alguna vez pensar "no es para tanto, otras personas lo tienen peor" justo cuando más necesitabas hablar con alguien? Es una de las frases que más escucho en consulta, y casi siempre viene acompañada de meses —a veces años— aguantando algo en silencio, esperando a que se pase solo.
+¿Te ha pasado alguna vez pensar «no es para tanto, otras personas lo tienen peor» justo cuando más necesitabas hablar con alguien? Es una de las frases que más escucho en consulta, y casi siempre viene acompañada de meses —a veces años— aguantando algo en silencio, esperando a que se pase solo.
 
 En **[Hogar Terapéutico](/)** creo firmemente en algo: no hace falta tocar fondo para merecer ayuda. Si te lo estás preguntando, ya es una señal que merece la pena mirar de cerca.
 
-## El mito de "no es para tanto"
+## El mito de «no es para tanto»
 
-Solemos pensar que la terapia es para "casos graves": una crisis, un diagnóstico, un trauma evidente. Pero la realidad es que la mayoría de personas que empiezan terapia no llegan por una emergencia, sino porque **algo en su día a día ha dejado de fluir**: se sienten agotadas sin saber muy bien por qué, discuten más de la cuenta con quienes quieren, o han perdido la ilusión por cosas que antes disfrutaban sin más explicación que "será una racha".
+Solemos pensar que la terapia es para «casos graves»: una crisis, un diagnóstico, un trauma evidente. Pero la realidad es que la mayoría de personas que empiezan terapia no llegan por una emergencia, sino porque **algo en su día a día ha dejado de fluir**: se sienten agotadas sin saber muy bien por qué, discuten más de la cuenta con quienes quieren, o han perdido la ilusión por cosas que antes disfrutaban sin más explicación que «será una racha».
 
-Comparar tu malestar con el de otra persona no te hace sentir mejor, solo te hace esperar más tiempo del que necesitas para pedir ayuda. El dolor no se mide en una escala objetiva donde solo cuenta lo "suficientemente grave"; se mide en cómo te está afectando a ti, en tu vida, hoy.
+Comparar tu malestar con el de otra persona no te hace sentir mejor, solo te hace esperar más tiempo del que necesitas para pedir ayuda. El dolor no se mide en una escala objetiva donde solo cuenta lo «suficientemente grave»; se mide en cómo te está afectando a ti, en tu vida, hoy.
 
 Y si te sirve el dato: la [Organización Mundial de la Salud](https://www.who.int/es/news-room/fact-sheets/detail/anxiety-disorders) calcula que, de todas las personas que necesitarían tratamiento para un trastorno de ansiedad, solo una de cada cuatro lo recibe. Esperar no es tu rareza personal. Es, con diferencia, lo más común.
 
 ## Otras formas en que nos convencemos de esperar
 
-Además de "no es para tanto", hay otras frases que quizá te resulten familiares y que también son señales de que quizás sea el momento:
+Además de «no es para tanto», hay otras frases que quizá te resulten familiares y que también son señales de que quizás sea el momento:
 
-* **"Ya se me pasará solo/a":** algunas cosas mejoran con el tiempo, pero muchas otras simplemente se vuelven más manejables de disimular, no de resolver.
-* **"No tengo tiempo para esto ahora":** casi nunca hay un "buen momento" que llegue por sí solo; normalmente hay que decidir hacerle hueco.
-* **"Debería poder con esto yo sola/o":** pedir ayuda no es un fracaso personal, es una herramienta más, igual que ir al fisioterapeuta cuando algo del cuerpo no funciona bien.
+* **«Ya se me pasará solo/a»:** algunas cosas mejoran con el tiempo, pero muchas otras simplemente se vuelven más manejables de disimular, no de resolver.
+* **«No tengo tiempo para esto ahora»:** casi nunca hay un «buen momento» que llegue por sí solo; normalmente hay que decidir hacerle hueco.
+* **«Debería poder con esto yo sola/o»:** pedir ayuda no es un fracaso personal, es una herramienta más, igual que ir al fisioterapeuta cuando algo del cuerpo no funciona bien.
 
 ## Señales de que podría ayudarte ir al psicólogo
 
-No existe una lista cerrada ni un cuestionario que te diga "sí o no" con certeza absoluta, pero estas son las señales que más veo repetirse en consulta.
+No existe una lista cerrada ni un cuestionario que te diga «sí o no» con certeza absoluta, pero estas son las señales que más veo repetirse en consulta.
 
 ### Señales emocionales
 
 * Sientes [ansiedad](/blog/que-es-ansiedad-sintomas-guia/), tristeza o irritabilidad de forma frecuente, sin una causa que lo justifique del todo.
-* Te cuesta identificar qué sientes exactamente; solo sabes que "algo no va bien".
+* Te cuesta identificar qué sientes exactamente; solo sabes que «algo no va bien».
 * Has perdido interés en cosas que antes te ilusionaban.
 * Te sientes desbordado/a por emociones que antes gestionabas mejor, o notas que reaccionas de forma más intensa de lo habitual.
 
@@ -62,14 +62,14 @@ No existe una lista cerrada ni un cuestionario que te diga "sí o no" con certez
 
 * Notas que tu rendimiento en el trabajo o los estudios ha bajado, o que te cuesta concentrarte más de lo normal.
 * Te cuesta más de lo habitual mantener tus relaciones, o directamente evitas quedar con gente que antes te apetecía ver.
-* Recurres a hábitos como la comida, el móvil, las compras o el alcohol para "desconectar" más de lo que te gustaría admitir.
-* Sientes que estás "funcionando en piloto automático" en vez de viviendo realmente tus días.
+* Recurres a hábitos como la comida, el móvil, las compras o el alcohol para «desconectar» más de lo que te gustaría admitir.
+* Sientes que estás «funcionando en piloto automático» en vez de viviendo realmente tus días.
 
 > ***¿Te ha resonado alguna de estas señales?*** *No necesitas esperar a estar peor para dar el paso. Una* ***[primera sesión](/#booking-calendar)*** *es simplemente un espacio para poner en palabras lo que sientes y ver por dónde empezar.*
 
 ## ¿Y si no sé exactamente qué me pasa?
 
-Esto es algo que quiero que te quites de la cabeza: **no necesitas llegar con un diagnóstico ni una explicación clara** de lo que te ocurre. Identificar qué está pasando y por qué es, precisamente, parte del trabajo que hacemos en terapia. Llegar con dudas, con un "no sé muy bien cómo explicarlo" o incluso con la sensación de "seguramente no sea nada importante", es completamente válido y mucho más habitual de lo que piensas.
+Esto es algo que quiero que te quites de la cabeza: **no necesitas llegar con un diagnóstico ni una explicación clara** de lo que te ocurre. Identificar qué está pasando y por qué es, precisamente, parte del trabajo que hacemos en terapia. Llegar con dudas, con un «no sé muy bien cómo explicarlo» o incluso con la sensación de «seguramente no sea nada importante», es completamente válido y mucho más habitual de lo que piensas.
 
 ## Cuándo NO hace falta terapia
 
@@ -89,13 +89,13 @@ A veces lo que hace falta es descanso, tiempo, o cambiar algo de tu vida que ya 
 
 Es un miedo que casi nadie dice en voz alta: la idea de ocupar el sitio de alguien que lo necesita más, o de que te digan que estás exagerando.
 
-Primero, no te van a decir eso. Y segundo, si la conclusión de una primera sesión fuera *"lo que te pasa es esperable en tu situación y no creo que necesites un proceso de terapia"*, eso no sería haber perdido el tiempo ni el dinero. Sería salir con una respuesta a algo que llevabas meses dándole vueltas.
+Primero, no te van a decir eso. Y segundo, si la conclusión de [una primera sesión](/blog/como-es-la-primera-sesion-de-psicologia/) fuera *«lo que te pasa es esperable en tu situación y no creo que necesites un proceso de terapia»*, eso no sería haber perdido el tiempo ni el dinero. Sería salir con una respuesta a algo que llevabas meses dándole vueltas.
 
 Nadie sale peor de haber preguntado.
 
 ## Qué puedes ganar al dar este paso
 
-Empezar terapia no es admitir que "algo va mal contigo". Es una decisión activa de cuidarte, igual que cuidarías cualquier otra parte de tu vida. Con el proceso adecuado puedes:
+Empezar terapia no es admitir que «algo va mal contigo». Es una decisión activa de cuidarte, igual que cuidarías cualquier otra parte de tu vida. Con el proceso adecuado puedes:
 
 * **Entender de dónde vienen** esas emociones o patrones que hoy te desbordan, en lugar de solo gestionarlos por inercia.
 * **Aprender herramientas concretas** para afrontar el día a día con más calma y menos reactividad.

@@ -35,3 +35,36 @@
 1.  Recibirás un título o una idea para un artículo.
 2.  Redactarás el contenido completo siguiendo todas las directrices anteriores.
 3.  Entregarás el artículo en formato Markdown, listo para ser publicado en el blog.
+
+---
+
+## Convenciones de escritura
+
+Esto no es estilo opinable: son decisiones ya tomadas que se aplican sin volver
+a discutirlas en cada artículo.
+
+### Comillas: angulares « », siempre
+
+En español se usan tres clases de comillas y tienen un orden. La RAE lo dice
+así: *«en los impresos se recomienda usar primero las angulares, reservando las
+inglesas y las simples, en este orden, para entrecomillar partes de un texto ya
+entrecomillado»*
+([RAE, Español al día](https://www.rae.es/espanol-al-dia/cuando-se-usa-cada-tipo-de-comillas)).
+
+Así que:
+
+1. **« »** para todo: pensamientos, citas, términos usados con distancia.
+2. **" "** (inglesas, curvas) solo dentro de algo ya entrecomillado.
+3. **' '** (simples) solo en un tercer nivel, que casi nunca aparece.
+
+La comilla recta `"` no se usa nunca en texto. No es una comilla española ni
+inglesa: es un apaño de la máquina de escribir. Si hace falta el segundo nivel,
+son las curvas.
+
+Esto se unificó el 23 de septiembre de 2026 convirtiendo 150 comillas rectas en
+ocho artículos. Antes convivían los dos sistemas según quién hubiera escrito qué
+y cuándo.
+
+**Dónde no aplica:** los atributos HTML (`class="..."`), el frontmatter YAML y
+cualquier fragmento de código llevan comillas rectas porque ahí son sintaxis, no
+puntuación.

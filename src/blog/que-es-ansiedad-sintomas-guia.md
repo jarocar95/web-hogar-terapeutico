@@ -25,7 +25,7 @@ Sentir nerviosismo antes de una presentación importante, preocupación por un s
 
 En **[Hogar Terapéutico](/)**, entiendo que dar nombre a lo que sientes es el primer paso para poder gestionarlo. No estás solo/a en esto, y mi objetivo con esta guía es darte claridad y mostrarte que hay un camino hacia la calma.
 
-Y lo de "no estás solo/a" no es una frase de consuelo. Según la [Organización Mundial de la Salud](https://www.who.int/es/news-room/fact-sheets/detail/anxiety-disorders), en 2021 había en el mundo 359 millones de personas con un trastorno de ansiedad, alrededor del 4,4 % de la población. Y solo una de cada cuatro que lo necesitaba recibía algún tratamiento. Si llevas tiempo apañándotelas por tu cuenta, estás en la mayoría, no en la excepción.
+Y lo de «no estás solo/a» no es una frase de consuelo. Según la [Organización Mundial de la Salud](https://www.who.int/es/news-room/fact-sheets/detail/anxiety-disorders), en 2021 había en el mundo 359 millones de personas con un trastorno de ansiedad, alrededor del 4,4 % de la población. Y solo una de cada cuatro que lo necesitaba recibía algún tratamiento. Si llevas tiempo apañándotelas por tu cuenta, estás en la mayoría, no en la excepción.
 
 ## Más allá del estrés: entendiendo qué es realmente la ansiedad
 
@@ -35,7 +35,7 @@ La **ansiedad**, en cambio, es una respuesta emocional más interna y persistent
 
 ## Síntomas comunes: ¿cómo se manifiesta la ansiedad en tu cuerpo y mente?
 
-La ansiedad no es solo "estar nervioso". Es una experiencia compleja que afecta a todo tu ser. Reconocer sus señales es fundamental para poder abordarla.
+La ansiedad no es solo «estar nervioso». Es una experiencia compleja que afecta a todo tu ser. Reconocer sus señales es fundamental para poder abordarla.
 
 ### Síntomas físicos
 
@@ -59,7 +59,7 @@ Tu mente también se ve atrapada en el ciclo de la ansiedad:
 * **Pensamientos catastróficos**, imaginando siempre el peor escenario posible.
 * Dificultad para **concentrarte** o tener la mente en blanco.
 * **Irritabilidad** o cambios de humor repentinos.
-* Miedo intenso a **perder el control** o a "volverse loco".
+* Miedo intenso a **perder el control** o a «volverse loco».
 * Sensación de **irrealidad** o de estar desconectado de ti mismo (despersonalización/desrealización).
 
 ### Síntomas conductuales
@@ -86,7 +86,7 @@ Si la ansiedad te está limitando, es el momento de buscar ayuda.
 
 ## Los tipos de ansiedad más frecuentes
 
-"Ansiedad" es una palabra paraguas, y debajo hay formas bastante distintas de sufrirla. Reconocer la tuya ayuda, porque las herramientas que funcionan no son las mismas en todos los casos.
+«Ansiedad» es una palabra paraguas, y debajo hay formas bastante distintas de sufrirla. Reconocer la tuya ayuda, porque las herramientas que funcionan no son las mismas en todos los casos.
 
 Lo que viene a continuación es información, no un diagnóstico: eso solo puede hacerlo un profesional contigo delante y con tiempo.
 
@@ -141,7 +141,7 @@ Porque cada vez que evitas algo que te da ansiedad, te sientes mejor de inmediat
 
 Lo mismo ocurre con lo que en consulta llamamos **conductas de seguridad**: preguntar mil veces si todo está bien, buscar síntomas en internet, revisar el móvil, ensayar una conversación entera antes de tenerla. Todas calman en el momento y todas le confirman a tu sistema nervioso que el peligro existía, porque hizo falta protegerse de él.
 
-Por eso la ansiedad no se resuelve con fuerza de voluntad ni "dejando de pensar en ello". No es un problema de actitud: es un aprendizaje que se ha instalado a base de repetición, y que se desmonta también con método, no con voluntarismo.
+Por eso la ansiedad no se resuelve con fuerza de voluntad ni «dejando de pensar en ello». No es un problema de actitud: es un aprendizaje que se ha instalado a base de repetición, y que se desmonta también con método, no con voluntarismo.
 
 ## Cómo la terapia te ayuda a recuperar el control (el siguiente paso)
 

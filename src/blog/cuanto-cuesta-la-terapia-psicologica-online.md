@@ -24,7 +24,7 @@ Preguntarte cuánto va a costarte la terapia no tiene nada de malo, aunque a vec
 
 ## Por qué varía tanto el precio de la terapia
 
-Si has buscado antes, seguramente hayas visto precios muy distintos entre unos profesionales y otros. Esto suele depender de varios factores:
+Si has buscado antes, seguramente hayas visto precios muy distintos [entre unos profesionales y otros](/blog/diferencia-psicologo-sanitario-clinico-psiquiatra/). Esto suele depender de varios factores:
 
 * **Formación y especialización:** formaciones específicas y avanzadas —como el [EMDR](/blog/que-es-emdr-como-ayuda/)— o los años de experiencia acumulada influyen en el precio final.
 * **Duración de la sesión:** lo habitual son sesiones de 45 a 50 minutos, pero varía según el profesional y el tipo de terapia. Conviene mirar el precio *por sesión de cincuenta minutos*, no el precio a secas.
@@ -43,7 +43,7 @@ Por eso lo importante no es tanto comparar contra una media, sino que **el preci
 
 Este punto casi nunca se explica y genera dudas razonables: *¿me van a sumar el IVA luego?*
 
-No. La asistencia sanitaria prestada por profesionales sanitarios está exenta de IVA, y la ley española nombra a los psicólogos de forma expresa. Lo dice el artículo 20.Uno.3º de la [Ley 37/1992 del Impuesto sobre el Valor Añadido](https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740), que incluye entre los profesionales sanitarios "los psicólogos, logopedas y ópticos, diplomados en centros oficiales o reconocidos por la Administración".
+No. La asistencia sanitaria prestada por profesionales sanitarios está exenta de IVA, y la ley española nombra a los psicólogos de forma expresa. Lo dice el artículo 20.Uno.3º de la [Ley 37/1992 del Impuesto sobre el Valor Añadido](https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740), que incluye entre los profesionales sanitarios «los psicólogos, logopedas y ópticos, diplomados en centros oficiales o reconocidos por la Administración».
 
 En la práctica significa que 50 € son 50 €. No hay un 21 % esperando al final.
 
@@ -55,12 +55,12 @@ Antes de reservar con cualquier profesional, es razonable preguntar qué incluye
 
 Aquí está el hueco que dejan casi todos los artículos sobre este tema. Te dicen el precio por sesión, que es el dato fácil, y no el que te quita el sueño. Lo que en realidad quieres saber es **cuánto vas a acabar gastando en total**.
 
-Y la respuesta honesta es que nadie puede dártela de antemano. Depende de qué te trae, de cuánto tiempo lleva contigo y de qué quieres conseguir. Quien te prometa "seis sesiones y resuelto" antes de conocerte te está vendiendo algo, no diagnosticando.
+Y la respuesta honesta es que nadie puede dártela de antemano. Depende de qué te trae, de cuánto tiempo lleva contigo y de qué quieres conseguir. Quien te prometa «seis sesiones y resuelto» antes de conocerte te está vendiendo algo, no diagnosticando.
 
 Lo que sí puedes hacer es no quedarte a ciegas:
 
 * **Pagas sesión a sesión.** No hay packs cerrados ni cuotas mensuales, así que el gasto nunca se te adelanta.
-* **Puedes pedir una revisión cuando quieras.** Preguntar "¿por dónde vamos y qué queda?" es una pregunta legítima y una buena terapeuta la responde con concreción, no con vaguedades.
+* **Puedes pedir una revisión cuando quieras.** Preguntar «¿por dónde vamos y qué queda?» es una pregunta legítima y una buena terapeuta la responde con concreción, no con vaguedades.
 * **Puedes ajustar la frecuencia.** Semanal es lo habitual al principio, pero no es una regla física. Si el ritmo te aprieta el bolsillo, dímelo: es preferible espaciar y sostener el proceso que abandonarlo por asfixia.
 
 Un proceso que se interrumpe a la mitad por dinero acaba costando más —en tiempo y en desgaste— que uno bien planificado desde el principio.
@@ -69,7 +69,7 @@ Un proceso que se interrumpe a la mitad por dinero acaba costando más —en tie
 
 Por mi parte, prefiero que esto sea sencillo y esté siempre a la vista:
 
-* **Primera sesión: 35 €** — evaluación inicial, conocer tus necesidades y objetivos, y diseñar juntos un plan terapéutico personalizado desde el primer día.
+* **[Primera sesión: 35 €](/blog/como-es-la-primera-sesion-de-psicologia/)** — evaluación inicial, conocer tus necesidades y objetivos, y diseñar juntos un plan terapéutico personalizado desde el primer día.
 * **Sesión individual online: 50 €** — seguimiento terapéutico, técnicas avanzadas (incluido el EMDR cuando es la herramienta más adecuada para ti) y material complementario cuando lo necesites.
 
 Sin letra pequeña ni sorpresas a mitad de proceso: lo que ves es lo que hay.
@@ -90,7 +90,7 @@ Una terapia mal ajustada a lo que necesitas, aunque sea más barata, puede alarg
 
 Es una pregunta incómoda, pero real: ¿cuánto te está costando ya —en energía, en relaciones, en oportunidades, en descanso— seguir cargando con esto sin ayuda? No se trata de sentir culpa por dudarlo, sino de mirar la terapia como lo que es: una inversión en la persona con la que vas a pasar el resto de tu vida.
 
-Y si lo que te frena no es el precio sino la duda de si "lo tuyo es suficiente" para pedir ayuda, eso lo desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
+Y si lo que te frena no es el precio sino la duda de si «lo tuyo es suficiente» para pedir ayuda, eso lo desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 
 ## Empieza con un primer paso accesible
 

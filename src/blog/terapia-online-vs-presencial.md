@@ -20,7 +20,7 @@ faq:
     respuesta: "No necesariamente, porque el precio refleja el trabajo de la sesión y no el alquiler de un despacho. Lo que sí te ahorras es el desplazamiento y el tiempo que se va en él. En Hogar Terapéutico la primera sesión son 35 € y las siguientes 50 €, en ambos casos de 50 minutos."
 ---
 
-Si estás valorando empezar terapia, es muy probable que te haya surgido esta duda: **¿es la terapia online "tan buena" como la presencial, o me estoy conformando con una versión menor?** Es una pregunta legítima, y a estas alturas tiene respuesta con base científica, no solo opinión.
+Si estás valorando empezar terapia, es muy probable que te haya surgido esta duda: **¿es la terapia online «tan buena» como la presencial, o me estoy conformando con una versión menor?** Es una pregunta legítima, y a estas alturas tiene respuesta con base científica, no solo opinión.
 
 ## ¿Es la terapia online igual de eficaz que la presencial?
 
@@ -34,7 +34,7 @@ La duda de fondo no suele ser sobre los síntomas, sino sobre el vínculo: *¿se
 
 Lo que sí se mantiene constante en todos ellos es que la reducción de síntomas es equivalente. Es decir: el formato no es lo que determina si la terapia funciona.
 
-Dicho esto, no se trata de elegir "la mejor" en abstracto, como si una modalidad fuera objetivamente superior, sino la que mejor encaje contigo, con tu momento vital y con tu forma de sentirte cómodo/a compartiendo lo que te pasa.
+Dicho esto, no se trata de elegir «la mejor» en abstracto, como si una modalidad fuera objetivamente superior, sino la que mejor encaje contigo, con tu momento vital y con tu forma de sentirte cómodo/a compartiendo lo que te pasa.
 
 ## Ventajas de la terapia online
 
@@ -50,11 +50,11 @@ Ser honesta también es parte de mi compromiso contigo, así que es justo decir 
 
 * Situaciones de **crisis aguda** que requieren intervención inmediata y contención en el mismo espacio.
 * Algunas dinámicas de **terapia familiar o de pareja**, donde la presencia conjunta de varias personas facilita ciertos ejercicios.
-* Cuando **prefieres el contacto físico del espacio terapéutico** y eso forma parte de lo que te ayuda a sentirte a salvo, sin que haga falta un motivo "técnico" detrás.
+* Cuando **prefieres el contacto físico del espacio terapéutico** y eso forma parte de lo que te ayuda a sentirte a salvo, sin que haga falta un motivo «técnico» detrás.
 
 Ninguna opción es superior de forma universal. La pregunta correcta no es cuál es mejor en general, sino cuál es mejor *para ti* en este momento de tu vida.
 
-> ***¿Te preocupa que la terapia online "no sea suficiente"?*** *Es una duda muy común y suele disolverse después de la primera sesión. Podemos resolverla antes de empezar, sin ningún compromiso:* ***[reserva tu primera sesión](/#booking-calendar)***.
+> ***¿Te preocupa que la terapia online «no sea suficiente»?*** *Es una duda muy común y suele disolverse después de la primera sesión. Podemos resolverla antes de empezar, sin ningún compromiso:* ***[reserva tu primera sesión](/#booking-calendar)***.
 
 ## Cómo funciona una sesión online en la práctica
 
@@ -68,7 +68,7 @@ La sesión transcurre igual que una presencial: mismos 50 minutos, misma atenci�
 
 ## ¿Y si no tengo un sitio privado donde conectarme?
 
-Esta es, con diferencia, la objeción más real de todas, y la que menos se menciona en los artículos sobre terapia online. Vivir con la familia, compartir piso o tener niños pequeños en casa hace que "un espacio donde nadie te escuche" suene a lujo.
+Esta es, con diferencia, la objeción más real de todas, y la que menos se menciona en los artículos sobre terapia online. Vivir con la familia, compartir piso o tener niños pequeños en casa hace que «un espacio donde nadie te escuche» suene a lujo.
 
 Tiene más soluciones de las que parece. He tenido sesiones con personas que se conectaban desde el coche aparcado, que es probablemente el sitio más privado al que mucha gente tiene acceso. Otras pasean por un parque con auriculares. Otras aprovechan una sala de reuniones vacía a última hora.
 
@@ -83,11 +83,11 @@ Antes de decidir, puede ayudarte responder a estas preguntas:
 * ¿Qué formato me permitiría ser **más constante** a lo largo del tiempo? Esta es la que más pesa: la terapia que funciona es la que se sostiene.
 * ¿En qué entorno me siento más cómodo/a hablando de mí?
 * ¿Tengo un espacio sin interrupciones donde pueda conectarme, o puedo conseguirlo?
-* ¿Me pesa más el ahorro de tiempo o la sensación de "ritual" de salir a un espacio distinto?
+* ¿Me pesa más el ahorro de tiempo o la sensación de «ritual» de salir a un espacio distinto?
 
 Si tus respuestas apuntan a la comodidad, la flexibilidad y sentirte a gusto en tu propio espacio, la terapia online probablemente sea una buena opción para ti.
 
-Y si lo que te frena no es el formato sino la duda de fondo —si lo que te pasa "es suficiente" para pedir ayuda—, eso lo desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
+Y si lo que te frena no es el formato sino la duda de fondo —si lo que te pasa «es suficiente» para pedir ayuda—, eso lo desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 
 ## Empecemos, estés donde estés
 

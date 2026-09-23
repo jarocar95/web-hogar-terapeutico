@@ -20,7 +20,7 @@ faq:
     respuesta: "Pídele el número de colegiada y contrástalo en el Colegio Oficial de la Psicología de su comunidad, que mantiene un registro público. Es una pregunta completamente normal y cualquier profesional te la responderá sin problema. El mío es el M-42569, del Colegio Oficial de la Psicología de Madrid."
 ---
 
-Buscas ayuda psicológica y te encuentras con cuatro palabras que parecen sinónimos y no lo son: psicólogo, psicólogo general sanitario, psicólogo clínico y psiquiatra. Añade "psicoterapeuta", "terapeuta" y "coach", y la confusión está servida.
+Buscas ayuda psicológica y te encuentras con cuatro palabras que parecen sinónimos y no lo son: psicólogo, psicólogo general sanitario, psicólogo clínico y psiquiatra. Añade «psicoterapeuta», «terapeuta» y «coach», y la confusión está servida.
 
 Es una de esas preguntas que da un poco de apuro hacer en voz alta. Aquí está contestada entera, con las fuentes a la vista.
 
@@ -46,7 +46,7 @@ El título lo creó el [Real Decreto 2490/1998](https://www.boe.es/buscar/act.ph
 
 En la práctica: es la vía habitual para trabajar en la red pública y para los cuadros más graves o complejos. También ejercen en privada.
 
-**Los dos son psicólogos sanitarios y los dos hacen terapia.** La diferencia está en la vía formativa y en el nivel de complejidad para el que se han formado, no en si "pueden" o no atenderte.
+**Los dos son psicólogos sanitarios y los dos hacen terapia.** La diferencia está en la vía formativa y en el nivel de complejidad para el que se han formado, no en si «pueden» o no atenderte.
 
 ## Psiquiatra
 
@@ -56,11 +56,11 @@ Su diferencia práctica más importante, y la que de verdad te interesa: **es el
 
 Muchos procesos funcionan mejor con las dos cosas a la vez: la medicación baja el volumen del síntoma, y la terapia trabaja lo que hay debajo. No compiten.
 
-## ¿Y "psicoterapeuta", "terapeuta" o "coach"?
+## ¿Y «psicoterapeuta», «terapeuta» o «coach»?
 
 Aquí está la parte que más conviene saber.
 
-**"Psicólogo" es un título regulado**: exige una formación concreta, verificable, y colegiación para ejercer en el ámbito sanitario. Palabras como **"terapeuta", "coach", "consultor" o "experto en bienestar" no tienen detrás un título oficial equivalente.** Cualquiera puede usarlas.
+**«Psicólogo» es un título regulado**: exige una formación concreta, verificable, y colegiación para ejercer en el ámbito sanitario. Palabras como **«terapeuta», «coach», «consultor» o «experto en bienestar» no tienen detrás un título oficial equivalente.** Cualquiera puede usarlas.
 
 Que quede claro lo que no estoy diciendo: no estoy diciendo que quien se llame coach no valga, ni que no pueda ayudarte. Hay profesionales excelentes trabajando con esas etiquetas. Lo que digo es que **la palabra no te da la información**, y que si estás buscando atención sanitaria para algo que te está afectando a la salud, sí quieres saber qué hay detrás.
 
@@ -94,7 +94,7 @@ Sin conocerte no puedo decírtelo, pero sí puedo darte el criterio que usaría 
 * **Si lo que te pasa te está afectando al día a día** —al sueño, al trabajo, a tus relaciones— y quieres entenderlo y trabajarlo, un psicólogo sanitario, sea general o clínico, es el punto de entrada natural.
 * **Si hay síntomas físicos importantes, riesgo, o llevas mucho tiempo sin poder sostener tu vida cotidiana**, conviene que haya un médico valorándolo. Empieza por tu médico de familia, que es la puerta al resto del sistema.
 * **Si ya tomas medicación** pautada por un psiquiatra, la terapia no la sustituye: la complementa.
-* **Si dudas de si lo tuyo "da para" terapia**, esa duda concreta la desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
+* **Si dudas de si lo tuyo «da para» terapia**, esa duda concreta la desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 
 Y una cosa más, porque conviene decirla: el título te dice la formación, no el encaje. Dos profesionales con el mismo título trabajan de formas muy distintas, y el vínculo que construyas pesa tanto como las siglas. Por eso existe una primera sesión.
 
