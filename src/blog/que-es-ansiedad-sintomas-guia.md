@@ -92,7 +92,7 @@ Lo que viene a continuación es información, no un diagnóstico: eso solo puede
 
 ### Ansiedad generalizada
 
-La preocupación no se agarra a una sola cosa, va rotando. Hoy el trabajo, mañana la salud de tu madre, pasado el dinero. La sensación característica es la de tener siempre algo rondando, un fondo de alerta que no se apaga aunque objetivamente todo esté en orden. Suele venir acompañada de tensión muscular constante y de problemas de sueño.
+La preocupación no se agarra a una sola cosa, va rotando. Hoy el trabajo, mañana la salud de tu madre, pasado el dinero. La sensación característica es la de tener siempre algo rondando, un [fondo de alerta que no se apaga](/blog/vivir-en-alerta-constante-hipervigilancia/) aunque objetivamente todo esté en orden. Suele venir acompañada de tensión muscular constante y de problemas de sueño.
 
 ### Ansiedad social
 

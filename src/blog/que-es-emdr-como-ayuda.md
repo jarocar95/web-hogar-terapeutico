@@ -35,7 +35,7 @@ A diferencia de otras terapias que se apoyan casi exclusivamente en hablar, el E
 
 Cuando vives una experiencia normal, tu cerebro la procesa y la «archiva» como un recuerdo del pasado: puedes pensar en ella sin que te desborde. Pero cuando la experiencia es demasiado intensa o dolorosa, ese proceso natural de archivo se bloquea. El recuerdo se queda «atascado» en tu sistema nervioso con toda su carga original: las imágenes, las sensaciones físicas, las emociones y las creencias negativas que se formaron en ese momento («no valgo nada», «no estoy a salvo», «es culpa mía»).
 
-Por eso, aunque hayan pasado años, algo tan simple como un olor, un tono de voz o una situación parecida puede «activar» ese recuerdo mal archivado y hacerte sentir como si estuvieras reviviéndolo. Esa activación sostenida del sistema nervioso es también la que está detrás de muchos [síntomas de ansiedad](/blog/que-es-ansiedad-sintomas-guia/): el cuerpo sigue respondiendo a un peligro que ya pasó.
+Por eso, aunque hayan pasado años, algo tan simple como un olor, un tono de voz o una situación parecida puede «activar» ese recuerdo mal archivado y hacerte sentir como si estuvieras reviviéndolo. Esa [activación sostenida del sistema nervioso](/blog/vivir-en-alerta-constante-hipervigilancia/) es también la que está detrás de muchos [síntomas de ansiedad](/blog/que-es-ansiedad-sintomas-guia/): el cuerpo sigue respondiendo a un peligro que ya pasó.
 
 La estimulación bilateral del EMDR ayuda a tu cerebro a **retomar ese proceso de archivo que se quedó a medias**. Poco a poco, el recuerdo se va integrando: sigue existiendo, sigues sabiendo que ocurrió, pero deja de tener ese «gancho» emocional que te secuestra el presente.
 

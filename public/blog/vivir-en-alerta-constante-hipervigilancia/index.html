@@ -1,0 +1,690 @@
+<!doctype html><html lang="es" class="scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vivir en alerta constante: qué es la hipervigilancia y cómo bajarla | Hogar Terapéutico</title><meta name="description" content="Qué es la hipervigilancia, por qué el cuerpo sigue en guardia cuando ya no hay peligro y qué ayuda de verdad a bajarla. Con las señales de cuándo pedir ayuda."><link rel="canonical" href="https://hogarterapeutico.com/blog/vivir-en-alerta-constante-hipervigilancia/"><meta name="theme-color" content="#FDFAF6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#4C2F2D" media="(prefers-color-scheme: dark)"><meta property="og:title" content="Vivir en alerta constante: qué es la hipervigilancia y cómo bajarla | Hogar Terapéutico"><meta property="og:description" content="Qué es la hipervigilancia, por qué el cuerpo sigue en guardia cuando ya no hay peligro y qué ayuda de verdad a bajarla. Con las señales de cuándo pedir ayuda."><meta property="og:type" content="website"><meta property="og:url" content="https://hogarterapeutico.com/blog/vivir-en-alerta-constante-hipervigilancia/"><meta property="og:image" content="https://hogarterapeutico.com/images/imagen-compartir.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Vivir en alerta constante: qué es la hipervigilancia y cómo bajarla | Hogar Terapéutico"><meta name="twitter:description" content="Qué es la hipervigilancia, por qué el cuerpo sigue en guardia cuando ya no hay peligro y qué ayuda de verdad a bajarla. Con las señales de cuándo pedir ayuda."><meta name="twitter:image" content="https://hogarterapeutico.com/images/imagen-compartir.png"><link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg"><link rel="shortcut icon" href="/images/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png"><link rel="manifest" href="/images/favicon/site.webmanifest"><style>/* Critical CSS - Above the fold content */
+        /* This CSS is inlined in the head for optimal performance */
+
+        /* Fuentes.
+           No se sirve cursiva real: la pagina tiene cursivas por debajo del
+           pliegue (testimonios y la cita de "Sobre mi"), asi que el archivo se
+           descargaba SIEMPRE, 29 KB compitiendo con la imagen del hero por el
+           LCP. El navegador sintetiza la oblicua a partir de la redonda, que es
+           lo que hacia esta web antes de autoalojar las fuentes. */
+        @font-face {
+          font-family: 'Public Sans';
+          src: url('/fonts/public-sans-var.woff2') format('woff2');
+          font-weight: 300 700;
+          font-style: normal;
+          font-display: swap;
+        }
+        @font-face {
+          font-family: 'Frank Ruhl Libre';
+          src: url('/fonts/frank-ruhl-libre-var.woff2') format('woff2');
+          font-weight: 400 700;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        /* Base styles */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        /* Simplified FOUC prevention - focus on logo only */
+        .logo-link,
+        .logo-img,
+        .logo-text {
+          opacity: 1 !important;
+          visibility: visible !important;
+          display: flex !important;
+        }
+
+        body {
+          font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          line-height: 1.6;
+          color: #374151;
+          background-color: #FEFBF8;
+        }
+
+        /* Prevent layout shift */
+        .container {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+
+        /* Enhanced header styles for performance and stability */
+        #main-header {
+          background-color: white;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 50;
+          height: 5rem;
+          will-change: transform;
+          backface-visibility: hidden;
+          transform: translateZ(0);
+        }
+
+        #main-header .container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+
+        /* Enhanced logo styling for performance */
+        .logo-link {
+          display: flex !important;
+          align-items: center !important;
+          gap: 0.75rem !important;
+          padding: 0.25rem !important;
+          border-radius: 10px; /* escala del sistema */
+          text-decoration: none;
+          opacity: 1 !important;
+          visibility: visible !important;
+          will-change: auto;
+          backface-visibility: hidden;
+          transform: translateZ(0);
+        }
+
+        .logo-img {
+          height: 1.75rem !important;
+          width: auto !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          display: block !important;
+          will-change: auto;
+          backface-visibility: hidden;
+          transform: translateZ(0);
+        }
+
+        .logo-text {
+          font-family: 'Frank Ruhl Libre', serif;
+          font-size: 1.125rem;
+          font-weight: 700;
+          color: #9C6666;
+          opacity: 1 !important;
+          visibility: visible !important;
+          display: block !important;
+          will-change: auto;
+          backface-visibility: hidden;
+          transform: translateZ(0);
+        }
+
+        /* Enhanced navigation styles for performance */
+        #main-header nav {
+          display: none;
+          align-items: center;
+          gap: 1.5rem;
+          will-change: auto;
+        }
+
+        
+        /* Mobile menu final styling - restore original beautiful design */
+        #mobile-menu-fixed {
+          position: absolute !important;
+          top: 100% !important;
+          left: 0 !important;
+          width: 100% !important;
+          background-color: white !important;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+          z-index: 9999 !important;
+          border-top: 1px solid #e5e7eb !important;
+        }
+
+        #mobile-menu-fixed nav {
+          padding: 1rem !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 0.5rem !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          margin: 0 !important;
+        }
+
+        /* :not(.btn) para no pisar el CTA de reserva.
+           Este bloque llegó lleno de !important y se los aplicaba también al
+           botón de reservar del menú, que lleva las clases btn btn-primary
+           btn-block text-center: el resultado era un rectángulo alineado a la
+           izquierda con radio de 6 px, cuando todos los demás CTA de la web
+           son píldoras centradas. */
+        #mobile-menu-fixed .mobile-link:not(.btn) {
+          display: block !important;
+          width: 100% !important;
+          padding: 0.75rem 1rem !important;
+          font-weight: 500 !important;
+          color: #4A3B3B !important;
+          text-decoration: none !important;
+          border-radius: 10px !important; /* escala del sistema */
+          transition: background-color 0.2s ease, color 0.2s ease !important;
+          text-align: left !important;
+          box-sizing: border-box !important;
+          margin: 0 !important;
+          left: 0 !important;
+        }
+
+        #mobile-menu-fixed .mobile-link:not(.btn):hover {
+          background-color: #f9f9f9 !important;
+          color: #9C6666 !important;
+        }
+
+        /* El CTA del menú, mientras no llega output.css, con la misma forma que
+           el resto de botones principales. */
+        #mobile-menu-fixed .mobile-link.btn {
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 44px;
+          margin-top: 0.5rem;
+          padding: 0.875rem 1.5rem;
+          background-color: #9C6666;
+          color: #fff;
+          font-weight: 600;
+          border-radius: 10px; /* escala del sistema */
+          text-align: center;
+          text-decoration: none;
+        }
+
+        #mobile-menu-fixed .mobile-link.cta-button {
+          background-color: #9C6666 !important;
+          color: white !important;
+          text-align: center !important;
+          font-weight: 600 !important;
+          border-radius: 10px !important; /* escala del sistema */
+          margin-top: 0.5rem !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          display: block !important;
+          padding: 0.75rem 1rem !important;
+        }
+
+        #mobile-menu-fixed .mobile-link.cta-button:hover {
+          background-color: #8B5A5A !important;
+          color: white !important;
+        }
+
+        #mobile-menu-fixed.hidden {
+          display: none !important;
+        }
+
+        #mobile-menu-fixed:not(.hidden) {
+          display: block !important;
+        }
+
+        #main-header .nav-link {
+          font-weight: 500;
+          color: #4A3B3B;
+          text-decoration: none;
+          font-size: 0.875rem;
+        }
+
+        #main-header .cta-button {
+          display: inline-block;
+          padding: 0.75rem 1.5rem;
+          background-color: #9C6666;
+          color: white;
+          font-weight: 600;
+          border-radius: 10px; /* escala del sistema */
+          text-decoration: none;
+          font-size: 0.875rem;
+        }
+
+        /* Mobile menu button */
+        #menu-btn {
+          display: block;
+          padding: 0.25rem;
+          border-radius: 10px; /* escala del sistema */
+          color: #9C6666;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+
+        .menu-icon {
+          font-size: 1.5rem;
+        }
+
+        /* Hero: solo lo imprescindible para que no parpadee antes de que
+           llegue output.css. La tipografia, el ancho y los espaciados los
+           ponen las clases del propio elemento; aqui solo van la caja, la
+           foto y el velo, que son lo que se ve en el primer pintado. */
+        #hero {
+          position: relative;
+          overflow: hidden;
+          background-color: #4C2F2D;
+          /* La altura y el centrado TIENEN que estar aqui, no solo en las
+             clases de Tailwind.
+             output.css se carga de forma asincrona, asi que hay un instante en
+             el que la pagina se pinta solo con este bloque. Sin min-height, el
+             hero valia lo que midiera su texto —154 px en escritorio— y al
+             llegar output.css crecia de golpe hasta 860 px, empujando toda la
+             pagina hacia abajo. Eso era un CLS de 0,955 y se llevaba por
+             delante la puntuacion de rendimiento en escritorio.
+             En movil se notaba menos solo porque el texto ocupa mas y el salto
+             era proporcionalmente menor. */
+          display: flex;
+          align-items: center;
+          min-height: calc(100vh - 5rem);
+          min-height: calc(100svh - 5rem);
+        }
+
+        #hero .container {
+          position: relative;
+          z-index: 10;
+        }
+
+        .hero-background-image {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          z-index: 0;
+        }
+
+        /* El shortcode de Eleventy envuelve la imagen en un elemento picture,
+           que por defecto es inline y sin altura: sin esto, el height:100% de
+           la imagen no resuelve contra nada y la foto no llega a ocupar el
+           hero. (Sin escribir la etiqueta entre signos de menor y mayor: el
+           detector la lee como una imagen rota de verdad.) */
+        .hero-background-image picture {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+
+        .hero-background-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          /* Estanteria a la izquierda, Angie al centro-derecha: el foco al
+             42% conserva la franja util y recorta el techo vacio. */
+          object-position: 50% 42%;
+        }
+
+        .hero-scrim {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          background: linear-gradient(180deg,
+            rgba(30,20,18,.72) 0%,
+            rgba(34,23,21,.80) 55%,
+            rgba(38,26,24,.88) 100%);
+        }
+
+        
+
+        /* Las anclas de seccion aterrizan por debajo de la cabecera fija.
+           Sin esto, el scroll nativo (segundo clic, enlace pegado, vuelta
+           atras) deja el titulo tapado por los 5rem de cabecera. */
+        section[id] {
+          scroll-margin-top: 6rem;
+        }
+
+        /* CTA buttons */
+        .cta-button {
+          display: inline-block;
+          padding: 0.75rem 1.5rem;
+          background-color: #9C6666;
+          color: white;
+          font-weight: 600;
+          border-radius: 10px; /* escala del sistema */
+          text-decoration: none;
+          transition: background-color 0.2s, color 0.2s, transform 0.1s;
+          text-align: center;
+        }
+
+        .cta-button.bg-white.text-primary {
+          background-color: white;
+          color: #9C6666;
+        }
+
+        .cta-button.bg-transparent.border-2.border-white.text-white {
+          background-color: transparent;
+          border: 2px solid white;
+          color: white;
+        }
+
+        .cta-button.bg-transparent.border-2.border-white.text-white:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Flex utilities */
+        .flex {
+          display: flex;
+        }
+
+        .flex-col {
+          flex-direction: column;
+        }
+
+        .flex-row {
+          flex-direction: row;
+        }
+
+        .justify-center {
+          justify-content: center;
+        }
+
+        .items-center {
+          align-items: center;
+        }
+
+        .gap-4 {
+          gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+          .flex.sm\\:flex-row {
+            flex-direction: row;
+          }
+        }
+
+
+        :root {
+          --primary: #9C6666;
+          --secondary: #A1BFAE;
+          --text: #4A3B3B;
+          --background: #FEFBF8;
+          --light: #F6EEEE;
+          --accent: #E6A6A1;
+          --footer-bg: #4A3B3B;
+          --footer-text: #FFFFFF;
+        }
+
+        body {
+          font-family: 'Public Sans', sans-serif;
+          background-color: var(--background);
+          color: var(--text);
+          line-height: 1.6;
+          margin: 0;
+          padding-top: 5rem;
+        }
+
+        /* Container */
+        .container {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+
+        /* Header */
+        .header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 50;
+          background: rgba(254, 251, 248, 0.9);
+          backdrop-filter: blur(10px);
+          transition: background-color 0.3s ease;
+          border-bottom: 1px solid var(--light);
+          height: 5rem;
+        }
+
+        .header-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 100%;
+          padding: 0 1rem;
+          max-width: 1280px;
+          margin: 0 auto;
+        }
+
+        /* Logo */
+        .logo-link {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.25rem;
+          border-radius: 10px; /* escala del sistema */
+          text-decoration: none;
+          transition: background-color 0.2s;
+        }
+
+        .logo-link:hover {
+          background-color: rgba(246, 238, 238, 0.5);
+        }
+
+        .logo-img {
+          height: 1.75rem !important;
+          width: auto !important;
+          max-height: 1.75rem !important;
+          max-width: none !important;
+        }
+
+        .logo-text {
+          font-family: 'Frank Ruhl Libre', serif;
+          font-size: 1.125rem;
+          font-weight: 700;
+          color: var(--primary);
+          white-space: nowrap;
+        }
+
+        /* Navigation */
+        .nav {
+          display: none;
+          align-items: center;
+          gap: 1.5rem;
+        }
+
+        .nav-link {
+          font-weight: 500;
+          color: var(--text);
+          text-decoration: none;
+          transition: color 0.2s;
+          font-size: 0.875rem;
+        }
+
+        .nav-link:hover {
+          color: var(--primary);
+        }
+
+        .cta-button {
+          display: inline-block;
+          padding: 0.75rem 1.5rem;
+          background-color: var(--primary);
+          color: white;
+          font-weight: 600;
+          border-radius: 10px; /* escala del sistema */
+          text-decoration: none;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+          border: none;
+          cursor: pointer;
+        }
+
+        .cta-button:hover {
+          background-color: var(--primary);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Loading states */
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+
+        .animate-spin {
+          animation: spin 1s linear infinite;
+        }
+
+        .loading-spinner {
+          display: inline-block;
+          width: 2rem;
+          height: 2rem;
+          border: 3px solid rgba(156, 102, 102, 0.3);
+          border-top-color: var(--primary);
+          border-radius: 50%;
+        }
+
+        /* Skip link - hidden to prevent bounce issues */
+        .skip-link {
+          position: absolute;
+          top: -100px;
+          left: 0;
+          background: var(--primary);
+          color: white;
+          padding: 0.5rem 1rem;
+          text-decoration: none;
+          border-radius: 10px; /* escala del sistema */
+          z-index: 100;
+          transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+          top: 0;
+        }
+
+        /* Indicador de foco: solo en elementos interactivos y solo cuando el
+           navegador considera que procede mostrarlo (teclado), no al hacer clic.
+           Antes era *:focus, que pintaba un anillo alrededor de cualquier
+           elemento enfocable y anulaba el outline nativo en todo el documento. */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible,
+        summary:focus-visible,
+        [tabindex]:focus-visible {
+          outline: 2px solid #9C6666;
+          outline-offset: 2px;
+          border-radius: 0.25rem;
+        }
+
+        /* Responsive */
+        @media (min-width: 1024px) {
+          #main-header nav {
+            display: flex;
+          }
+
+          #menu-btn {
+            display: none;
+          }
+
+          .logo-text {
+            font-size: 1.5rem;
+          }
+
+          .logo-img {
+            height: 2.5rem !important;
+            width: auto !important;
+            max-height: 2.5rem !important;
+            max-width: none !important;
+          }
+
+          body {
+            padding-top: 5rem;
+          }
+        }</style><link rel="preload" href="/fonts/public-sans-var.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/frank-ruhl-libre-var.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/dist/output.css?v=b7d4362"><script>// Enhanced FOUC prevention - show content as soon as CSS is parsed
+      (function() {
+        var html = document.documentElement;
+        var showContent = function() {
+          html.classList.add('ready');
+        };
+
+        // Show content immediately if CSS is already parsed
+        if (document.readyState === 'loading') {
+          // CSS still loading, wait for DOMContentLoaded (fires when CSS is parsed)
+          document.addEventListener('DOMContentLoaded', showContent);
+        } else {
+          // DOM already loaded, show content immediately
+          showContent();
+        }
+
+        // Fallback: show content after maximum delay
+        setTimeout(showContent, 300);
+      })();</script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.__ANALYTICS_ID = 'G-RD78QPWW3F';
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+        gtag('config', window.__ANALYTICS_ID);</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Vivir en alerta constante: qué es la hipervigilancia y cómo bajarla",
+  "description": "Qué es la hipervigilancia, por qué el cuerpo sigue en guardia cuando ya no hay peligro y qué ayuda de verdad a bajarla. Con las señales de cuándo pedir ayuda.",
+  "image": "https://hogarterapeutico.com/img/vivir-en-alerta-constante-2000.jpeg",
+  "author": {
+    "@type": "Person",
+    "@id": "https://hogarterapeutico.com/#angie",
+    "name": "Angie Sánchez",
+    "url": "https://hogarterapeutico.com/#about",
+    "jobTitle": "Psicóloga General Sanitaria",
+    "identifier": "M-42569",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Colegiación profesional",
+      "name": "Psicóloga General Sanitaria — Colegiada M-42569",
+      "identifier": "M-42569",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Colegio Oficial de la Psicología de Madrid",
+        "url": "https://www.copmadrid.org"
+      }
+    },
+    "sameAs": [
+      "https://www.doctoralia.es/angie-sanchez-gallego/psicologo/madrid",
+      "https://es.linkedin.com/in/angie-s%C3%A1nchez-60268814b"
+    ]
+  },
+  "inLanguage": "es-ES",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hogar Terapéutico",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hogarterapeutico.com/images/favicon/web-app-manifest-512x512.png"
+    }
+  },
+  "datePublished": "2026-09-30",
+  "dateModified": "2026-09-30",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hogarterapeutico.com/blog/vivir-en-alerta-constante-hipervigilancia/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es exactamente la hipervigilancia?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Es un estado en el que el sistema nervioso mantiene subido el nivel de vigilancia aunque no haya ninguna amenaza delante. No es imaginarse peligros: es que el cuerpo sigue comprobando si los hay. Se nota en cosas pequeñas —sobresaltarte con un ruido, no poder concentrarte, no soltarte del todo ni en casa— y no es un rasgo de carácter, sino un ajuste que se puede mover." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿La hipervigilancia es lo mismo que la ansiedad?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No, aunque van juntas casi siempre. La ansiedad es lo que sientes: inquietud, anticipación, miedo a que pase algo. La hipervigilancia es lo que hace tu cuerpo mientras tanto: vigilar. Puedes estar hipervigilante sin sentirte especialmente ansioso, sobre todo si llevas tanto tiempo así que ya te parece normal." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué no puedo dormir aunque esté agotado?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Porque dormir exige bajar la guardia, y un sistema en alerta no la baja. El cansancio y la activación no se cancelan: puedes estar exhausto y con el cuerpo encendido a la vez. Por eso cuesta tanto coger el sueño, o te despiertas de madrugada de golpe y ya espabilado. El sueño malo vuelve a subir la alerta al día siguiente, y ahí se cierra el círculo." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede bajar la hipervigilancia sin terapia?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Se puede bajar el nivel, sí, y merece la pena hacerlo: dormir a horas regulares, dar señales de calma al cuerpo a diario, reducir las comprobaciones. Lo que eso no hace es desmontar el motivo por el que el sistema aprendió a estar así. Si hay algo debajo, las herramientas ayudan a vivir mejor mientras tanto, pero no lo sustituyen." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuándo conviene pedir ayuda?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cuando lleva meses, cuando te está quitando el sueño de forma sostenida, cuando ya organizas tu vida alrededor de ello —qué sitios evitas, dónde te sientas, con quién no hablas— o cuando no recuerdas cómo era no estar así. También si apareció después de algo concreto: ahí hay un punto de partida claro con el que se puede trabajar." }
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogarterapeutico.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://hogarterapeutico.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Vivir en alerta constante: qué es la hipervigilancia y cómo bajarla" }
+  ]
+}</script></head><body class="pt-20"><a href="#main-content" class="skip-link">Saltar al contenido principal</a><div class="scroll-indicator" id="scroll-progress"></div><header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm h-20" role="banner"><div class="container flex justify-between items-center h-full"><a href="/" class="flex items-center gap-3 rounded-sm2 p-1 transition-colors hover:bg-light/50"><img src="/images/logo-hogarterapeutico-simplificado.svg" alt="" class="h-7 w-auto lg:h-10" width="119" height="40" decoding="async"> <span id="logo-text" class="font-serif text-xl font-semibold text-primary leading-tight text-center lg:text-3xl lg:text-left lg:whitespace-nowrap">Hogar Terapéutico</span></a><nav class="hidden lg:flex items-center space-x-6 text-sm" role="navigation" aria-label="Navegación principal"><a href="/#about" class="font-medium text-text transition hover:text-primary rounded">Sobre mí</a> <a href="/#areas-of-intervention" class="font-medium text-text transition hover:text-primary rounded">Terapia</a> <a href="/#services-pricing" class="font-medium text-text transition hover:text-primary rounded">Precios</a> <a href="/#faq" class="font-medium text-text transition hover:text-primary rounded">Preguntas</a> <a href="/blog/" class="font-medium text-text transition hover:text-primary rounded">Blog</a><a href="/#booking-calendar" id="nav-cta" class="btn btn-primary text-sm">Reservar</a></nav><button id="menu-btn-fixed" class="lg:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] grid place-items-center rounded-sm2 z-50 text-primary flex-shrink-0" aria-label="Abrir menú" aria-expanded="false"><i id="hamburger-icon-fixed" class="ri-menu-line text-3xl"></i> <i id="close-icon-fixed" class="ri-close-line text-3xl hidden"></i></button></div><div id="mobile-menu-fixed" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-light"><nav class="flex flex-col p-4 space-y-2"><a href="/#about" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Sobre mí</a> <a href="/#areas-of-intervention" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Terapia</a> <a href="/#services-pricing" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Precios</a> <a href="/#faq" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Preguntas</a> <a href="/blog/" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Blog</a><a href="/#booking-calendar" class="mobile-link btn btn-primary btn-block text-center mt-4">Reservar · 35€</a></nav></div></header><main role="main" id="main-content"><article class="py-16 lg:py-20"><header class="container max-w-[760px] mb-10"><nav class="migas" aria-label="Miga de pan"><a href="/">Inicio</a> <span class="sep" aria-hidden="true">/</span> <a href="/blog/">Blog</a> <span class="sep" aria-hidden="true">/</span> <span aria-current="page">Vivir en alerta constante: qué es la hipervigilancia y cómo bajarla</span></nav><h1 class="font-serif font-semibold text-[clamp(2rem,4vw,2.9rem)] leading-[1.12] tracking-[-.02em] text-ink mb-5">Vivir en alerta constante: qué es la hipervigilancia y cómo bajarla</h1><p class="lead">Qué es la hipervigilancia, por qué el cuerpo sigue en guardia cuando ya no hay peligro y qué ayuda de verdad a bajarla. Con las señales de cuándo pedir ayuda.</p><p class="mt-6 pt-5 border-t border-clay-100 text-[14.5px] text-ink-mute">Por <a href="/#about" class="text-clay-600 font-semibold no-underline hover:underline underline-offset-2">Angie Sánchez</a> <span class="mx-1.5" aria-hidden="true">·</span> <time datetime="2026-09-30">30 de septiembre de 2026</time></p></header><div class="container max-w-[900px] mb-12"><div class="aspect-[16/10] rounded-lg2 overflow-hidden bg-clay-100 shadow-e1"><picture><source type="image/webp" srcset="/img/vivir-en-alerta-constante-40.webp 40w, /img/vivir-en-alerta-constante-320.webp 320w, /img/vivir-en-alerta-constante-480.webp 480w, /img/vivir-en-alerta-constante-640.webp 640w, /img/vivir-en-alerta-constante-900.webp 900w, /img/vivir-en-alerta-constante-1280.webp 1280w, /img/vivir-en-alerta-constante-1600.webp 1600w, /img/vivir-en-alerta-constante-2000.webp 2000w" sizes="(min-width: 900px) 900px, 100vw"><img src="/img/vivir-en-alerta-constante-40.jpeg" alt="Una esquina de dormitorio al atardecer: el borde de una cama deshecha, una mesilla baja y una monstera, con la luz entrando muy rasante y alargando las sombras." loading="eager" decoding="async" class="w-full h-full object-cover" fetchpriority="high" width="2000" height="1250" srcset="/img/vivir-en-alerta-constante-40.jpeg 40w, /img/vivir-en-alerta-constante-320.jpeg 320w, /img/vivir-en-alerta-constante-480.jpeg 480w, /img/vivir-en-alerta-constante-640.jpeg 640w, /img/vivir-en-alerta-constante-900.jpeg 900w, /img/vivir-en-alerta-constante-1280.jpeg 1280w, /img/vivir-en-alerta-constante-1600.jpeg 1600w, /img/vivir-en-alerta-constante-2000.jpeg 2000w" sizes="(min-width: 900px) 900px, 100vw"></picture></div></div><div class="container max-w-[720px]"><div class="prose-legal"><p>Llegas a casa, cierras la puerta y no pasa nada. No hay nadie. No hay peligro. Y sin embargo sigues escuchando, sigues pendiente, sigues con esa parte de ti que no se sienta del todo.</p><p>Por la noche, cuando por fin te tumbas, el cuerpo hace como que se apaga y a los cinco minutos se enciende otra vez.</p><p>No estás exagerando. <strong>Estás en alerta.</strong></p><h2>Qué es estar en alerta constante</h2><p>La hipervigilancia es un estado en el que el sistema nervioso mantiene subido el nivel de vigilancia aunque no haya nada que vigilar. No es imaginarse peligros. Es que el cuerpo sigue comprobando si los hay, todo el rato, por debajo de lo que tú decides.</p><p>Tiene nombre clínico porque se estudia desde hace décadas. El Instituto Nacional de Salud Mental de Estados Unidos la recoge dentro de los síntomas de activación del estrés postraumático, y la lista es reconocible: <a href="https://www.nimh.nih.gov/health/publications/post-traumatic-stress-disorder-ptsd">sobresaltarse con facilidad, sentirse tenso o en guardia, tener dificultad para concentrarse y problemas para conciliar o mantener el sueño</a>, además de irritabilidad.</p><p>Pero conviene decir lo que no dice esa lista: <strong>la hipervigilancia no es exclusiva del trauma</strong>. Aparece también en la ansiedad generalizada, donde el mismo organismo describe sentirse «al límite», la tensión muscular, la dificultad para concentrarse y los problemas de sueño <a href="https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad">entre los síntomas habituales</a>. Y aparece, sin más, en personas que llevan años en un entorno donde estar pendiente era lo sensato.</p><p>Se puede estar hipervigilante sin cumplir los criterios de ningún diagnóstico. Eso no la hace menos real ni menos cansada.</p><h2>Por qué tu cuerpo no se fía</h2><p>Aquí está la parte que cuesta aceptar: la alerta no es un fallo. Es un aprendizaje.</p><p>Si en algún momento estar pendiente sirvió —porque había motivos, porque hacía falta, porque bajar la guardia salió caro—, el sistema tomó nota. Y los sistemas de alarma no se recalibran solos cuando las cosas mejoran. Se quedan donde estaban, esperando.</p><p>Tu cuerpo no distingue entre «esto pasó hace ocho años» y «esto puede volver a pasar». Solo sabe que aquello existió y que conviene estar listo. Prefiere equivocarse mil veces por exceso antes que quedarse corto una sola vez, porque quedarse corto una sola vez fue lo que le costó caro.</p><p>Por eso razonarlo no lo apaga. Puedes saber perfectamente que estás a salvo y seguir sin estarlo en el cuerpo. Es exactamente la misma razón por la que <a href="/blog/como-calmar-el-cuerpo-cuando-la-cabeza-no-puede/">decirte «cálmate» no sirve de nada</a>: la parte que decide el nivel de alarma no entiende de argumentos.</p><h2>Lo que cuesta</h2><p>Vivir así tiene un precio que casi nunca se atribuye a la causa correcta.</p><p><strong>Cansancio que no se arregla durmiendo.</strong> Estar vigilante consume. No es el cansancio de haber hecho cosas, es el de no haber parado, y por eso el fin de semana no lo repara.</p><p><strong>Atención hecha trizas.</strong> La concentración necesita que una parte de ti confíe en que puede dejar de mirar. Si esa parte no se fía, lees tres veces el mismo párrafo.</p><p><strong>Sueño que no llega o que se rompe.</strong> Dormirse es, literalmente, bajar la guardia. Un sistema en alerta no la baja. Y aquí se cierra un círculo desagradable: dormir mal sube el nivel de alerta del día siguiente, que a su vez estropea la noche siguiente.</p><p><strong>Reacciones que no te reconoces.</strong> Saltar por un ruido, contestar mal por algo mínimo, llorar por una tontería. No es que te hayas vuelto irritable: es que ya estabas al noventa por ciento antes de que empezara el día.</p><p><strong>Y la más silenciosa: la vida se va encogiendo.</strong> Sitios que dejas de pisar, conversaciones que aplazas, planes que no haces. Cada uno tiene su explicación razonable por separado. Juntos dibujan otra cosa.</p><h2>Qué baja la alerta de verdad</h2><p>No hay un truco. Hay cosas que funcionan, y funcionan por acumulación.</p><p><strong>Darle señales al cuerpo, a diario y en frío.</strong> La respiración lenta, el frío, el movimiento: cosas que le dicen al sistema nervioso que este momento es seguro. Lo importante no es usarlas cuando estás mal, sino <strong>cuando estás bien</strong>. Así el cuerpo aprende el camino de vuelta antes de necesitarlo. Una vez suelta no hace nada; tres semanas seguidas, sí.</p><p><strong>Horarios de sueño aburridos.</strong> Acostarse y levantarse a la misma hora, aunque la noche haya sido mala. Es lo menos interesante de esta lista y probablemente lo que más mueve la aguja, porque rompe el círculo por el único sitio por donde se puede romper.</p><p><strong>Comprobar menos.</strong> Mirar el móvil, releer el mensaje, asomarse otra vez. Cada comprobación calma diez segundos y le confirma al sistema que había motivo para comprobar. Reducirlas no es contenerse heroicamente: es elegir una sola y dejarla ir.</p><p><strong>Sitios y personas donde no haya que estar pendiente.</strong> No es un consejo blando. El sistema nervioso recalibra sobre lo que vive de forma repetida, y necesita pruebas de que existe lo contrario.</p><p>Y ahora la parte honesta: <strong>todo esto ensancha el margen, no borra el origen</strong>. Vas a vivir mejor. Si debajo hay algo que sigue ahí, seguirá ahí.</p><h2>Cuándo esto no es «que yo soy así»</h2><p>Mucha gente llega a consulta describiendo la hipervigilancia como un rasgo de personalidad. «Siempre he sido nerviosa.» «Soy muy alerta, es mi carácter.»</p><p>A veces es carácter. Y a veces es un sistema que lleva tanto tiempo encendido que ya nadie recuerda quién le dio al interruptor.</p><p>Merece la pena mirarlo si:</p><ul><li>Lleva meses o años y no recuerdas cómo era no estar así</li><li>Empezó después de algo concreto, aunque ese algo te parezca poca cosa</li><li>Te está costando el sueño de forma sostenida</li><li>Ya organizas decisiones alrededor de ello</li><li>Las herramientas te bajan el pico pero vuelve enseguida</li></ul><p>Ese último punto es el más informativo de todos. Si las técnicas funcionan y el efecto dura diez minutos, no es que las estés haciendo mal: es que hay algo alimentando la alerta por debajo.</p><p>Cuando ese algo es una experiencia que el cerebro no llegó a procesar del todo, hay abordajes pensados justamente para eso. <a href="/blog/que-es-emdr-como-ayuda/">El EMDR trabaja sobre recuerdos que siguen activos</a> aunque hayan pasado años, y es uno de los caminos cuando la alerta tiene un origen identificable. Cuando no lo tiene, o cuando es más difuso, se trabaja de otra manera; pero se trabaja.</p><p>Si has llegado hasta aquí reconociéndote, quizá te ayude leer <a href="/blog/que-es-ansiedad-sintomas-guia/">qué es exactamente la ansiedad y cuándo deja de ser normal</a>. Y si llevas tiempo dándole vueltas a si esto es suficiente motivo para pedir ayuda, <a href="/blog/como-saber-si-necesitas-ir-al-psicologo/">eso lo tratamos de frente aquí</a>.</p><p>Estar en guardia no es un defecto. Es lo que tu cuerpo aprendió a hacer cuando hacía falta. Lo que se puede aprender ahora es que ya no hace falta tanto.</p></div></div></article><section aria-labelledby="faq-articulo" class="!py-0 mt-16"><div class="container max-w-[720px]"><h2 id="faq-articulo" class="font-serif font-semibold text-[clamp(1.5rem,2.6vw,1.9rem)] text-ink mb-6 tracking-[-.015em]">Preguntas frecuentes</h2><div class="acc"><details open><summary>¿Qué es exactamente la hipervigilancia?<span class="plus" aria-hidden="true"></span></summary><div class="ans">Es un estado en el que el sistema nervioso mantiene subido el nivel de vigilancia aunque no haya ninguna amenaza delante. No es imaginarse peligros: es que el cuerpo sigue comprobando si los hay. Se nota en cosas pequeñas —sobresaltarte con un ruido, no poder concentrarte, no soltarte del todo ni en casa— y no es un rasgo de carácter, sino un ajuste que se puede mover.</div></details><details><summary>¿La hipervigilancia es lo mismo que la ansiedad?<span class="plus" aria-hidden="true"></span></summary><div class="ans">No, aunque van juntas casi siempre. La ansiedad es lo que sientes: inquietud, anticipación, miedo a que pase algo. La hipervigilancia es lo que hace tu cuerpo mientras tanto: vigilar. Puedes estar hipervigilante sin sentirte especialmente ansioso, sobre todo si llevas tanto tiempo así que ya te parece normal.</div></details><details><summary>¿Por qué no puedo dormir aunque esté agotado?<span class="plus" aria-hidden="true"></span></summary><div class="ans">Porque dormir exige bajar la guardia, y un sistema en alerta no la baja. El cansancio y la activación no se cancelan: puedes estar exhausto y con el cuerpo encendido a la vez. Por eso cuesta tanto coger el sueño, o te despiertas de madrugada de golpe y ya espabilado. El sueño malo vuelve a subir la alerta al día siguiente, y ahí se cierra el círculo.</div></details><details><summary>¿Se puede bajar la hipervigilancia sin terapia?<span class="plus" aria-hidden="true"></span></summary><div class="ans">Se puede bajar el nivel, sí, y merece la pena hacerlo: dormir a horas regulares, dar señales de calma al cuerpo a diario, reducir las comprobaciones. Lo que eso no hace es desmontar el motivo por el que el sistema aprendió a estar así. Si hay algo debajo, las herramientas ayudan a vivir mejor mientras tanto, pero no lo sustituyen.</div></details><details><summary>¿Cuándo conviene pedir ayuda?<span class="plus" aria-hidden="true"></span></summary><div class="ans">Cuando lleva meses, cuando te está quitando el sueño de forma sostenida, cuando ya organizas tu vida alrededor de ello —qué sitios evitas, dónde te sientas, con quién no hablas— o cuando no recuerdas cómo era no estar así. También si apareció después de algo concreto: ahí hay un punto de partida claro con el que se puede trabajar.</div></details></div></div></section><div class="container max-w-[720px] mt-14"><div class="flex flex-col sm:flex-row items-start gap-6 bg-clay-50 border border-clay-100 p-7 rounded-lg2"><div class="w-20 h-20 rounded-full overflow-hidden flex-none"><picture><source type="image/webp" srcset="/img/angie-avatar-40.webp 40w, /img/angie-avatar-320.webp 320w, /img/angie-avatar-480.webp 480w, /img/angie-avatar-640.webp 640w" sizes="80px"><img src="/img/angie-avatar-40.jpeg" alt="Angie Sánchez" loading="lazy" decoding="async" class="w-full h-full object-cover" width="640" height="640" srcset="/img/angie-avatar-40.jpeg 40w, /img/angie-avatar-320.jpeg 320w, /img/angie-avatar-480.jpeg 480w, /img/angie-avatar-640.jpeg 640w" sizes="80px"></picture></div><div><h2 class="font-serif text-lg font-semibold text-ink">Angie Sánchez</h2><p class="text-[13px] font-semibold text-clay-600 tracking-[.06em] uppercase mt-0.5">Psicóloga General Sanitaria · M-42569</p><p class="text-[15px] text-ink-soft mt-3">Fundadora de Hogar Terapéutico. Terapia online con enfoque integrador y formación en trauma y EMDR.</p></div></div></div><section class="bg-clay-800 text-white !py-16 lg:!py-20 mt-16"><div class="container max-w-[760px] text-center"><h2 class="font-serif font-semibold text-[clamp(1.5rem,2.6vw,2rem)] text-white mb-3">¿Te has visto reflejado/a en algo de esto?</h2><p class="text-white/[.82] mb-8">Podemos hablarlo en una primera sesión de 50 minutos por 35€, sin compromiso de continuidad.</p><a href="/#booking-calendar" class="btn btn-light btn-lg">Reservar primera sesión · 35€</a><p class="mt-6 text-[15px] text-white/[.72]">¿Prefieres preguntar primero? <a href="https://wa.me/34621348616?text=Hola%20Angie%2C%20he%20le%C3%ADdo%20un%20art%C3%ADculo%20de%20tu%20blog%20y%20me%20ha%20surgido%20una%20duda." target="_blank" rel="noopener noreferrer" class="text-white font-semibold underline underline-offset-4 decoration-white/40 hover:decoration-white">Escríbeme por WhatsApp</a></p></div></section></main><nav class="bg-clay-50 border-t border-clay-100" aria-label="Ruta de navegación"><div class="container"><ol class="flex items-center gap-2 text-[14.5px] list-none m-0 p-0"><li><a href="/" class="inline-flex items-center min-h-[44px] text-clay-600 no-underline transition-colors hover:text-clay-700"><i class="ri-home-4-line" aria-hidden="true"></i> <span class="sr-only">Inicio</span></a></li><li class="flex items-center gap-2"><i class="ri-arrow-right-s-line text-clay-300" aria-hidden="true"></i> <span class="text-ink-soft font-medium">Vivir en alerta constante: qué es la hipervigilancia y cómo bajarla</span></li></ol></div></nav><footer class="bg-ink text-white/[.72] pt-[52px] pb-[30px] text-[14.5px]"><div class="container"><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-8 pb-8 border-b border-white/[.14]"><div><span class="font-serif text-xl text-white font-semibold">Hogar Terapéutico</span><p class="mt-2.5 max-w-[34ch] text-sm">Angie Sánchez · Psicóloga General Sanitaria, colegiada M-42569 en el Colegio Oficial de la Psicología de Madrid.</p></div><div><h4 class="font-sans text-[12.5px] tracking-[.13em] uppercase text-white/50 mb-3.5 font-bold">Navegación</h4><ul class="list-none m-0 p-0 grid gap-1"><li><a href="/#about" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Sobre mí</a></li><li><a href="/#areas-of-intervention" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Terapia</a></li><li><a href="/#services-pricing" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Precios</a></li><li><a href="/blog/" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Blog</a></li></ul></div><div><h4 class="font-sans text-[12.5px] tracking-[.13em] uppercase text-white/50 mb-3.5 font-bold">Legal</h4><ul class="list-none m-0 p-0 grid gap-1"><li><a href="/aviso-legal/" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Aviso legal</a></li><li><a href="/politica-privacidad/" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Privacidad</a></li><li><a href="/politica-cookies/" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Cookies</a></li><li><button type="button" id="cookie-settings-link" class="inline-flex items-center min-h-[44px] text-left transition-colors hover:text-white underline-offset-2 hover:underline">Preferencias de cookies</button></li></ul></div><div><h4 class="font-sans text-[12.5px] tracking-[.13em] uppercase text-white/50 mb-3.5 font-bold">Contacto</h4><ul class="list-none m-0 p-0 grid gap-1"><li><a href="https://wa.me/34621348616" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 min-h-[44px] no-underline text-white font-semibold transition-opacity hover:opacity-80"><i class="ri-whatsapp-line text-lg text-[#25D366]" aria-hidden="true"></i>+34 621 348 616 </a><span class="block text-[13px] text-white/50 -mt-1.5">WhatsApp · lo más rápido</span></li><li><a href="mailto:info@hogarterapeutico.com" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">info@hogarterapeutico.com</a></li><li><a href="https://www.instagram.com/hogarterapeutico" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 min-h-[44px] no-underline transition-colors hover:text-white"><i class="ri-instagram-line text-lg" aria-hidden="true"></i>Instagram</a></li></ul></div></div><div class="pt-[22px] flex flex-wrap justify-between gap-x-10 gap-y-2 text-[13px] text-white/[.55]"><p class="m-0 max-w-[86ch]">Esta web no es un servicio de urgencias. Si estás en crisis o tienes pensamientos de hacerte daño, llama al <a href="tel:024" class="text-white font-semibold underline underline-offset-4 decoration-white/40 hover:decoration-white">024</a>, de atención a la conducta suicida: gratuito, confidencial y disponible 24 horas.</p><p class="m-0 shrink-0">&copy; 2026 Hogar Terapéutico · Terapia online en toda España</p></div></div></footer><div id="mobile-cta-bar" class="sticky-cta"><div class="flex-1 min-w-0"><p class="font-serif text-[15.5px] font-semibold text-ink leading-tight">Primera sesión · 35€</p><p class="text-[13px] text-ink-mute leading-tight mt-0.5">50 min · sin compromiso</p></div><a href="/#booking-calendar" class="btn btn-primary">Reservar</a></div><script type="module" src="/js/main.js?v=b7d4362"></script><div id="cookie-consent-banner" class="hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg p-4 border-t border-light shadow-2xl z-50" role="dialog" aria-label="Aviso de cookies" aria-modal="false"><div class="container mx-auto flex flex-col lg:flex-row justify-between items-center text-sm gap-4"><p class="text-text text-center lg:text-left">Usamos cookies analíticas para entender cómo se usa la web. Son opcionales: puedes aceptarlas o rechazarlas, y cambiar de opinión cuando quieras. Más detalle en la <a href="/politica-cookies/" class="underline hover:text-primary font-semibold">Política de Cookies</a>.</p><div class="flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full sm:w-auto"><button id="reject-cookies-btn" type="button" class="cta-button bg-white text-primary border-2 border-primary text-sm px-8 hover:bg-light">Rechazar</button> <button id="accept-cookies-btn" type="button" class="cta-button bg-primary text-white text-sm px-8">Aceptar</button></div></div></div></body></html>
