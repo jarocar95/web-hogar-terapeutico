@@ -1,10 +1,17 @@
 {
     "actualizado": "2026-10-06",
-    "total": 25,
+    "total": 26,
     "media": 5.0,
     "media_texto": "5,0",
     "media_schema": "5.0",
     "opiniones": [
+        {
+            "autor": "EF",
+            "fecha": "2026-10-06",
+            "fecha_texto": "6 de octubre de 2026",
+            "texto": "me sentí cómoda, fue muy amable y con ganas de otra sesión",
+            "verificada": true
+        },
         {
             "autor": "Daniela M.",
             "fecha": "2026-09-18",
@@ -67,13 +74,6 @@
             "fecha": "2026-04-20",
             "fecha_texto": "20 de abril de 2026",
             "texto": "Me he sentido escuchada en todo momento, muy profesional!",
-            "verificada": true
-        },
-        {
-            "autor": "BR",
-            "fecha": "2026-04-08",
-            "fecha_texto": "8 de abril de 2026",
-            "texto": "Ha sido la primera consulta y me he sentido muy cómodo",
             "verificada": true
         }
     ]
