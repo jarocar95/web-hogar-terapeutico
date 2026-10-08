@@ -48,3 +48,19 @@ personas.
 - **Descartadas antes que esta:** una silla junto a una ventana (@adryan_studio) que resultó
   ser un render 3D y no una fotografía, y dos cocinas —una descuidada y otra de catálogo, fría—.
   La ficha de Unsplash no dice cuándo una imagen es render: hay que mirarla.
+
+## apego-como-te-relacionas.jpg
+
+- **Artículo:** Qué es el apego y cómo influye en cómo te relacionas hoy
+- **Autor:** Atharva Dixit (@atharvad_jpeg)
+- **Origen:** Unsplash · https://unsplash.com/photos/two-people-walk-with-umbrellas-on-a-sunny-day-GPaMZgKZsPM
+- **Licencia:** Unsplash License (gratuita, uso comercial permitido, sin atribución obligatoria).
+  Comprobado en la ficha que NO es Unsplash+, y comprobada la imagen a ojo: es fotografía,
+  no render. Nikon/Canon EOS R10, Assam (India), 3 de octubre de 2025.
+- **Modificaciones:** recortada de 3390x5084 a 3390x2119 (16:10). La franja se toma algo por
+  debajo del centro: centrada dejaba demasiada copa de árbol arriba y cortaba los pies.
+- **Por qué esta:** dos personas caminando juntas, cada una bajo su propio paraguas y con un
+  hueco entre ellas. Es casi literalmente lo que cuenta el artículo. Sin caras reconocibles.
+- **Descartada:** dos sillas contra una pared naranja de la Toscana (@cbarbalis), foto real y
+  buena, pero el naranja saturado choca con la paleta apagada del sitio.
+- **Anotado:** 8 de octubre de 2026
