@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: "Cuánto cuesta la terapia psicológica online en España"
+title: "Precio de un psicólogo online en España: cuánto cuesta la terapia"
 description: "Cuánto cuesta ir al psicólogo online en España: de qué depende el precio, qué rangos son habituales, por qué no lleva IVA y cómo calcular el coste del proceso."
 date: 2026-09-02
 featured_image: "./src/images/blog/cuanto-cuesta-terapia.jpg"
@@ -21,6 +21,8 @@ faq:
 ---
 
 Preguntarte cuánto va a costarte la terapia no tiene nada de malo, aunque a veces dé un poco de reparo decirlo en voz alta, como si hablar de dinero y de bienestar emocional en la misma frase resultara incómodo. El dinero es una preocupación real y legítima, y mereces tener esa información con claridad **antes** de dar el paso, no después de haberlo dado.
+
+Aquí tienes lo que cuesta de verdad un psicólogo online en España: de qué depende el precio, qué rangos son normales y cómo saber cuánto te va a costar el proceso entero, que es la cifra que casi nadie te da.
 
 ## Por qué varía tanto el precio de la terapia
 

@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: "Psicólogo general sanitario, psicólogo clínico y psiquiatra: en qué se diferencian"
+title: "Diferencia entre psicólogo sanitario, clínico y psiquiatra"
 description: "Qué significa cada título, qué dice la ley española, quién puede recetar y cómo comprobar que quien te atiende está colegiado. Con las fuentes del BOE."
 date: 2026-09-16
 featured_image: "./src/images/blog/titulos-psicologia-espana.jpg"
@@ -12,6 +12,8 @@ faq:
     respuesta: "Es una profesión sanitaria titulada y regulada, creada por la disposición adicional séptima de la Ley 33/2011. Requiere el grado en Psicología —o la antigua licenciatura— más el Máster en Psicología General Sanitaria. La ley le atribuye las evaluaciones e intervenciones psicológicas sobre los aspectos del comportamiento que influyen en la salud, siempre que no requieran atención especializada de otro profesional sanitario."
   - pregunta: "¿Cuál es la diferencia entre psicólogo general sanitario y psicólogo clínico?"
     respuesta: "El psicólogo clínico tiene además el título de especialista, que se obtiene por el sistema PIR: una plaza de residencia de cuatro años a la que se accede por examen nacional. Ese título lo creó el Real Decreto 2490/1998, hoy derogado; la especialidad la regula actualmente el Real Decreto 183/2008. Es el que da acceso a las plazas de psicología clínica del sistema público de salud. Ambos son psicólogos sanitarios y ambos hacen terapia."
+  - pregunta: "¿Es lo mismo psicología clínica que psicología de la salud?"
+    respuesta: "No exactamente, aunque se solapan mucho. Las dos son áreas de la psicología, no títulos. La clínica se centra en evaluar y tratar el malestar psicológico y los trastornos mentales; la de la salud, en cómo el comportamiento influye en la salud física y en la enfermedad: hábitos, prevención, enfermedades crónicas, dolor. Para saber quién puede atenderte, lo que cuenta es el título: psicólogo general sanitario o especialista en Psicología Clínica."
   - pregunta: "¿Un psicólogo puede recetar medicación?"
     respuesta: "No. En España la prescripción farmacológica corresponde a profesionales médicos. Si en algún momento tiene sentido valorar medicación, lo que hace un psicólogo es derivarte o coordinarse con tu médico de familia o con un psiquiatra."
   - pregunta: "¿Cualquiera puede llamarse terapeuta o coach?"
@@ -47,6 +49,23 @@ El título lo creó el [Real Decreto 2490/1998](https://www.boe.es/buscar/act.ph
 En la práctica: es la vía habitual para trabajar en la red pública y para los cuadros más graves o complejos. También ejercen en privada.
 
 **Los dos son psicólogos sanitarios y los dos hacen terapia.** La diferencia está en la vía formativa y en el nivel de complejidad para el que se han formado, no en si «pueden» o no atenderte.
+
+A estos dos títulos juntos, los que habilitan para atender en el ámbito sanitario, es a lo que se llama **psicología sanitaria**.
+
+## ¿Y la «psicología de la salud»? ¿Es lo mismo que la clínica?
+
+Es una duda muy frecuente, y tiene su lógica: se parecen mucho y en muchas universidades aparecen juntas, como «psicología clínica y de la salud».
+
+Dichas así, ninguna de las dos es un título. Son **áreas de la psicología**, formas de nombrar un campo de estudio y de trabajo:
+
+* **La psicología clínica** se ocupa sobre todo de evaluar y tratar el malestar psicológico y los trastornos mentales: la ansiedad, la depresión, el trauma.
+* **La psicología de la salud** mira desde el otro lado: cómo lo que hacemos y pensamos influye en la salud física y en la enfermedad. Hábitos, prevención, cómo se vive una enfermedad crónica o un dolor que no se va, por qué cuesta seguir un tratamiento.
+
+En la práctica la frontera es borrosa —el dolor crónico rara vez viene sin ansiedad, y la ansiedad se nota en el cuerpo— y mucha gente trabaja en las dos. De hecho, la definición legal del general sanitario que citaba arriba habla de la salud en sentido amplio, no solo de trastornos.
+
+Lo que sí conviene no confundir es **el área con el título**. «Especialista en Psicología Clínica» es un título, el del PIR. «Psicología de la salud» no lo es: es el nombre de un campo, no una profesión con la que alguien pueda atenderte.
+
+Si tu duda es práctica —a quién pedir ayuda—, el área en la que alguien se formó dice poco. Lo que te informa es el título y el número de colegiado.
 
 ## Psiquiatra
 
