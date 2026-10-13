@@ -7,6 +7,10 @@ featured_image: "./src/images/blog/cuanto-cuesta-terapia.jpg"
 image_alt: "Un cuaderno abierto y en blanco, un bolígrafo y una taza vacía sobre una mesa de madera, con las hojas de una planta asomando por un lado."
 tags:
   - post
+relacionados:
+  - como-es-la-primera-sesion-de-psicologia
+  - terapia-online-vs-presencial
+  - diferencia-psicologo-sanitario-clinico-psiquiatra
 faq:
   - pregunta: "¿Cuánto cuesta una sesión de terapia online en Hogar Terapéutico?"
     respuesta: "La primera sesión cuesta 35 € y las siguientes 50 €, en ambos casos de 50 minutos. Ese es el precio final: no se le suma nada después."

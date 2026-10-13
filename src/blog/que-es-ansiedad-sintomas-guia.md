@@ -8,6 +8,10 @@ image_alt: "Un hombre se cubre la cara con las manos en mitad de una calle concu
 updated: 2026-08-22
 tags:
   - post
+relacionados:
+  - como-calmar-el-cuerpo-cuando-la-cabeza-no-puede
+  - 3-pilares-para-construir-una-vida-con-menos-ansiedad
+  - vivir-en-alerta-constante-hipervigilancia
 faq:
   - pregunta: "¿Cuál es la diferencia entre estrés y ansiedad?"
     respuesta: "El estrés responde a una demanda externa y concreta, y suele irse cuando esa demanda se resuelve. La ansiedad es la anticipación de una amenaza futura, real o imaginada, y persiste aunque no haya nada delante. Dicho de otro modo: el estrés reacciona a lo que pasa, la ansiedad reacciona a lo que podría pasar."

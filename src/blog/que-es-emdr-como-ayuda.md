@@ -8,6 +8,10 @@ image_alt: "Vista desde el asiento de la paciente, que sostiene en la mano los d
 updated: 2026-08-22
 tags:
   - post
+relacionados:
+  - como-saber-si-tengo-un-trauma
+  - vivir-en-alerta-constante-hipervigilancia
+  - como-es-la-primera-sesion-de-psicologia
 faq:
   - pregunta: "¿Cuántas sesiones de EMDR voy a necesitar?"
     respuesta: "Depende sobre todo de una cosa: si hablamos de un hecho puntual o de algo repetido en el tiempo. Un recuerdo único y bien delimitado suele necesitar bastantes menos sesiones que una historia de heridas acumuladas durante años. Nadie serio te dará una cifra antes de conocerte, pero sí puedes pedir una revisión del avance en cualquier momento del proceso."

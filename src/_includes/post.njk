@@ -96,6 +96,39 @@ layout: base.njk
     </div>
 </div>
 
+{#- Sigue leyendo. Antes el articulo terminaba en la llamada a reservar y el
+    pie: quien no estaba listo para reservar no tenia a donde ir y se iba de
+    la web. Misma tarjeta que el indice del blog, en version compacta. -#}
+{% set siguientes = collections.post | relacionados(page.url, relacionados) %}
+{% if siguientes.length %}
+<section aria-labelledby="sigue-leyendo" class="!py-0 mt-16">
+    <div class="container max-w-[1040px]">
+        <h2 id="sigue-leyendo" class="font-serif font-semibold text-[clamp(1.4rem,2.4vw,1.75rem)] text-ink mb-6 tracking-[-.015em]">Sigue leyendo</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
+            {% for post in siguientes %}
+            <article class="card2 !p-0 overflow-hidden flex flex-col{% if loop.index == 3 %} sm:hidden lg:flex{% endif %}">
+                <a href="{{ post.url }}" class="flex flex-col h-full no-underline group">
+                    {% if post.data.featured_image %}
+                    <div class="aspect-[16/10] bg-clay-100 overflow-hidden flex-none">
+                        {% image post.data.featured_image, post.data.image_alt or "", "(min-width: 1024px) 330px, (min-width: 640px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" %}
+                    </div>
+                    {% endif %}
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="font-serif text-[17.5px] font-semibold leading-snug text-ink transition-colors group-hover:text-clay-600">
+                            {{ post.data.title }}
+                        </h3>
+                        <span class="mt-4 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-clay-600">
+                            Leer <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <section class="bg-clay-800 text-white !py-16 lg:!py-20 mt-16">
     <div class="container max-w-[760px] text-center">
         <h2 class="font-serif font-semibold text-[clamp(1.5rem,2.6vw,2rem)] text-white mb-3">¿Te has visto reflejado/a en algo de esto?</h2>

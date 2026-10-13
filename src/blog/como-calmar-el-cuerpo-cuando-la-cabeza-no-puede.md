@@ -7,6 +7,10 @@ featured_image: "./src/images/blog/calmar-sistema-nervioso.jpg"
 image_alt: "Luz de primera hora entrando por una ventana con visillos e iluminando una cama en penumbra."
 tags:
   - post
+relacionados:
+  - que-es-ansiedad-sintomas-guia
+  - vivir-en-alerta-constante-hipervigilancia
+  - 3-pilares-para-construir-una-vida-con-menos-ansiedad
 faq:
   - pregunta: "¿Por qué no me calmo aunque sepa que no pasa nada?"
     respuesta: "Porque la parte del sistema nervioso que dispara la alarma no entiende de argumentos. Cuando se activa, el razonamiento llega tarde: el cuerpo ya ha decidido que hay peligro. Por eso decirte «cálmate» no funciona, y por eso las técnicas que sí funcionan entran por el cuerpo y no por la cabeza."

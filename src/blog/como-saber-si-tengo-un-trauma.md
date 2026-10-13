@@ -7,6 +7,10 @@ featured_image: "./src/images/blog/trauma-no-resuelto.jpg"
 image_alt: "Sombras de las hojas de una planta proyectadas sobre una cortina translúcida, con la luz dorada de la tarde atravesando la tela."
 tags:
   - post
+relacionados:
+  - vivir-en-alerta-constante-hipervigilancia
+  - que-es-emdr-como-ayuda
+  - que-es-el-apego-y-como-influye-en-tus-relaciones
 faq:
   - pregunta: "¿Cómo sé si tengo un trauma no resuelto?"
     respuesta: "No hay una señal única. Lo que suele indicarlo es un conjunto: reacciones que te desbordan ante cosas pequeñas, recuerdos que vuelven sin buscarlos, evitar ciertos sitios o temas, estar siempre en guardia, sentirte desconectado o repetir los mismos patrones en tus relaciones. Por separado pueden ser muchas cosas; cuando se juntan y tienen un antes y un después, merece la pena mirarlo con un profesional."

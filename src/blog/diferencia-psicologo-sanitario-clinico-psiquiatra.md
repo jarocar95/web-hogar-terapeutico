@@ -7,6 +7,10 @@ featured_image: "./src/images/blog/titulos-psicologia-espana.jpg"
 image_alt: "Unas gafas de pasta apoyadas sobre una pila de libros y un cuaderno de tapa de cuero, en el alféizar de una ventana."
 tags:
   - post
+relacionados:
+  - como-saber-si-necesitas-ir-al-psicologo
+  - como-es-la-primera-sesion-de-psicologia
+  - cuanto-cuesta-la-terapia-psicologica-online
 faq:
   - pregunta: "¿Qué es un psicólogo general sanitario?"
     respuesta: "Es una profesión sanitaria titulada y regulada, creada por la disposición adicional séptima de la Ley 33/2011. Requiere el grado en Psicología —o la antigua licenciatura— más el Máster en Psicología General Sanitaria. La ley le atribuye las evaluaciones e intervenciones psicológicas sobre los aspectos del comportamiento que influyen en la salud, siempre que no requieran atención especializada de otro profesional sanitario."

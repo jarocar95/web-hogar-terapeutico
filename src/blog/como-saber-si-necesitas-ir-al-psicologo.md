@@ -8,6 +8,10 @@ image_alt: "Una mujer joven, sentada junto a la ventana de una cafetería con la
 updated: 2026-08-22
 tags:
   - post
+relacionados:
+  - como-es-la-primera-sesion-de-psicologia
+  - cuanto-cuesta-la-terapia-psicologica-online
+  - diferencia-psicologo-sanitario-clinico-psiquiatra
 faq:
   - pregunta: "¿Cómo sé si lo mío da para ir al psicólogo?"
     respuesta: "La pregunta útil no es cuánto duele, sino cuánto interfiere. Si lo que sientes te está afectando al sueño, al trabajo, a tus relaciones o a las ganas de hacer cosas, ya interfiere. No hace falta un umbral de gravedad ni compararse con nadie."

@@ -7,6 +7,10 @@ featured_image: "./src/images/blog/terapia-online-videollamada.jpg"
 image_alt: "Una mujer con auriculares, recostada en el sofá de su casa, escucha con la mirada baja durante una videollamada."
 tags:
   - post
+relacionados:
+  - cuanto-cuesta-la-terapia-psicologica-online
+  - como-es-la-primera-sesion-de-psicologia
+  - como-saber-si-necesitas-ir-al-psicologo
 faq:
   - pregunta: "¿La terapia online es igual de eficaz que la presencial?"
     respuesta: "Para la mayoría de motivos de consulta, sí. El metaanálisis más amplio publicado hasta la fecha reunió 47 estudios que comparaban ambos formatos, con 3.564 participantes, y encontró una diferencia insignificante entre hacer terapia por vídeo y hacerla en consulta. Los resultados son especialmente sólidos en ansiedad, depresión y estrés postraumático."

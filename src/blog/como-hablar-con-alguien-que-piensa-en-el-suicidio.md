@@ -7,6 +7,10 @@ featured_image: "./src/images/blog/hablar-con-alguien-suicidio.jpg"
 image_alt: "Tres tazas de café servidas sobre una mesa de madera junto a una ventana, con la luz entrando suave."
 tags:
   - post
+relacionados:
+  - como-saber-si-necesitas-ir-al-psicologo
+  - diferencia-psicologo-sanitario-clinico-psiquiatra
+  - como-es-la-primera-sesion-de-psicologia
 faq:
   - pregunta: "¿Si le pregunto por el suicidio le estoy dando la idea?"
     respuesta: "No. Es el mito más extendido y el que más silencio provoca. La Organización Panamericana de la Salud lo recoge expresamente: hablar abiertamente del tema puede dar a la persona otras opciones o tiempo para reflexionar, y así prevenir el suicidio. Preguntar no planta nada. Lo que hace es abrir una puerta que a lo mejor llevaba semanas cerrada."

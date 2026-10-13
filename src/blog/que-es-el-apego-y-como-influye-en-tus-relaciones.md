@@ -7,6 +7,10 @@ featured_image: "./src/images/blog/apego-como-te-relacionas.jpg"
 image_alt: "Dos personas caminan de espaldas por una carretera arbolada, cada una bajo su propio paraguas, con la luz del atardecer filtrándose entre los árboles."
 tags:
   - post
+relacionados:
+  - como-saber-si-tengo-un-trauma
+  - vivir-en-alerta-constante-hipervigilancia
+  - que-es-emdr-como-ayuda
 faq:
   - pregunta: "¿Qué es el estilo de apego?"
     respuesta: "Es la expectativa que tienes, casi siempre sin pensarla, sobre lo que va a pasar cuando necesites a alguien: si va a estar, si va a poder, si le vas a molestar. Se aprende en las primeras relaciones y después funciona como un atajo. No es un rasgo de personalidad ni algo que tengas: es algo que haces, sobre todo cuando estás mal."

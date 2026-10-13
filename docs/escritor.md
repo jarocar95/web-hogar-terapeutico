@@ -98,6 +98,10 @@ featured_image: "./src/images/blog/nombre-descriptivo.jpg"
 image_alt: "Lo que se ve en la foto, escrito mirándola."
 tags:
   - post
+relacionados:               # los tres de «Sigue leyendo», por slug y en orden
+  - vivir-en-alerta-constante-hipervigilancia
+  - como-calmar-el-cuerpo-cuando-la-cabeza-no-puede
+  - que-es-ansiedad-sintomas-guia
 faq:
   - pregunta: "..."
     respuesta: "..."
@@ -114,6 +118,12 @@ Sobre algunos campos:
   schema. Solo si el artículo se ha revisado de verdad, no por tocar una coma.
 - **`image_alt`** se escribe mirando la foto y describiendo lo que hay. No es
   el título otra vez. Es lo que oye quien usa un lector de pantalla.
+- **`relacionados`** elige las tres tarjetas de «Sigue leyendo» que salen
+  al final. Puede nombrar artículos con fecha futura: mientras no se publican
+  no aparecen y su hueco lo ocupa el más reciente. Si falta el campo, o si un
+  slug no existe, se completa con los más recientes; un slug que no
+  corresponde a ningún archivo, además, sale como aviso `[relacionados]` en
+  el build.
 - **Las cinco preguntas frecuentes** alimentan a la vez el acordeón visible y
   el `FAQPage` del schema, así que no pueden separarse ni quedarse en cuatro.
   Van sin enlaces: en el schema no sirven y en el acordeón distraen.
@@ -179,8 +189,11 @@ tres de ellos eran justo los que Google no acababa de indexar. No es
 casualidad: los enlaces internos son por donde Google descubre y reparte
 autoridad.
 
-**Colgados de frases que ya están en el texto.** Nunca un bloque de «artículos
-relacionados» al final: eso lo ignoran los lectores y vale menos para Google.
+**Colgados de frases que ya están en el texto.** El bloque «Sigue leyendo»
+que añade la plantilla al final no los sustituye: es la salida para quien
+termina el artículo, pero un enlace dentro de una frase se lee más y le dice
+más a Google, porque lleva contexto. Primero los del texto; las tarjetas son
+un extra.
 
 ```markdown
 Es la misma razón por la que [decirte «cálmate» no sirve de nada](/blog/slug/).
@@ -276,6 +289,8 @@ Criterio, por orden:
 - [ ] Comillas angulares en todo el texto
 - [ ] `npm run build` sin avisos de `[enlaces]`
 - [ ] Los artículos antiguos que deberían enlazar a este, actualizados
+- [ ] `relacionados` con tres slugs, y añadido este en los `relacionados` de
+      los antiguos más cercanos
 
 ---
 

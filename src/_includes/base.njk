@@ -788,25 +788,6 @@
         {{ content | safe }}
     </main>
     
-    <!-- Breadcrumb Navigation - Solo para páginas internas -->
-    {% if page.url != "/" %}
-    <nav class="bg-clay-50 border-t border-clay-100" aria-label="Ruta de navegación">
-        <div class="container">
-            <ol class="flex items-center gap-2 text-[14.5px] list-none m-0 p-0">
-                <li>
-                    <a href="/" class="inline-flex items-center min-h-[44px] text-clay-600 no-underline transition-colors hover:text-clay-700">
-                        <i class="ri-home-4-line" aria-hidden="true"></i>
-                        <span class="sr-only">Inicio</span>
-                    </a>
-                </li>
-                <li class="flex items-center gap-2">
-                    <i class="ri-arrow-right-s-line text-clay-300" aria-hidden="true"></i>
-                    <span class="text-ink-soft font-medium">{{ title }}</span>
-                </li>
-            </ol>
-        </div>
-    </nav>
-    {% endif %}
 
     <!-- Pie.
          El texto pasa de gray-300 (3,9:1 sobre el fondo) a white/72, que da

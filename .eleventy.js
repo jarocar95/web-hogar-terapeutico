@@ -217,6 +217,29 @@ module.exports = function(eleventyConfig) {
         return '';
     });
 
+    // Articulos para "Sigue leyendo". Primero los que el articulo elige en su
+    // front matter (relacionados: [slug, ...]), en ese orden; si faltan, se
+    // completa con los mas recientes. Solo entran los ya publicados: un
+    // articulo con fecha futura no esta en la coleccion, asi que se puede
+    // nombrar antes de que salga y aparecera solo el dia que se publique.
+    // Un slug que no corresponde a ningun archivo es una errata y se avisa.
+    eleventyConfig.addFilter("relacionados", (posts, url, slugs, n = 3) => {
+        const fs = require("fs");
+        const otros = (posts || []).filter((p) => p.url !== url);
+        const elegidos = [];
+        for (const slug of slugs || []) {
+            const post = otros.find((p) => p.fileSlug === slug);
+            if (post) elegidos.push(post);
+            else if (!fs.existsSync(`./src/blog/${slug}.md`)) {
+                console.warn(`[relacionados] ${url}: no existe ningun articulo "${slug}"`);
+            }
+        }
+        const resto = otros
+            .filter((p) => !elegidos.includes(p))
+            .sort((a, b) => b.date - a.date);
+        return [...elegidos, ...resto].slice(0, n);
+    });
+
     // Generate cache-busting version based on git commit or timestamp
     let version;
     try {

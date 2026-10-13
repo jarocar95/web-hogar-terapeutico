@@ -7,6 +7,10 @@ featured_image: "./src/images/blog/primera-sesion-psicologia.jpg"
 image_alt: "Un sillón beige y la esquina de un sofá de cuero, enfrentados en una sala luminosa con plantas junto a la ventana."
 tags:
   - post
+relacionados:
+  - cuanto-cuesta-la-terapia-psicologica-online
+  - como-saber-si-necesitas-ir-al-psicologo
+  - terapia-online-vs-presencial
 faq:
   - pregunta: "¿Tengo que preparar algo para la primera sesión?"
     respuesta: "Nada en concreto. No necesitas un guion, ni tener claro por dónde empezar, ni saber ponerle nombre a lo que te pasa. Si te tranquiliza, puedes pensar un momento en qué te ha llevado a buscar ayuda justo ahora, pero no es un requisito."

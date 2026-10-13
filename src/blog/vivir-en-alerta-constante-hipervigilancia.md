@@ -7,6 +7,10 @@ featured_image: "./src/images/blog/vivir-en-alerta-constante.jpg"
 image_alt: "Una esquina de dormitorio al atardecer: el borde de una cama deshecha, una mesilla baja y una monstera, con la luz entrando muy rasante y alargando las sombras."
 tags:
   - post
+relacionados:
+  - como-saber-si-tengo-un-trauma
+  - como-calmar-el-cuerpo-cuando-la-cabeza-no-puede
+  - que-es-ansiedad-sintomas-guia
 faq:
   - pregunta: "¿Qué es exactamente la hipervigilancia?"
     respuesta: "Es un estado en el que el sistema nervioso mantiene subido el nivel de vigilancia aunque no haya ninguna amenaza delante. No es imaginarse peligros: es que el cuerpo sigue comprobando si los hay. Se nota en cosas pequeñas —sobresaltarte con un ruido, no poder concentrarte, no soltarte del todo ni en casa— y no es un rasgo de carácter, sino un ajuste que se puede mover."
