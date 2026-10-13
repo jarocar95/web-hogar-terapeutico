@@ -81,3 +81,24 @@ personas.
 - **Descartada:** luz entrando por una puerta sobre una planta colgante (Alexander Lunyov):
   vertical, estrecha y con media imagen casi negra.
 - **Anotado:** 13 de octubre de 2026
+
+## que-es-la-ansiedad-camino.jpg
+
+- **Artículo:** ¿Qué es la ansiedad? Síntomas y claves para saber si necesitas ayuda
+- **Autor:** ActionVance (@actionvance)
+- **Origen:** Unsplash · https://unsplash.com/photos/camino-entre-arboles-verdes-durante-el-dia-g41ZkoO75rE
+- **Licencia:** Unsplash License (gratuita, uso comercial permitido, sin atribución obligatoria).
+  Comprobado en la ficha que NO es Unsplash+, y comprobada la imagen a ojo: fotografía real
+  (Apple iPhone XS, publicada el 12 de agosto de 2020), no render.
+- **Modificaciones:** recortada de 3612x2890 a 3612x2258 (16:10). Se quitan 400 px de copa
+  por arriba y el resto por abajo, donde el camino ya está en sombra: así entra la
+  bifurcación entera con la luz encima.
+- **Por qué esta:** sustituye a un hombre tapándose la cara en una calle llena de gente,
+  que era justo lo que el criterio de portadas descarta (angustia visible, escena
+  dramática) y además no tenía licencia registrada. Un camino con luz que se abre en
+  dos acompaña la idea del artículo —saber cuándo pedir ayuda— sin dramatizar, y no
+  repite ventanas, tazas ni mar, que ya salen en otras portadas.
+- **Descartadas:** mujer de espaldas en un muelle frente a un lago (Vladimir Mokry), buena
+  pero de paleta gris y fría; pies sobre un muelle ante un lago (Jamie Street), muy
+  retocada y con un cartel «16» que distrae.
+- **Anotado:** 13 de octubre de 2026
