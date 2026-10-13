@@ -64,3 +64,20 @@ personas.
 - **Descartada:** dos sillas contra una pared naranja de la Toscana (@cbarbalis), foto real y
   buena, pero el naranja saturado choca con la paleta apagada del sitio.
 - **Anotado:** 8 de octubre de 2026
+
+## trauma-no-resuelto.jpg
+
+- **Artículo:** Cómo saber si tengo un trauma: las señales de algo no resuelto
+- **Autor:** Ivan Pomoshchikov (@littlezero)
+- **Origen:** Unsplash · https://unsplash.com/photos/shadows-of-leaves-cast-on-a-sheer-curtain-8oW6gov8-7c
+- **Licencia:** Unsplash License (gratuita, uso comercial permitido, sin atribución obligatoria).
+  Comprobado en la ficha que NO es Unsplash+, y comprobada la imagen a ojo: fotografía real
+  (Sony NEX-5R, publicada el 17 de marzo de 2026), no render.
+- **Modificaciones:** recortada de 4912x3264 a 4836x3022 (16:10). Se quita poco alto porque
+  el original ya es 3:2, y se recorta el borde derecho donde entraba el marco de la ventana
+  como una franja casi negra. El límite de esa franja se midió en la imagen, no a ojo.
+- **Por qué esta:** se ve la sombra de la planta y no la planta. Es la idea del artículo —algo
+  que te afecta sin que lo veas directamente— sin recurrir a nada oscuro ni dramático.
+- **Descartada:** luz entrando por una puerta sobre una planta colgante (Alexander Lunyov):
+  vertical, estrecha y con media imagen casi negra.
+- **Anotado:** 13 de octubre de 2026
