@@ -7,6 +7,7 @@
 import { initMobileMenu } from './modules/mobile-menu.js';
 import { initEmbudo } from './modules/embudo.js';
 import { initScrollEffects } from './modules/scroll-effects.js';
+import { initMasOpiniones } from './modules/mas-opiniones.js';
 import { setupGlobalErrorHandling, setupPerformanceMonitoring, Logger } from './utils/logger.js';
 import type { PerformanceEntry } from './types';
 
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', (): void => {
     initMobileMenu();
     initScrollEffects();
     initEmbudo();
+    initMasOpiniones();
 
     // Initialize enhanced UI features
     const enhancedUI = new EnhancedUI();

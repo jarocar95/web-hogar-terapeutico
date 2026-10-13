@@ -203,37 +203,38 @@ heroPreload: "./src/images/hero-sala.jpg"
             </div>
             <p class="lead">Estas son las áreas que trabajo con más frecuencia, siempre con un enfoque integrador y adaptado a ti. Si lo tuyo no aparece aquí, <a href="https://wa.me/34621348616?text=Hola%20Angie%2C%20mi%20caso%20no%20aparece%20en%20la%20web%20y%20me%20gustar%C3%ADa%20consultarte." target="_blank" rel="noopener noreferrer" class="text-clay-600 font-semibold underline underline-offset-2 hover:text-clay-700">escríbeme</a> y lo vemos.</p>
         </div>
-        <!-- Dos columnas ya en móvil. A una sola, las seis tarjetas ocupaban
-             2.067 px: 2,6 pantallas, más alto que la sección de Angie, y era
-             además el patrón más intercambiable de la página. No se quita
-             ninguna área (las seis son reales), se compactan. -->
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-[18px]">
-            <article id="area-trauma" class="card2">
+        <!-- En móvil, filas con el icono a un lado. Con la tarjeta entera a
+             una columna ocupaban 2.067 px; a dos columnas bajaban, pero en
+             375 px cada columna dejaba líneas de tres palabras y la sección
+             seguía midiendo más de 1.000 px. En fila el texto corre a lo ancho
+             y las seis caben en unos 800. Desde sm vuelve la tarjeta. -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-[18px]">
+            <article id="area-trauma" class="card2 area">
                 <div class="card2-ico"><i class="ri-psychotherapy-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Trauma, apego y EMDR</h3>
                 <p class="text-[15.5px] text-ink-soft">Sanar heridas del pasado en un entorno de total seguridad, con una técnica avalada científicamente.</p>
             </article>
-            <article id="area-ansiedad" class="card2">
+            <article id="area-ansiedad" class="card2 area">
                 <div class="card2-ico"><i class="ri-mental-health-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Ansiedad y estrés</h3>
                 <p class="text-[15.5px] text-ink-soft">Entender qué sostiene la ansiedad, reducir el estrés y recuperar la sensación de calma.</p>
             </article>
-            <article id="area-autoestima" class="card2">
+            <article id="area-autoestima" class="card2 area">
                 <div class="card2-ico"><i class="ri-heart-pulse-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Autoestima y confianza</h3>
                 <p class="text-[15.5px] text-ink-soft">Fortalecer la relación contigo mismo/a, ganar seguridad y dejar de vivir desde la autoexigencia.</p>
             </article>
-            <article id="area-emocional" class="card2">
+            <article id="area-emocional" class="card2 area">
                 <div class="card2-ico"><i class="ri-emotion-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Gestión emocional</h3>
                 <p class="text-[15.5px] text-ink-soft">Herramientas para entender y regular la tristeza, la ira, la culpa o el vacío emocional.</p>
             </article>
-            <article id="area-relaciones" class="card2">
+            <article id="area-relaciones" class="card2 area">
                 <div class="card2-ico"><i class="ri-group-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Relaciones personales</h3>
                 <p class="text-[15.5px] text-ink-soft">Mejorar la comunicación y construir vínculos más sanos con tu pareja, tu familia o tus amigos.</p>
             </article>
-            <article id="area-duelo" class="card2">
+            <article id="area-duelo" class="card2 area">
                 <div class="card2-ico"><i class="ri-leaf-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Duelo y cambios vitales</h3>
                 <p class="text-[15.5px] text-ink-soft">Acompañamiento en pérdidas, rupturas y etapas de transición que cuesta atravesar en soledad.</p>
@@ -339,10 +340,16 @@ heroPreload: "./src/images/hero-sala.jpg"
             Nada de carrusel: el valor de veinticinco opiniones esta en que se
             vean varias de golpe, y esta seccion es justo el pico de confianza
             antes del calendario. Lo mismo por lo que las tarjetas dejaron de
-            enlazar a Doctoralia. {%- endcomment -%}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
+            enlazar a Doctoralia.
+
+            Columnas y no rejilla: en rejilla todas las tarjetas de una fila
+            medían lo que la más larga, y una opinión de una línea dejaba media
+            tarjeta vacía. En columnas cada una mide lo que su texto.
+            En móvil se ven tres y el resto tras un botón: las seis apiladas
+            ocupaban casi tres pantallas justo antes del calendario. {%- endcomment -%}
+        <div id="opiniones-lista" class="sm:columns-2 lg:columns-3 gap-[18px]">
             {%- for o in opiniones.opiniones limit: 6 %}
-            <article class="tst">
+            <article class="tst{% if forloop.index > 3 %} tst-extra{% endif %}">
                 <span class="inline-flex gap-0.5 text-gold mb-3.5" aria-hidden="true">
                     <i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i><i class="ri-star-fill text-[15px]"></i>
                 </span>
@@ -358,6 +365,11 @@ heroPreload: "./src/images/hero-sala.jpg"
             </article>
             {%- endfor %}
         </div>
+        {%- comment -%} Solo en móvil; lo activa mas-opiniones.ts. Sin
+            JavaScript no aparece y queda el enlace a Doctoralia. {%- endcomment -%}
+        <button type="button" class="btn btn-ghost w-full mt-1 hidden" data-mas-opiniones aria-controls="opiniones-lista" aria-expanded="false">
+            Ver más opiniones
+        </button>
         <div class="mt-8">
             <a href="https://www.doctoralia.es/angie-sanchez-gallego/psicologo/madrid#profile-reviews" target="_blank" rel="noopener noreferrer" class="lnk">
                 Ver las {{ doctoralia.opiniones }} opiniones en Doctoralia <i class="ri-external-link-line icon" aria-hidden="true"></i>
@@ -553,20 +565,36 @@ heroPreload: "./src/images/hero-sala.jpg"
                          dispararía en bucle. Lo rellena booking-calendar.ts. -->
                     <div id="calendar-hint-slot" class="mt-3"></div>
                 </div>
-                <div class="p-5 sm:p-7 border-t border-clay-100 lg:border-t-0 lg:border-l lg:border-clay-100">
+                <div class="p-5 sm:p-7 border-t border-clay-100 lg:border-t-0 lg:border-l lg:border-clay-100 lg:flex lg:flex-col">
                     <!-- La zona horaria importa: la web dice "terapia online en
                          toda España" y Canarias va una hora por detrás. -->
                     <h3 class="font-serif text-base font-semibold mb-1">Horas disponibles <span class="font-sans text-[13px] font-normal text-ink-mute">(hora peninsular)</span></h3>
                     <p id="available-times-subtitle" class="text-ink-mute text-[13.5px]">Selecciona una fecha para ver los horarios</p>
                     <!-- aria-live: al elegir fecha la lista cambia sin avisar a
                          quien usa lector de pantalla. -->
-                    <div id="available-times" class="mt-4 min-h-[240px]" role="status" aria-live="polite">
+                    <div id="available-times" class="mt-4 min-h-[240px] lg:min-h-0" role="status" aria-live="polite">
                         <div class="flex items-center justify-center h-full text-center py-12">
                             <div class="space-y-3">
                                 <i class="ri-calendar-event-line text-4xl text-clay-300" aria-hidden="true"></i>
                                 <p class="text-ink-mute text-[14.5px]">Elige un día con citas disponibles para ver los horarios.</p>
                             </div>
                         </div>
+                    </div>
+                    <!-- Lo que pasa después de elegir hora. En escritorio la
+                         columna de horas mide lo que el calendario y, con una
+                         sola fila de botones, dejaba un hueco vacío de casi
+                         200 px justo en el momento de decidir. En móvil no hay
+                         hueco y la página ya es larga, así que no se muestra.
+                         Por eso también el lg:min-h-0 de arriba: el mínimo
+                         evita saltos en móvil, pero en escritorio la altura la
+                         pone el calendario y solo empujaba esto hacia abajo. -->
+                    <div class="hidden lg:block mt-7 pt-6 border-t border-clay-100">
+                        <h4 class="font-serif text-[15px] font-semibold text-ink mb-3">Después de elegir hora</h4>
+                        <ol class="list-none m-0 p-0 grid gap-2.5 text-[14px] text-ink-soft leading-snug">
+                            <li class="flex gap-3"><span class="flex-none w-6 h-6 rounded-full bg-clay-50 text-clay-600 text-[12.5px] font-semibold grid place-items-center">1</span>Te confirmo la cita personalmente por WhatsApp.</li>
+                            <li class="flex gap-3"><span class="flex-none w-6 h-6 rounded-full bg-clay-50 text-clay-600 text-[12.5px] font-semibold grid place-items-center">2</span>Recibes el enlace de la videollamada en una plataforma segura.</li>
+                            <li class="flex gap-3"><span class="flex-none w-6 h-6 rounded-full bg-clay-50 text-clay-600 text-[12.5px] font-semibold grid place-items-center">3</span>Si te surge algo, avísame con 24 horas y buscamos otro hueco.</li>
+                        </ol>
                     </div>
                 </div>
             </div>

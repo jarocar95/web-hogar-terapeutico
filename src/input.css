@@ -300,6 +300,20 @@
            transition-[transform,box-shadow] duration-200;
   }
   .tst:hover { @apply -translate-y-[3px] shadow-e2; }
+  /* En columnas (ver #testimonials): sin break-inside una tarjeta se partia
+     entre dos columnas, y el margen hace de gap vertical, que columns no da. */
+  .tst { @apply break-inside-avoid mb-[18px]; }
+  /* De la cuarta en adelante, ocultas en movil hasta pulsar "Ver mas". */
+  .tst-extra { @apply hidden sm:flex; }
+  .tst-extra.is-visible { @apply flex; }
+
+  /* Areas en movil: el icono a la izquierda y titulo y texto apilados a su
+     derecha. Rejilla y no flex: con flex, titulo y texto salian como dos
+     columnas mas. Desde sm, la tarjeta de siempre. */
+  .area { @apply grid grid-cols-[auto_1fr] gap-x-4 items-start sm:block; }
+  .area .card2-ico { @apply row-span-2 mb-0 sm:mb-[18px]; }
+  .area h3 { @apply text-[17.5px] mb-1.5 sm:text-[19px] sm:mb-2.5; }
+  .area p { @apply text-[15px] sm:text-[15.5px]; }
 
   /* Acordeon de preguntas */
   .acc > details { @apply border-b border-clay-200; }
