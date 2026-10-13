@@ -65,7 +65,14 @@ function displayAvailableTimes(schedule: Schedule, availableTimesContainer: HTML
         subtitle.dataset.estado = 'lleno';
     }
 
-    let html = '<div class="grid grid-cols-3 gap-2">';
+    // El aviso va ANTES de las horas, no despues. Debajo se leia cuando ya se
+    // habia decidido (o abandonado), en gris pequeño, y con un tono que sonaba
+    // a duda: "queda confirmada cuando te respondo". Encima explica el paso
+    // antes de darlo. Mantiene lo esencial, que es el motivo por el que existe:
+    // pulsar una hora NO reserva, solo abre WhatsApp, y la cita se confirma
+    // despues. Ver el comentario de abajo sobre por que se puso este aviso.
+    let html = '<p class="mb-3 text-[14px] text-ink-soft leading-snug">Elige una hora: se abre WhatsApp con el mensaje ya escrito. Lo envías y te respondo para confirmar la cita.</p>';
+    html += '<div class="grid grid-cols-3 gap-2">';
 
     horas.forEach((hora) => {
         const mensaje = `Hola Angie, te escribo desde la web de Hogar Terapéutico. Me gustaría reservar una cita para el día ${fecha} a las ${hora}.`;
@@ -73,15 +80,21 @@ function displayAvailableTimes(schedule: Schedule, availableTimesContainer: HTML
         // aria-label explicito: "10:00" a secas no dice a un lector de pantalla
         // ni el dia ni que el enlace abre WhatsApp fuera del sitio.
         const etiqueta = `Reservar el ${fechaFormateada} a las ${hora} — se abre WhatsApp`;
-        html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" aria-label="${etiqueta}" class="flex items-center justify-center min-h-[44px] rounded-sm2 bg-clay-50 border border-clay-200 text-clay-700 font-semibold text-[14.5px] no-underline transition-colors hover:bg-clay-200">${hora}</a>`;
+        // Antes eran bg-clay-50 con borde clay-200: exactamente el mismo aspecto
+        // que las celdas de dia del calendario de justo encima. El paciente
+        // venia de tocar celdas para elegir dia y las horas se leian como mas
+        // opciones, no como el paso que reserva. En los datos se veia: quien
+        // llegaba al panel abria nueve dias de media y no pulsaba ninguna hora.
+        // Ahora tienen el mismo color y peso que el boton principal del sitio
+        // (.btn-primary), y el icono dice adonde lleva. Blanco sobre clay-500
+        // da 4,66:1, por encima del 4,5 de AA para texto normal.
+        html += `<a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" aria-label="${etiqueta}" class="flex items-center justify-center gap-1.5 min-h-[48px] rounded-sm2 bg-clay-500 text-white font-semibold text-[15px] no-underline shadow-sm transition-colors hover:bg-clay-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay-600"><i class="ri-whatsapp-line text-[17px]" aria-hidden="true"></i>${hora}</a>`;
     });
 
     html += '</div>';
-    // Aviso de que la reserva aun no esta confirmada. Antes se pulsaba una hora,
-    // se abria WhatsApp en otra pestania y nada decia que la cita no estuviera
-    // hecha: se podia creer que ya tenias sesion cuando solo habias enviado un
-    // mensaje.
-    html += '<p class="mt-4 text-[13px] text-ink-mute leading-snug">Al elegir una hora se abre WhatsApp con el mensaje preparado. La cita queda confirmada cuando te respondo.</p>';
+    // Por que existe el aviso de arriba: antes se pulsaba una hora, se abria
+    // WhatsApp en otra pestaña y nada decia que la cita no estuviera hecha. Se
+    // podia creer que ya tenias sesion cuando solo habias enviado un mensaje.
     availableTimesContainer.innerHTML = html;
 }
 

@@ -154,8 +154,17 @@ describe('Calendario de reservas', () => {
         manejadores['selected']({ format: () => dia });
 
         // Sin este aviso se podia creer que la reserva estaba hecha por haber
-        // pulsado una hora, cuando solo se ha abierto WhatsApp.
-        expect(document.getElementById('available-times')!.textContent)
-            .toContain('La cita queda confirmada cuando te respondo');
+        // pulsado una hora, cuando solo se ha abierto WhatsApp. La frase cambio
+        // de sitio y de tono (ahora va antes de las horas), pero tiene que
+        // seguir diciendo las dos cosas: que se abre WhatsApp y que la cita se
+        // confirma despues, con la respuesta.
+        const panel = document.getElementById('available-times')!;
+        expect(panel.textContent).toContain('se abre WhatsApp');
+        expect(panel.textContent).toContain('confirmar la cita');
+        // Y antes de los botones, no despues: es instruccion, no letra pequeña.
+        const aviso = panel.querySelector('p')!;
+        const primeraHora = panel.querySelector('a[href*="wa.me"]')!;
+        expect(aviso.compareDocumentPosition(primeraHora) & Node.DOCUMENT_POSITION_FOLLOWING)
+            .toBeTruthy();
     });
 });
