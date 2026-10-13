@@ -25,3 +25,8 @@ public/prose.css
 # cada maquina, y skills/ son skills instaladas, no codigo del proyecto.
 /.claude/*
 !/.claude/launch.json
+
+# Config del MCP de Search Console. Lleva rutas absolutas de esta maquina y
+# apunta a un fichero de credenciales OAuth de la cuenta de Angie, asi que es
+# local de cada equipo y no se versiona. El servidor vive en ~/.config/gsc.
+/.mcp.json
