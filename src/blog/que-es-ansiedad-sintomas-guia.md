@@ -3,8 +3,8 @@ layout: post.njk
 title: "¿Qué es la ansiedad? Síntomas y claves para saber si necesitas ayuda"
 description: "Qué es la ansiedad, cuáles son sus síntomas más comunes y cuándo conviene buscar ayuda profesional. Guía clara y sin tecnicismos, por Angie Sánchez."
 date: 2026-07-29
-featured_image: "./src/images/blog/que-es-la-ansiedad-sintomas.webp"
-image_alt: "Un hombre se cubre la cara con las manos en mitad de una calle concurrida, con la multitud desenfocada por el movimiento a su alrededor."
+featured_image: "./src/images/blog/que-es-la-ansiedad-camino.jpg"
+image_alt: "Un camino de tierra se adentra en un bosque y se abre en dos, con la luz de la mañana atravesando las copas de los árboles."
 updated: 2026-08-22
 tags:
   - post
