@@ -28,12 +28,17 @@ SALIDA = os.path.join(SALIDA_DIR, 'Conectar con tus emociones - Hogar Terapeutic
 cargar_fuentes()
 
 W, H = A4
-IZQ, DER, ABAJO = 62, 62, 58
-CARRIL = 82
+# La columna de texto va centrada en la pagina y el carril de rotulos cuelga
+# en el margen izquierdo. Antes el texto empezaba a 144 pt del borde y acababa
+# a 62 del otro: se leia desplazado a la derecha. Ahora le sobra lo mismo a
+# cada lado, y titulos, bandas y cajas se alinean con el texto, no con el
+# carril.
+IZQ, DER, ABAJO = 50, 50, 52
+CARRIL = 72
 XT = IZQ + CARRIL                 # donde empieza el texto
-TEXTO = W - DER - XT              # medida del texto: ~65 caracteres a 9.6
-ANCHO = W - IZQ - DER             # cajas y bandas a todo el ancho
-CUERPO, SALTO = 9.6, 13.6
+TEXTO = W - 2 * XT                # medida del texto, centrada: ~70 caracteres
+ANCHO = W - IZQ - DER             # fondo de cajas y bandas, de margen a margen
+CUERPO, SALTO = 9.6, 13.3
 SUELO = ABAJO + 10
 
 
@@ -84,9 +89,9 @@ class Lienzo:
     def rotulo(self, txt, y, tinta):
         c = self.c
         c.setFont('PS-b', 7.2); c.setFillColor(tinta)
-        # CARRIL - 26 y no - 16: «ASCO / RECHAZO» cabia por un punto y quedaba
-        # pegado al borde de la caja del vocabulario. Asi parte en dos lineas.
-        lineas = cortar(txt.upper(), 'PS-b', 7.2, CARRIL - 26)
+        # Lo que no cabe parte en dos lineas: «ASCO / RECHAZO» llegaba hasta el
+        # borde de la caja del vocabulario.
+        lineas = cortar(txt.upper(), 'PS-b', 7.2, CARRIL - 18)
         for i, l in enumerate(lineas):
             c.drawRightString(XT - 14, y - i * 9, l)
 
@@ -113,13 +118,13 @@ class Lienzo:
         fondo(c, W, H)
         y = membrete(c, W, H, IZQ) - 40
         c.setFont('FR-b', 25); c.setFillColor(CLAY_600)
-        for l in cortar(E.TITULO, 'FR-b', 25, ANCHO - 60):
-            c.drawString(IZQ, y, l); y -= 29
+        for l in cortar(E.TITULO, 'FR-b', 25, TEXTO):
+            c.drawString(XT, y, l); y -= 29
         y -= 2
-        y = self.parrafo(E.SUBTITULO, IZQ, y, ANCHO - 80, cuerpo=11, tinta=INK_MUTE, salto=15)
+        y = self.parrafo(E.SUBTITULO, XT, y, TEXTO, cuerpo=11, tinta=INK_MUTE, salto=15)
         y -= 8
         c.setStrokeColor(CLAY_200); c.setLineWidth(1.2)
-        c.line(IZQ, y, IZQ + 46, y)
+        c.line(XT, y, XT + 46, y)
         return y - 30
 
 
@@ -144,20 +149,23 @@ class Titulo(Pieza):
     def __init__(self, txt, tinta=CLAY_600, cuerpo=15.5):
         self.txt, self.tinta, self.cuerpo = txt, tinta, cuerpo
     def alto(self):
-        return len(cortar(self.txt, 'FR-b', self.cuerpo, ANCHO)) * (self.cuerpo + 4) + 26
+        return len(cortar(self.txt, 'FR-b', self.cuerpo, TEXTO)) * (self.cuerpo + 4) + 26
     def dibujar(self, L, y):
         if y < H - 150:
             y -= 14          # aire antes, salvo si abre pagina
         L.c.setFont('FR-b', self.cuerpo); L.c.setFillColor(self.tinta)
-        for l in cortar(self.txt, 'FR-b', self.cuerpo, ANCHO):
-            L.c.drawString(IZQ, y, l); y -= self.cuerpo + 4
+        for l in cortar(self.txt, 'FR-b', self.cuerpo, TEXTO):
+            L.c.drawString(XT, y, l); y -= self.cuerpo + 4
         return y - 8
 
 
 class Parrafo(Pieza):
     def __init__(self, segs, tinta=INK, despues=7, rotulo=None, tinta_rotulo=SAGE_500, junto=False):
         self.segs, self.tinta, self.despues = segs, tinta, despues
-        self.junto_a_siguiente = junto
+        # Igual que en los ejercicios: lo que acaba en dos puntos presenta lo
+        # que viene y no se queda solo al pie («una propuesta para arrancar:»).
+        texto = segs if isinstance(segs, str) else segs[-1][0]
+        self.junto_a_siguiente = junto or texto.rstrip().endswith(':')
         self.rot, self.tr = rotulo, tinta_rotulo
     def alto(self):
         return alto_parrafo(self.segs, TEXTO) + self.despues
@@ -184,7 +192,7 @@ class Caja(Pieza):
     def __init__(self, titulo, texto, fondo_, tinta_titulo, barra=None):
         self.t, self.x, self.f, self.tt, self.b = titulo, texto, fondo_, tinta_titulo, barra
     def alto(self):
-        return 30 + alto_parrafo(self.x, ANCHO - 34) + 16
+        return 30 + alto_parrafo(self.x, TEXTO) + 16
     def dibujar(self, L, y):
         c = L.c
         alto = self.alto() - 8
@@ -193,8 +201,8 @@ class Caja(Pieza):
             c.setStrokeColor(self.b); c.setLineWidth(2.6)
             c.line(IZQ + 1.3, y - alto + 20, IZQ + 1.3, y + 8)
         c.setFont('PS-b', 10); c.setFillColor(self.tt)
-        c.drawString(IZQ + 16, y - 4, self.t)
-        L.parrafo(self.x, IZQ + 16, y - 22, ANCHO - 34)
+        c.drawString(XT, y - 4, self.t)
+        L.parrafo(self.x, XT, y - 22, TEXTO)
         return y - alto - 6
 
 
@@ -210,9 +218,9 @@ class Banda(Pieza):
         y -= 8
         c.setFillColor(SAGE_100); c.roundRect(IZQ, y - 14, ANCHO, 36, 8, stroke=0, fill=1)
         c.setFont('PS-b', 7.4); c.setFillColor(SAGE_500)
-        c.drawString(IZQ + 16, y + 9, self.n.upper())
+        c.drawString(XT, y + 9, self.n.upper())
         c.setFont('FR-b', 14); c.setFillColor(SAGE_700)
-        c.drawString(IZQ + 16, y - 6, self.titulo)
+        c.drawString(XT, y - 6, self.titulo)
         return y - 40
 
 
@@ -235,24 +243,23 @@ class Capas(Pieza):
         return y - 4
 
 
-class Vocabulario(Pieza):
-    def __init__(self, filas):
-        self.filas = filas
+class Familia(Pieza):
+    """Una familia del vocabulario, en su propia tarjeta. Con las seis en una
+    sola caja la tabla medía 345 pt y no se podia partir: saltaba entera a la
+    pagina siguiente y dejaba media pagina vacia detras."""
+    def __init__(self, familia, palabras):
+        self.f, self.p = familia, palabras
     def alto(self):
-        return 10 + sum(alto_parrafo(p, TEXTO - 16) + 14 for _, p in self.filas) + 6
+        return max(alto_parrafo(self.p, TEXTO - 16), 2 * 9) + 20
     def dibujar(self, L, y):
         c = L.c
-        alto = self.alto() - 6
-        c.setFillColor(SAGE_50); c.roundRect(IZQ, y - alto + 10, ANCHO, alto, 8, stroke=0, fill=1)
-        y -= 6
-        for i, (familia, palabras) in enumerate(self.filas):
-            L.rotulo(familia, y, SAGE_700)
-            y = L.parrafo(palabras, XT, y, TEXTO - 16) - 6
-            if i < len(self.filas) - 1:
-                c.setStrokeColor(SAGE_100); c.setLineWidth(0.7)
-                c.line(IZQ + 14, y + 4, W - DER - 14, y + 4)
-            y -= 8
-        return y - 12
+        alto = self.alto() - 5
+        c.setFillColor(SAGE_50)
+        c.roundRect(IZQ, y - alto + 10, ANCHO, alto, 6, stroke=0, fill=1)
+        y -= 1
+        L.rotulo(self.f, y, SAGE_700)
+        L.parrafo(self.p, XT, y, TEXTO - 16)
+        return y - alto + 1
 
 
 # Un ejercicio no es una pieza sino varias: cabecera, cada parrafo o lista
@@ -350,33 +357,70 @@ class CierreEj(Pieza):
         return y - 18
 
 
+class ElementoLista(Pieza):
+    """Un paso, un punto o una linea de plantilla. Las listas se trocean asi
+    para que el corte de pagina pueda caer entre dos elementos: enteras, una
+    lista de cinco pasos se llevaba consigo a la pagina siguiente la cabecera
+    del ejercicio y dejaba un hueco de 170 pt."""
+    def __init__(self, tipo, item, num, ultimo):
+        self.tipo, self.item, self.num, self.ultimo = tipo, item, num, ultimo
+        texto = item[1] if isinstance(item, tuple) else item
+        self.junto_a_siguiente = texto.rstrip().endswith(':')
+    def _segs(self):
+        if self.tipo == 'plantilla':
+            return [(self.item[0] + ' ', 'PS-b'), (self.item[1], 'PS')]
+        return self.item
+    def alto(self):
+        return alto_parrafo(self._segs(), TEXTO - 16) + (4 if self.tipo == 'plantilla' else 3) \
+            + (5 if self.ultimo else 0)
+    def dibujar(self, L, y):
+        c = L.c
+        if self.tipo == 'pasos':
+            c.setFont('PS-b', CUERPO); c.setFillColor(SAGE_500)
+            c.drawString(XT, y, f'{self.num}.')
+        elif self.tipo == 'puntos':
+            c.setFillColor(SAGE_300); c.circle(XT + 3, y + 3.3, 1.8, stroke=0, fill=1)
+        y = L.parrafo(self._segs(), XT + 16, y, TEXTO - 16)
+        y -= 4 if self.tipo == 'plantilla' else 3
+        return y - (5 if self.ultimo else 0)
+
+
 def ejercicio(e):
     P = [CabeceraEj(e)]
-    P += [ItemEj(p, 'Cómo' if i == 0 else None) for i, p in enumerate(e['cuerpo'])]
+    for i, p in enumerate(e['cuerpo']):
+        if p[0] in ('pasos', 'puntos', 'plantilla'):
+            desde = p[2] if len(p) > 2 else 1
+            for k, item in enumerate(p[1]):
+                P.append(ElementoLista(p[0], item, desde + k, k == len(p[1]) - 1))
+        else:
+            P.append(ItemEj(p, 'Cómo' if i == 0 else None))
     P.append(CierreEj(e['entrena']))
     return P
 
 
-class Fase(Pieza):
-    def __init__(self, cuando, titulo, items, nota):
-        self.cuando, self.titulo, self.items, self.nota = cuando, titulo, items, nota
+class CabeceraFase(Pieza):
+    """Rotulo de semanas + titulo de la fase. Viaja con su primera linea; el
+    resto de la fase se parte por elementos como las listas de los
+    ejercicios, para que el plan no salte entero de pagina."""
+    junto_a_siguiente = True
+    def __init__(self, cuando, titulo):
+        self.cuando, self.titulo = cuando, titulo
     def alto(self):
-        h = 18 + sum(alto_parrafo(i, TEXTO - 14) + 3 for i in self.items)
-        if self.nota:
-            h += 4 + alto_parrafo(self.nota, TEXTO)
-        return h + 16
+        return 17
     def dibujar(self, L, y):
-        c = L.c
         L.rotulo(self.cuando, y + 1, SAGE_500)
-        c.setFont('FR-b', 12); c.setFillColor(SAGE_700)
-        c.drawString(XT, y, self.titulo)
-        y -= 17
-        for it in self.items:
-            c.setFillColor(SAGE_300); c.circle(XT + 3, y + 3.3, 1.8, stroke=0, fill=1)
-            y = L.parrafo(it, XT + 14, y, TEXTO - 14) - 3
-        if self.nota:
-            y = L.parrafo(self.nota, XT, y - 4, TEXTO, tinta=INK_MUTE)
-        return y - 14
+        L.c.setFont('FR-b', 12); L.c.setFillColor(SAGE_700)
+        L.c.drawString(XT, y, self.titulo)
+        return y - 17
+
+
+def fase(cuando, titulo, items, nota):
+    P = [CabeceraFase(cuando, titulo)]
+    P += [ElementoLista('puntos', it, 0, k == len(items) - 1) for k, it in enumerate(items)]
+    if nota:
+        P.append(Parrafo(nota, tinta=INK_MUTE, despues=4))
+    P.append(Separacion(10))
+    return P
 
 
 # --- El documento, en orden --------------------------------------------------
@@ -400,13 +444,15 @@ def piezas():
         if b.get('vocabulario'):
             P.append(Titulo('Vocabulario emocional ampliado', tinta=SAGE_700, cuerpo=12.5))
             P.append(Parrafo(E.VOCABULARIO_INTRO, despues=12, junto=True))
-            P.append(Vocabulario(E.VOCABULARIO))
+            P += [Familia(f, pal) for f, pal in E.VOCABULARIO]
+            P.append(Separacion(8))
         P.append(Separacion(10))
         for e in b['ejercicios']:
             P += ejercicio(e)
     P.append(Titulo('Cómo organizar la práctica'))
     P.append(Parrafo(E.PLAN_INTRO, despues=14))
-    P += [Fase(*f) for f in E.PLAN]
+    for f in E.PLAN:
+        P += fase(*f)
     P.append(Caja('Una advertencia importante', E.ADVERTENCIA, CLAY_50, CLAY_600, barra=CLAY_300))
     P.append(Separacion(10))
     P.append(Titulo('Una última idea'))

@@ -242,12 +242,12 @@ BLOQUES = [
 
 PLAN_INTRO = 'Doce ejercicios pueden parecer muchos. No se trata de hacerlos todos cada día. Esta es una propuesta sensata para arrancar:'
 PLAN = [
-    ('Semanas 1 y 2', 'Solo el cuerpo', [
+    ('Semanas 1–2', 'Solo el cuerpo', [
         'Ejercicio 1 (escaneo corporal) por la mañana o por la noche.',
         'Ejercicio 3 (termómetro del día) con tres alarmas.',
         'Ejercicio 2 (los tres anclajes) cuando lo recuerdes a lo largo del día.',
     ], 'Nada más. El objetivo es solo reabrir el canal del cuerpo. No esperes grandes emociones aún.'),
-    ('Semanas 3 y 4', 'Añadir las palabras', [
+    ('Semanas 3–4', 'Añadir las palabras', [
         'Sigues con lo anterior.',
         'Añades el ejercicio 4 (diario de tres líneas) cada noche.',
         'Cuando aparezca una reacción intensa, usas el ejercicio 5 (detective).',
