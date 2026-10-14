@@ -1,7 +1,7 @@
 /**
  * Tests for cookie banner functionality
  */
-import { initCookieBanner } from '../../src/ts/modules/cookie-banner';
+import { initCookieBanner, esDominioDeProduccion } from '../../src/ts/modules/cookie-banner';
 
 describe('Cookie Banner', () => {
   let cookieBanner: HTMLElement;
@@ -144,5 +144,30 @@ describe('Cookie Banner', () => {
     (document.getElementById('cookie-settings-link') as HTMLElement).click();
 
     expect(cookieBanner.classList.contains('hidden')).toBe(false);
+  });
+
+  // Los tests de navegador aceptan las cookies contra localhost con el ID real
+  // de la propiedad: si Analytics se cargase ahi, cada pasada contaria como
+  // visitas en los datos de Angie.
+  test('solo carga Analytics en el dominio real', () => {
+    expect(esDominioDeProduccion('hogarterapeutico.com')).toBe(true);
+    expect(esDominioDeProduccion('www.hogarterapeutico.com')).toBe(true);
+    expect(esDominioDeProduccion('localhost')).toBe(false);
+    expect(esDominioDeProduccion('127.0.0.1')).toBe(false);
+    expect(esDominioDeProduccion('deploy-preview-12--hogarterapeutico.netlify.app')).toBe(false);
+  });
+
+  test('aceptar en localhost no pide gtag.js', () => {
+    (window as any).__ANALYTICS_ID = 'G-TEST';
+    (window as any).gtag = jest.fn();
+
+    initCookieBanner();
+    acceptCookiesBtn.click();
+
+    expect(document.querySelector('script[data-analytics]')).toBeNull();
+    // El consentimiento si se registra: lo unico que no ocurre es la carga.
+    expect((window as any).gtag).toHaveBeenCalledWith('consent', 'update', {
+      analytics_storage: 'granted'
+    });
   });
 });

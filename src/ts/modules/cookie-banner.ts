@@ -52,9 +52,25 @@ function guardarDecision(valor: Consent): void {
  * critica sin recoger nada. Las llamadas a gtag() que se hicieron antes de
  * esto quedan encoladas en dataLayer y se procesan al arrancar la libreria.
  */
+export const DOMINIOS_PRODUCCION = ['hogarterapeutico.com', 'www.hogarterapeutico.com'];
+
+/**
+ * Analytics solo se carga en el dominio real.
+ *
+ * Los tests de navegador pulsan «Aceptar» en el banner contra localhost, en
+ * cinco navegadores y cada vez que se pasan, y con el ID real de la
+ * propiedad: cada pasada eran visitas «directas» de pocos segundos colandose
+ * en los datos de Angie. Lo mismo valia para npm start y para los deploy
+ * previews de Netlify. Mismo criterio que isProduction en utils/logger.ts.
+ */
+export function esDominioDeProduccion(host: string = window.location.hostname): boolean {
+    return DOMINIOS_PRODUCCION.includes(host);
+}
+
 function cargarAnalytics(): void {
     const id = (window as any).__ANALYTICS_ID as string | undefined;
     if (!id) return;
+    if (!esDominioDeProduccion()) return;
     if (document.querySelector('script[data-analytics]')) return;
 
     const script = document.createElement('script');
