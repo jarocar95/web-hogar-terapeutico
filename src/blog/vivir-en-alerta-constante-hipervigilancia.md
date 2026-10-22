@@ -9,8 +9,8 @@ tags:
   - post
 relacionados:
   - como-saber-si-tengo-un-trauma
+  - ventana-de-tolerancia-desbordarse-o-apagarse
   - como-calmar-el-cuerpo-cuando-la-cabeza-no-puede
-  - que-es-ansiedad-sintomas-guia
 faq:
   - pregunta: "¿Qué es exactamente la hipervigilancia?"
     respuesta: "Es un estado en el que el sistema nervioso mantiene subido el nivel de vigilancia aunque no haya ninguna amenaza delante. No es imaginarse peligros: es que el cuerpo sigue comprobando si los hay. Se nota en cosas pequeñas —sobresaltarte con un ruido, no poder concentrarte, no soltarte del todo ni en casa— y no es un rasgo de carácter, sino un ajuste que se puede mover."
@@ -60,7 +60,7 @@ Vivir así tiene un precio que casi nunca se atribuye a la causa correcta.
 
 **Sueño que no llega o que se rompe.** Dormirse es, literalmente, bajar la guardia. Un sistema en alerta no la baja. Y aquí se cierra un círculo desagradable: dormir mal sube el nivel de alerta del día siguiente, que a su vez estropea la noche siguiente.
 
-**Reacciones que no te reconoces.** Saltar por un ruido, contestar mal por algo mínimo, llorar por una tontería. No es que te hayas vuelto irritable: es que ya estabas al noventa por ciento antes de que empezara el día.
+**Reacciones que no te reconoces.** Saltar por un ruido, contestar mal por algo mínimo, llorar por una tontería. No es que te hayas vuelto irritable: es que ya estabas al noventa por ciento antes de que empezara el día. Y a veces pasa lo contrario, que el cuerpo saturado se apaga y no sientes nada: es la otra salida de lo que se conoce como [ventana de tolerancia](/blog/ventana-de-tolerancia-desbordarse-o-apagarse/).
 
 **Y la más silenciosa: la vida se va encogiendo.** Sitios que dejas de pisar, conversaciones que aplazas, planes que no haces. Cada uno tiene su explicación razonable por separado. Juntos dibujan otra cosa.
 

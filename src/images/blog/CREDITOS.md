@@ -102,3 +102,22 @@ personas.
   pero de paleta gris y fría; pies sobre un muelle ante un lago (Jamie Street), muy
   retocada y con un cartel «16» que distrae.
 - **Anotado:** 13 de octubre de 2026
+
+## ventana-de-tolerancia.jpg
+
+- **Artículo:** Ventana de tolerancia: por qué a veces te desbordas y otras te apagas
+- **Autor:** Aleksandr Galichkin (@axga)
+- **Origen:** Unsplash · https://unsplash.com/photos/un-rio-sinuoso-fluye-a-traves-de-un-exuberante-valle-verde-de-montana-Jb5imFYZQ90
+- **Licencia:** Unsplash License (gratuita, uso comercial permitido, sin atribución obligatoria).
+  Comprobado en la ficha que NO es Unsplash+, y comprobada la imagen a ojo: fotografía real
+  hecha con dron (DJI FC3582, publicada el 31 de octubre de 2025), no render.
+- **Modificaciones:** recortada de 4032x2268 (16:9) a 3629x2268 (16:10). Se quitan 150 px por
+  la izquierda y el resto por la derecha, para no cortar el tramo de río de abajo.
+- **Por qué esta:** un río encajado entre dos laderas es casi literalmente la idea del
+  artículo: el agua cabe entre las orillas igual que la activación cabe en la ventana. Cálida
+  y tranquila, del tono de la marca, y sin ventanas, tazas ni bosque en primer plano, que ya
+  salen en otras portadas.
+- **Descartadas:** un río ancho entre montañas en Resende, Portugal (Maksym Kaharlytskyi),
+  de luz gris y fría y con casas y una carretera; un meandro aéreo en otoño (Alex Kalinin),
+  donde el río se perdía entre los campos y se veía un coche.
+- **Anotado:** 22 de octubre de 2026

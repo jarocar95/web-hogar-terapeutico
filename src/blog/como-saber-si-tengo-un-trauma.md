@@ -9,8 +9,8 @@ tags:
   - post
 relacionados:
   - vivir-en-alerta-constante-hipervigilancia
+  - ventana-de-tolerancia-desbordarse-o-apagarse
   - que-es-emdr-como-ayuda
-  - que-es-el-apego-y-como-influye-en-tus-relaciones
 faq:
   - pregunta: "¿Cómo sé si tengo un trauma no resuelto?"
     respuesta: "No hay una señal única. Lo que suele indicarlo es un conjunto: reacciones que te desbordan ante cosas pequeñas, recuerdos que vuelven sin buscarlos, evitar ciertos sitios o temas, estar siempre en guardia, sentirte desconectado o repetir los mismos patrones en tus relaciones. Por separado pueden ser muchas cosas; cuando se juntan y tienen un antes y un después, merece la pena mirarlo con un profesional."
@@ -62,7 +62,7 @@ Una advertencia antes de la lista, y es la más importante del artículo: **ning
 
 **Estar siempre en guardia.** No poder relajarte del todo ni en casa, sobresaltarte con facilidad, dormir mal aunque estés agotado. Es lo que se conoce como [vivir en alerta constante](/blog/vivir-en-alerta-constante-hipervigilancia/), y es de las huellas más frecuentes.
 
-**Desconectarte.** Sentirte lejos, como entumecido, o como si miraras tu propia vida desde fuera. A veces no sentir nada es la forma que encontró el cuerpo de no sentir demasiado.
+**Desconectarte.** Sentirte lejos, como entumecido, o como si miraras tu propia vida desde fuera. A veces no sentir nada es la forma que encontró el cuerpo de no sentir demasiado. Es la salida «por abajo» de la [ventana de tolerancia](/blog/ventana-de-tolerancia-desbordarse-o-apagarse/), y explica por qué hay quien pasa de estallar a no sentir nada.
 
 **Un cuerpo que avisa.** Tensión que no se va, molestias sin una causa médica clara, cansancio de fondo. El cuerpo a menudo lleva la cuenta de lo que la cabeza prefiere no mirar.
 
