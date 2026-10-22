@@ -1,10 +1,17 @@
 {
     "actualizado": "2026-10-22",
-    "total": 26,
+    "total": 27,
     "media": 5.0,
     "media_texto": "5,0",
     "media_schema": "5.0",
     "opiniones": [
+        {
+            "autor": "Angela",
+            "fecha": "2026-10-22",
+            "fecha_texto": "22 de octubre de 2026",
+            "texto": "Angie es profesional pero cercana a la vez. Me aporta herramientas, conocimiento, apoyo y todo lo que voy necesitando.\nEspero seguir con ella mucho mas!",
+            "verificada": true
+        },
         {
             "autor": "EF",
             "fecha": "2026-10-06",
@@ -67,13 +74,6 @@
             "fecha": "2026-04-27",
             "fecha_texto": "27 de abril de 2026",
             "texto": "Por ahora todo bien, ya tengo ganas de ir a las siguientes sesiones",
-            "verificada": true
-        },
-        {
-            "autor": "A.M",
-            "fecha": "2026-04-20",
-            "fecha_texto": "20 de abril de 2026",
-            "texto": "Me he sentido escuchada en todo momento, muy profesional!",
             "verificada": true
         }
     ]
