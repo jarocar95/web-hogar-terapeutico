@@ -740,8 +740,8 @@
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm h-20" role="banner">
         <div class="container flex justify-between items-center h-full">
             <a href="/" class="flex items-center gap-3 rounded-sm2 p-1 transition-colors hover:bg-light/50">
-                <img src="/images/logo-hogarterapeutico-simplificado.svg" alt="" class="h-7 w-auto lg:h-10" width="119" height="40" decoding="async">
-                <span id="logo-text" class="font-serif text-xl font-semibold text-primary leading-tight text-center lg:text-3xl lg:text-left lg:whitespace-nowrap">
+                <img src="/images/logo-hogarterapeutico-simplificado.svg" alt="" class="h-7 w-auto lg:h-9 xl:h-10" width="119" height="40" decoding="async">
+                <span id="logo-text" class="font-serif text-xl font-semibold text-primary leading-tight text-center lg:text-2xl xl:text-3xl lg:text-left lg:whitespace-nowrap">
                     Hogar Terapéutico
                 </span>
             </a>
@@ -751,7 +751,7 @@
                 interceptor de scroll suave, que solo captura a[href^="#"], no
                 llegaba a verlos. Fuera de la home si hace falta el "/". -#}
             {%- set home = "" if page.url == "/" else "/" %}
-            <nav class="hidden lg:flex items-center space-x-6 text-sm" role="navigation" aria-label="Navegación principal">
+            <nav class="hidden lg:flex items-center space-x-5 xl:space-x-6 text-sm whitespace-nowrap" role="navigation" aria-label="Navegación principal">
                 <a href="{{ home }}#about" class="font-medium text-text transition hover:text-primary rounded">Sobre mí</a>
                 <a href="{{ home }}#areas-of-intervention" class="font-medium text-text transition hover:text-primary rounded">Terapia</a>
                 <a href="{{ home }}#services-pricing" class="font-medium text-text transition hover:text-primary rounded">Precios</a>
