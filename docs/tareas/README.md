@@ -24,3 +24,5 @@ Las zonas críticas (textos clínicos y legales) no se delegan en ejecutores ext
 | # | Tarea | Depende de | Estado |
 |---|---|---|---|
 | 00 | Implantar el sistema de delegación (rama `tarea/00-sistema-delegacion`) | — | En curso |
+| 01 | [Tests de `embudo.ts`](01-tests-embudo.md) (DeepSeek) | 00 | Piloto del sistema |
+| 02 | [Tests de `scroll-effects.ts`](02-tests-scroll-effects.md) (GLM) | 00 | Piloto del sistema |
