@@ -74,9 +74,13 @@ export default defineConfig({
     // },
   ],
 
-  /* Run your local dev server before starting the tests */
+  /* Servidor para los tests. En CI se sirve el public/ que ya construyo el
+     paso "Build the application" (sin watchers de CSS/JS ni recompilar con
+     Eleventy). En local, el servidor de desarrollo de siempre. */
   webServer: {
-    command: 'npm run start',
+    command: process.env.CI
+      ? 'npx eleventy-dev-server --dir=public --port=8080'
+      : 'npm run start',
     url: 'http://localhost:8080',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,

@@ -35,13 +35,6 @@ jobs:
     - name: Build the application
       run: npm run build
 
-    - name: Start the application
-      run: |
-        npm start &
-        # Wait for the server to be ready
-        sleep 30
-        curl -f http://localhost:8080 || exit 1
-
     - name: Run Playwright tests
       run: npm run test:e2e -- --project=${{ matrix.browser }} --reporter=list
 
@@ -73,12 +66,6 @@ jobs:
 
     - name: Build the application
       run: npm run build
-
-    - name: Start the application
-      run: |
-        npm start &
-        sleep 30
-        curl -f http://localhost:8080 || exit 1
 
     - name: Run mobile tests
       run: npm run test:e2e:mobile
@@ -112,12 +99,6 @@ jobs:
     - name: Build the application
       run: npm run build
 
-    - name: Start the application
-      run: |
-        npm start &
-        sleep 30
-        curl -f http://localhost:8080 || exit 1
-
     - name: Run accessibility tests
       run: npx playwright test tests/e2e/accessibility.spec.ts
 
@@ -149,12 +130,6 @@ jobs:
 
     - name: Build the application
       run: npm run build
-
-    - name: Start the application
-      run: |
-        npm start &
-        sleep 30
-        curl -f http://localhost:8080 || exit 1
 
     - name: Run critical flow tests only
       run: |
