@@ -50,7 +50,7 @@ Todo lo demás (código, tests, SEO, datos, enlazado, borradores, redes) no lo t
 | Contenido en español (borradores) | DeepSeek | Haiku, GLM | Verificar siempre los datos |
 | **Extraer datos de Search Console** | **Haiku** (`extractor-seo`) | — | Es quien tiene acceso al MCP |
 | **Analizar esos datos (informe SEO)** | **DeepSeek** | GLM, Haiku | Sin web; trabaja sobre los exportes |
-| Ganchos, pies, guiones (volumen) | DeepSeek, GLM | Haiku | Gemini decide la estrategia; esto es volumen |
+| Ganchos, pies, guiones (volumen) | DeepSeek | Gemini, luego GLM y Haiku | **Medido** el 31-oct (`docs/bateria/ganchos-2026-10-31.md`): prueba ciega de Javi, DeepSeek y Gemini por delante; una sola prueba, no ordena del todo. Gemini sigue decidiendo la estrategia |
 | Primera revisión de una entrega | Haiku | Sonnet | |
 
 Haiku gasta cuota de Claude (poca). Gemini es el más lento y el que más se corta: reserva para contexto muy largo o relevo.

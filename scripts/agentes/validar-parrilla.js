@@ -215,4 +215,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { validar };
+module.exports = { validar, REGLAS };
