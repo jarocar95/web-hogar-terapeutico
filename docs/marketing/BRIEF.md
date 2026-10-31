@@ -40,6 +40,9 @@ El público son adultos de cualquier género. No te dirijas a «ella» («No ere
 ## Fuentes
 Cita solo fuentes que recuerdes con certeza, con autor, año y obra. **No las marques como verificadas** (`fuente_verificada` queda sin poner): las comprueba Claude contra el original. Si no recuerdas la fuente con certeza, usa `fuente: null` y `revisa_angie: true`. Una afirmación clínica que dependa de una teoría discutida (como la teoría polivagal) se marca `revisa_angie: true`.
 
+## Si el tema ya está en el blog, ancla ahí las afirmaciones clínicas
+Los artículos de `src/blog/` están contrastados con su fuente original y enlazados. Si tu pieza trata un tema que ya tiene artículo, **no afirmes nada más fuerte que lo que dice ese artículo**: si el blog presenta algo como «un modelo» o «una hipótesis», en la pieza también es un modelo o una hipótesis, no un hecho. Usa sus fuentes y enlaces antes que cualquier cita de memoria. Los consejos prácticos (respiración, anclaje, etc.) también van en `afirmaciones_clinicas` con `revisa_angie: true`, y la última diapositiva o el cierre aclara que son pautas generales que no sustituyen una valoración individual.
+
 ## No inventes rendimiento
 Si `docs/marketing/metricas.md` no trae datos, di que no hay y propón qué medir. No afirmes que algo "funciona" sin dato.
 
