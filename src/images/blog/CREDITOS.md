@@ -121,3 +121,20 @@ personas.
   de luz gris y fría y con casas y una carretera; un meandro aéreo en otoño (Alex Kalinin),
   donde el río se perdía entre los campos y se veía un coche.
 - **Anotado:** 22 de octubre de 2026
+
+## persona-complaciente.jpg
+
+- **Artículo:** Persona complaciente: por qué te cuesta tanto decir que no
+- **Autor:** @gavrushchenko
+- **Origen:** Unsplash · https://unsplash.com/photos/mujer-con-abrigo-marron-y-sombrero-negro-sentada-en-el-suelo-con-hojas-secas-durante-el-dia-BRdU4DsNpAQ
+- **Licencia:** Unsplash License (gratuita, uso comercial permitido, sin atribución obligatoria).
+  Comprobado en la ficha («Uso gratuito bajo la Licencia Unsplash»), y comprobada la imagen a
+  ojo: fotografía real (Canon EOS, publicada el 2 de marzo de 2021), no render.
+- **Modificaciones:** recortada de 5184x3456 (3:2) a 5184x3240 (16:10). Se quitan 60 px por
+  arriba y el resto del suelo de hojas por abajo, para no acercar el corte a la cabeza.
+- **Por qué esta:** alguien que se ha reservado un rato para sí, que es justo lo que le cuesta
+  a una persona complaciente. Cálida, de otoño, y de perfil, sin cara reconocible.
+- **Descartadas:** una mujer leyendo tumbada junto a un lago (@thwhoai), de color más frío; una
+  mujer leyendo apoyada en un árbol (@silverkblack), con más aire de banco de imágenes y sin
+  datos de cámara en la ficha.
+- **Anotado:** 31 de octubre de 2026

@@ -8,9 +8,9 @@ image_alt: "Dos personas caminan de espaldas por una carretera arbolada, cada un
 tags:
   - post
 relacionados:
+  - persona-complaciente-por-que-cuesta-decir-que-no
   - como-saber-si-tengo-un-trauma
   - vivir-en-alerta-constante-hipervigilancia
-  - que-es-emdr-como-ayuda
 faq:
   - pregunta: "¿Qué es el estilo de apego?"
     respuesta: "Es la expectativa que tienes, casi siempre sin pensarla, sobre lo que va a pasar cuando necesites a alguien: si va a estar, si va a poder, si le vas a molestar. Se aprende en las primeras relaciones y después funciona como un atajo. No es un rasgo de personalidad ni algo que tengas: es algo que haces, sobre todo cuando estás mal."
@@ -70,7 +70,7 @@ De pequeño: se angustió mucho y, al volver el cuidador, no se calmó del todo.
 
 De mayor: se activa ante señales mínimas —un mensaje que tarda, un tono distinto— y necesita confirmación. No es que exagere: es que su sistema aprendió que la disponibilidad del otro era **imprevisible**, y estar pendiente era la forma sensata de no llevarse un golpe por sorpresa.
 
-Esa vigilancia constante tiene un coste que se parece mucho a [vivir en alerta todo el rato](/blog/vivir-en-alerta-constante-hipervigilancia/).
+Esa vigilancia constante tiene un coste que se parece mucho a [vivir en alerta todo el rato](/blog/vivir-en-alerta-constante-hipervigilancia/). Y a menudo se traduce en complacer: decir que sí a todo para no arriesgar el vínculo, algo que desarrollamos al hablar de [la persona complaciente](/blog/persona-complaciente-por-que-cuesta-decir-que-no/).
 
 ### Evitativo
 

@@ -74,7 +74,7 @@ No hay un truco. Hay cosas que funcionan, y funcionan por acumulación.
 
 **Comprobar menos.** Mirar el móvil, releer el mensaje, asomarse otra vez. Cada comprobación calma diez segundos y le confirma al sistema que había motivo para comprobar. Reducirlas no es contenerse heroicamente: es elegir una sola y dejarla ir.
 
-**Sitios y personas donde no haya que estar pendiente.** No es un consejo blando. El sistema nervioso recalibra sobre lo que vive de forma repetida, y necesita pruebas de que existe lo contrario.
+**Sitios y personas donde no haya que estar pendiente.** No es un consejo blando. El sistema nervioso recalibra sobre lo que vive de forma repetida, y necesita pruebas de que existe lo contrario. Si lo que vigilas sobre todo es el humor de los demás, puede que te reconozcas en lo que contamos sobre [la persona complaciente](/blog/persona-complaciente-por-que-cuesta-decir-que-no/).
 
 Y ahora la parte honesta: **todo esto ensancha el margen, no borra el origen**. Vas a vivir mejor. Si debajo hay algo que sigue ahí, seguirá ahí.
 
