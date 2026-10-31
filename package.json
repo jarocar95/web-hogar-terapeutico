@@ -25,6 +25,8 @@
     "test:hello": "echo 'Hello World'",
     "test:watch": "jest --watch",
     "typecheck": "tsc --noEmit",
+    "validar-parrilla": "node scripts/agentes/validar-parrilla.js",
+    "verificar": "npm-run-all test build",
     "watch:11ty": "eleventy --serve",
     "watch:css": "./node_modules/.bin/tailwindcss -i ./src/input.css -o ./public/dist/output.css --watch",
     "watch:js": "node scripts/build-js.mjs --watch"
