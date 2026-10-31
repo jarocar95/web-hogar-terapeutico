@@ -6,6 +6,11 @@ dos proporciones distintas sobre la misma imagen. Se sube a 1640x924 (16:9,
 lo que ve el movil, al doble para pantallas retina) y el ordenador recorta
 una franja central de 1640x624. Todo lo que importa va dentro de esa franja.
 
+En el ordenador Facebook oscurece con un degradado la parte baja de la
+portada (ahi pone el boton de editarla), unos 150 px de la franja. Nada de
+texto ahi: la primera version tenia la ficha colegial justo encima y se leia
+gris sobre gris.
+
 Composicion centrada y no logo a la izquierda como en la imagen de compartir:
 la foto de perfil tapa la esquina inferior izquierda de la portada, y lo
 centrado queda lejos de ella en los dos formatos.
@@ -27,6 +32,7 @@ DESTINO = os.path.join(AQUI, 'salida', 'Portada Facebook - Hogar Terapeutico.png
 W, H = 1640, 924          # puntos = pixeles: sips rasteriza el PDF a 72 ppp
 FRANJA = 624              # lo que se ve en el ordenador, centrado en vertical
 MARGEN = 140
+DEGRADADO = 150           # lo que oscurece Facebook abajo, en el ordenador
 FONDO = HexColor('#F6EEEE')   # el del favicon y la imagen de compartir
 
 
@@ -45,26 +51,26 @@ def portada():
     c.setFillColor(FONDO); c.rect(0, 0, W, H, stroke=0, fill=1)
 
     # De arriba abajo, dentro de la franja visible en el ordenador.
-    techo = (H + FRANJA) / 2 - 92
+    techo = (H + FRANJA) / 2 - 58
     logo = svg2rlg(WEB + 'src/images/logo-hogarterapeutico-simplificado.svg')
-    e = 500 / logo.width
+    e = 470 / logo.width
     logo.width *= e; logo.height *= e; logo.scale(e, e)
     renderPDF.draw(logo, c, (W - logo.width) / 2, techo - logo.height)
 
-    y = techo - logo.height - 104
-    centrado(c, 'Hogar Terapéutico', 'FR-b', 86, y, CLAY_500)
-    y -= 70
+    y = techo - logo.height - 98
+    centrado(c, 'Hogar Terapéutico', 'FR-b', 82, y, CLAY_500)
+    y -= 64
     centrado(c, 'Terapia psicológica online para adultos', 'PS', 36, y, INK)
 
-    y -= 42
+    y -= 36
     c.setStrokeColor(CLAY_200); c.setLineWidth(3)
     c.line(W / 2 - 60, y, W / 2 + 60, y)
 
-    y -= 46
+    y -= 42
     centrado(c, 'Angie Sánchez Gallego · Psicóloga General Sanitaria · Col. M-42569',
              'PS', 26, y, INK_MUTE)
     suelo = (H - FRANJA) / 2
-    assert y - 10 > suelo + 40, 'el texto se sale de la franja que ve el ordenador'
+    assert y - 10 > suelo + DEGRADADO, 'el texto cae en el degradado de Facebook'
     c.save()
 
     os.system(f'sips -s format png "{tmp}" --out "{DESTINO}" >/dev/null 2>&1')
