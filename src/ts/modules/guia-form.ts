@@ -61,10 +61,13 @@ export function initGuiaForm(): void {
         aviso.hidden = true;
 
         try {
+            // `guia` dice al script cual mandar. Hay mas de un articulo con
+            // guia y el endpoint es el mismo para todos.
             const cuerpo = new URLSearchParams({
                 token,
                 email,
                 consentimiento: 'si',
+                guia: form.dataset.guia ?? '',
             });
             const r = await fetch(endpoint, {
                 method: 'POST',

@@ -1,5 +1,5 @@
 /**
- * Envio de la guia del sistema nervioso - Hogar Terapeutico
+ * Envio de las guias descargables - Hogar Terapeutico
  *
  * GENERADO. Sale de recursos/generadores/google_guia.py.
  * ASCII a proposito: el portapapeles de macOS rompe los acentos al pegar.
@@ -16,9 +16,21 @@
  * El endpoint queda publico, de ahi el token y el tope diario de abajo.
  */
 
-var ENLACE = "https://hogarterapeutico.com/guias/tecnicas-para-calmar-el-sistema-nervioso.pdf";
-var ASUNTO = "Tu gu\u00eda para calmar el sistema nervioso";
-var CUERPO = "Hola:\n\nAqu\u00ed tienes la gu\u00eda que pediste, con las diecisiete t\u00e9cnicas:\n\nhttps://hogarterapeutico.com/guias/tecnicas-para-calmar-el-sistema-nervioso.pdf\n\nUn consejo antes de empezar: no las practiques todas. Qu\u00e9date con dos o tres que encajen contigo y convi\u00e9rtelas en costumbre. La constancia importa mucho m\u00e1s que la variedad.\n\nY pract\u00edcalas cuando est\u00e9s tranquilo, no solo cuando las necesites. As\u00ed tu cuerpo ya sabr\u00e1 el camino cuando haga falta.\n\nSi algo de lo que hay ah\u00ed te remueve, o te surge cualquier duda, puedes responder a este correo.\n\nUn saludo,\n\nAngie S\u00e1nchez Gallego\nPsic\u00f3loga General Sanitaria \u00b7 Col. M-42569\nhogarterapeutico.com\n\n---\nRecibes este correo porque lo pediste en hogarterapeutico.com el __FECHA__. Tu direcci\u00f3n se ha usado solo para este env\u00edo: no est\u00e1s en ninguna lista y no recibir\u00e1s nada m\u00e1s. Si quieres que la borremos, responde a este correo y se hace.";
+// Clave de la guia -> nombre, asunto y cuerpo. La clave llega en el campo
+// `guia` del formulario; sin ella se envia la primera, por compatibilidad.
+var GUIAS = {
+  "sistema-nervioso": {
+    "nombre": "Gu\u00eda del sistema nervioso",
+    "asunto": "Tu gu\u00eda para calmar el sistema nervioso",
+    "cuerpo": "Hola:\n\nAqu\u00ed tienes la gu\u00eda que pediste, con las diecisiete t\u00e9cnicas:\n\nhttps://hogarterapeutico.com/guias/tecnicas-para-calmar-el-sistema-nervioso.pdf\n\nUn consejo antes de empezar: no las practiques todas. Qu\u00e9date con dos o tres que encajen contigo y convi\u00e9rtelas en costumbre. La constancia importa mucho m\u00e1s que la variedad.\n\nY pract\u00edcalas cuando est\u00e9s tranquilo, no solo cuando las necesites. As\u00ed tu cuerpo ya sabr\u00e1 el camino cuando haga falta.\n\nSi algo de lo que hay ah\u00ed te remueve, o te surge cualquier duda, puedes responder a este correo.\n\nUn saludo,\n\nAngie S\u00e1nchez Gallego\nPsic\u00f3loga General Sanitaria \u00b7 Col. M-42569\nhogarterapeutico.com\n\n---\nRecibes este correo porque lo pediste en hogarterapeutico.com el __FECHA__. Tu direcci\u00f3n se ha usado solo para este env\u00edo: no est\u00e1s en ninguna lista y no recibir\u00e1s nada m\u00e1s. Si quieres que la borremos, responde a este correo y se hace."
+  },
+  "ventana-tolerancia": {
+    "nombre": "La ventana de tolerancia",
+    "asunto": "Tu hoja de la ventana de tolerancia",
+    "cuerpo": "Hola:\n\nAqu\u00ed tienes la hoja de la ventana de tolerancia que pediste:\n\nhttps://hogarterapeutico.com/guias/la-ventana-de-tolerancia.pdf\n\nNo hay que rellenarla: es para tenerla a mano. Gu\u00e1rdala en el m\u00f3vil o impr\u00edmela y d\u00e9jala donde la veas, y vuelve a ella cuando notes que te desbordas o que te apagas.\n\nLo que ayuda a volver funciona mejor si lo practicas cuando est\u00e1s tranquilo, no solo cuando lo necesitas. As\u00ed tu cuerpo ya sabr\u00e1 el camino cuando haga falta.\n\nSi algo de lo que hay ah\u00ed te remueve, o te surge cualquier duda, puedes responder a este correo.\n\nUn saludo,\n\nAngie S\u00e1nchez Gallego\nPsic\u00f3loga General Sanitaria \u00b7 Col. M-42569\nhogarterapeutico.com\n\n---\nRecibes este correo porque lo pediste en hogarterapeutico.com el __FECHA__. Tu direcci\u00f3n se ha usado solo para este env\u00edo: no est\u00e1s en ninguna lista y no recibir\u00e1s nada m\u00e1s. Si quieres que la borremos, responde a este correo y se hace."
+  }
+};
+var GUIA_POR_DEFECTO = 'sistema-nervioso';
 var REMITENTE = 'Angie S\u00e1nchez \u00b7 Hogar Terap\u00e9utico';
 
 // No es seguridad de verdad: el token viaja en el HTML de la pagina. Sirve para
@@ -43,20 +55,24 @@ function doPost(e) {
       return responde(false, 'Ese correo no parece v\u00e1lido.');
     }
 
+    var clave = String(p.guia || GUIA_POR_DEFECTO);
+    var guia = GUIAS[clave];
+    if (!guia) return responde(false, 'Esa gu\u00eda no existe.');
+
     if (superaTope()) {
       return responde(false, 'Hoy no podemos enviar m\u00e1s. Int\u00e9ntalo ma\u00f1ana.');
     }
 
     MailApp.sendEmail({
       to: correo,
-      subject: ASUNTO,
-      body: cuerpoDeHoy(),
-      htmlBody: htmlDeHoy(),
+      subject: guia.asunto,
+      body: cuerpoDeHoy(guia),
+      htmlBody: htmlDeHoy(guia),
       name: REMITENTE,
       replyTo: 'info@hogarterapeutico.com'
     });
 
-    registrar(correo);
+    registrar(correo, guia.nombre);
     return responde(true, 'Enviada. Revisa tu correo.');
   } catch (err) {
     return responde(false, 'No se ha podido enviar: ' + err.message);
@@ -73,14 +89,14 @@ function doGet() {
  * blanco. La fecha rompe esa coincidencia, y de paso le dice al que la recibe
  * cuando la pidio.
  */
-function cuerpoDeHoy() {
+function cuerpoDeHoy(guia) {
   var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
                'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   // Con la hora, no solo la fecha: lo normal es que quien la repida lo haga el
   // mismo dia, y entonces dos cuerpos con la misma fecha volverian a ser iguales.
   var p = Utilities.formatDate(new Date(), 'Europe/Madrid', "d|M|yyyy|HH:mm").split('|');
   var fecha = p[0] + ' de ' + MESES[Number(p[1]) - 1] + ' de ' + p[2] + ' a las ' + p[3];
-  return CUERPO.replace('__FECHA__', fecha);
+  return guia.cuerpo.replace('__FECHA__', fecha);
 }
 
 /**
@@ -89,8 +105,8 @@ function cuerpoDeHoy() {
  * columna estrecha y desigual. En HTML los parrafos los reflua el cliente.
  * Se deriva de CUERPO para que las dos versiones no puedan separarse.
  */
-function htmlDeHoy() {
-  var partes = cuerpoDeHoy().split('\n---\n');
+function htmlDeHoy(guia) {
+  var partes = cuerpoDeHoy(guia).split('\n---\n');
   var html = parrafos(partes[0], '');
   if (partes.length > 1) {
     html += '<hr style="border:0;border-top:1px solid #dddddd;margin:28px 0 18px">'
@@ -138,9 +154,9 @@ function responde(ok, mensaje) {
 }
 
 /** Registro de consentimientos: sin el no hay forma de probar que se dio. */
-function registrar(correo) {
+function registrar(correo, nombreGuia) {
   var hoja = hojaRegistro();
-  hoja.appendRow([new Date(), correo, 'S\u00ed', 'Gu\u00eda del sistema nervioso']);
+  hoja.appendRow([new Date(), correo, 'S\u00ed', nombreGuia]);
 }
 
 function hojaRegistro() {
@@ -175,10 +191,15 @@ function preparar() {
   Logger.log('Ahora: Implementar > Nueva implementacion > Aplicacion web.');
 }
 
-/** Comprobacion sin pasar por la web. envioDePrueba('tu@correo.com') */
-function envioDePrueba(correo) {
-  MailApp.sendEmail({ to: correo, subject: ASUNTO,
-                      body: cuerpoDeHoy(), htmlBody: htmlDeHoy(),
+/**
+ * Comprobacion sin pasar por la web.
+ *   envioDePrueba('tu@correo.com')                        guia del sistema nervioso
+ *   envioDePrueba('tu@correo.com', 'ventana-tolerancia')  la de la ventana
+ */
+function envioDePrueba(correo, clave) {
+  var guia = GUIAS[clave || GUIA_POR_DEFECTO];
+  MailApp.sendEmail({ to: correo, subject: guia.asunto,
+                      body: cuerpoDeHoy(guia), htmlBody: htmlDeHoy(guia),
                       name: REMITENTE, replyTo: 'info@hogarterapeutico.com' });
   Logger.log('Enviado a ' + correo + '. Comprueba desde que direccion llega.');
   Logger.log('Cuota de envio restante hoy: ' + MailApp.getRemainingDailyQuota());

@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Apps Script que envia la guia del sistema nervioso.
+"""Apps Script que envia las guias descargables del blog.
+
+Cada articulo que ofrece una guia manda su clave en el campo `guia`. Si no
+llega ninguna se envia la del sistema nervioso, que fue la primera: asi el
+formulario antiguo sigue funcionando aunque se despliegue esto antes de
+actualizar la web.
 
 Se despliega como APLICACION WEB. El formulario del articulo le hace un fetch y
 el script responde mandando el correo con MailApp, que envia desde la cuenta que
@@ -15,17 +20,10 @@ from ascii_seguro import a_ascii
 # Un parrafo por linea, sin cortes a mano. El cliente de correo envuelve segun el
 # ancho que tenga; si venimos ya cortados a 80, en el movil cada linea se parte
 # otra vez y el texto queda desmigado.
-CUERPO = """Hola:
-
-Aquí tienes la guía que pediste, con las diecisiete técnicas:
-
-%(enlace)s
-
-Un consejo antes de empezar: no las practiques todas. Quédate con dos o tres que encajen contigo y conviértelas en costumbre. La constancia importa mucho más que la variedad.
-
-Y practícalas cuando estés tranquilo, no solo cuando las necesites. Así tu cuerpo ya sabrá el camino cuando haga falta.
-
-Si algo de lo que hay ahí te remueve, o te surge cualquier duda, puedes responder a este correo.
+# Un parrafo por linea, sin cortes a mano. El cliente de correo envuelve segun el
+# ancho que tenga; si venimos ya cortados a 80, en el movil cada linea se parte
+# otra vez y el texto queda desmigado.
+PIE = """Si algo de lo que hay ahí te remueve, o te surge cualquier duda, puedes responder a este correo.
 
 Un saludo,
 
@@ -36,8 +34,43 @@ hogarterapeutico.com
 ---
 Recibes este correo porque lo pediste en hogarterapeutico.com el __FECHA__. Tu dirección se ha usado solo para este envío: no estás en ninguna lista y no recibirás nada más. Si quieres que la borremos, responde a este correo y se hace."""
 
+GUIAS = {
+    'sistema-nervioso': {
+        'nombre': 'Guía del sistema nervioso',
+        'enlace': 'https://hogarterapeutico.com/guias/tecnicas-para-calmar-el-sistema-nervioso.pdf',
+        'asunto': 'Tu guía para calmar el sistema nervioso',
+        'cuerpo': """Hola:
+
+Aquí tienes la guía que pediste, con las diecisiete técnicas:
+
+%(enlace)s
+
+Un consejo antes de empezar: no las practiques todas. Quédate con dos o tres que encajen contigo y conviértelas en costumbre. La constancia importa mucho más que la variedad.
+
+Y practícalas cuando estés tranquilo, no solo cuando las necesites. Así tu cuerpo ya sabrá el camino cuando haga falta.
+
+""",
+    },
+    'ventana-tolerancia': {
+        'nombre': 'La ventana de tolerancia',
+        'enlace': 'https://hogarterapeutico.com/guias/la-ventana-de-tolerancia.pdf',
+        'asunto': 'Tu hoja de la ventana de tolerancia',
+        'cuerpo': """Hola:
+
+Aquí tienes la hoja de la ventana de tolerancia que pediste:
+
+%(enlace)s
+
+No hay que rellenarla: es para tenerla a mano. Guárdala en el móvil o imprímela y déjala donde la veas, y vuelve a ella cuando notes que te desbordas o que te apagas.
+
+Lo que ayuda a volver funciona mejor si lo practicas cuando estás tranquilo, no solo cuando lo necesitas. Así tu cuerpo ya sabrá el camino cuando haga falta.
+
+""",
+    },
+}
+
 PLANTILLA = '''/**
- * Envio de la guia del sistema nervioso · Hogar Terapeutico
+ * Envio de las guias descargables · Hogar Terapeutico
  *
  * GENERADO. Sale de recursos/generadores/google_guia.py.
  * ASCII a proposito: el portapapeles de macOS rompe los acentos al pegar.
@@ -54,9 +87,10 @@ PLANTILLA = '''/**
  * El endpoint queda publico, de ahi el token y el tope diario de abajo.
  */
 
-var ENLACE = %(enlace)s;
-var ASUNTO = %(asunto)s;
-var CUERPO = %(cuerpo)s;
+// Clave de la guia -> nombre, asunto y cuerpo. La clave llega en el campo
+// `guia` del formulario; sin ella se envia la primera, por compatibilidad.
+var GUIAS = %(guias)s;
+var GUIA_POR_DEFECTO = 'sistema-nervioso';
 var REMITENTE = 'Angie S\\u00e1nchez · Hogar Terap\\u00e9utico';
 
 // No es seguridad de verdad: el token viaja en el HTML de la pagina. Sirve para
@@ -81,20 +115,24 @@ function doPost(e) {
       return responde(false, 'Ese correo no parece v\\u00e1lido.');
     }
 
+    var clave = String(p.guia || GUIA_POR_DEFECTO);
+    var guia = GUIAS[clave];
+    if (!guia) return responde(false, 'Esa gu\\u00eda no existe.');
+
     if (superaTope()) {
       return responde(false, 'Hoy no podemos enviar m\\u00e1s. Int\\u00e9ntalo ma\\u00f1ana.');
     }
 
     MailApp.sendEmail({
       to: correo,
-      subject: ASUNTO,
-      body: cuerpoDeHoy(),
-      htmlBody: htmlDeHoy(),
+      subject: guia.asunto,
+      body: cuerpoDeHoy(guia),
+      htmlBody: htmlDeHoy(guia),
       name: REMITENTE,
       replyTo: 'info@hogarterapeutico.com'
     });
 
-    registrar(correo);
+    registrar(correo, guia.nombre);
     return responde(true, 'Enviada. Revisa tu correo.');
   } catch (err) {
     return responde(false, 'No se ha podido enviar: ' + err.message);
@@ -111,14 +149,14 @@ function doGet() {
  * blanco. La fecha rompe esa coincidencia, y de paso le dice al que la recibe
  * cuando la pidio.
  */
-function cuerpoDeHoy() {
+function cuerpoDeHoy(guia) {
   var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
                'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   // Con la hora, no solo la fecha: lo normal es que quien la repida lo haga el
   // mismo dia, y entonces dos cuerpos con la misma fecha volverian a ser iguales.
   var p = Utilities.formatDate(new Date(), 'Europe/Madrid', "d|M|yyyy|HH:mm").split('|');
   var fecha = p[0] + ' de ' + MESES[Number(p[1]) - 1] + ' de ' + p[2] + ' a las ' + p[3];
-  return CUERPO.replace('__FECHA__', fecha);
+  return guia.cuerpo.replace('__FECHA__', fecha);
 }
 
 /**
@@ -127,8 +165,8 @@ function cuerpoDeHoy() {
  * columna estrecha y desigual. En HTML los parrafos los reflua el cliente.
  * Se deriva de CUERPO para que las dos versiones no puedan separarse.
  */
-function htmlDeHoy() {
-  var partes = cuerpoDeHoy().split('\\n---\\n');
+function htmlDeHoy(guia) {
+  var partes = cuerpoDeHoy(guia).split('\\n---\\n');
   var html = parrafos(partes[0], '');
   if (partes.length > 1) {
     html += '<hr style="border:0;border-top:1px solid #dddddd;margin:28px 0 18px">'
@@ -176,9 +214,9 @@ function responde(ok, mensaje) {
 }
 
 /** Registro de consentimientos: sin el no hay forma de probar que se dio. */
-function registrar(correo) {
+function registrar(correo, nombreGuia) {
   var hoja = hojaRegistro();
-  hoja.appendRow([new Date(), correo, 'S\\u00ed', 'Gu\\u00eda del sistema nervioso']);
+  hoja.appendRow([new Date(), correo, 'S\\u00ed', nombreGuia]);
 }
 
 function hojaRegistro() {
@@ -213,10 +251,15 @@ function preparar() {
   Logger.log('Ahora: Implementar > Nueva implementacion > Aplicacion web.');
 }
 
-/** Comprobacion sin pasar por la web. envioDePrueba('tu@correo.com') */
-function envioDePrueba(correo) {
-  MailApp.sendEmail({ to: correo, subject: ASUNTO,
-                      body: cuerpoDeHoy(), htmlBody: htmlDeHoy(),
+/**
+ * Comprobacion sin pasar por la web.
+ *   envioDePrueba('tu@correo.com')                        guia del sistema nervioso
+ *   envioDePrueba('tu@correo.com', 'ventana-tolerancia')  la de la ventana
+ */
+function envioDePrueba(correo, clave) {
+  var guia = GUIAS[clave || GUIA_POR_DEFECTO];
+  MailApp.sendEmail({ to: correo, subject: guia.asunto,
+                      body: cuerpoDeHoy(guia), htmlBody: htmlDeHoy(guia),
                       name: REMITENTE, replyTo: 'info@hogarterapeutico.com' });
   Logger.log('Enviado a ' + correo + '. Comprueba desde que direccion llega.');
   Logger.log('Cuota de envio restante hoy: ' + MailApp.getRemainingDailyQuota());
@@ -224,12 +267,10 @@ function envioDePrueba(correo) {
 '''
 
 js = lambda v: json.dumps(v, ensure_ascii=False)
-ENLACE = 'https://hogarterapeutico.com/guias/tecnicas-para-calmar-el-sistema-nervioso.pdf'
-texto = a_ascii(PLANTILLA % {
-    'enlace': js(ENLACE),
-    'asunto': js('Tu guía para calmar el sistema nervioso'),
-    'cuerpo': js(CUERPO % {'enlace': ENLACE}),
-})
+guias_js = {k: {'nombre': g['nombre'], 'asunto': g['asunto'],
+                'cuerpo': g['cuerpo'] % {'enlace': g['enlace']} + PIE}
+            for k, g in GUIAS.items()}
+texto = a_ascii(PLANTILLA % {'guias': json.dumps(guias_js, ensure_ascii=False, indent=2)})
 os.makedirs(os.path.dirname(DESTINO), exist_ok=True)
 open(DESTINO, 'w', encoding='ascii').write(texto)
-print(f'  google/guia.gs · {len(texto)} bytes')
+print(f'  google/guia.gs · {len(texto)} bytes · guias: {", ".join(GUIAS)}')

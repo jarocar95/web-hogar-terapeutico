@@ -91,7 +91,7 @@ Una técnica que estrenas en pleno pico de ansiedad tiene todas las papeletas de
 Y lo segundo: **quédate con dos o tres, no con todas**. La constancia importa mucho más que la variedad.
 
 <aside class="not-prose my-10 rounded-lg2 bg-sage-50 border border-sage-200 p-6 sm:p-8">
-  <h2 class="font-sans text-xl font-bold text-sage-700 mb-2">Las diecisiete, en una guía</h2>
+  <h2 class="font-sans text-xl font-bold text-sage-700 mb-2 !mt-0 !pt-0 !border-0">Las diecisiete, en una guía</h2>
   <p class="text-ink-soft mb-1">Estas cuatro son las que más me piden. Hay trece más: respiración de coherencia cardíaca, masaje del punto vagal, gárgaras, relajación muscular progresiva, exposición controlada al frío…</p>
   <p class="text-ink-soft mb-5">Te la mando al correo. Es un PDF, son seis páginas y no hay que registrarse en nada.</p>
 

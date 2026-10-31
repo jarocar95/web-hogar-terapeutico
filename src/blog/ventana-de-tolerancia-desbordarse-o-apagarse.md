@@ -38,6 +38,11 @@ La idea la formuló el psiquiatra Daniel Siegel a finales de los noventa, y hoy 
 
 Lo que sí hace bien es ordenar experiencias que de otro modo parecen caóticas. Y eso, para quien las vive, ya es mucho.
 
+<figure class="not-prose my-10">
+{% image "./src/images/blog/ventana-de-tolerancia-grafico.png", "Gráfico de la ventana de tolerancia: una franja central verde entre una zona superior de hiperactivación y otra inferior de hipoactivación. Una línea recorre un día cualquiera: sube por encima de la franja, vuelve a ella, cae por debajo y regresa.", "(min-width: 720px) 720px, 100vw", "lazy", "w-full h-auto rounded-md2 border border-clay-100" %}
+<figcaption class="mt-3 text-[14px] text-ink-mute leading-snug">El recorrido de un día cualquiera. Salirse por arriba o por abajo le pasa a todo el mundo; lo que se entrena es volver.</figcaption>
+</figure>
+
 ## Por arriba: cuando te desbordas
 
 Salirse por arriba se llama **hiperactivación**. El cuerpo se prepara para defenderse aunque no haya nada de lo que defenderse.
@@ -77,6 +82,35 @@ Lo primero es **saber en qué lado estás**, porque lo que ayuda en uno no ayuda
 **Y en los dos casos, los básicos ensanchan la ventana.** Dormir, comer a horas, moverte. Suena demasiado simple para ser útil, y es lo que más se nota a medio plazo.
 
 Lo que no hay es un truco para ensancharla en una semana. Se ensancha despacio, a base de muchas experiencias pequeñas de activarte y volver sin que pase nada malo.
+
+<aside class="not-prose my-10 rounded-lg2 bg-sage-50 border border-sage-200 p-6 sm:p-8">
+  <h2 class="font-sans text-xl font-bold text-sage-700 mb-2 !mt-0 !pt-0 !border-0">La ventana de tolerancia, en una hoja</h2>
+  <p class="text-ink-soft mb-1">Las tres zonas, cómo reconocer cada una, qué ayuda a volver y qué estrecha o ensancha la ventana, en una sola página para tener a mano.</p>
+  <p class="text-ink-soft mb-5">Te la mando al correo. Es un PDF y no hay que registrarse en nada.</p>
+
+  <form data-guia-form
+        data-guia="ventana-tolerancia"
+        data-token="hogarterapeutico-guia-2026"
+        data-endpoint="https://script.google.com/macros/s/AKfycbwrDMZfp_OtSnLpdyzUNJzZLSaXIvJKKdLoAb8fMMVt5q7R3MR3WvL9v0Gxsjzoidq6Xw/exec"
+        class="space-y-4">
+    <div class="fld">
+      <label for="guia-email">Tu correo</label>
+      <input type="email" id="guia-email" name="email" placeholder="tu.email@ejemplo.com" required aria-required="true">
+    </div>
+
+    <label class="flex items-start gap-3 text-[13px] text-ink-mute leading-snug">
+      <input type="checkbox" name="consentimiento" required aria-required="true" class="mt-0.5 flex-none">
+      <span>Acepto que Angie Sánchez Gallego use mi correo <strong>solo para enviarme esta hoja</strong>. No entro en ninguna lista ni recibiré nada más. <a href="/politica-privacidad/">Más información</a>.</span>
+    </label>
+
+    <button type="submit" class="btn btn-primary btn-block">Enviádmela</button>
+    <p data-guia-aviso hidden role="status" aria-live="polite"></p>
+  </form>
+
+  <noscript>
+    <p class="text-[14px] text-clay-700 mt-3">Este envío necesita JavaScript. Si lo tienes desactivado, escribe a <strong>info@hogarterapeutico.com</strong> pidiendo la hoja y te la mando igual.</p>
+  </noscript>
+</aside>
 
 ## Cuándo merece la pena pedir ayuda
 
