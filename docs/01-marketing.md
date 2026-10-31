@@ -83,4 +83,4 @@ publicación { fecha, hora, plataforma: instagram|tiktok, formato }
 
 ## Producción de reels (fuera de este repo)
 
-El montaje del reel de Angie lo hace el pipeline de Remotion de la carpeta `reel/` del Mac de Javi (skill `reels-hogar-terapeutico`): brutos, cortes, subtítulos, animaciones y exportación. Ese flujo tiene su propio reparto de modelos y no se replica aquí. La parrilla le da el tema, el guion y los ganchos; la hoja de planificación y las decisiones de corte y estilo siguen donde están.
+El montaje del reel de Angie lo hace el pipeline de Remotion de la carpeta `reel/` del Mac de Javi (skill `reels-hogar-terapeutico`): brutos, cortes, subtítulos, animaciones y exportación. Ese flujo tiene su propio reparto de modelos y no se replica aquí. Desde el 31 oct 2026 **lo dirige Sonnet, no Opus** (decisión de Javi, sin medición previa); sus controles automáticos de cortes y entrega son obligatorios. La parrilla le da el tema, el guion y los ganchos; la hoja de planificación y las decisiones de corte y estilo siguen donde están.
