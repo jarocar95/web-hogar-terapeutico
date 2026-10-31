@@ -39,7 +39,7 @@ Mira docs/marketing/semanas/ para no repetir temas de semanas anteriores, docs/m
 Escribe SOLO estos archivos: $DIR/parrilla.json (formato de docs/marketing/ejemplo-parrilla.json) y $DIR/informe.md.
 No ejecutes comandos de terminal: lee y escribe archivos nada más. No toques ningún otro archivo del repositorio.
 ${NOTAS:+
-Notas de Javi para esta semana (prioridad alta):
+Notas para esta semana (de Javi o de la revisión; prioridad alta):
 $(cat "$NOTAS")}"
 
 ejecutar() { # $1=modelo  $2=prompt  [$3=conversación]  → deja la respuesta en $OUT y el id en $CONV

@@ -76,8 +76,8 @@ function validar(p) {
 
     // --- Experimento y palanca de crecimiento ---
     const ex = p.experimento;
-    if (!ex || !['hipotesis', 'variante_a', 'variante_b', 'metrica'].every((k) => esTexto(ex[k], 5))) {
-        err('`experimento` necesita hipotesis, variante_a, variante_b y metrica');
+    if (!ex || !['hipotesis', 'variante_a', 'variante_b', 'metrica', 'asignacion'].every((k) => esTexto(ex[k], 5))) {
+        err('`experimento` necesita hipotesis, variante_a, variante_b, metrica y asignacion (qué variante va en qué publicación)');
     }
     const pa = p.palanca_crecimiento;
     if (!pa || !PALANCAS.includes(pa.tipo) || !esTexto(pa.accion, 15) || !ESFUERZOS.includes(pa.esfuerzo)) {
@@ -152,6 +152,9 @@ function validar(p) {
             if (!esTexto(pz.mecanica_original, 15)) err(n + ': falta `mecanica_original`');
             if (!esTexto(pz.encaje_psicologia, 30)) err(n + ': falta `encaje_psicologia` (por qué encaja sin forzarlo)');
             if (!['bajo', 'medio'].includes(pz.riesgo)) err(n + ': `riesgo` debe ser bajo|medio; un trend de riesgo alto no se propone');
+            if (pz.requiere_grabacion_angie !== false) err(n + ': `requiere_grabacion_angie` debe ser false: Angie solo se graba una vez por semana (el reel); el trend usa material ya existente o no sale ella');
+            if (typeof pz.trend_real !== 'boolean') err(n + ': falta `trend_real` (true solo si Javi aportó un trend concreto; false si es un formato propio)');
+            else if (pz.trend_real === false) avi(n + ': no hay un trend real identificado (marketing no ve las tendencias del día); Javi debe aportar uno en las notas o tratarlo como formato propio');
         }
 
         // Afirmaciones clínicas: con fuente o marcadas para Angie
@@ -159,11 +162,16 @@ function validar(p) {
         afs.forEach((a, k) => {
             if (!a || !esTexto(a.texto)) { err(n + '.afirmaciones_clinicas[' + k + ']: falta `texto`'); return; }
             if (!esTexto(a.fuente) && a.revisa_angie !== true) err(n + '.afirmaciones_clinicas[' + k + ']: sin `fuente` ni `revisa_angie: true`');
+            if (esTexto(a.fuente) && a.fuente_verificada !== true) avi(n + '.afirmaciones_clinicas[' + k + ']: la fuente «' + a.fuente.slice(0, 50) + '…» la cita el modelo de memoria; hay que verificarla contra el original antes de publicar');
         });
 
         // Líneas rojas sobre todo el texto
         const textos = textosDe(pz);
         const todo = textos.join('\n');
+        const fem = todo.match(/\b(fr[ií]a|tranquila|cansada|exagerada|agotada|nerviosa|d[eé]bil|rota)\b/i);
+        if (fem && !/\b(fr[ií]o|tranquilo|cansado|exagerado|agotado|nervioso|roto)\b/i.test(todo)) {
+            avi(n + ': se dirige al público solo en femenino («' + fem[0] + '»); ¿lenguaje inclusivo?');
+        }
         for (const r of REGLAS) {
             const m = todo.match(r.re);
             if (m) err(n + ': ' + r.msg + ' («' + m[0].trim() + '»)');

@@ -7,7 +7,8 @@
     "hipotesis": "Un gancho que nombra la sensación concreta atrae más visualizaciones completas que uno que nombra el concepto.",
     "variante_a": "Gancho A del reel: «Dices sí y luego te enfadas»",
     "variante_b": "Gancho B del reel: «Complacer también cansa»",
-    "metrica": "Porcentaje de visualización completa del reel en Instagram a las 48 h"
+    "metrica": "Porcentaje de visualización completa a las 48 h",
+    "asignacion": "A en el reel de Instagram y B en el de TikTok; se compara dentro de cada plataforma contra la media de sus últimos vídeos, porque las audiencias difieren."
   },
   "palanca_crecimiento": {
     "tipo": "directorio",
@@ -84,6 +85,8 @@
       "mecanica_original": "Dos columnas de texto sobre una foto: lo que dices en voz alta frente a lo que piensas de verdad.",
       "encaje_psicologia": "Encaja con la disonancia entre lo que se dice por complacer y lo que se siente, sin frivolizar ningún trastorno ni sufrimiento: es una experiencia cotidiana y reconocible.",
       "riesgo": "bajo",
+      "trend_real": false,
+      "requiere_grabacion_angie": false,
       "ganchos": [
         "Lo que dices vs lo que piensas",
         "El «claro, sin problema» de siempre",

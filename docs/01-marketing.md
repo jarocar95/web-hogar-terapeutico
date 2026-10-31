@@ -26,13 +26,15 @@ Claude **no reescribe la estrategia**. Si la parrilla incumple el contrato, se l
 | **Trend adaptado a psicología** | 1 (admite 0 o hasta 2) | Flexible. Si ningún trend de la semana encaja, se dice y se deja en 0 con el motivo; forzarlo es peor que no publicarlo. |
 | Extras (story, reel sin voz…) | 0–2 | Solo si aportan. |
 
-La semana va de **lunes a domingo**. El reel necesita margen de producción: Gemini fija una `fecha_grabacion_angie` al menos 2 días antes de publicar.
+La semana va de **lunes a domingo**. El reel necesita margen de producción: Gemini fija una `fecha_grabacion_angie` al menos 2 días antes de publicar. El trend y el resto de piezas **no requieren una segunda grabación de Angie**.
+
+**Gemini no ve internet:** no sabe qué trend es el de la semana. Javi lo aporta en las notas (`marketing.sh <lunes> notas.txt`); si no, el trend sale marcado `trend_real: false` y es un formato propio.
 
 ## Qué decide marketing (y con qué ambición)
 
 El objetivo es **crecer**: más gente que conoce a Angie, confía y reserva la primera sesión (35 €). Marketing puede ser audaz en estrategia, ángulos y ritmo. Cada semana, además de las piezas, entrega:
 
-1. **Un experimento** con hipótesis, dos variantes y la métrica que lo decide (por ejemplo, dos ganchos para el mismo reel).
+1. **Un experimento** con hipótesis, dos variantes, la métrica que lo decide y la `asignacion` (qué variante va en qué publicación: una publicación no prueba dos ganchos a la vez).
 2. **Una palanca de crecimiento** que no sea contenido (colaboración, directorio profesional, SEO, lead magnet), con esfuerzo estimado.
 
 No se inventa rendimiento: si `docs/marketing/metricas.md` está vacío, lo dice y propone qué medir.
@@ -47,7 +49,8 @@ Además de las de `AGENTS.md`:
 - Presencial solo como "próximamente". Una sola terapeuta: ningún "nuestro equipo".
 - Precios solo 35 € y 50 €. Sin sesiones de tarde o noche.
 - Suicidio o autolesión solo con la línea **024** a la vista y marcado `recursos_crisis`.
-- Cada afirmación clínica lleva fuente, o queda marcada `revisa_angie`.
+- Cada afirmación clínica lleva fuente, o queda marcada `revisa_angie`. Las fuentes las cita el modelo de memoria: **no cuentan hasta que Claude las verifica contra el original** (`fuente_verificada: true`); el validador avisa de cada una.
+- Lenguaje inclusivo: el público es de cualquier género.
 - Nada de Google Business Profile ni de enlaces desde Doctoralia (decisiones cerradas).
 - El logo, siempre completo.
 
@@ -74,7 +77,7 @@ pieza     { id, tipo: reel_angie|carrusel|trend|story|reel_sin_voz, tema, objeti
             recursos_crisis?, + campos propios de cada tipo }
 reel      guion[] (≤ 225 palabras ≈ 90 s), claves[3–4], fecha_grabacion_angie, requiere_aprobacion_angie: true
 carrusel  slides[5–10] { texto }
-trend     mecanica_original, encaje_psicologia, riesgo: bajo|medio
+trend     mecanica_original, encaje_psicologia, riesgo: bajo|medio, trend_real: bool, requiere_grabacion_angie: false
 publicación { fecha, hora, plataforma: instagram|tiktok, formato }
 ```
 
