@@ -77,8 +77,16 @@ ejecutar() {
       fi ;;
     deepseek|glm)
       [ "$e" = deepseek ] && MODELO="opencode/deepseek-v4.1-flash-free" || MODELO="opencode/glm-5.3-flash-free"
-      OPENCODE_CONFIG="$RAIZ/scripts/agentes/opencode-ejecutor.json" timeout 1200 \
-        opencode run --dir "$WT" -m "$MODELO" --format json "$PROMPT" >"$out" 2>"$err" ;;
+      # opencode guarda su estado en SQLite: dos procesos que arrancan a la vez chocan con
+      # "database is locked" y mueren al instante. Si pasa, se reintenta tras una espera al azar.
+      local intento rc
+      for intento in 1 2 3 4; do
+        OPENCODE_CONFIG="$RAIZ/scripts/agentes/opencode-ejecutor.json" timeout 1200 \
+          opencode run --dir "$WT" -m "$MODELO" --format json "$PROMPT" >"$out" 2>"$err"; rc=$?
+        grep -q "database is locked" "$err" 2>/dev/null || break
+        sleep $(( RANDOM % 8 + 3 ))
+      done
+      return $rc ;;
     haiku)
       MODELO="claude-haiku (claude -p)"
       (cd "$WT" && timeout 1200 claude -p "$PROMPT" --model haiku --output-format json --permission-mode acceptEdits \
