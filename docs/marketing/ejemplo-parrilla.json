@@ -1,0 +1,102 @@
+{
+  "semana": "2026-11-02",
+  "desde": "2026-11-02",
+  "hasta": "2026-11-08",
+  "estrategia": "EJEMPLO DE FORMATO, no se publica. Semana sobre el cansancio de decir siempre que sí: un reel de Angie que nombra la experiencia, un carrusel que lo convierte en guía práctica guardable y un trend adaptado que lo vuelve cercano. Objetivo de la semana: alcance con un tema muy reconocible y llevar a quien se identifica al artículo del blog.",
+  "experimento": {
+    "hipotesis": "Un gancho que nombra la sensación concreta atrae más visualizaciones completas que uno que nombra el concepto.",
+    "variante_a": "Gancho A del reel: «Dices sí y luego te enfadas»",
+    "variante_b": "Gancho B del reel: «Complacer también cansa»",
+    "metrica": "Porcentaje de visualización completa del reel en Instagram a las 48 h"
+  },
+  "palanca_crecimiento": {
+    "tipo": "directorio",
+    "accion": "Revisar si el perfil de Angie está completo y actualizado en los directorios profesionales a los que ya pertenece o puede acceder (colegio profesional, buscopsicologo.es) y preparar un texto breve común.",
+    "esfuerzo": "bajo"
+  },
+  "piezas": [
+    {
+      "id": "reel-complacer",
+      "tipo": "reel_angie",
+      "tema": "Por qué cuesta tanto decir que no",
+      "objetivo": "alcance",
+      "ganchos": [
+        "Dices sí y luego te enfadas",
+        "Complacer también cansa",
+        "¿Y si decir no no te hiciera mala persona?"
+      ],
+      "gancho_pantalla": "Dices sí y luego te enfadas",
+      "guion": [
+        "Dices que sí a todo, y luego llegas a casa agotada o agotado, con un enfado que no sabes a quién dirigir.",
+        "No es falta de carácter. Muchas personas aprendieron pronto que querer y ser queridas pasa por no molestar.",
+        "Y entonces el no se siente como un riesgo: el de quedarte sola o solo, el de decepcionar.",
+        "Decir que no no te vuelve egoísta. Es empezar a incluirte a ti en la ecuación.",
+        "Puedes empezar pequeño: una pausa de cinco segundos antes de contestar, y un «déjame pensarlo».",
+        "Si te has reconocido, guarda este vídeo y, cuando quieras, me escribes. Aquí tienes un lugar seguro para esto."
+      ],
+      "claves": ["SÍ A TODO", "NO MOLESTAR", "INCLUIRTE", "UNA PAUSA"],
+      "requiere_aprobacion_angie": true,
+      "fecha_grabacion_angie": "2026-11-03",
+      "pie": "Decir que no no te hace egoísta. Te lo cuento en 1 minuto y, si te has reconocido, guárdalo para cuando lo necesites.",
+      "hashtags": ["#psicologiaonline", "#terapiaonline", "#limites", "#bienestaremocional"],
+      "cta": "guardar",
+      "afirmaciones_clinicas": [
+        { "texto": "Muchas personas aprendieron pronto que ser queridas pasa por no molestar.", "fuente": null, "revisa_angie": true }
+      ],
+      "publicaciones": [
+        { "fecha": "2026-11-06", "hora": "19:30", "plataforma": "instagram", "formato": "reel" },
+        { "fecha": "2026-11-06", "hora": "20:00", "plataforma": "tiktok", "formato": "video" }
+      ]
+    },
+    {
+      "id": "carrusel-complacer",
+      "tipo": "carrusel",
+      "tema": "Cinco señales de que dices sí por miedo, no por ganas",
+      "objetivo": "confianza",
+      "ganchos": [
+        "Dices sí por miedo, no por ganas",
+        "Cinco señales de que complaces de más",
+        "Cuando el sí te sale solo"
+      ],
+      "gancho_pantalla": "¿Dices sí por miedo?",
+      "slides": [
+        { "texto": "Dices sí por miedo, no por ganas" },
+        { "texto": "1. Aceptas planes que no te apetecen y luego buscas excusas." },
+        { "texto": "2. Te cuesta mucho más pedir que dar." },
+        { "texto": "3. Te enfadas contigo después de decir que sí." },
+        { "texto": "4. Pides perdón por cosas que no son tuyas." },
+        { "texto": "5. Piensas más en cómo se sentirá el otro que en cómo te sientes tú." },
+        { "texto": "Si te has reconocido, no es un defecto: es algo que se aprendió. Y se puede aprender otra cosa. Más en el blog." }
+      ],
+      "pie": "Guárdalo para releerlo la próxima vez que el sí te salga solo. El artículo completo está en el blog, enlace en el perfil.",
+      "hashtags": ["#psicologia", "#autoestima", "#limites", "#terapiaonline"],
+      "cta": "reservar",
+      "afirmaciones_clinicas": [],
+      "publicaciones": [
+        { "fecha": "2026-11-04", "hora": "13:30", "plataforma": "instagram", "formato": "carrusel" }
+      ]
+    },
+    {
+      "id": "trend-complacer",
+      "tipo": "trend",
+      "tema": "Trend de «lo que digo / lo que pienso» aplicado al sí automático",
+      "objetivo": "alcance",
+      "mecanica_original": "Dos columnas de texto sobre una foto: lo que dices en voz alta frente a lo que piensas de verdad.",
+      "encaje_psicologia": "Encaja con la disonancia entre lo que se dice por complacer y lo que se siente, sin frivolizar ningún trastorno ni sufrimiento: es una experiencia cotidiana y reconocible.",
+      "riesgo": "bajo",
+      "ganchos": [
+        "Lo que dices vs lo que piensas",
+        "El «claro, sin problema» de siempre",
+        "Todas las veces que dijiste sí"
+      ],
+      "gancho_pantalla": "Lo que dices, lo que piensas",
+      "pie": "Si te has visto aquí, no estás solo ni sola. Hablar de esto ya es un primer paso.",
+      "hashtags": ["#psicologia", "#saludmental", "#bienestar"],
+      "cta": "compartir",
+      "afirmaciones_clinicas": [],
+      "publicaciones": [
+        { "fecha": "2026-11-08", "hora": "20:00", "plataforma": "instagram", "formato": "imagen" }
+      ]
+    }
+  ]
+}
