@@ -25,6 +25,12 @@ public/prose.css
 # cada maquina, y skills/ son skills instaladas, no codigo del proyecto.
 /.claude/*
 !/.claude/launch.json
+# El sistema de delegacion entre modelos si se versiona: los subagentes y la
+# skill "delegar" son parte del proyecto, no skills instaladas de terceros.
+!/.claude/agents/
+!/.claude/skills/
+/.claude/skills/*
+!/.claude/skills/delegar/
 
 # Config del MCP de Search Console. Lleva rutas absolutas de esta maquina y
 # apunta a un fichero de credenciales OAuth de la cuenta de Angie, asi que es
