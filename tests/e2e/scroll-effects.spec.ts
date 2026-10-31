@@ -129,21 +129,21 @@ test.describe('Scroll Effects', () => {
 
     expect(hasSmoothScroll).toBe(true);
 
-    await pulsarEnNavegacion(page, '#about');
-    await page.waitForTimeout(1500);
+    await pulsarEnNavegacion(page, '#areas-of-intervention');
 
-    const aboutSection = page.locator('#about');
-    const aboutPosition = await aboutSection.evaluate((element) => {
-      return element.getBoundingClientRect().top;
-    });
-
+    const seccion = page.locator('#areas-of-intervention');
     // La tolerancia es la altura de la cabecera fija, no un 100 a ojo: la
     // seccion se detiene justo debajo de ella. Con el margen antiguo el test
     // fallaba en movil por 0,375 px.
     const alturaCabecera = await page
       .locator('#main-header')
       .evaluate((el) => el.getBoundingClientRect().height);
-    expect(Math.abs(aboutPosition)).toBeLessThanOrEqual(alturaCabecera + 24);
+    // Se espera a que llegue en vez de dormir un tiempo fijo: «Terapia» esta
+    // mucho mas abajo que la antigua ancla «Sobre mi», y en Safari movil el
+    // desplazamiento suave tarda mas de 1,5 s en recorrer esa distancia.
+    await expect
+      .poll(() => seccion.evaluate((el) => Math.abs(el.getBoundingClientRect().top)), { timeout: 5000 })
+      .toBeLessThanOrEqual(alturaCabecera + 24);
   });
 
   test('el estado de la cabecera se reinicia al cambiar de pagina', async ({ page }) => {

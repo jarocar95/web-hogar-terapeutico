@@ -115,13 +115,19 @@ heroPreload: "./src/images/hero-sala.jpg"
 <!-- ========================= SOBRE MÍ ========================= -->
 <section id="about" aria-labelledby="about-title">
     <div class="container grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-11 lg:gap-[72px] items-center">
-        <div class="relative max-w-[340px] mx-auto lg:mx-0">
-            <div class="overflow-hidden shadow-e2" style="border-radius: 200px 200px 24px 24px;">
+        <div class="relative w-full max-w-[340px] mx-auto lg:mx-0">
+            <!-- w-full y la proporcion en el contenedor, no en la imagen. Con mx-auto
+                 dentro de la rejilla, este bloque se encogia a lo que midiera su
+                 contenido; mientras la foto perezosa no habia cargado, eso era 0x0.
+                 Al cargar crecia 375 px de golpe, y en el iPhone cualquier enlace
+                 del menu a una seccion de mas abajo (Terapia, Precios, Preguntas)
+                 aterrizaba 375 px por encima de su sitio. -->
+            <div class="overflow-hidden shadow-e2 aspect-[4/5] [&_picture]:block [&_picture]:h-full" style="border-radius: 200px 200px 24px 24px;">
                 <!-- Retrato nuevo. El anterior la mostraba de brazos cruzados,
                      sin sonreír y sobre fondo oscuro: es la imagen que más pesa
                      para alguien que duda si esta persona le da confianza, y
                      transmitía lo contrario de lo que promete el texto. -->
-                {% image "./src/images/angie-retrato.jpg", "Angie Sánchez, psicóloga fundadora de Hogar Terapéutico", "(min-width: 1024px) 340px, 300px", "lazy", "w-full aspect-[4/5] object-cover" %}
+                {% image "./src/images/angie-retrato.jpg", "Angie Sánchez, psicóloga fundadora de Hogar Terapéutico", "(min-width: 1024px) 340px, 300px", "lazy", "w-full h-full object-cover" %}
             </div>
             <span class="absolute -bottom-[18px] left-1/2 -translate-x-1/2 bg-white border border-clay-100 shadow-e1 rounded-full px-[18px] py-2.5 text-[13px] font-semibold text-clay-600 whitespace-nowrap">
                 Angie Sánchez · M-42569
@@ -156,6 +162,7 @@ heroPreload: "./src/images/hero-sala.jpg"
                 <span class="flex gap-3 items-start text-[15px] text-ink-soft"><i class="ri-award-line text-sage-500 mt-1 flex-none" aria-hidden="true"></i><span><b class="text-ink font-semibold">Análisis Funcional Clínico</b> · Instituto Terapéutico de Madrid</span></span>
                 <span class="flex gap-3 items-start text-[15px] text-ink-soft"><i class="ri-shield-check-line text-sage-500 mt-1 flex-none" aria-hidden="true"></i><span><b class="text-ink font-semibold">Colegio Oficial de la Psicología de Madrid</b></span></span>
             </div>
+            <a href="/sobre-mi/" class="lnk mt-6">Más sobre mí y cómo trabajo <i class="ri-arrow-right-line icon" aria-hidden="true"></i></a>
         </div>
     </div>
 </section>
@@ -213,26 +220,31 @@ heroPreload: "./src/images/hero-sala.jpg"
                 <div class="card2-ico"><i class="ri-psychotherapy-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Trauma, apego y EMDR</h3>
                 <p class="text-[15.5px] text-ink-soft">Sanar heridas del pasado en un entorno de total seguridad, con una técnica avalada científicamente.</p>
+                <a href="/terapia-emdr-online/" class="lnk area-lnk">Terapia EMDR online <i class="ri-arrow-right-line icon" aria-hidden="true"></i></a>
             </article>
             <article id="area-ansiedad" class="card2 area">
                 <div class="card2-ico"><i class="ri-mental-health-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Ansiedad y estrés</h3>
                 <p class="text-[15.5px] text-ink-soft">Entender qué sostiene la ansiedad, reducir el estrés y recuperar la sensación de calma.</p>
+                <a href="/psicologa-ansiedad-online/" class="lnk area-lnk">Terapia para la ansiedad <i class="ri-arrow-right-line icon" aria-hidden="true"></i></a>
             </article>
             <article id="area-autoestima" class="card2 area">
                 <div class="card2-ico"><i class="ri-heart-pulse-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Autoestima y confianza</h3>
                 <p class="text-[15.5px] text-ink-soft">Fortalecer la relación contigo mismo/a, ganar seguridad y dejar de vivir desde la autoexigencia.</p>
+                <a href="/blog/persona-complaciente-por-que-cuesta-decir-que-no/" class="lnk area-lnk">Por qué cuesta decir que no <i class="ri-arrow-right-line icon" aria-hidden="true"></i></a>
             </article>
             <article id="area-emocional" class="card2 area">
                 <div class="card2-ico"><i class="ri-emotion-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Gestión emocional</h3>
                 <p class="text-[15.5px] text-ink-soft">Herramientas para entender y regular la tristeza, la ira, la culpa o el vacío emocional.</p>
+                <a href="/blog/ventana-de-tolerancia-desbordarse-o-apagarse/" class="lnk area-lnk">Desbordarse o apagarse <i class="ri-arrow-right-line icon" aria-hidden="true"></i></a>
             </article>
             <article id="area-relaciones" class="card2 area">
                 <div class="card2-ico"><i class="ri-group-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>
                 <h3 class="font-serif text-[19px] mb-2.5 font-semibold">Relaciones personales</h3>
                 <p class="text-[15.5px] text-ink-soft">Mejorar la comunicación y construir vínculos más sanos con tu pareja, tu familia o tus amigos.</p>
+                <a href="/blog/que-es-el-apego-y-como-influye-en-tus-relaciones/" class="lnk area-lnk">Qué es el apego <i class="ri-arrow-right-line icon" aria-hidden="true"></i></a>
             </article>
             <article id="area-duelo" class="card2 area">
                 <div class="card2-ico"><i class="ri-leaf-line text-clay-500 text-[22px]" aria-hidden="true"></i></div>

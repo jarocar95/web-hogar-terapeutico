@@ -171,7 +171,7 @@ test.describe('Cookie Banner', () => {
   test('should maintain banner visibility across page navigation', async ({ page }) => {
     const cookieBanner = page.locator('#cookie-consent-banner');
 
-    await pulsarEnNavegacion(page, '#about');
+    await pulsarEnNavegacion(page, '#areas-of-intervention');
     await page.waitForLoadState('networkidle');
 
     // Banner should still be visible

@@ -151,11 +151,7 @@ Por eso la ansiedad no se resuelve con fuerza de voluntad ni «dejando de pensar
 
 Estas técnicas son como tiritas: útiles, pero no curan la herida. La terapia es el proceso que te permite entender el origen de tu ansiedad y sanar desde la raíz.
 
-Como psicóloga, mi trabajo es ofrecerte un espacio seguro y sin juicios donde podamos:
-* **Identificar los patrones de pensamiento** que alimentan tu ansiedad.
-* **Desarrollar herramientas personalizadas** para que aprendas a regular tus emociones.
-* **Procesar experiencias pasadas** que puedan estar contribuyendo a tu malestar actual, utilizando técnicas avanzadas como la [terapia **EMDR**](/blog/que-es-emdr-como-ayuda/).
-* **Construir una autoestima sólida** para que te sientas capaz de enfrentar los desafíos de la vida con confianza.
+En terapia se trabaja justo lo que no se arregla con fuerza de voluntad: qué sostiene tu ansiedad en concreto, cómo bajar la activación desde el cuerpo y cómo romper el círculo de evitar y comprobar. Si debajo hay algo que pasó y sigue activo, también se trabaja, por ejemplo con [EMDR](/blog/que-es-emdr-como-ayuda/). Cómo lo hago yo, para quién es y cuánto cuesta lo tienes en [terapia para la ansiedad online](/psicologa-ansiedad-online/).
 
 Y si ya sabes calmar la crisis y lo que quieres es que las tormentas sean menos frecuentes, el siguiente paso son los [tres pilares para construir una vida con menos ansiedad](/blog/3-pilares-para-construir-una-vida-con-menos-ansiedad/).
 

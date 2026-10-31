@@ -67,14 +67,7 @@ layout: base.njk
 <section aria-labelledby="faq-articulo" class="!py-0 mt-16">
     <div class="container max-w-[720px]">
         <h2 id="faq-articulo" class="font-serif font-semibold text-[clamp(1.5rem,2.6vw,1.9rem)] text-ink mb-6 tracking-[-.015em]">Preguntas frecuentes</h2>
-        <div class="acc">
-            {% for f in faq %}
-            <details{% if loop.first %} open{% endif %}>
-                <summary>{{ f.pregunta }}<span class="plus" aria-hidden="true"></span></summary>
-                <div class="ans">{{ f.respuesta }}</div>
-            </details>
-            {% endfor %}
-        </div>
+        {%- include "faq-acordeon.njk" %}
     </div>
 </section>
 {% endif %}

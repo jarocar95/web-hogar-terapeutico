@@ -1,0 +1,11 @@
+{#- Acordeon de preguntas frecuentes a partir del front matter `faq`. Lo usan
+    los articulos y las paginas de servicio, y schemas.njk genera el FAQPage
+    de las mismas preguntas: lo visible y lo marcado no pueden separarse. -#}
+<div class="acc">
+    {% for f in faq %}
+    <details{% if loop.first %} open{% endif %}>
+        <summary>{{ f.pregunta }}<span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans">{{ f.respuesta }}</div>
+    </details>
+    {% endfor %}
+</div>

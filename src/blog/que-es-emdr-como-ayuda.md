@@ -119,11 +119,6 @@ El EMDR es extraordinariamente eficaz para trabajar recuerdos específicos, pero
 
 Cargar con heridas del pasado no es una cuestión de «fuerza de voluntad» ni de «pasar página» sin más. A veces, tu sistema nervioso necesita ayuda profesional para terminar un proceso que se quedó a medias. Si dudas de si lo que te pasa justifica pedir esa ayuda, lo desarrollo aquí: [cómo saber si necesitas ir al psicólogo](/blog/como-saber-si-necesitas-ir-al-psicologo/).
 
-Tengo la Formación Básica en EMDR (Nivel I) del [Instituto Español de EMDR](https://www.iemdr.es), cuyos certificados siguen los estándares de EMDR Europe, y la aplico dentro de un enfoque integrador. Mi trabajo es acompañarte en el proceso de:
-
-* **Identificar qué recuerdos o patrones** siguen influyendo en tu presente sin que lo notes.
-* **Procesar esas experiencias** de forma segura y a tu ritmo.
-* **Liberarte del peso emocional** de esos recuerdos, sin necesidad de repasarlos una y otra vez hablando.
-* **Construir una relación contigo mismo/a** basada en la confianza, no en las heridas del pasado.
+Tengo la Formación Básica en EMDR (Nivel I) del [Instituto Español de EMDR](https://www.iemdr.es), cuyos certificados siguen los estándares de EMDR Europe, y la aplico dentro de un enfoque integrador. Para quién es, cómo es el proceso conmigo por videollamada y cuánto cuesta lo explico en [terapia EMDR online](/terapia-emdr-online/).
 
 Si sientes que ha llegado el momento de sanar desde la raíz, **[reserva tu primera sesión por 35€](/#booking-calendar)**. Estoy aquí para acompañarte en cada paso del camino.

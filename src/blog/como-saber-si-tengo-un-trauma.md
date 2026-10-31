@@ -90,7 +90,7 @@ Un test de internet sirve, como mucho, para empezar a hacerte preguntas. Y si ya
 
 Lo primero es saber que **esto tiene tratamiento** y que no consiste en revivirlo todo de golpe.
 
-Las terapias con más respaldo para el trauma son las que se centran en él, y una de ellas es [el EMDR](/blog/que-es-emdr-como-ayuda/), que trabaja precisamente sobre recuerdos que siguen activos aunque hayan pasado años.
+Las terapias con más respaldo para el trauma son las que se centran en él, y una de ellas es [el EMDR](/blog/que-es-emdr-como-ayuda/), que trabaja precisamente sobre recuerdos que siguen activos aunque hayan pasado años. Si quieres saber cómo lo trabajo yo por videollamada, lo cuento en [terapia EMDR online](/terapia-emdr-online/).
 
 Pero antes de cualquier técnica hay algo más básico: **sentirte seguro con la persona con la que vas a trabajarlo**. Con el trauma, ir más rápido de lo que puedes sostener no ayuda. Un buen proceso empieza estabilizando, no excavando.
 

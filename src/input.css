@@ -314,6 +314,11 @@
   .area .card2-ico { @apply row-span-2 mb-0 sm:mb-[18px]; }
   .area h3 { @apply text-[17.5px] mb-1.5 sm:text-[19px] sm:mb-2.5; }
   .area p { @apply text-[15px] sm:text-[15.5px]; }
+  /* Enlace de cada area a su pagina de servicio o a su articulo. En movil va
+     bajo el texto, en la columna del texto; desde sm, al pie de la tarjeta
+     para que quede a la misma altura en toda la fila. */
+  .area-lnk { @apply col-start-2 mt-3 text-[14.5px] self-start sm:mt-auto sm:pt-4; }
+  .area { @apply sm:flex sm:flex-col; }
 
   /* Acordeon de preguntas */
   .acc > details { @apply border-b border-clay-200; }

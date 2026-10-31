@@ -752,7 +752,7 @@
                 llegaba a verlos. Fuera de la home si hace falta el "/". -#}
             {%- set home = "" if page.url == "/" else "/" %}
             <nav class="hidden lg:flex items-center space-x-5 xl:space-x-6 text-sm whitespace-nowrap" role="navigation" aria-label="Navegación principal">
-                <a href="{{ home }}#about" class="font-medium text-text transition hover:text-primary rounded">Sobre mí</a>
+                <a href="/sobre-mi/" class="font-medium text-text transition hover:text-primary rounded">Sobre mí</a>
                 <a href="{{ home }}#areas-of-intervention" class="font-medium text-text transition hover:text-primary rounded">Terapia</a>
                 <a href="{{ home }}#services-pricing" class="font-medium text-text transition hover:text-primary rounded">Precios</a>
                 <a href="{{ home }}#faq" class="font-medium text-text transition hover:text-primary rounded">Preguntas</a>
@@ -770,7 +770,7 @@
         </div>
         <div id="mobile-menu-fixed" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-light">
             <nav class="flex flex-col p-4 space-y-2">
-                <a href="{{ home }}#about" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Sobre mí</a>
+                <a href="/sobre-mi/" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Sobre mí</a>
                 <a href="{{ home }}#areas-of-intervention" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Terapia</a>
                 <a href="{{ home }}#services-pricing" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Precios</a>
                 <a href="{{ home }}#faq" class="mobile-link block px-4 py-3 font-medium text-text rounded-sm2 hover:bg-light">Preguntas</a>
@@ -802,8 +802,9 @@
                 <div>
                     <h4 class="font-sans text-[12.5px] tracking-[.13em] uppercase text-white/50 mb-3.5 font-bold">Navegación</h4>
                     <ul class="list-none m-0 p-0 grid gap-1">
-                        <li><a href="{{ home }}#about" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Sobre mí</a></li>
-                        <li><a href="{{ home }}#areas-of-intervention" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Terapia</a></li>
+                        <li><a href="/sobre-mi/" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Sobre mí</a></li>
+                        <li><a href="/terapia-emdr-online/" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Terapia EMDR online</a></li>
+                        <li><a href="/psicologa-ansiedad-online/" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Terapia para la ansiedad</a></li>
                         <li><a href="{{ home }}#services-pricing" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Precios</a></li>
                         <li><a href="/blog/" class="inline-flex items-center min-h-[44px] no-underline transition-colors hover:text-white">Blog</a></li>
                     </ul>
