@@ -49,7 +49,7 @@ Cálido, humano, tranquilo y seguro. **No suena clínico ni corporativo**, aunqu
 | Área | Qué es | Quién |
 |---|---|---|
 | **Web (código)** | Eleventy, Tailwind, TS, tests, rendimiento, accesibilidad | Ejecutores y Sonnet; Opus en decisiones |
-| **Blog / SEO** | Artículos (`docs/escritor.md`), enlazado, metadatos, schema, datos de Search Console | Sonnet redacta; DeepSeek/GLM briefs y borradores; Haiku analiza datos |
+| **Blog / SEO** | Artículos (`docs/escritor.md`), enlazado, metadatos, schema, datos de Search Console | Sonnet redacta; DeepSeek/GLM briefs, borradores y análisis; Haiku extrae los datos |
 | **Material clínico** | PDF y Excel de marca (`recursos/`, reportlab) | Claude; ver `AGENTS.md` sobre datos de terceros |
 | **Marketing** | Instagram y TikTok (reels, carruseles). Facebook replica Instagram solo; YouTube está parado | Gemini decide, Claude produce |
 

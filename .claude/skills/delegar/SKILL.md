@@ -15,7 +15,7 @@ Todo lo que diga `AGENTS.md` vale para todos los agentes y manda sobre esta guí
 | **Opus: solo excepciones** | Opus | Subagente `arquitecto-opus` (o sesión Opus si Javi la abre) | Claude (cara) |
 | **Ejecutor de código y contenido** | DeepSeek, GLM | `scripts/agentes/lanzar.sh` (incluye tests+build+autocorrección) | Gratis |
 | **Ejecutor largo / relevo** | Gemini | `lanzar.sh … gemini` | Google |
-| **Ejecutor rápido y analista de datos** | **Haiku** | `lanzar.sh … haiku` y subagentes `analista-seo`, `revisor-haiku`, `explorador` | Claude (mínima) |
+| **Ejecutor rápido y extractor de datos** | **Haiku** | `lanzar.sh … haiku` y subagentes `extractor-seo`, `revisor-haiku`, `explorador` | Claude (mínima) |
 | **Explorador** | DeepSeek → GLM → Haiku | `scripts/agentes/explorar.sh "¿…?"` | Gratis (Haiku si caen) |
 | **Marketing de IG y TikTok** | Gemini | Decide estrategia; ver `docs/` de marketing cuando exista | Google |
 | **Revisión de segunda pasada** | Sonnet | La propia sesión o `revisor-sonnet` | Claude (media) |
@@ -32,7 +32,7 @@ Todo lo demás (código, tests, SEO, datos, enlazado, borradores, redes) no lo t
 
 ### Dónde pesa Haiku
 
-- **Datos de SEO y analítica:** `analista-seo` lee exportes de Search Console y Analytics y escribe el informe en `docs/informes/`. Es su trabajo principal.
+- **Datos de SEO y analítica:** `extractor-seo` consulta Search Console (solo lectura) y deja los datos en `docs/informes/datos/`. **Haiku solo extrae; el análisis lo hace DeepSeek o GLM** (ver "Informe de SEO" más abajo).
 - **Primera revisión de entregas:** `revisor-haiku` comprueba alcance, criterios y tests antes de que Sonnet gaste nada.
 - **Extracciones y tablas:** inventarios de enlaces, metadatos, alts, FAQ, comparativas.
 - **Ejecutor rápido** de tests y tareas mecánicas cuando importa la prisa.
@@ -48,7 +48,8 @@ Todo lo demás (código, tests, SEO, datos, enlazado, borradores, redes) no lo t
 | Lógica TypeScript | DeepSeek | Haiku, GLM | |
 | Pantallas y CSS (Tailwind) | GLM | Gemini, DeepSeek | Revisar a 390 px |
 | Contenido en español (borradores) | DeepSeek | Haiku, GLM | Verificar siempre los datos |
-| **Datos SEO y analítica** | **Haiku** | DeepSeek | Sin web; trabaja sobre exportes |
+| **Extraer datos de Search Console** | **Haiku** (`extractor-seo`) | — | Es quien tiene acceso al MCP |
+| **Analizar esos datos (informe SEO)** | **DeepSeek** | GLM, Haiku | Sin web; trabaja sobre los exportes |
 | Ganchos, pies, guiones (volumen) | DeepSeek, GLM | Haiku | Gemini decide la estrategia; esto es volumen |
 | Primera revisión de una entrega | Haiku | Sonnet | |
 
@@ -106,6 +107,12 @@ Cuando termines:
 2. Commits pequeños en español que digan qué y por qué.
 3. Último mensaje: qué has hecho, qué no has comprobado y qué dudas tienes. Sin inventar.
 ```
+
+## Informe de SEO (dos pasos)
+
+1. **Datos:** invoca al subagente `extractor-seo` con lo que haga falta (periodo, dimensiones). Deja los datos en `docs/informes/datos/` y los commitea en la rama base.
+2. **Análisis:** encargo a DeepSeek o GLM con `VERIFICACION=ninguna scripts/agentes/lanzar.sh NN-seo-<tema> deepseek,glm,haiku encargo.txt main`. El encargo les manda leer los archivos de datos y su `.md`, y escribir `docs/informes/AAAA-MM-DD-<tema>.md` (máximo 80 líneas) con: resumen en 5 líneas; tabla de hallazgos (consulta o página, impresiones, clics, CTR, posición, qué hacer) ordenada por impacto; acciones propuestas con tipo de tarea y ejecutor sugerido; y qué no se sabe. Cada número lleva su periodo y de qué archivo sale; con tan poco tráfico, una muestra corta se dice, no se interpreta como tendencia.
+3. **Revisión:** Sonnet comprueba una muestra de las cifras del informe contra el JSON antes de actuar sobre ellas, y decide los cambios de contenido; el informe solo propone. Son datos agregados, sin datos personales, así que pueden ir a modelos externos.
 
 ## Mantener esta skill
 
