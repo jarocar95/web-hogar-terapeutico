@@ -168,7 +168,7 @@ function validar(p) {
         // Líneas rojas sobre todo el texto
         const textos = textosDe(pz);
         const todo = textos.join('\n');
-        const fem = todo.match(/\b(fr[ií]a|tranquila|cansada|exagerada|agotada|nerviosa|d[eé]bil|rota)\b/i);
+        const fem = todo.match(/(?<!agua )\b(fr[ií]a|tranquila|cansada|exagerada|agotada|nerviosa|d[eé]bil|rota)\b/i);
         if (fem && !/\b(fr[ií]o|tranquilo|cansado|exagerado|agotado|nervioso|roto)\b/i.test(todo)) {
             avi(n + ': se dirige al público solo en femenino («' + fem[0] + '»); ¿lenguaje inclusivo?');
         }
