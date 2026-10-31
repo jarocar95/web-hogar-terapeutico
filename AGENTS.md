@@ -33,6 +33,8 @@ public/api/horarios.json  Disponibilidad real de Angie
 scripts/                  build-js, build-icons, build-fonts
 recursos/                 Generadores Python (reportlab) de PDF/Excel de marca; fuera de src/ a propósito
 tests/unit, tests/e2e     Jest y Playwright
+docs/tareas/              Tareas para agentes · docs/borradores/ borradores · docs/informes/ informes de datos
+scripts/agentes/          lanzar.sh, explorar.sh y configs de permisos de los ejecutores
 ```
 
 ## Lo que no se rompe
@@ -62,12 +64,14 @@ tests/unit, tests/e2e     Jest y Playwright
 
 ## Zonas críticas
 
-Las trabaja o revisa Opus (en sesión o vía `arquitecto-opus`). **Ejecutores externos y Haiku no las tocan nunca:**
+Las edita o aprueba Opus (en sesión o vía `arquitecto-opus`); Opus aparece solo para esto, no para el resto del trabajo. **Ejecutores externos y Haiku no las tocan nunca:**
 
-- Textos clínicos: afirmaciones terapéuticas, descripciones de enfoques (EMDR, ansiedad, trauma), material clínico para pacientes.
+- Textos clínicos publicados: afirmaciones terapéuticas, descripciones de enfoques (EMDR, ansiedad, trauma) en las páginas de servicio, y material clínico para pacientes.
 - `src/aviso-legal.html`, `src/politica-privacidad.html`, `src/politica-cookies.html`.
 
 Sobre ese contenido sí puedes hacer trabajo **mecánico** si la tarea lo pide expresamente (comprobar enlaces, formato, metadatos SEO, accesibilidad), sin reescribir ni reformular ninguna afirmación.
+
+**Blog.** Los artículos los redacta y publica Sonnet, contrastando cada dato clínico con su fuente original y enlazándola (Opus solo repasa los de tema delicado: suicidio, trauma, medicación). Los ejecutores externos **sí pueden escribir briefs y borradores**, pero solo en `docs/borradores/`: nunca en `src/blog/`. Las fuentes que cite un borrador son pistas, no pruebas.
 
 ## Privacidad con modelos externos
 

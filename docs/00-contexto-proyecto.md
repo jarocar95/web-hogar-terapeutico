@@ -42,14 +42,14 @@ Cálido, humano, tranquilo y seguro. **No suena clínico ni corporativo**, aunqu
 - **Enlace a la web desde Doctoralia:** descartado por Javi el 31 oct 2026. Para autoridad externa, otras vías (directorios profesionales, colegio, colaboraciones).
 - **Hero claro de la portada:** maquetado y aparcado hasta que haya fotos mejores. No se propone por iniciativa propia.
 - **Logo:** siempre completo, sin recortar (tampoco en favicon o avatares).
-- **Blog:** lo redacta Claude contrastando cada dato con su fuente; Angie lo revisa (y revisa también el material clínico). Los ejecutores externos no redactan artículos.
+- **Blog:** lo redacta Sonnet contrastando cada dato con su fuente; Angie lo revisa (y revisa también el material clínico). DeepSeek y GLM pueden aportar briefs y borradores en `docs/borradores/`, pero nada entra en `src/blog/` sin que Sonnet lo reescriba y verifique.
 
 ## Qué se trabaja en este proyecto
 
 | Área | Qué es | Quién |
 |---|---|---|
 | **Web (código)** | Eleventy, Tailwind, TS, tests, rendimiento, accesibilidad | Ejecutores y Sonnet; Opus en decisiones |
-| **Blog / SEO** | Artículos (`docs/escritor.md`), enlazado, metadatos, schema | Claude redacta; ejecutores solo mecánica |
+| **Blog / SEO** | Artículos (`docs/escritor.md`), enlazado, metadatos, schema, datos de Search Console | Sonnet redacta; DeepSeek/GLM briefs y borradores; Haiku analiza datos |
 | **Material clínico** | PDF y Excel de marca (`recursos/`, reportlab) | Claude; ver `AGENTS.md` sobre datos de terceros |
 | **Marketing** | Instagram y TikTok (reels, carruseles). Facebook replica Instagram solo; YouTube está parado | Gemini decide, Claude produce |
 

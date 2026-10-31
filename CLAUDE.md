@@ -8,9 +8,10 @@ Las tareas están en `docs/tareas/`. Para delegar, explorar o revisar, sigue la 
 
 ## Arquitectura de modelos y ahorro de cuota
 
-- **Opus (Modo Estrategia / Auditoría):** diseña, escribe tareas en `docs/tareas/`, da el visto bueno y es el único que trabaja las zonas críticas. No lee código en bruto: explora con `scripts/agentes/explorar.sh "<pregunta>"` o el subagente `explorador`, y lee solo `docs/` o los rangos de líneas que marque el informe. Al acabar el plan dice: *"Plan listo en docs/tareas/. `/clear` y `/model sonnet` para ejecutar."*
-- **Sonnet (Modo Ejecución / Capataz):** planifica lotes, lanza ejecutores (`lanzar.sh`), lee el resumen, revisa el diff contra la tarea y `AGENTS.md`, y abre PRs. Si hay duda en una zona crítica, invoca al subagente `arquitecto-opus` pasándole solo las rutas exactas.
-- **Ejecutores externos (DeepSeek, GLM, Gemini) y Haiku:** según la tabla de la skill `delegar`. No gastes la sesión base leyendo muchos archivos ni haciendo código delegable.
+- **Sonnet es la sesión normal** (Modo Ejecución / Capataz): planifica lotes, lanza ejecutores (`lanzar.sh`), lee el resumen, revisa el diff contra la tarea y `AGENTS.md`, y abre PRs.
+- **Opus es una excepción, no una rutina.** Solo para textos legales, páginas de servicio y material clínico, repaso final de artículos delicados, o decisiones de arquitectura nuevas (subagente `arquitecto-opus`, con las rutas exactas). En una sesión Opus (Modo Estrategia) no se lee código en bruto: explora con `explorar.sh` o el subagente `explorador`, escribe las tareas en `docs/tareas/` y termina con *"Plan listo en docs/tareas/. `/clear` y `/model sonnet` para ejecutar."*
+- **Haiku pesa más que en otros proyectos:** análisis de datos de SEO y analítica (`analista-seo`), primera revisión de entregas (`revisor-haiku`), exploración, extracciones y tareas mecánicas rápidas.
+- **DeepSeek, GLM y Gemini** hacen la mayor parte del volumen, según la tabla de la skill `delegar` (provisional hasta medirla). No gastes la sesión base leyendo muchos archivos ni haciendo código delegable.
 - **Marketing de redes (Instagram y TikTok):** lo decide Gemini; Claude solo hace la parte técnica. No cambies estrategia, ganchos ni calendario. Ver `docs/` de marketing cuando exista.
 
 ## Higiene de contexto
